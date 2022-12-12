@@ -1,0 +1,4 @@
+export const DIGITAL_EURO = [
+  '0x1aBaEA1f7C830bD89Acc67eC4af516284b1bC33c',
+  '0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8',
+];

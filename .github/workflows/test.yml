@@ -1,0 +1,27 @@
+name: AUTOMATED TESTS
+
+on:
+  push:
+    branches: [staging]
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [staging]
+
+jobs:
+  test_connector:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci #like npm install
+      - run: npm run format
+      - run: echo ${{ github.event.pull_request.title }}
+      # - run: npm run full_test -- --connector=${{ github.event.pull_request.title }}
