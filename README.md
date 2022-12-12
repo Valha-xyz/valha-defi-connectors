@@ -5,9 +5,9 @@
     <img src="https://i.imgur.com/1jNxqt8.png" height="136" width="482">
     <br />
     <br />
-    <a href="https://github.com/Valha-xyz/Valha-connectors/issues/new?assignees=&labels=bug&title=bug%3A+">Report a Bug</a>
+    <a href="https://github.com/Valha-xyz/valha-defi-connectors/issues/new?assignees=&labels=bug&title=bug%3A+">Report a Bug</a>
     -
-    <a href="https://github.com/Valha-xyz/Valha-connectors/issues/new?assignees=&labels=enhancement&title=feature%3A+">Request a Feature</a>
+    <a href="https://github.com/Valha-xyz/valha-defi-connectors/issues/new?assignees=&labels=enhancement&title=feature%3A+">Request a Feature</a>
   </div>
   <details>
   <summary>Table of Contents</summary>
@@ -32,9 +32,9 @@
 <br />
 </div>
 
-![Test Status](https://github.com/Valha-xyz/Valha-connectors/actions/workflows/test.yml/badge.svg)
+![Test Status](https://github.com/Valha-xyz/valha-defi-connectors/actions/workflows/test.yml/badge.svg)
 
-<!-- ![Build Status](https://github.com/Valha-xyz/Valha-connectors/actions/workflows/file_check.yml/badge.svg) -->
+<!-- ![Build Status](https://github.com/Valha-xyz/valha-defi-connectors/actions/workflows/file_check.yml/badge.svg) -->
 
 ---
 
@@ -402,7 +402,7 @@ Try to get the interactions functions fast. It will improve the performance of a
 
 ## Contributing 🤝🤝🤝
 
-We often list improvement issues that anyone can work on, so feel free to check the [issues](https://github.com/Valha-xyz/Valha-connectors/issues) if you don't know where to start.
+We often list improvement issues that anyone can work on, so feel free to check the [issues](https://github.com/Valha-xyz/valha-defi-connectors/issues) if you don't know where to start.
 
 Feel free to reach out in the [#developers channel](https://discord.gg/juKsubzTeU) of our Discord Server if you need any help!
 
@@ -419,7 +419,7 @@ Feel free to reach out in the [#developers channel](https://discord.gg/juKsubzTe
 
 Reach out to the team at one of the following places:
 
-- Create an [issue](https://github.com/Valha-xyz/Valha-connectors/issues/new?assignees=&labels=enhancement&title=support%3A+)
+- Create an [issue](https://github.com/Valha-xyz/valha-defi-connectors/issues/new?assignees=&labels=enhancement&title=support%3A+)
 - Contact [Octavio](https://twitter.com/OctavioNotPunk)
 - Ask information on our [Discord](https://discord.gg/juKsubzTeU)
 
@@ -429,9 +429,9 @@ If you want to say **thank you** or/and support active development of Valha:
 
 - Tweet about Valha
 - Write interesting articles about the project on [Medium](https://medium.com/) or [Mirror](https://mirror.xyz/)
-- Add a [GitHub Star](https://github.com/Valha-xyz/Valha-connectors) to the project.
+- Add a [GitHub Star](https://github.com/Valha-xyz/valha-defi-connectors) to the project.
 - [DM Octavio](https://twitter.com/OctavioNotPunk) to give your feedback
-- [Request](https://github.com/Valha-xyz/Valha-connectors/issues/new?assignees=&labels=enhancement&title=feature%3A+) a new feature so we better answer your needs
+- [Request](https://github.com/Valha-xyz/valha-defi-connectors/issues/new?assignees=&labels=enhancement&title=feature%3A+) a new feature so we better answer your needs
 
 <br />
 Together, we can make DeFi easier!
