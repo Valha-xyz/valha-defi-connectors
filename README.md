@@ -435,3 +435,5 @@ If you want to say **thank you** or/and support active development of Valha:
 
 <br />
 Together, we can make DeFi easier!
+
+Valha is still a work in progress, please do not hesitate to provide feedbacks.
