@@ -1,6 +1,6 @@
-import GlobalABI from 'src/connectors/maple/V3/abi/Globals.json';
+import GlobalABI from '../../abi/Globals.json';
 import { ethers } from 'ethers';
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
 
 const globalAddress = '0xC234c62c8C09687DFf0d9047e40042cd166F3600';
 

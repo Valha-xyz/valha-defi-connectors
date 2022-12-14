@@ -5,6 +5,7 @@ import { checkTruefiV2Liquidity } from './functions/liquidity';
 import { checkTruefiV2Outloans } from './functions/outloans';
 import { checkTruefiV2Status } from './functions/status';
 import pools from '../pools';
+import { checkTruefiV2TVL } from './functions/tvl';
 
 /// APY
 /// TVL
@@ -25,9 +26,9 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     return elem.pool.includes(poolAddress.toLowerCase());
   });
 
-  const tvl = externalInfo['tvlUsd'];
   const activity_apy = externalInfo['apyBase'];
   const rewards_apy = externalInfo['apyReward'];
+  const tvl = await checkTruefiV2TVL(chain, poolAddress);
   const sharePrice = await checkTruefiV2Share(chain, poolAddress);
   const liquidity = await checkTruefiV2Liquidity(chain, poolAddress);
   const outloans = await checkTruefiV2Outloans(chain, poolAddress);
@@ -35,7 +36,7 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
 
   const result = {
     status: status.data,
-    tvl: parseFloat(String(tvl)),
+    tvl: parseFloat(String(tvl.data)),
     liquidity: parseFloat(String(liquidity.data)),
     outloans: parseFloat(String(outloans.data)),
     losses: null,

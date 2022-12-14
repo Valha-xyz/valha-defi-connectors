@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('src/utils/getNodeProvider');
-const { erc20Decimals } = require('src/utils/ERC20Decimals');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 const ethers = require('ethers');
 const PoolTokenABI = require('../../abi/Pool.json');
 

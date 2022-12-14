@@ -2,11 +2,12 @@
 const _ = require('lodash');
 const external = require('./external/DefiLlama/index');
 const pools = require('../pools');
+const checkStargateV0TVL = require('./functions/tvl');
 
 /// APY
 /// TVL
-async function loadExternal() {
-  const pools = await external.apy();
+async function loadExternal(chain) {
+  const pools = await external.apyChain(chain);
   if (!pools || pools.length === 0) {
     return null;
   }
@@ -16,30 +17,22 @@ async function loadExternal() {
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
   if (!POOLS || POOLS.length === 0) return {};
-  const externalInformation = await loadExternal();
+  const externalInformation = await loadExternal(chain);
   if (!externalInformation) return {};
   const externalInfo = _.find(externalInformation, (elem) => {
-    if (elem.symbol === 'S*USDT') {
-      console.log(poolAddress);
-      console.log(elem.pool);
-      console.log(elem.chain);
-      console.log(elem.symbol);
-      console.log(elem.pool.includes(poolAddress));
-    }
     return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
   });
 
   if (!externalInfo) return {};
 
-  const tvl = externalInfo['tvlUsd'];
   const rewards_apy = externalInfo['apyReward'];
-  const TVL = tvl ? parseFloat(String(tvl)) : 0;
   const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0;
+  const tvl = await checkStargateV0TVL(chain, poolAddress);
 
   const result = {
     status: null,
-    tvl: TVL,
-    liquidity: TVL,
+    tvl: tvl.data,
+    liquidity: tvl.data,
     outloans: null,
     losses: null,
     capacity: Number.MAX_SAFE_INTEGER,

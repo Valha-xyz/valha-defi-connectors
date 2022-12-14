@@ -258,13 +258,10 @@ const main = async () => {
   let poolsData = [];
 
   const eth = await getApy('ethereum', CONFIG.ethereum.LP_STAKING);
-  console.log(eth);
   const bsc = await getApy('bsc', CONFIG.bsc.LP_STAKING);
-  // const avax = await getApy('avax', CONFIG.avax.LP_STAKING);
   const polygon = await getApy('polygon', CONFIG.polygon.LP_STAKING);
   const arbi = await getApy('arbitrum', CONFIG.arbitrum.LP_STAKING);
-  console.log('hereeee');
-  console.log(arbi);
+  // const avax = await getApy('avax', CONFIG.avax.LP_STAKING);
   // const op = await getApy('optimism', CONFIG.optimism.LP_STAKING);
   // const fantom = await getApy('fantom', CONFIG.fantom.LP_STAKING);
 
@@ -280,8 +277,23 @@ const main = async () => {
   return exportData;
 };
 
+const mainChain = async (chain) => {
+  let poolsData = [];
+
+  const info = await getApy(chain, CONFIG.ethereum.LP_STAKING);
+  // const avax = await getApy('avax', CONFIG.avax.LP_STAKING);
+  // const op = await getApy('optimism', CONFIG.optimism.LP_STAKING);
+  // const fantom = await getApy('fantom', CONFIG.fantom.LP_STAKING);
+
+  poolsData.push(info);
+  const exportData = poolsData.flat().filter((p) => utils.keepFinite(p));
+
+  return exportData;
+};
+
 module.exports = {
   timetravel: false,
   apy: main,
+  apyChain: mainChain,
   url: 'https://stargate.finance/pool',
 };

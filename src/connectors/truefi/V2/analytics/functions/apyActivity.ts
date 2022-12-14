@@ -1,9 +1,9 @@
-import { erc20Decimals } from 'src/utils/ERC20Decimals';
+import { erc20Decimals } from 'src/connectors/utils/ERC20Decimals';
 import PoolTokenABI from '../../abi/PoolToken.json';
 import ERC20ABI from 'src/helpers/abi/ERC20.json';
 import { ethers } from 'ethers';
 import { DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface';
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
 import { BigNumber } from 'bignumber.js';
 import { gql, request } from 'graphql-request';
 

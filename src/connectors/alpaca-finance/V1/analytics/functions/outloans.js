@@ -1,7 +1,8 @@
-import { erc20Decimals } from 'src/utils/ERC20Decimals';
-import VaultABI from 'src/connectors/alpaca-finance/V1/abi/Vault.json';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
+import VaultABI from '../../abi/Vault.json';
 import { ethers } from 'ethers';
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 
 async function checkAlpacaV1Outloans(chain, poolAddress) {
   try {

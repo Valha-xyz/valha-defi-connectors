@@ -1,4 +1,4 @@
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+import { getNodeProvider } from './getNodeProvider';
 
 export async function getCurrentBlock(): Promise<any> {
   try {

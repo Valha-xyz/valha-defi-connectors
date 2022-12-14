@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('src/utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const PoolTokenABI = require('../../abi/SanToken.json');
 const StableABI = require('../../abi/StableMaster.json');

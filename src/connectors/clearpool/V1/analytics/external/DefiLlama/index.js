@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const utils = require('src/utils/external/utils');
+const utils = require('../../../../../../utils/external/utils');
 
 const poolsFunction = async () => {
   const networks = {

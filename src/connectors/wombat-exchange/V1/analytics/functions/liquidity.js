@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('src/utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const LPTokenABI = require('../../abi/LP.json');
-const { erc20Decimals } = require('src/utils/ERC20Decimals');
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
 async function checkWombatV1Liquidity(chain, poolAddress) {
   try {

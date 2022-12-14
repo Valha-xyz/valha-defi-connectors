@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getCurrentBlock } = require('src/utils/getCurrentBlock');
 const BN = require('bn.js');
+const ethers = require('ethers');
 const PoolABI = require('../abi/Pool.json');
 const StakeABI = require('../abi/StakePool.json');
 const MasterABI = require('../abi/Master.json');
-const { ethers } = require('ethers');
-const { getNodeProvider } = require('src/utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../utils/getNodeProvider');
+const { getCurrentBlock } = require('../../../../utils/getCurrentBlock');
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
 const MasterAddress = '0xE2C07d20AF0Fb50CAE6cDD615CA44AbaAA31F9c8';
 
@@ -34,7 +35,7 @@ async function deposit(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -43,6 +44,8 @@ async function deposit(
   const method_name = 'deposit';
   const currentBlockData = await getCurrentBlock();
   const currentTimestamp = currentBlockData.data.timestamp;
+  const position_token = underlying_tokens[0];
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [
     underlying_tokens[0],
     amountBN,
@@ -55,9 +58,10 @@ async function deposit(
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: underlying_tokens[0], // token needed to approve
+    position_token: position_token, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: investing_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -74,7 +78,7 @@ async function redeem(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -83,6 +87,8 @@ async function redeem(
   const method_name = 'withdraw';
   const currentBlockData = await getCurrentBlock();
   const currentTimestamp = currentBlockData.data.timestamp;
+  const position_token = pool_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   // TO REVIEW
   const minAmountBN = new BN(String(parseInt(amountBN.toString()) * 0.98));
   const args = [
@@ -99,6 +105,7 @@ async function redeem(
     position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: investing_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -115,7 +122,7 @@ async function stake(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -123,14 +130,17 @@ async function stake(
   const abi = StakeABI;
   const method_name = 'deposit';
   const poolId = await getWombatPid(pool_address);
+  const position_token = pool_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [poolId, amountBN];
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: pool_address, // token needed to approve
+    position_token: position_token, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: staking_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -147,7 +157,7 @@ async function unstake(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -155,6 +165,8 @@ async function unstake(
   const abi = StakeABI;
   const method_name = 'withdraw';
   const id = await getWombatPid(pool_address);
+  const position_token = pool_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [id, amountBN];
 
   return {
@@ -163,6 +175,7 @@ async function unstake(
     position_token: null, // token needed to approve
     position_token_type: null, //token type to approve
     interaction_address: staking_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -179,7 +192,7 @@ async function boost(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -199,7 +212,7 @@ async function unboost(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -219,7 +232,7 @@ async function claimRewards(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
@@ -235,6 +248,7 @@ async function claimRewards(
     position_token: null, // token needed to approve
     position_token_type: null, //token type to approve
     interaction_address: staking_address, // contract to interact with to interact with poolAddress
+    amount: null, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -244,8 +258,8 @@ module.exports = {
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
-  stake: null,
-  unstake: null,
+  stake: stake,
+  unstake: unstake,
   boost: null,
   unboost: null,
   claim_rewards: claimRewards,
