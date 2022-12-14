@@ -7,7 +7,7 @@ import { getPoolApyBase, Loan } from './getPoolApyBase';
 import { getPoolApyRewards } from './getPoolApyRewards';
 import multifarmAbi from './abis/multifarm.json';
 import distributorAbi from './abis/distributor.json';
-import utils from 'src/utils/external/utils';
+import utils from '../../../../../../utils/external/utils';
 
 const MULTIFARM_ADDRESS =
   '0xec6c3FD795D6e6f202825Ddb56E01b3c128b0b10'.toLowerCase();

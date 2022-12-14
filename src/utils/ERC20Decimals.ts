@@ -1,4 +1,4 @@
-import ERC20abi from 'src/utils/abi/ERC20.json';
+import ERC20ABI from '../utils/abi/ERC20.json';
 import { ethers } from 'ethers';
 
 export async function erc20Decimals(
@@ -6,7 +6,7 @@ export async function erc20Decimals(
   tokenAddress: string,
 ): Promise<number> {
   try {
-    const ERC20 = new ethers.Contract(tokenAddress, ERC20abi, provider);
+    const ERC20 = new ethers.Contract(tokenAddress, ERC20ABI, provider);
     const balance = await ERC20.decimals();
     return balance;
   } catch (err) {

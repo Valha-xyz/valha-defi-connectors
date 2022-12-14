@@ -217,6 +217,20 @@ interface Interactions {
 }
 ```
 
+<h3>Expected Return Object for interactions/index.js FUNCTION </h3>
+
+```typescript
+interface InteractionsReturnObject {
+  abi: EVMAbi; // JSON file that represent a contract ABI
+  method_name: string; // method to interact with the pool
+  position_token: string; // token needed to approve
+  position_token_type: 'ERC-20' | 'ERC-721' | 'CUSTOM'; // token type to approve
+  interaction_address: string; // contract to interact with to interact with poolAddress
+  amount: string; // amount that will be use in the ERC20 approve tx of the position token if it is an ERC20 or that will be use as the 'value' of the transaction
+  args: string[]; // arguments to pass to the smart contracts to trigger 'method_name'
+}
+```
+
 <br />
 
 ## ERC4626 Example
@@ -324,22 +338,25 @@ async function deposit(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
 ) {
   const abi = ERC4626ABI;
   const method_name = 'deposit';
+  const position_token = underlying_tokens[0];
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [amountBN, receiverAddress];
   const interaction_address = investing_address;
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: underlying_tokens[0], // token needed to approve
+    position_token: position_token, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -356,13 +373,15 @@ async function redeem(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
   lockupTimestamp,
 ) {
   const abi = ERC4626ABI;
   const method_name = 'redeem';
+  const position_token = underlying_tokens[0];
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [amountBN, receiverAddress, userAddress];
   const interaction_address = investing_address;
 
@@ -372,6 +391,7 @@ async function redeem(
     position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }

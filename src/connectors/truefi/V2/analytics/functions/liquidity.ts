@@ -1,8 +1,8 @@
-import { erc20Decimals } from 'src/utils/ERC20Decimals';
+import { erc20Decimals } from 'src/connectors/utils/ERC20Decimals';
 import PoolTokenABI from '../../abi/PoolToken.json';
 import { ethers } from 'ethers';
 // import { DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface';
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
 
 export async function checkTruefiV2Liquidity(
   chain: string,

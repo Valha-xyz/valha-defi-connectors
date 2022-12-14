@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const axios = require('axios');
-const utils = require('src/utils/external/utils');
+const utils = require('../../../../../../utils/external/utils');
 
 async function apy(chain) {
   const response = (

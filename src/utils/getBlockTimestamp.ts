@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { getNodeProvider } from 'src/utils/provider/getNodeProvider';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
 config();
 import { DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface';
 

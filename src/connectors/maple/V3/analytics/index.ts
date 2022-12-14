@@ -4,6 +4,7 @@ import pools from '../pools';
 import { checkMapleV3Liquidity } from './functions/liquidity';
 import { checkMapleV3Outloans } from './functions/outloans';
 import { checkMapleV3Status } from './functions/status';
+import { checkMapleV3TVL } from './functions/tvl';
 
 /// APY
 /// TVL
@@ -24,13 +25,15 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     return elem.pool.includes(poolAddress.toLowerCase());
   });
 
+  console.log(externalInfo);
+  console.log('----------');
+
   const poolInfo = _.find(POOLS, (elem) => {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });
   if (!poolInfo) return;
   const tokenAddress = poolInfo['underlying_tokens'][0];
 
-  const tvl = externalInfo['tvlUsd'];
   const activity_apy = externalInfo['apyBase'];
   const rewards_apy = externalInfo['apyReward'];
   const liquidity = await checkMapleV3Liquidity(
@@ -38,12 +41,13 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     poolAddress,
     tokenAddress,
   );
+  const tvl = await checkMapleV3TVL(chain, poolAddress, tokenAddress);
   const outloans = await checkMapleV3Outloans(chain, poolAddress, tokenAddress);
   const status = await checkMapleV3Status(chain, poolAddress);
 
   const result = {
     status: status.data,
-    tvl: parseFloat(String(tvl)),
+    tvl: parseFloat(String(tvl.data)),
     liquidity: parseFloat(String(liquidity.data)),
     outloans: parseFloat(String(outloans.data)),
     losses: null,

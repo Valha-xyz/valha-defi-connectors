@@ -45,7 +45,7 @@ async function analytics(chain, poolAddress) {
   const liquidity = await checkV1Liquidity(chain, poolAddress);
   const capacity = await checkCapacity(chain, poolAddress, tokenAddr);
 
-  const RewAPY = rewards_apy.data ? parseFloat(String(rewards_apy.data)) : 0;
+  const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0;
   const totalAPY = RewAPY;
 
   const result = {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { gql, request } = require('graphql-request');
 const { mean } = require('lodash');
-const utils = require('src/utils/external/utils');
+const utils = require('../../../../../../utils/external/utils');
 
 const API = {
   Avalanche:
