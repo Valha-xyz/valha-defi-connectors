@@ -35,7 +35,7 @@ async function deposit(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StableABI;
   const method_name = 'deposit';
@@ -71,7 +71,7 @@ async function redeem(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StableABI;
   const method_name = 'withdraw';
@@ -107,7 +107,7 @@ async function stake(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakingABI;
   const method_name = 'deposit(uint256,address)';
@@ -147,7 +147,7 @@ async function unstake(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakingABI;
   const method_name = 'withdraw(uint256)';
@@ -187,7 +187,7 @@ async function claimRewards(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakingABI;
   const method_name = 'claim_rewards(address)';
@@ -204,37 +204,6 @@ async function claimRewards(
   };
 }
 
-async function claimInterests(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-) {
-  const abi = DistributorABI;
-  const method_name = 'claim(address)';
-  const args = [userAddress];
-
-  return {
-    abi: abi, //json file name
-    method_name: method_name, //method to interact with the pool
-    position_token: null,
-    position_token_type: null,
-    interaction_address: distributor_address, // contract to interact with to interact with poolAddress
-    amount: null, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
-    args: args, //args to pass to the smart contracts to trigger 'method_name'
-  };
-}
-
 module.exports = {
   deposit: deposit,
   deposit_and_stake: null,
@@ -245,5 +214,5 @@ module.exports = {
   boost: null,
   unboost: null,
   claim_rewards: claimRewards,
-  claim_interests: claimInterests,
+  claim_interests: null,
 };
