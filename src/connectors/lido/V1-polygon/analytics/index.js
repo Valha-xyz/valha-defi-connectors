@@ -47,5 +47,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: external.url,
+  url: 'https://polygon.lido.fi/',
 };
