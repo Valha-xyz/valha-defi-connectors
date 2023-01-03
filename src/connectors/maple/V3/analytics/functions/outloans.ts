@@ -1,7 +1,7 @@
-import { erc20Decimals } from 'src/utils/ERC20Decimals';
-import PoolTokenABI from 'src/connectors/maple/V3/abi/PoolToken.json';
+import { erc20Decimals } from 'src/connectors/utils/ERC20Decimals';
+import PoolTokenABI from '../../abi/PoolToken.json';
 import { ethers } from 'ethers';
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
 
 export async function checkMapleV3Outloans(
   chain: string,

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getChainId } = require('src/utils/getChainId');
+const { getChainId } = require('../../../../../utils/getChainId');
 const axios = require('axios');
 
 async function checkClearpoolV1RewardsAPY(chain, poolAddress) {

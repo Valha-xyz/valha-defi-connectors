@@ -45,7 +45,7 @@ async function analytics(chain, poolAddress) {
   const liquidity = await checkV1Liquidity(chain, poolAddress);
   const capacity = await checkCapacity(chain, poolAddress, tokenAddr);
 
-  const RewAPY = rewards_apy.data ? parseFloat(String(rewards_apy.data)) : 0;
+  const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0;
   const totalAPY = RewAPY;
 
   const result = {
@@ -60,6 +60,8 @@ async function analytics(chain, poolAddress) {
     rewards_apy: RewAPY,
     boosting_apy: null,
     share_price: sharePrice.data,
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
   return result;
 }

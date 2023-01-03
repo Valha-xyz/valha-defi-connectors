@@ -1,4 +1,5 @@
-const utils = require('src/utils/external/utils');
+/* eslint-disable @typescript-eslint/no-var-requires */
+const utils = require('../../../../../../utils/external/utils');
 const superagent = require('superagent');
 const { default: BigNumber } = require('bignumber.js');
 

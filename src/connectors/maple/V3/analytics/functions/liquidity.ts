@@ -1,7 +1,7 @@
-import { getNodeProvider } from 'src/utils/getNodeProvider';
-import { erc20BalanceOf } from 'src/utils/ERC20BalanceOf';
-import { erc20Decimals } from 'src/utils/ERC20Decimals';
-import PoolTokenABI from 'src/connectors/maple/V3/abi/PoolToken.json';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
+import { erc20BalanceOf } from '../../../../../utils/ERC20BalanceOf';
+import { erc20Decimals } from 'src/connectors/utils/ERC20Decimals';
+import PoolTokenABI from '../../abi/PoolToken.json';
 import { ethers } from 'ethers';
 
 export async function checkMapleV3Liquidity(

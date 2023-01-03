@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('src/utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const PoolTokenABI = require('../../abi/Pool.json');
-const { erc20Decimals } = require('src/utils/ERC20Decimals');
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
 async function checkRibbonV1TVL(chain, poolAddress) {
   try {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('src/utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const LPTokenABI = require('../../abi/LP.json');
 

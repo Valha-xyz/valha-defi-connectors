@@ -1,6 +1,6 @@
-import PoolTokenABI from 'src/connectors/truefi/V2/abi/PoolToken.json';
+import PoolTokenABI from '../../abi/PoolToken.json';
 import { ethers } from 'ethers';
-import { getNodeProvider } from 'src/utils/getNodeProvider';
+import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
 
 export async function checkTruefiV2Share(
   chain: string,

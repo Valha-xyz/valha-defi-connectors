@@ -53,6 +53,8 @@ async function analytics(chain, poolAddress) {
     rewards_apy: rewards_apy,
     boosting_apy: 0,
     share_price: sharePrice,
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
 
   return result;

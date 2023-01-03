@@ -68,6 +68,8 @@ async function analytics(chain, poolAddress) {
     rewards_apy: RewAPY,
     boosting_apy: null,
     share_price: sharePrice.data,
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
 
   return result;
