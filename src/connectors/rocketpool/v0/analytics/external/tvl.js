@@ -1,25 +1,27 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
-const PoolTokenABI = require('../../abi/SanToken.json');
-const StableABI = require('../../abi/StableMaster.json');
+const RPLABI = require('../../abi/ERC20RPL.json');
+const { getUSDETH } = require('src/utils/prices/getUSDETH');
 
-async function checkRocketV1TVL(chain, poolAddress) {
+async function checkRocketV0TVL(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, PoolTokenABI, provider);
-    const POOLManagerAddr = await POOL.poolManager();
-    const StableMasterAddr = await POOL.stableMaster();
-    const MASTER = new ethers.Contract(StableMasterAddr, StableABI, provider);
-    const collatInfo = await MASTER.collateralMap(POOLManagerAddr);
-    const SanRateBN = collatInfo.sanRate;
-    const SanRate = SanRateBN.toString() / 10 ** 18;
-    return { data: SanRate, err: null };
+    const RPL = new ethers.Contract(poolAddress, RPLABI, provider);
+    const exchangeRateBN = await RPL.getExchangeRate();
+    const sharePrice = exchangeRateBN.toString() / 10 ** 18;
+    const TotalSupplyBN = await RPL.TotalSupply();
+    const TotalSupply = TotalSupplyBN.toString() / 10 ** 18;
+    const { data, err } = await getUSDETH();
+    if (err) throw new Error(err.message);
+    const exchangePrice = data;
+    const TVL = sharePrice * TotalSupply * exchangePrice;
+    return { data: TVL, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err: err };
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = checkRocketV0TVL;

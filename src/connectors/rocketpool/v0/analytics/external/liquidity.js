@@ -17,4 +17,4 @@ async function checkRocketV0Liquidity(chain, poolAddress) {
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = checkRocketV0Liquidity;

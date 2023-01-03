@@ -17,4 +17,4 @@ async function checkRocketV0SharePrice(chain, poolAddress) {
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = checkRocketV0SharePrice;
