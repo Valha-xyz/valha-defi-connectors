@@ -39,7 +39,7 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
   const liquidity = await checkMapleV3Liquidity(
     chain,
     poolAddress,
-    tokenAddress,
+    tokenAddress
   );
   const tvl = await checkMapleV3TVL(chain, poolAddress, tokenAddress);
   const outloans = await checkMapleV3Outloans(chain, poolAddress, tokenAddress);
@@ -57,6 +57,8 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     rewards_apy: parseFloat(String(rewards_apy)),
     boosting_apy: null,
     share_price: 1,
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
 
   return result;

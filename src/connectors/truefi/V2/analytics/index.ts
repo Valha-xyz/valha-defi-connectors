@@ -46,6 +46,8 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     rewards_apy: parseFloat(String(rewards_apy)),
     boosting_apy: null,
     share_price: parseFloat(String(sharePrice.data)),
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
 
   console.log(result);

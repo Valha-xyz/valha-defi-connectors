@@ -14,10 +14,10 @@ async function deposit(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -46,10 +46,10 @@ async function redeem(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = PoolABI;
   const method_name = 'redeem';
@@ -78,10 +78,10 @@ async function stake(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   user_address,
   receiver_address,
-  lockup_timestamp,
+  lockup_timestamp
 ) {
   const abi = '';
   const method_name = 'stake';
@@ -110,10 +110,10 @@ async function unstake(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   user_address,
   receiver_address,
-  lockup_timestamp,
+  lockup_timestamp
 ) {
   const abi = '';
   const method_name = 'unstake';
@@ -142,10 +142,10 @@ async function claimRewards(
   distributor_address,
   rewards_tokens,
   metadata,
-  amountBN,
+  amountNotBN,
   user_address,
   receiver_address,
-  lockup_timestamp,
+  lockup_timestamp
 ) {
   const abi = '';
   const method_name = 'claim';
