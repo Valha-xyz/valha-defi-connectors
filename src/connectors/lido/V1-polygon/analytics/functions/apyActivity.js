@@ -3,7 +3,7 @@ const axios = require('axios');
 
 async function checkLidoPolygonV1APY(chain, poolAddress) {
   try {
-    const res = await axios.get('https://api.rocketpool.net/api/apr');
+    const res = await axios.get('https://polygon.lido.fi/api/stats');
     if (!res.data || !res.data['apr']) {
       throw new Error(
         `Data from LIDO POLYGON indexer not ok for ${poolAddress}`

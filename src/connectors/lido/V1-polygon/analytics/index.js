@@ -9,7 +9,7 @@ const checkLidoPolygonV1Shareprice = require('./functions/sharePrice');
 async function analytics(chain, poolAddress) {
   const apy = await checkLidoPolygonV1APY(chain, poolAddress);
   if (apy.err) throw new Error(apy.err);
-  const activity_apy = parseFLoat(String(apy.data));
+  const activity_apy = parseFloat(String(apy.data));
   const TVL = await checkLidoPolygonV1TVL(chain, poolAddress);
   if (TVL.err) throw new Error(TVL.err);
   const shareprice = await checkLidoPolygonV1Shareprice(chain, poolAddress);

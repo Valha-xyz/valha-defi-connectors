@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const ethers = require('ethers');
+const { toBnERC20Decimals } = require('src/utils/toBNTokenDecimals');
 const STABI = require('../abi/STMATIC.json');
 
 /// invest
