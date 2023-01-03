@@ -3,7 +3,7 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const SETTINGABI = require('../../abi/DepositSettings.json');
 
-async function checkRocketV0Capacity(chain, poolAddress) {
+async function checkRocketV0Maximum(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
@@ -17,4 +17,4 @@ async function checkRocketV0Capacity(chain, poolAddress) {
   }
 }
 
-module.exports = checkRocketV0Capacity;
+module.exports = checkRocketV0Maximum;
