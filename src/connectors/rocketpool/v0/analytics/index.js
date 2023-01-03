@@ -9,10 +9,10 @@ const checkRocketV0Minimum = require('./external/minimum');
 const checkRocketV0Maximum = require('./external/maximum');
 const checkRocketV0APY = require('./external/apy');
 
-const SETTING_ADDRESS = '0xCc82C913B9f3a207b332d216B101970E39E59DB3';
-
 async function analytics(chain, poolAddress) {
   try {
+    const SETTING_ADDRESS = '0xCc82C913B9f3a207b332d216B101970E39E59DB3';
+
     const POOLS = await pools();
     if (!POOLS || POOLS.length === 0) return {};
 
@@ -36,6 +36,7 @@ async function analytics(chain, poolAddress) {
     if (minimum.err) throw new Error(minimum.err);
     const maximum = await checkRocketV0Maximum(chain, SETTING_ADDRESS);
     if (maximum.err) throw new Error(maximum.err);
+    const parsedAPY = parseFloat(apy.data);
 
     const result = {
       status: status.data,
@@ -44,10 +45,10 @@ async function analytics(chain, poolAddress) {
       outloans: null,
       losses: null,
       capacity: Number.MAX_SAFE_INTEGER,
-      apy: apy.data,
-      activity_apy: apy.data,
-      rewards_apy: null,
-      boosting_apy: null,
+      apy: parsedAPY,
+      activity_apy: parsedAPY,
+      rewards_apy: 0,
+      boosting_apy: 0,
       share_price: shareprice.data,
       minimum_deposit: minimum.data,
       maximum_deposit: maximum.data,

@@ -11,7 +11,7 @@ async function checkRocketV0TVL(chain, poolAddress) {
     const RPL = new ethers.Contract(poolAddress, RPLABI, provider);
     const exchangeRateBN = await RPL.getExchangeRate();
     const sharePrice = exchangeRateBN.toString() / 10 ** 18;
-    const TotalSupplyBN = await RPL.TotalSupply();
+    const TotalSupplyBN = await RPL.totalSupply();
     const TotalSupply = TotalSupplyBN.toString() / 10 ** 18;
     const { data, err } = await getUSDETH();
     if (err) throw new Error(err.message);

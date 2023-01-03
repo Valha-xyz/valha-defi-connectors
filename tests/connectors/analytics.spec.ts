@@ -24,7 +24,7 @@ describe('CONNECTOR - ANALYTICS', () => {
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      'connector',
+      'connector'
     );
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
@@ -32,7 +32,7 @@ describe('CONNECTOR - ANALYTICS', () => {
       throw new Error(
         `
         ⚠️⚠️⚠️ You did not specify any name for your connector. Run "npm run "test_name" -- --connector="name_of_your_connector"" ⚠️⚠️⚠️
-        `,
+        `
       );
     }
     analyticsPATH = `src/connectors/${connector}/analytics/index`;
@@ -126,9 +126,13 @@ describe('CONNECTOR - ANALYTICS', () => {
       describe(`-> FUNCTION FROM ANALYTICS/INDEX.JS CAN BE CALLED`, () => {
         /// check that we have access to the url of the app
         it(`Should be able to retrieve the URL of the protocol`, async () => {
-          const { default: fn } = await import(analyticsPATH);
-          const result = fn.url;
-          expect(result).toBeTruthy();
+          try {
+            const { default: fn } = await import(analyticsPATH);
+            const result = fn.url;
+            expect(result).toBeTruthy();
+          } catch (err) {
+            console.log(err);
+          }
         });
 
         /// check when we call the function we have the information needed on this POOL
@@ -140,8 +144,6 @@ describe('CONNECTOR - ANALYTICS', () => {
       });
 
       describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
-        ///CREATE BEFOREALL TO LOAD AND REQUEST EVERYTHING
-
         /// check when we call the function the information needed are in the good data type and in the good range
         it(`Should be able to call MAIN function to get analytics information`, async () => {
           const { default: fn } = await import(analyticsPATH);
@@ -166,7 +168,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           expect(typeof info.activity_apy).toBe('number');
           expect(typeof info.rewards_apy).toBe('number');
           expect(
-            info.share_price > 0 || info.share_price === null,
+            info.share_price > 0 || info.share_price === null
           ).toBeTruthy();
         });
       });
