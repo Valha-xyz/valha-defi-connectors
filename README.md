@@ -196,6 +196,8 @@ interface Analytics {
   rewards_apy: number | null;
   boosting_apy: number | null;
   share_price: number | null;
+  minimum_deposit: number | null;
+  maximum_deposit: number | null;
 }
 ```
 
@@ -248,9 +250,9 @@ We would add the ERC4626 ABI to a file name "erc4626.json" in the "valha/v5/abi/
 ### Analytics - Example
 
 ```javascript
-/* 
+/*
     DOCUMENTATION EXAMPLE to give more context about the integration work.
-    
+
     Definitely need more testing and improvement.
 
     --> A CLI script will be developed to automatically generate ERC4626 connector
@@ -303,6 +305,8 @@ async function analytics(chain, poolAddress) {
     rewards_apy: rewards_apy,
     boosting_apy: 0,
     share_price: sharePrice,
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
 
   return result;
@@ -341,7 +345,7 @@ async function deposit(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = ERC4626ABI;
   const method_name = 'deposit';
@@ -376,7 +380,7 @@ async function redeem(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = ERC4626ABI;
   const method_name = 'redeem';

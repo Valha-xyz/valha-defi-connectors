@@ -13,6 +13,10 @@ async function analytics(chain, poolAddress) {
     rewards_apy: 2.5,
     boosting_apy: 0,
     share_price: 1,
+    minimum_deposit: null,
+    maximum_deposit: null,
+    minimum_deposit: null,
+    maximum_deposit: null,
   };
 
   return result;
