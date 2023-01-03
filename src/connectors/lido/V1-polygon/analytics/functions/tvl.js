@@ -1,23 +1,22 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getNodeProvider } = require('src/utils/getNodeProvider');
 const ethers = require('ethers');
-const PoolTokenABI = require('src/connectors/lido/abi/STETH.json');
+const PoolTokenABI = require('../../abi/STMATIC.json');
 const { erc20Decimals } = require('src/utils/ERC20Decimals');
-const { getUSDETH } = require('src/dispatcher/analytics/prices/getUSDETH');
+const { getUSDToken } = require('src/utils/prices/getGeckoUSDToken');
 
-async function checkLidoV0TVL(poolAddress) {
+async function checkLidoPolygonV1TVL(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider('ethereum');
+    const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolTokenABI, provider);
     const TvlBN = await POOL.totalSupply();
     const decimals = await erc20Decimals(provider, poolAddress);
     const TVL = TvlBN / 10 ** decimals;
-    const { data, err } = await getUSDETH();
+    const { data, err } = await getUSDToken('matic-network');
     if (err) throw new Error(err.message);
     const exchangePrice = data;
     const TVLUSD = TVL * exchangePrice;
-    console.log(TVLUSD);
     return { data: TVLUSD, err: null };
   } catch (err) {
     console.log(err);
@@ -25,4 +24,4 @@ async function checkLidoV0TVL(poolAddress) {
   }
 }
 
-module.exports = checkLidoV0TVL;
+module.exports = checkLidoPolygonV1TVL;
