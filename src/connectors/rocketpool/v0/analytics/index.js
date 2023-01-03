@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const external = require('./external/DefiLlama/index');
 const pools = require('../pools');
 const checkRocketV0Status = require('./external/status');
 const checkRocketV0TVL = require('./external/tvl');
@@ -21,20 +20,22 @@ async function analytics(chain, poolAddress) {
       return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
     });
 
-    const status = await checkRocketV0Status(chain, poolAddress);
-    if (status.err) throw new Error(status.err);
+    const investing_address = poolInfo['investing_address'];
+
     const TVL = await checkRocketV0TVL(chain, poolAddress);
     if (TVL.err) throw new Error(TVL.err);
-    const liquidity = await checkRocketV0Liquidity(chain, poolAddress);
-    if (liquidity.err) throw new Error(liquidity.err);
-    const shareprice = await checkRocketV0SharePrice(chain, poolAddress);
-    if (shareprice.err) throw new Error(shareprice.err);
-    const minimum = await checkRocketV0Minimum(chain, poolAddress);
-    if (minimum.err) throw new Error(minimum.err);
-    const maximum = await checkRocketV0Maximum(chain, poolAddress);
-    if (maximum.err) throw new Error(maximum.err);
     const apy = await checkRocketV0APY(chain, poolAddress);
     if (apy.err) throw new Error(apy.err);
+    const shareprice = await checkRocketV0SharePrice(chain, poolAddress);
+    if (shareprice.err) throw new Error(shareprice.err);
+    const liquidity = await checkRocketV0Liquidity(chain, investing_address);
+    if (liquidity.err) throw new Error(liquidity.err);
+    const status = await checkRocketV0Status(chain, SETTING_ADDRESS);
+    if (status.err) throw new Error(status.err);
+    const minimum = await checkRocketV0Minimum(chain, SETTING_ADDRESS);
+    if (minimum.err) throw new Error(minimum.err);
+    const maximum = await checkRocketV0Maximum(chain, SETTING_ADDRESS);
+    if (maximum.err) throw new Error(maximum.err);
 
     const result = {
       status: status.data,
@@ -51,9 +52,6 @@ async function analytics(chain, poolAddress) {
       minimum_deposit: minimum.data,
       maximum_deposit: maximum.data,
     };
-
-    console.log(result);
-
     return result;
   } catch (err) {
     console.log(err);
@@ -63,5 +61,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: external.url,
+  url: 'https://stake.rocketpool.net/',
 };

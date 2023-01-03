@@ -3,8 +3,6 @@ const axios = require('axios');
 
 async function checkRocketV0APY(chain, poolAddress) {
   try {
-    let LM = 0;
-    const protocol_id = await getChainId(chain);
     const res = await axios.get('https://api.rocketpool.net/api/apr');
     if (!res || !res['yearlyAPR']) {
       throw new Error(`Data from ROCKETPOOL indexer not ok for ${poolAddress}`);
