@@ -1,5 +1,4 @@
 [
-  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
   {
     "anonymous": false,
     "inputs": [
@@ -29,25 +28,114 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": false,
+        "indexed": true,
         "internalType": "address",
-        "name": "userAddress",
+        "name": "_from",
         "type": "address"
       },
       {
-        "indexed": false,
-        "internalType": "address payable",
-        "name": "relayerAddress",
-        "type": "address"
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amountClaimed",
+        "type": "uint256"
       },
       {
         "indexed": false,
-        "internalType": "bytes",
-        "name": "functionSignature",
-        "type": "bytes"
+        "internalType": "uint256",
+        "name": "_amountBurned",
+        "type": "uint256"
       }
     ],
-    "name": "MetaTransactionExecuted",
+    "name": "ClaimTokensEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amountClaimed",
+        "type": "uint256"
+      }
+    ],
+    "name": "ClaimTotalDelegatedEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amountDelegated",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_remainder",
+        "type": "uint256"
+      }
+    ],
+    "name": "DelegateEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "DistributeRewardsEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Paused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "RequestWithdrawEvent",
     "type": "event"
   },
   {
@@ -131,6 +219,25 @@
       {
         "indexed": true,
         "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "SubmitEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "from",
         "type": "address"
       },
@@ -151,16 +258,41 @@
     "type": "event"
   },
   {
-    "inputs": [],
-    "name": "CHILD_CHAIN_ID",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Unpaused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "WithdrawTotalDelegatedEvent",
+    "type": "event"
   },
   {
     "inputs": [],
-    "name": "CHILD_CHAIN_ID_BYTES",
-    "outputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+    "name": "DAO",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -172,30 +304,37 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "DEPOSITOR_ROLE",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "ERC712_VERSION",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "ROOT_CHAIN_ID",
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "amount2WithdrawFromStMATIC",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "validatorNonce",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requestEpoch",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "validatorAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct IStMATIC.RequestWithdraw",
+        "name": "requestData",
+        "type": "tuple"
+      }
+    ],
+    "name": "_getMaticFromRequestWithdraw",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "ROOT_CHAIN_ID_BYTES",
-    "outputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -230,6 +369,70 @@
   },
   {
     "inputs": [],
+    "name": "calculatePendingBufferedTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "pendingBufferedTokens",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
+    "name": "claimTokens",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_index", "type": "uint256" }
+    ],
+    "name": "claimTotalDelegated2StMatic",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_balance", "type": "uint256" }
+    ],
+    "name": "convertMaticToStMatic",
+    "outputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_balance", "type": "uint256" }
+    ],
+    "name": "convertStMaticToMatic",
+    "outputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dao",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "decimals",
     "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
     "stateMutability": "view",
@@ -250,50 +453,83 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "user", "type": "address" },
-      { "internalType": "bytes", "name": "depositData", "type": "bytes" }
-    ],
-    "name": "deposit",
+    "inputs": [],
+    "name": "delegate",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "userAddress", "type": "address" },
-      { "internalType": "bytes", "name": "functionSignature", "type": "bytes" },
-      { "internalType": "bytes32", "name": "sigR", "type": "bytes32" },
-      { "internalType": "bytes32", "name": "sigS", "type": "bytes32" },
-      { "internalType": "uint8", "name": "sigV", "type": "uint8" }
-    ],
-    "name": "executeMetaTransaction",
-    "outputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
-    "name": "getChainId",
+    "name": "delegationLowerBound",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "pure",
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "getDomainSeperator",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "name": "distributeRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "entityFees",
+    "outputs": [
+      { "internalType": "uint8", "name": "dao", "type": "uint8" },
+      { "internalType": "uint8", "name": "operators", "type": "uint8" },
+      { "internalType": "uint8", "name": "insurance", "type": "uint8" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "flipSubmitHandler",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fxStateRootTunnel",
+    "outputs": [
+      {
+        "internalType": "contract IFxStateRootTunnel",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "user", "type": "address" }
+      {
+        "internalType": "contract IValidatorShare",
+        "name": "_validatorShare",
+        "type": "address"
+      }
     ],
-    "name": "getNonce",
-    "outputs": [
-      { "internalType": "uint256", "name": "nonce", "type": "uint256" }
+    "name": "getLiquidRewards",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
     ],
+    "name": "getMaticFromTokenId",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMinValidatorBalance",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -307,21 +543,67 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "bytes32", "name": "role", "type": "bytes32" },
-      { "internalType": "uint256", "name": "index", "type": "uint256" }
-    ],
-    "name": "getRoleMember",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "inputs": [],
+    "name": "getTotalPooledMatic",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "bytes32", "name": "role", "type": "bytes32" }
+      {
+        "internalType": "contract IValidatorShare",
+        "name": "_validatorShare",
+        "type": "address"
+      }
     ],
-    "name": "getRoleMemberCount",
+    "name": "getTotalStake",
+    "outputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "uint256", "name": "", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalStakeAcrossAllValidators",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalWithdrawRequest",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "amount2WithdrawFromStMATIC",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "validatorNonce",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requestEpoch",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "validatorAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct IStMATIC.RequestWithdraw[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -357,13 +639,25 @@
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "name_", "type": "string" },
-      { "internalType": "string", "name": "symbol_", "type": "string" },
-      { "internalType": "uint8", "name": "decimals_", "type": "uint8" },
       {
         "internalType": "address",
-        "name": "childChainManager",
+        "name": "_nodeOperatorRegistry",
         "type": "address"
+      },
+      { "internalType": "address", "name": "_token", "type": "address" },
+      { "internalType": "address", "name": "_dao", "type": "address" },
+      { "internalType": "address", "name": "_insurance", "type": "address" },
+      { "internalType": "address", "name": "_stakeManager", "type": "address" },
+      { "internalType": "address", "name": "_poLidoNFT", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_fxStateRootTunnel",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_submitThreshold",
+        "type": "uint256"
       }
     ],
     "name": "initialize",
@@ -373,8 +667,51 @@
   },
   {
     "inputs": [],
+    "name": "insurance",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastWithdrawnValidatorId",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "name",
     "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nodeOperatorRegistry",
+    "outputs": [
+      {
+        "internalType": "contract INodeOperatorRegistry",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "paused",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "poLidoNFT",
+    "outputs": [
+      { "internalType": "contract IPoLidoNFT", "name": "", "type": "address" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -390,6 +727,22 @@
   },
   {
     "inputs": [
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "requestWithdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "reservedFunds",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
       { "internalType": "bytes32", "name": "role", "type": "bytes32" },
       { "internalType": "address", "name": "account", "type": "address" }
     ],
@@ -400,8 +753,237 @@
   },
   {
     "inputs": [],
+    "name": "rewardDistributionLowerBound",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "setDaoAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_delegationLowerBound",
+        "type": "uint256"
+      }
+    ],
+    "name": "setDelegationLowerBound",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint8", "name": "_daoFee", "type": "uint8" },
+      { "internalType": "uint8", "name": "_operatorsFee", "type": "uint8" },
+      { "internalType": "uint8", "name": "_insuranceFee", "type": "uint8" }
+    ],
+    "name": "setFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_fxStateRootTunnel",
+        "type": "address"
+      }
+    ],
+    "name": "setFxStateRootTunnel",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "setInsuranceAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "setNodeOperatorRegistryAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_poLidoNFT", "type": "address" }
+    ],
+    "name": "setPoLidoNFT",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_rewardDistributionLowerBound",
+        "type": "uint256"
+      }
+    ],
+    "name": "setRewardDistributionLowerBound",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_submitThreshold",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSubmitThreshold",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_version", "type": "string" }
+    ],
+    "name": "setVersion",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "stMaticWithdrawRequest",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount2WithdrawFromStMATIC",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "validatorNonce",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "requestEpoch", "type": "uint256" },
+      {
+        "internalType": "address",
+        "name": "validatorAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stakeManager",
+    "outputs": [
+      {
+        "internalType": "contract IStakeManager",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "submit",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "submitHandler",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "submitThreshold",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
+    ],
+    "name": "supportsInterface",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "symbol",
     "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "togglePause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "token",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "token2WithdrawRequest",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amount2WithdrawFromStMATIC",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "validatorNonce",
+        "type": "uint256"
+      },
+      { "internalType": "uint256", "name": "requestEpoch", "type": "uint256" },
+      {
+        "internalType": "address",
+        "name": "validatorAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalBuffered",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -434,10 +1016,21 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "version",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
-      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "_validatorShare",
+        "type": "address"
+      }
     ],
-    "name": "withdraw",
+    "name": "withdrawTotalDelegated",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

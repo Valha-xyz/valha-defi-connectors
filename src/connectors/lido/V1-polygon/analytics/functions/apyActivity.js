@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const axios = require('axios');
 
-async function checkLidoV0APY() {
+async function checkLidoPolygonV1APY(chain, poolAddress) {
   try {
-    const { data } = await axios.get('https://stake.lido.fi/api/steth-apr');
-    const result = parseFloat(data);
-    if (result && result > 0) {
-      return { data: result, err: null };
+    const res = await axios.get('https://polygon.lido.fi/api/stats');
+    if (!res.data || !res.data['apr']) {
+      throw new Error(
+        `Data from LIDO POLYGON indexer not ok for ${poolAddress}`
+      );
     }
-    throw new Error('No APY found for Lido pool');
+    return { data: res.data['apr'], err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err: err };
   }
 }
 
-module.exports = checkLidoV0APY;
+module.exports = checkLidoPolygonV1APY;
