@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+const { toBnERC20Decimals } = require('src/utils/toBNTokenDecimals');
 const PoolABI = require('../abi/DepositPool.json');
 
 /// invest
