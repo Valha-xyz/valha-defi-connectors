@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const PoolABI = require('');
 
-/// invest
 async function deposit(
   pool_name,
   chain,
@@ -15,19 +14,25 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesired,
+  amountsMinimum,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
   const abi = PoolABI;
-  const method_name = 'deposit';
+  const method_name = 'addLiquidity';
+  const tokenA = underlying_tokens[0];
+  const tokenB = underlying_tokens[1];
   const args = [];
   const interaction_address = '';
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: underlying_tokens[0], // token needed to approve
+    position_token: underlying_tokens, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     args: args, //args to pass to the smart contracts to trigger 'method_name'
@@ -47,6 +52,10 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesired,
+  amountsMinimum,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp
@@ -79,9 +88,13 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  user_address,
-  receiver_address,
-  lockup_timestamp
+  amountsDesired,
+  amountsMinimum,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp
 ) {
   const abi = '';
   const method_name = 'stake';
@@ -111,9 +124,13 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  user_address,
-  receiver_address,
-  lockup_timestamp
+  amountsDesired,
+  amountsMinimum,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp
 ) {
   const abi = '';
   const method_name = 'unstake';
@@ -143,9 +160,13 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  user_address,
-  receiver_address,
-  lockup_timestamp
+  amountsDesired,
+  amountsMinimum,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp
 ) {
   const abi = '';
   const method_name = 'claim';
