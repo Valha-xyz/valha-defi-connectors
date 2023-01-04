@@ -412,15 +412,18 @@ async function claimRewards(
   lockupTimestamp,
   deadline
 ) {
-  const abi = '';
-  const method_name = 'claim';
-  const args = [];
-  const interaction_address = '';
+  const pid = PID[pool_address.toLowerCase()];
+  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
+  const amountBN = await toBnERC20Decimals(0, chain, pool_address);
+  const abi = STAKERABI;
+  // Indeed 'deposit' to claim_rewards on Pancake
+  const method_name = 'deposit';
+  const args = [pid, amountBN];
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: null, // token needed to approve
+    position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     args: args, //args to pass to the smart contracts to trigger 'method_name'
