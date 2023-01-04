@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const PoolABI = require('');
+const ROUTERABI = require('../abi/ROUTER');
 
 async function deposit(
   pool_name,
@@ -23,41 +23,81 @@ async function deposit(
   lockupTimestamp,
   deadline
 ) {
-  const abi = PoolABI;
-  const method_name = 'addLiquidity';
+  const abi = ROUTERABI;
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
-  const amountADesired = await toBnERC20Decimals(
-    amountsDesiredNotBN[0],
-    chain,
-    underlying_tokens[0]
-  );
-  const amountBDesired = await toBnERC20Decimals(
-    amountsDesiredNotBN[1],
-    chain,
-    underlying_tokens[1]
-  );
-  const amountAMinimum = await toBnERC20Decimals(
-    amountsMinimumNotBN[0],
-    chain,
-    underlying_tokens[0]
-  );
-  const amountBMinimum = await toBnERC20Decimals(
-    amountsMinimumNotBN[1],
-    chain,
-    underlying_tokens[1]
-  );
-  const args = [
-    tokenA,
-    tokenB,
-    amountADesired,
-    amountBDesired,
-    amountAMinimum,
-    amountBMinimum,
-    receiverAddress,
-    deadline,
-  ];
   const interaction_address = pool_address;
+  let method_name = '';
+  let args = [];
+  let nativeTokenPosition = -1;
+  let tokenPosition = -1;
+  if (tokenA === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
+    nativeTokenPosition = 0;
+    tokenPosition = 1;
+  }
+  if (tokenB === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
+    nativeTokenPosition = 1;
+    tokenPosition = 0;
+  }
+
+  if (nativeTokenPosition !== -1) {
+    method_name = 'addLiquidityETH';
+    const amountDesired = await toBnERC20Decimals(
+      amountsDesiredNotBN[tokenPosition],
+      chain,
+      underlying_tokens[tokenPosition]
+    );
+    const amountMin = await toBnERC20Decimals(
+      amountsMinimumNotBN[tokenPosition],
+      chain,
+      underlying_tokens[tokenPosition]
+    );
+    const amountNativeMin = await toBnERC20Decimals(
+      amountsMinimumNotBN[nativeTokenPosition],
+      chain,
+      underlying_tokens[nativeTokenPosition]
+    );
+    args = [
+      underlying_tokens[tokenPosition],
+      amountDesired,
+      amountMin,
+      amountNativeMin,
+      receiverAddress,
+      deadline,
+    ];
+  } else {
+    method_name = 'addLiquidity';
+    const amountADesired = await toBnERC20Decimals(
+      amountsDesiredNotBN[0],
+      chain,
+      underlying_tokens[0]
+    );
+    const amountBDesired = await toBnERC20Decimals(
+      amountsDesiredNotBN[1],
+      chain,
+      underlying_tokens[1]
+    );
+    const amountAMinimum = await toBnERC20Decimals(
+      amountsMinimumNotBN[0],
+      chain,
+      underlying_tokens[0]
+    );
+    const amountBMinimum = await toBnERC20Decimals(
+      amountsMinimumNotBN[1],
+      chain,
+      underlying_tokens[1]
+    );
+    args = [
+      tokenA,
+      tokenB,
+      amountADesired,
+      amountBDesired,
+      amountAMinimum,
+      amountBMinimum,
+      receiverAddress,
+      deadline,
+    ];
+  }
 
   return {
     abi: abi, //json file name
