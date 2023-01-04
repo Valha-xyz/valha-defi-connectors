@@ -14,20 +14,50 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
-  amountsDesired,
-  amountsMinimum,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
   ranges,
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'addLiquidity';
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
-  const args = [];
-  const interaction_address = '';
+  const amountADesired = await toBnERC20Decimals(
+    amountsDesiredNotBN[0],
+    chain,
+    underlying_tokens[0]
+  );
+  const amountBDesired = await toBnERC20Decimals(
+    amountsDesiredNotBN[1],
+    chain,
+    underlying_tokens[1]
+  );
+  const amountAMinimum = await toBnERC20Decimals(
+    amountsMinimumNotBN[0],
+    chain,
+    underlying_tokens[0]
+  );
+  const amountBMinimum = await toBnERC20Decimals(
+    amountsMinimumNotBN[1],
+    chain,
+    underlying_tokens[1]
+  );
+  const args = [
+    tokenA,
+    tokenB,
+    amountADesired,
+    amountBDesired,
+    amountAMinimum,
+    amountBMinimum,
+    receiverAddress,
+    deadline,
+  ];
+  const interaction_address = pool_address;
 
   return {
     abi: abi, //json file name
@@ -58,7 +88,8 @@ async function redeem(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'redeem';
@@ -94,7 +125,8 @@ async function stake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = '';
   const method_name = 'stake';
@@ -130,7 +162,8 @@ async function unstake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = '';
   const method_name = 'unstake';
@@ -166,7 +199,8 @@ async function claimRewards(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = '';
   const method_name = 'claim';
