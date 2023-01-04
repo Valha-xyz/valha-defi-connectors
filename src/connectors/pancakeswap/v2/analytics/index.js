@@ -19,6 +19,8 @@ async function analytics(chain, poolAddress) {
     return elem.pool.includes(poolAddress.toLowerCase());
   });
 
+  if (!externalInfo) return {}
+
   const tvl = externalInfo['tvlUsd'];
   const rewardsAPY = externalInfo['apyReward'];
   const activityAPY = externalInfo['apyBase'];
@@ -26,7 +28,7 @@ async function analytics(chain, poolAddress) {
 
   const result = {
     status: true,
-    tvl: tvl,
+    tvl: tvl ? tvl,
     liquidity: tvl,
     outloans: null,
     losses: null,
