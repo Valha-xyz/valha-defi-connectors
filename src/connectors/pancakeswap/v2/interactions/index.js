@@ -132,9 +132,30 @@ async function redeem(
   deadline
 ) {
   const abi = PoolABI;
-  const method_name = 'redeem';
-  const args = [];
-  const interaction_address = '';
+  const method_name = 'removeLiquidity';
+  const tokenA = underlying_tokens[0];
+  const tokenB = underlying_tokens[1];
+  const interaction_address = pool_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  const amountAMinimum = await toBnERC20Decimals(
+    amountsMinimumNotBN[0],
+    chain,
+    underlying_tokens[0]
+  );
+  const amountBMinimum = await toBnERC20Decimals(
+    amountsMinimumNotBN[1],
+    chain,
+    underlying_tokens[1]
+  );
+  const args = [
+    tokenA,
+    tokenB,
+    amountBN,
+    amountAMinimum,
+    amountBMinimum,
+    receiverAddress,
+    deadline,
+  ];
 
   return {
     abi: abi, //json file name
