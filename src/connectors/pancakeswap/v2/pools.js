@@ -1,21 +1,26 @@
-const POOLS = [
-  {
-    name: 'Pool Name',
-    chain: 'ethereum',
-    underlying_tokens: ['0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'],
-    pool_address: '0x0000000000000000000000000000000000000000',
-    investing_address: '0x0000000000000000000000000000000000000000',
-    staking_address: '0x0000000000000000000000000000000000000000',
-    boosting_address: null,
-    distributor_address: null,
-    rewards_tokens: ['0x0000000000000000000000000000000000000000'],
-    metadata: {},
-  },
-];
+const FACTORYABI = require('./abi/FACTORY');
+const ethers = require('ethers');
 
 /// pools
-async function pools() {
-  return POOLS;
+const FACTORY = {
+  bsc: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',
+  ethereum: '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362',
+};
+
+async function pools(chain, tokens) {
+  try {
+    const tokenA = tokens[0];
+    const tokenB = tokens[1];
+    const address = FACTORY[chain];
+    const provider = await getNodeProvider(chain);
+    if (!provider) throw new Error('No provider was found.');
+    const POOL = new ethers.Contract(address, FACTORYABI, provider);
+    const poolAddress = await POOL.getPair(tokenA, tokenB);
+    return { data: poolAddress, err: null };
+  } catch (err) {
+    console.log(err);
+    return { data: null, err: err };
+  }
 }
 
 module.exports = pools;
