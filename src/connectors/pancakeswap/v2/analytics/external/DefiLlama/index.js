@@ -3,7 +3,7 @@ const { default: BigNumber } = require('bignumber.js');
 const sdk = require('@defillama/sdk');
 
 const { masterChefABI, lpTokenABI } = require('./abis');
-const utils = require('./../../../../../../utils/external/utils');
+const utils = require('../../../../../../utils/external/utils');
 const axios = require('axios');
 
 const RPC_URL = 'https://bsc-dataseed1.binance.org/';

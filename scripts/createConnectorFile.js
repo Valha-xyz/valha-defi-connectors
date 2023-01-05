@@ -19,7 +19,7 @@ function checkParam(string, arg) {
         `
          You did not specify any name for your connector. 
          Run "npm run "create-file" -- --connector=name_of_your_connector"
-        `,
+        `
       );
     }
     return { arg: param, err: null };
@@ -37,37 +37,38 @@ async function createDirectory(relativePath) {
 async function generateFile(relativePath, copySRC) {
   fs.copyFileSync(
     path.join(__dirname, copySRC),
-    path.join(__dirname, relativePath),
+    path.join(__dirname, relativePath)
   );
 }
 
 async function createNewProtocol() {
   const connectorParam = checkParam(
     process.env.npm_lifecycle_script,
-    'connector',
+    'connector'
   );
   if (connectorParam.err) throw new Error(connectorParam.err.message);
   const connector = connectorParam.arg;
   if (!connector) {
     throw new Error(
       `You did not specify any name for your connector. 
-       Run "npm run "create-file" -- --connector=name_of_your_connector"`,
+       Run "npm run "create-file" -- --connector=name_of_your_connector"`
     );
   }
   await createDirectory(`../src/connectors/${connector}`);
+  await createDirectory(`../src/connectors/${connector}/pools`);
   await createDirectory(`../src/connectors/${connector}/abi`);
   await createDirectory(`../src/connectors/${connector}/interactions`);
   await createDirectory(`../src/connectors/${connector}/analytics`);
   await createDirectory(`../src/connectors/${connector}/analytics/external`);
   await generateFile(
     `../src/connectors/${connector}/interactions/index.js`,
-    interactionSRC,
+    interactionSRC
   );
   await generateFile(
     `../src/connectors/${connector}/analytics/index.js`,
-    analyticsSRC,
+    analyticsSRC
   );
-  await generateFile(`../src/connectors/${connector}/pools.js`, poolsSRC);
+  await generateFile(`../src/connectors/${connector}/pools/pools.js`, poolsSRC);
 }
 
 createNewProtocol();

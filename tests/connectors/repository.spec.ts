@@ -9,7 +9,7 @@ describe('CONNECTOR - REPOSITORY', () => {
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      'connector',
+      'connector'
     );
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
@@ -17,7 +17,7 @@ describe('CONNECTOR - REPOSITORY', () => {
       throw new Error(
         `
         ⚠️⚠️⚠️ You did not specify any name for your connector. Run "npm run test -- --connector=name_of_your_connector" ⚠️⚠️⚠️
-        `,
+        `
       );
     }
   });
@@ -60,8 +60,8 @@ describe('CONNECTOR - REPOSITORY', () => {
     expect(resultJS || resultTS).toBeTruthy();
   });
 
-  it(`There must be a file named "pools.js/ts" at the root of the connector repository`, async () => {
-    const path = `src/connectors/${connector}`;
+  it(`There must be a file named "pools.js/ts" at the pools repository`, async () => {
+    const path = `src/connectors/${connector}/pools`;
     const resultJS = fs.existsSync(`${path}/pools.js`);
     const resultTS = fs.existsSync(`${path}/pools.ts`);
     expect(resultJS || resultTS).toBeTruthy();

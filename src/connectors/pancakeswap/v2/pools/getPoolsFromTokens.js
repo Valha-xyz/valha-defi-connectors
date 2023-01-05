@@ -1,4 +1,4 @@
-const FACTORYABI = require('../../abi/FACTORY.json');
+const FACTORYABI = require('../abi/FACTORY.json');
 const ethers = require('ethers');
 
 /// pools
@@ -7,7 +7,7 @@ const FACTORY = {
   ethereum: '0x1097053Fd2ea711dad45caCcc45EfF7548fCB362',
 };
 
-async function pools(chain, tokens) {
+async function getPoolsFromTokens(chain, tokens, fee) {
   try {
     const tokenA = tokens[0];
     const tokenB = tokens[1];
@@ -23,4 +23,4 @@ async function pools(chain, tokens) {
   }
 }
 
-module.exports = pools;
+module.exports = getPoolsFromTokens;

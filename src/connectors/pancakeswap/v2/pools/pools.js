@@ -1,4 +1,4 @@
-const POOLS = require('./scripts/generatedPools');
+const POOLS = require('./generatedPools');
 
 /// pools
 async function pools() {
