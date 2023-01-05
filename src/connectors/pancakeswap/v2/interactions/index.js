@@ -3,7 +3,7 @@
 const { toBnERC20Decimals } = require('src/utils/toBNTokenDecimals');
 const ROUTERABI = require('../abi/ROUTER');
 const STAKERABI = require('../abi/STAKER');
-const { default: PID } = require('./PID');
+const PID = require('./PID');
 
 async function deposit(
   pool_name,

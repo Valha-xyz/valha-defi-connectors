@@ -3,16 +3,16 @@ import _ from 'lodash';
 import checkParam from './config/checkParam';
 
 const interactions = [
-  // 'deposit',
-  // 'deposit_and_stake',
-  // 'unlock',
+  'deposit',
+  'deposit_and_stake',
+  'unlock',
   'redeem',
-  // 'stake',
-  // 'unstake',
-  // 'boost',
-  // 'unboost',
-  // 'claim_rewards',
-  // 'claim_interests',
+  'stake',
+  'unstake',
+  'boost',
+  'unboost',
+  'claim_rewards',
+  'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
@@ -169,7 +169,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
     } - ${POOL.pool_address ? POOL.pool_address : 'NULL'} ####`, () => {
       describe(`-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS`, () => {
         for (const interaction of interactions) {
-          it(`Should have the ${interaction} function`, async () => {
+          it(`Should have the ${interaction.toUpperCase()} function`, async () => {
             await checkFnExists(interaction, interactionPATH);
           });
         }
@@ -177,7 +177,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
       describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
         for (const interaction of interactions) {
-          it(`${interaction} should be callable and return the expected information`, async () => {
+          it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
@@ -204,7 +204,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return a "valid" ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return a "valid" ABI`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
@@ -240,7 +240,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
+          it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -264,7 +264,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
+          it(`${interaction.toUpperCase()} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -287,7 +287,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return ARGS as an array`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS as an array`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -308,7 +308,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return ARGS with the same length than in the ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS with the same length than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -345,7 +345,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS with the same type than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -389,7 +389,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
+          it(`${interaction.toUpperCase()} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -412,7 +412,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return POSITION_TOKEN as a valid EVM address`, async () => {
+          it(`${interaction.toUpperCase()} should return POSITION_TOKEN as a valid EVM address`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -428,10 +428,17 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '',
               0
             );
+
             if (result && result.position_token) {
-              expect(
-                isEVMAddress(result.position_token.toLowerCase())
-              ).toBeTruthy();
+              if (Array.isArray(result.position_token)) {
+                for (let elem of result.position_token) {
+                  expect(isEVMAddress(elem.toLowerCase())).toBeTruthy();
+                }
+              } else {
+                expect(
+                  isEVMAddress(result.position_token.toLowerCase())
+                ).toBeTruthy();
+              }
             }
           });
         }
