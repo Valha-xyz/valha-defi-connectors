@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const STAKEABI = require('../abi/FairLaunch.json');
+const STAKEABI = require('../abi/StakePool.json');
 const PID = require('../interactions/PID');
 
 /// stakePosition
