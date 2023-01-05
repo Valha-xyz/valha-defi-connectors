@@ -28,8 +28,8 @@ async function stakePosition(
     abi: abi, //json file name
     method_name: method_name, //method to get the information
     interaction_address: interaction_address, // contract to check the information
-    amount: null,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
+    position: 0, //position of the information if return is a tupple or an array
   };
 }
 
