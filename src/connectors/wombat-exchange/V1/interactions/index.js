@@ -7,21 +7,9 @@ const MasterABI = require('../abi/Master.json');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { getCurrentBlock } = require('../../../../utils/getCurrentBlock');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { getWombatPid } = require('./PID');
 
 const MasterAddress = '0xE2C07d20AF0Fb50CAE6cDD615CA44AbaAA31F9c8';
-
-async function getWombatPid(poolAddress) {
-  try {
-    const provider = await getNodeProvider('bsc');
-    if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(MasterAddress, MasterABI, provider);
-    const idBN = await POOL.getAssetPid(poolAddress);
-    return idBN.toString();
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
-}
 
 /// invest
 async function deposit(
@@ -38,7 +26,7 @@ async function deposit(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -81,7 +69,7 @@ async function redeem(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = PoolABI;
   const method_name = 'withdraw';
@@ -125,7 +113,7 @@ async function stake(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakeABI;
   const method_name = 'deposit';
@@ -160,7 +148,7 @@ async function unstake(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakeABI;
   const method_name = 'withdraw';
@@ -195,7 +183,7 @@ async function boost(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -215,7 +203,7 @@ async function unboost(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -235,7 +223,7 @@ async function claimRewards(
   amountNotBN,
   userAddress,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakeABI;
   const method_name = 'multiClaim';

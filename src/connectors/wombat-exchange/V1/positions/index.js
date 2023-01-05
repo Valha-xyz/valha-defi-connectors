@@ -19,7 +19,7 @@ async function stakePosition(
   receiverAddress
 ) {
   const abi = STAKEABI;
-  const pid = PID[pool_address.toLowerCase()];
+  const pid = await getWombatPid(pool_address);
   const method_name = 'userInfo';
   const args = [pid, userAddress];
   const interaction_address = staking_address;
