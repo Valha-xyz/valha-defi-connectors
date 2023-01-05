@@ -1,7 +1,8 @@
+const POOLS = require('./scripts/generatedPools');
+
+/// pools
 async function pools() {
-  const externalInformation = await loadExternal();
-  console.log(externalInformation);
+  return POOLS;
 }
 
-// module.exports = pools;
-getPools();
+module.exports = pools;
