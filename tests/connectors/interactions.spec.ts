@@ -3,10 +3,10 @@ import _ from 'lodash';
 import checkParam from './config/checkParam';
 
 const interactions = [
-  'deposit',
+  // 'deposit',
   // 'deposit_and_stake',
   // 'unlock',
-  // 'redeem',
+  'redeem',
   // 'stake',
   // 'unstake',
   // 'boost',
@@ -126,8 +126,6 @@ function checkArgType(arg: string, type: string): boolean {
 }
 
 function doesArgTypeMatch(args: string[], ABIInputs: any[]): boolean {
-  console.log(args);
-  console.log(ABIInputs);
   for (const i in ABIInputs) {
     let check = false;
     if (ABIInputs[i].type.includes('[]')) {
@@ -347,7 +345,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it.only(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
+          it(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,

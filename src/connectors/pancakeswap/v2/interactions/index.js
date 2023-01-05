@@ -125,8 +125,8 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
-  amountsDesired,
-  amountsMinimum,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
   ranges,
   rangeToken,
   userAddress,
@@ -134,7 +134,7 @@ async function redeem(
   lockupTimestamp,
   deadline
 ) {
-  const abi = PoolABI;
+  const abi = ROUTERABI;
   const method_name = 'removeLiquidity';
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
@@ -183,8 +183,8 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  amountsDesired,
-  amountsMinimum,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
   ranges,
   rangeToken,
   userAddress,
@@ -222,8 +222,8 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  amountsDesired,
-  amountsMinimum,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
   ranges,
   rangeToken,
   userAddress,
@@ -261,8 +261,8 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  amountsDesired,
-  amountsMinimum,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
   ranges,
   rangeToken,
   userAddress,
