@@ -29,6 +29,7 @@ async function deposit(
   const abi = ROUTERABI;
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
+  const tokens = underlying_tokens.map((elem) => elem.toLowerCase());
   const interaction_address = pool_address;
   let method_name = '';
   let args = [];
@@ -42,23 +43,41 @@ async function deposit(
     nativeTokenPosition = 1;
     tokenPosition = 0;
   }
+  const amountADesired = await toBnERC20Decimals(
+    amountsDesiredNotBN[0],
+    chain,
+    underlying_tokens[0]
+  );
+  const amountBDesired = await toBnERC20Decimals(
+    amountsDesiredNotBN[1],
+    chain,
+    underlying_tokens[1]
+  );
 
-  if (nativeTokenPosition !== -1) {
+  if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
     method_name = 'addLiquidityETH';
-    const amountDesired = await toBnERC20Decimals(
-      amountsDesiredNotBN[tokenPosition],
-      chain,
-      underlying_tokens[tokenPosition]
-    );
+    let amountDesired;
+    let nativePosition;
+    let tokenPosition;
+    if (tokens[0] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
+      nativePosition = 0;
+      tokenPosition = 1;
+      amountDesired = amountADesired;
+    }
+    if (tokens[1] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
+      nativePosition = 1;
+      tokenPosition = 0;
+      amountDesired = amountBDesired;
+    }
     const amountMin = await toBnERC20Decimals(
       amountsMinimumNotBN[tokenPosition],
       chain,
       underlying_tokens[tokenPosition]
     );
     const amountNativeMin = await toBnERC20Decimals(
-      amountsMinimumNotBN[nativeTokenPosition],
+      amountsMinimumNotBN[nativePosition],
       chain,
-      underlying_tokens[nativeTokenPosition]
+      underlying_tokens[nativePosition]
     );
     args = [
       underlying_tokens[tokenPosition],
@@ -70,16 +89,6 @@ async function deposit(
     ];
   } else {
     method_name = 'addLiquidity';
-    const amountADesired = await toBnERC20Decimals(
-      amountsDesiredNotBN[0],
-      chain,
-      underlying_tokens[0]
-    );
-    const amountBDesired = await toBnERC20Decimals(
-      amountsDesiredNotBN[1],
-      chain,
-      underlying_tokens[1]
-    );
     const amountAMinimum = await toBnERC20Decimals(
       amountsMinimumNotBN[0],
       chain,
@@ -108,6 +117,7 @@ async function deposit(
     position_token: underlying_tokens, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: [amountADesired, amountBDesired], //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -166,6 +176,7 @@ async function redeem(
     position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -205,6 +216,7 @@ async function stake(
     position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -244,6 +256,7 @@ async function unstake(
     position_token: null, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -284,6 +297,7 @@ async function claimRewards(
     position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
