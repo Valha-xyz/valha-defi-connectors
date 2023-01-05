@@ -16,7 +16,10 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -49,7 +52,10 @@ async function unlock(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -113,7 +119,10 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -133,7 +142,10 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -153,7 +165,10 @@ async function boost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -173,7 +188,10 @@ async function unboost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -193,7 +211,10 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
   lockupTimestamp
 ) {

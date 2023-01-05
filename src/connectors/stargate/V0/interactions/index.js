@@ -100,9 +100,12 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = ROUTERABI;
   const method_name = 'addLiquidity';
@@ -140,9 +143,12 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = ROUTERABI;
   const method_name = 'instantRedeemLocal';
@@ -175,9 +181,12 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const poolId = STAKING_POOLID[chain][pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -210,9 +219,12 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const poolId = STAKING_POOLID[chain][pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -245,9 +257,12 @@ async function boost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -265,9 +280,12 @@ async function unboost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -285,9 +303,12 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }

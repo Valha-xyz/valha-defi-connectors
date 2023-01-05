@@ -16,9 +16,12 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = STETHABI;
   const method_name = 'submit';
@@ -55,9 +58,12 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -75,9 +81,12 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -95,9 +104,12 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -115,9 +127,12 @@ async function boost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -135,9 +150,12 @@ async function unboost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -155,9 +173,12 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }

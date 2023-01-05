@@ -36,9 +36,12 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -79,9 +82,12 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = PoolABI;
   const method_name = 'withdraw';
@@ -123,9 +129,12 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakeABI;
   const method_name = 'deposit';
@@ -158,9 +167,12 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakeABI;
   const method_name = 'withdraw';
@@ -193,9 +205,12 @@ async function boost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -213,9 +228,12 @@ async function unboost(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   return {};
 }
@@ -233,9 +251,12 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakeABI;
   const method_name = 'multiClaim';

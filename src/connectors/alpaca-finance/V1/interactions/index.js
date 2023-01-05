@@ -24,9 +24,12 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = VaultABI;
   const method_name = 'deposit';
@@ -63,9 +66,12 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = VaultABI;
   const method_name = 'withdraw';
@@ -97,9 +103,12 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const poolId = POOLID[pool_address.toLowerCase()];
   const abi = StakingABI;
@@ -132,9 +141,12 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const poolId = POOLID[pool_address.toLowerCase()];
   const abi = StakingABI;
@@ -167,9 +179,12 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  userAddress,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   receiverAddress,
-  lockupTimestamp,
+  lockupTimestamp
 ) {
   const abi = StakingABI;
   const method_name = 'harvest';
