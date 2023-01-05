@@ -20,6 +20,7 @@ async function deposit(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -55,6 +56,7 @@ async function redeem(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {

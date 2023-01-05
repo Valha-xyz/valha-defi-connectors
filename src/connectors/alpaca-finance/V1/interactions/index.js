@@ -28,6 +28,7 @@ async function deposit(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -70,6 +71,7 @@ async function redeem(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -107,6 +109,7 @@ async function stake(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -145,6 +148,7 @@ async function unstake(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
@@ -183,6 +187,7 @@ async function claimRewards(
   amountsMinimumNotBN,
   ranges,
   rangeToken,
+  userAddress,
   receiverAddress,
   lockupTimestamp
 ) {
