@@ -22,7 +22,8 @@ async function deposit(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -58,7 +59,8 @@ async function redeem(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'withdrawExcessBalance';

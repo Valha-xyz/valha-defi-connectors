@@ -24,7 +24,8 @@ async function deposit(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = POOLABI;
   const method_name = 'provide';
@@ -67,7 +68,8 @@ async function redeem(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = POOLABI;
   const method_name = 'redeem';
@@ -105,7 +107,8 @@ async function stake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -129,7 +132,8 @@ async function unstake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }

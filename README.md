@@ -349,7 +349,8 @@ async function deposit(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = ERC4626ABI;
   const method_name = 'deposit';
@@ -388,7 +389,8 @@ async function redeem(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = ERC4626ABI;
   const method_name = 'redeem';

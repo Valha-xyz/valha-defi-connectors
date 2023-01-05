@@ -39,7 +39,8 @@ async function deposit(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StableABI;
   const method_name = 'deposit';
@@ -79,7 +80,8 @@ async function redeem(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StableABI;
   const method_name = 'withdraw';
@@ -119,7 +121,8 @@ async function stake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StakingABI;
   const method_name = 'deposit(uint256,address)';
@@ -163,7 +166,8 @@ async function unstake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StakingABI;
   const method_name = 'withdraw(uint256)';
@@ -207,7 +211,8 @@ async function claimRewards(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StakingABI;
   const method_name = 'claim_rewards(address)';

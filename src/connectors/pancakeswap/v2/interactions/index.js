@@ -22,7 +22,6 @@ async function deposit(
   ranges,
   rangeToken,
   userAddress,
-  userAddress,
   receiverAddress,
   lockupTimestamp,
   deadline

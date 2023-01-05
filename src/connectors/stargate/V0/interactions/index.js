@@ -106,7 +106,8 @@ async function deposit(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = ROUTERABI;
   const method_name = 'addLiquidity';
@@ -150,7 +151,8 @@ async function redeem(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = ROUTERABI;
   const method_name = 'instantRedeemLocal';
@@ -189,7 +191,8 @@ async function stake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const poolId = STAKING_POOLID[chain][pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -228,7 +231,8 @@ async function unstake(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const poolId = STAKING_POOLID[chain][pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -267,7 +271,8 @@ async function boost(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -291,7 +296,8 @@ async function unboost(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -315,7 +321,8 @@ async function claimRewards(
   rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }

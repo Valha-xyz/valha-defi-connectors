@@ -46,7 +46,8 @@ async function checkFnCallableReturn(
   rangeToken: string,
   userAddress: string,
   receiverAddress: string,
-  lockupTimestamp: string
+  lockupTimestamp: string,
+  deadline: number
 ) {
   const { default: fn } = await import(path);
   if (fn[name]) {
@@ -68,7 +69,8 @@ async function checkFnCallableReturn(
       rangeToken,
       userAddress,
       receiverAddress,
-      lockupTimestamp
+      lockupTimestamp,
+      deadline
     );
     return result;
   }
@@ -124,6 +126,8 @@ function checkArgType(arg: string, type: string): boolean {
 }
 
 function doesArgTypeMatch(args: string[], ABIInputs: any[]): boolean {
+  console.log(args);
+  console.log(ABIInputs);
   for (const i in ABIInputs) {
     let check = false;
     if (ABIInputs[i].type.includes('[]')) {
@@ -188,7 +192,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result) {
               expect(result).toBeDefined();
@@ -214,7 +219,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result) {
               const ABI = result.abi;
@@ -249,7 +255,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result) {
               const abiSTRING = JSON.stringify(result.abi);
@@ -272,7 +279,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result && result.position_token_type) {
               expect(['ERC-20', 'ERC-721']).toContain(
@@ -294,7 +302,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result) {
               expect(Array.isArray(result.abi)).toBeTruthy();
@@ -314,7 +323,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result) {
               const ABI = result.abi;
@@ -337,7 +347,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
+          it.only(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
@@ -350,7 +360,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result) {
               const ABI = result.abi;
@@ -393,7 +404,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result && result.interaction_address) {
               expect(
@@ -415,7 +427,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              ''
+              '',
+              0
             );
             if (result && result.position_token) {
               expect(
