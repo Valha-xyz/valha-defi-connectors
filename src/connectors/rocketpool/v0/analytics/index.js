@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const pools = require('../pools');
+const pools = require('../pools/pools');
 const checkRocketV0Status = require('./external/status');
 const checkRocketV0TVL = require('./external/tvl');
 const checkRocketV0Liquidity = require('./external/liquidity');

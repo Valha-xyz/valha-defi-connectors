@@ -113,7 +113,8 @@ Your connector folder must respect the following structure to pass tests:
 │ │ │  │  ├── index.js/ts
 │ │ │  ├── interactions
 │ │ │  │  ├── index.js/ts
-│ │ │  ├── pools.js/ts
+│ │ │  ├── pools
+│ │ │  │  ├── pools.js/ts
 ```
 
 <br />
