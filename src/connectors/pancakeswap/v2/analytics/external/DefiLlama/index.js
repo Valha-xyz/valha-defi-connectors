@@ -3,8 +3,8 @@ const { default: BigNumber } = require('bignumber.js');
 const sdk = require('@defillama/sdk');
 
 const { masterChefABI, lpTokenABI } = require('./abis');
-const utils = require('../utils');
-const { fetchURL } = require('../../helper/utils');
+const utils = require('./../../../../../../utils/external/utils');
+const axios = require('axios');
 
 const RPC_URL = 'https://bsc-dataseed1.binance.org/';
 const LP_APRS =
@@ -79,12 +79,12 @@ const getBaseTokensPrice = async () => {
   return { cakePrice, ethPrice, bnbPrice };
 };
 
-const main = async (pid) => {
+const main = async () => {
   const { cakePrice, ethPrice, bnbPrice } = await getBaseTokensPrice();
   const masterChef = new web3.eth.Contract(masterChefABI, MASTERCHEF_ADDRESS);
-  let { data: lpAprs } = await fetchURL(LP_APRS);
-  lpAprs = Object.fromEntries(
-    Object.entries(lpAprs).map(([k, v]) => [k.toLowerCase(), v])
+  const res = await axios.get(LP_APRS);
+  const lpAprs = Object.fromEntries(
+    Object.entries(res.data).map(([k, v]) => [k.toLowerCase(), v])
   );
 
   const poolsCount = await masterChef.methods.poolLength().call();
@@ -96,23 +96,20 @@ const main = async (pid) => {
     .call();
   const normalizedCakePerBlock = cakeRateToRegularFarm / 1e18;
 
-  // const [poolsRes, lpTokensRes] = await Promise.all(
-  //   ['poolInfo', 'lpToken'].map((method) =>
-  //     sdk.api.abi.multiCall({
-  //       abi: masterChefABI.filter(({ name }) => name === method)[0],
-  //       calls: [...Array(Number(poolsCount - 1)).keys()].map((i) => ({
-  //         target: MASTERCHEF_ADDRESS,
-  //         params: i,
-  //       })),
-  //       chain: 'bsc',
-  //     })
-  //   )
-  // );
-  // const poolsInfo = poolsRes.output.map((res) => res.output);
-  // const lpTokens = lpTokensRes.output.map((res) => res.output);
-
-  const poolsInfo = [await masterChef.methods.poolInfo(pid).call()];
-  const lpTokens = [await masterChef.methods.lpToken(pid).call()];
+  const [poolsRes, lpTokensRes] = await Promise.all(
+    ['poolInfo', 'lpToken'].map((method) =>
+      sdk.api.abi.multiCall({
+        abi: masterChefABI.filter(({ name }) => name === method)[0],
+        calls: [...Array(Number(poolsCount - 1)).keys()].map((i) => ({
+          target: MASTERCHEF_ADDRESS,
+          params: i,
+        })),
+        chain: 'bsc',
+      })
+    )
+  );
+  const poolsInfo = poolsRes.output.map((res) => res.output);
+  const lpTokens = lpTokensRes.output.map((res) => res.output);
 
   // note: exchange subgraph is broken giving duplicated ids on pairs
   // reading token info data from contracts instead
@@ -203,7 +200,6 @@ const main = async (pid) => {
         cakePrice,
         reserveUSD
       );
-
       return {
         pool: lpTokens[i].toLowerCase(),
         chain: utils.formatChain('binance'),

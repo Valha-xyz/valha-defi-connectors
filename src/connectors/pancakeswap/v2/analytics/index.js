@@ -1,10 +1,10 @@
-const { default: PID } = require('../interactions/PID');
+const _ = require('lodash');
 const external = require('./external/DefiLlama/index');
 
 /// APY
 /// TVL
-async function loadExternal(pid) {
-  const pools = await external.apy(pid);
+async function loadExternal() {
+  const pools = await external.apy();
   if (!pools || pools.length === 0) {
     return null;
   }
@@ -12,14 +12,14 @@ async function loadExternal(pid) {
 }
 
 async function analytics(chain, poolAddress) {
-  const pid = PID[poolAddress.toLowerCase()]
-  const externalInformation = await loadExternal(pid);
+  const externalInformation = await loadExternal();
+  console.log(externalInformation);
   if (!externalInformation) return {};
   const externalInfo = _.find(externalInformation, (elem) => {
-    return elem.pool.includes(poolAddress.toLowerCase());
+    return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
   });
 
-  if (!externalInfo) return {}
+  if (!externalInfo) return {};
 
   const tvl = externalInfo['tvlUsd'];
   const rewardsAPY = externalInfo['apyReward'];
@@ -28,7 +28,7 @@ async function analytics(chain, poolAddress) {
 
   const result = {
     status: true,
-    tvl: tvl ? tvl,
+    tvl: tvl ? tvl : null,
     liquidity: tvl,
     outloans: null,
     losses: null,
@@ -41,7 +41,6 @@ async function analytics(chain, poolAddress) {
     minimum_deposit: null,
     maximum_deposit: null,
   };
-
   return result;
 }
 
