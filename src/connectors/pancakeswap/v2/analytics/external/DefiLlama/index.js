@@ -79,7 +79,7 @@ const getBaseTokensPrice = async () => {
   return { cakePrice, ethPrice, bnbPrice };
 };
 
-const main = async () => {
+const main = async (pid) => {
   const { cakePrice, ethPrice, bnbPrice } = await getBaseTokensPrice();
   const masterChef = new web3.eth.Contract(masterChefABI, MASTERCHEF_ADDRESS);
   let { data: lpAprs } = await fetchURL(LP_APRS);
@@ -96,20 +96,23 @@ const main = async () => {
     .call();
   const normalizedCakePerBlock = cakeRateToRegularFarm / 1e18;
 
-  const [poolsRes, lpTokensRes] = await Promise.all(
-    ['poolInfo', 'lpToken'].map((method) =>
-      sdk.api.abi.multiCall({
-        abi: masterChefABI.filter(({ name }) => name === method)[0],
-        calls: [...Array(Number(poolsCount - 1)).keys()].map((i) => ({
-          target: MASTERCHEF_ADDRESS,
-          params: i,
-        })),
-        chain: 'bsc',
-      })
-    )
-  );
-  const poolsInfo = poolsRes.output.map((res) => res.output);
-  const lpTokens = lpTokensRes.output.map((res) => res.output);
+  // const [poolsRes, lpTokensRes] = await Promise.all(
+  //   ['poolInfo', 'lpToken'].map((method) =>
+  //     sdk.api.abi.multiCall({
+  //       abi: masterChefABI.filter(({ name }) => name === method)[0],
+  //       calls: [...Array(Number(poolsCount - 1)).keys()].map((i) => ({
+  //         target: MASTERCHEF_ADDRESS,
+  //         params: i,
+  //       })),
+  //       chain: 'bsc',
+  //     })
+  //   )
+  // );
+  // const poolsInfo = poolsRes.output.map((res) => res.output);
+  // const lpTokens = lpTokensRes.output.map((res) => res.output);
+
+  const poolsInfo = [await masterChef.methods.poolInfo(pid).call()];
+  const lpTokens = [await masterChef.methods.lpToken(pid).call()];
 
   // note: exchange subgraph is broken giving duplicated ids on pairs
   // reading token info data from contracts instead
@@ -200,6 +203,7 @@ const main = async () => {
         cakePrice,
         reserveUSD
       );
+
       return {
         pool: lpTokens[i].toLowerCase(),
         chain: utils.formatChain('binance'),
