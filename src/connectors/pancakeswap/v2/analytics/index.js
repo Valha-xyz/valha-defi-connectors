@@ -8,6 +8,7 @@ async function loadExternal() {
   if (!pools || pools.length === 0) {
     return null;
   }
+
   return pools;
 }
 
