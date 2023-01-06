@@ -147,12 +147,8 @@ async function unstake(
   rangeToken,
   userAddress,
   receiverAddress,
-<<<<<<< HEAD
   lockupTimestamp,
   deadline
-=======
-  lockupTimestamp
->>>>>>> staging
 ) {
   const poolId = PID[pool_address.toLowerCase()];
   const abi = StakingABI;
@@ -191,12 +187,8 @@ async function claimRewards(
   rangeToken,
   userAddress,
   receiverAddress,
-<<<<<<< HEAD
   lockupTimestamp,
   deadline
-=======
-  lockupTimestamp
->>>>>>> staging
 ) {
   const abi = StakingABI;
   const method_name = 'harvest';
