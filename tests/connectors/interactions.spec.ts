@@ -40,9 +40,14 @@ async function checkFnCallableReturn(
   name: string,
   path: string,
   amountBN: string,
+  amountsDesiredNotBN: string[],
+  amountsMinimumNotBN: string[],
+  ranges: string[],
+  rangeToken: string,
   userAddress: string,
   receiverAddress: string,
   lockupTimestamp: string,
+  deadline: number
 ) {
   const { default: fn } = await import(path);
   if (fn[name]) {
@@ -58,9 +63,14 @@ async function checkFnCallableReturn(
       POOL.rewards_tokens,
       POOL.metadata,
       amountBN,
+      amountsDesiredNotBN,
+      amountsMinimumNotBN,
+      ranges,
+      rangeToken,
       userAddress,
       receiverAddress,
       lockupTimestamp,
+      deadline
     );
     return result;
   }
@@ -74,38 +84,38 @@ function checkArgType(arg: string, type: string): boolean {
       const num = parseInt(arg);
       if ((num !== 0 && !num) || num < 0) {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else if (type.includes('address')) {
       const isEVM = isEVMAddress(arg.toLowerCase());
       if (!isEVM) {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else if (type.includes('string')) {
       const check = typeof arg;
       if (check !== 'string') {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else if (type.includes('bytes')) {
       console.log(
         '\x1b[33m%s\x1b[0m',
-        `WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.`,
+        `WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.`
       );
     } else if (type.includes('bool')) {
       const check = typeof arg;
       if (check !== 'boolean') {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else {
       throw new Error(
-        `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`,
+        `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`
       );
     }
     return true;
@@ -138,7 +148,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      'connector',
+      'connector'
     );
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
@@ -146,7 +156,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
       throw new Error(
         `
         ⚠️⚠️⚠️ You did not specify any name for your connector. Run "npm run "test_name" -- --connector="name_of_your_connector"" ⚠️⚠️⚠️
-        `,
+        `
       );
     }
     interactionPATH = `src/connectors/${connector}/interactions/index`;
@@ -159,7 +169,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
     } - ${POOL.pool_address ? POOL.pool_address : 'NULL'} ####`, () => {
       describe(`-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS`, () => {
         for (const interaction of interactions) {
-          it(`Should have the ${interaction} function`, async () => {
+          it(`Should have the ${interaction.toUpperCase()} function`, async () => {
             await checkFnExists(interaction, interactionPATH);
           });
         }
@@ -167,16 +177,21 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
       describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
         for (const interaction of interactions) {
-          it(`${interaction} should be callable and return the expected information`, async () => {
+          it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result) {
               expect(result).toBeDefined();
@@ -189,16 +204,21 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return a "valid" ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return a "valid" ABI`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result) {
               const ABI = result.abi;
@@ -220,16 +240,21 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
+          it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result) {
               const abiSTRING = JSON.stringify(result.abi);
@@ -239,50 +264,65 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
+          it(`${interaction.toUpperCase()} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result && result.position_token_type) {
               expect(['ERC-20', 'ERC-721']).toContain(
-                result.position_token_type,
+                result.position_token_type
               );
             }
           });
 
-          it(`${interaction} should return ARGS as an array`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS as an array`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result) {
               expect(Array.isArray(result.abi)).toBeTruthy();
             }
           });
 
-          it(`${interaction} should return ARGS with the same length than in the ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS with the same length than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result) {
               const ABI = result.abi;
@@ -300,21 +340,26 @@ describe('CONNECTOR - INTERACTIONS', () => {
                 }
               });
               expect(ABIinteractionDefinition.inputs.length).toBe(
-                result.args.length,
+                result.args.length
               );
             }
           });
 
-          it(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS with the same type than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result) {
               const ABI = result.abi;
@@ -337,46 +382,63 @@ describe('CONNECTOR - INTERACTIONS', () => {
               } else {
                 check = doesArgTypeMatch(
                   result.args,
-                  ABIinteractionDefinition.inputs,
+                  ABIinteractionDefinition.inputs
                 );
               }
               expect(check).toBeTruthy();
             }
           });
 
-          it(`${interaction} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
+          it(`${interaction.toUpperCase()} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
             if (result && result.interaction_address) {
               expect(
-                isEVMAddress(result.interaction_address.toLowerCase()),
+                isEVMAddress(result.interaction_address.toLowerCase())
               ).toBeTruthy();
             }
           });
 
-          it(`${interaction} should return POSITION_TOKEN as a valid EVM address`, async () => {
+          it(`${interaction.toUpperCase()} should return POSITION_TOKEN as a valid EVM address`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
               '',
+              0
             );
+
             if (result && result.position_token) {
-              expect(
-                isEVMAddress(result.position_token.toLowerCase()),
-              ).toBeTruthy();
+              if (Array.isArray(result.position_token)) {
+                for (let elem of result.position_token) {
+                  expect(isEVMAddress(elem.toLowerCase())).toBeTruthy();
+                }
+              } else {
+                expect(
+                  isEVMAddress(result.position_token.toLowerCase())
+                ).toBeTruthy();
+              }
             }
           });
         }

@@ -16,9 +16,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -48,9 +53,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'withdrawExcessBalance';

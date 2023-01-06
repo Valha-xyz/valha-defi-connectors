@@ -24,9 +24,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -67,9 +72,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'withdraw';
@@ -111,9 +121,14 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StakeABI;
   const method_name = 'deposit';
@@ -146,9 +161,14 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StakeABI;
   const method_name = 'withdraw';
@@ -181,9 +201,14 @@ async function boost(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -201,9 +226,14 @@ async function unboost(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -221,9 +251,14 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = StakeABI;
   const method_name = 'multiClaim';

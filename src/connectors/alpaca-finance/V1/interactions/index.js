@@ -18,9 +18,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = VaultABI;
   const method_name = 'deposit';
@@ -57,9 +62,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = VaultABI;
   const method_name = 'withdraw';
@@ -91,9 +101,14 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const poolId = PID[pool_address.toLowerCase()];
   const abi = StakingABI;
@@ -126,9 +141,18 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
+<<<<<<< HEAD
+  lockupTimestamp,
+  deadline
+=======
   lockupTimestamp
+>>>>>>> staging
 ) {
   const poolId = PID[pool_address.toLowerCase()];
   const abi = StakingABI;
@@ -161,9 +185,18 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
+<<<<<<< HEAD
+  lockupTimestamp,
+  deadline
+=======
   lockupTimestamp
+>>>>>>> staging
 ) {
   const abi = StakingABI;
   const method_name = 'harvest';

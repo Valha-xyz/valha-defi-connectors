@@ -15,12 +15,18 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
+  const amountBN = '';
   const args = [];
   const interaction_address = '';
 
@@ -30,6 +36,7 @@ async function deposit(
     position_token: underlying_tokens[0], // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -47,12 +54,18 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'redeem';
+  const amountBN = '';
   const args = [];
   const interaction_address = '';
 
@@ -62,6 +75,7 @@ async function redeem(
     position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -85,6 +99,7 @@ async function stake(
 ) {
   const abi = '';
   const method_name = 'stake';
+  const amountBN = '';
   const args = [];
   const interaction_address = '';
 
@@ -94,6 +109,7 @@ async function stake(
     position_token: null, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -118,6 +134,7 @@ async function unstake(
   const abi = '';
   const method_name = 'unstake';
   const args = [];
+  const amountBN = '';
   const interaction_address = '';
 
   return {
@@ -126,6 +143,7 @@ async function unstake(
     position_token: null, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -149,6 +167,7 @@ async function claimRewards(
 ) {
   const abi = '';
   const method_name = 'claim';
+  const amountBN = '';
   const args = [];
   const interaction_address = '';
 
@@ -158,6 +177,7 @@ async function claimRewards(
     position_token: null, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }

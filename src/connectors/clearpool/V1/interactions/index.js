@@ -17,9 +17,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'provide';
@@ -51,9 +56,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'redeem';
@@ -87,7 +97,7 @@ async function stake(
   amountNotBN,
   user_address,
   receiver_address,
-  lockup_timestamp,
+  lockup_timestamp
 ) {
   return {};
 }
@@ -107,7 +117,7 @@ async function unstake(
   amountNotBN,
   user_address,
   receiver_address,
-  lockup_timestamp,
+  lockup_timestamp
 ) {
   return {};
 }
@@ -127,7 +137,7 @@ async function claimRewards(
   amountNotBN,
   user_address,
   receiver_address,
-  lockup_timestamp,
+  lockup_timestamp
 ) {
   const abi = FACTORYABI;
   const method_name = 'withdrawReward';
