@@ -243,7 +243,22 @@ async function claimRewards(
   lockupTimestamp,
   deadline
 ) {
-  return {};
+  const poolId = STAKING_PID[chain][pool_address.toLowerCase()];
+  const abi = LPSTAKING;
+  const method_name = 'deposit';
+  const position_token = pool_address;
+  const amountBN = await toBnERC20Decimals(0, chain, position_token);
+  const args = [poolId, amountBN];
+
+  return {
+    abi: abi, //json file name
+    method_name: method_name, //method to interact with the pool
+    position_token: position_token, // token needed to approve
+    position_token_type: 'ERC-20', //token type to approve
+    interaction_address: staking_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
+    args: args, //args to pass to the smart contracts to trigger 'method_name'
+  };
 }
 
 module.exports = {
@@ -255,6 +270,6 @@ module.exports = {
   unstake: unstake,
   boost: null,
   unboost: null,
-  claim_rewards: null,
+  claim_rewards: claimRewards,
   claim_interests: null,
 };
