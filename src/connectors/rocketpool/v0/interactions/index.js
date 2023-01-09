@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { toBnERC20Decimals } = require('src/utils/toBNTokenDecimals');
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 const PoolABI = require('../abi/DepositPool.json');
 
 /// invest
@@ -27,6 +27,8 @@ async function deposit(
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
+  const position_token = underlying_tokens[0];
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [];
   const interaction_address = investing_address;
 
@@ -36,6 +38,7 @@ async function deposit(
     position_token: underlying_tokens[0], // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -75,6 +78,7 @@ async function redeem(
     position_token: position_token, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
