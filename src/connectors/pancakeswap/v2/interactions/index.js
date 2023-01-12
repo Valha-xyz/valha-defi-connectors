@@ -33,16 +33,6 @@ async function deposit(
   const interaction_address = pool_address;
   let method_name = '';
   let args = [];
-  let nativeTokenPosition = -1;
-  let tokenPosition = -1;
-  if (tokenA === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-    nativeTokenPosition = 0;
-    tokenPosition = 1;
-  }
-  if (tokenB === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-    nativeTokenPosition = 1;
-    tokenPosition = 0;
-  }
   const amountADesired = await toBnERC20Decimals(
     amountsDesiredNotBN[0],
     chain,
