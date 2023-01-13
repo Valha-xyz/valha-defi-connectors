@@ -70,7 +70,7 @@ async function redeem(
   const position_token = pool_address;
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
   const args = [amountBN];
-  const interaction_address = '';
+  const interaction_address = investing_address;
 
   return {
     abi: abi, //json file name
