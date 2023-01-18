@@ -23,5 +23,5 @@
     "lib": ["es6"],
     "allowJs": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "scripts/stablePool2.ts"]
 }

@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const poolsSRC = '/blueprint/js/pools.js';
-const interactionSRC = '/blueprint/js/interaction.js';
-const analyticsSRC = '/blueprint/js/analytics.js';
+const poolsSRC = "/blueprint/js/pools.js";
+const interactionSRC = "/blueprint/js/interaction.js";
+const analyticsSRC = "/blueprint/js/analytics.js";
 
 function checkParam(string, arg) {
   try {
     const SPLIT = string.split(`--${arg}=`)[1];
+    console.log("split", SPLIT);
     if (!SPLIT) {
       return { arg: null, err: null };
     }
-    const endCharacter = SPLIT.indexOf('"');
-    const param = SPLIT.substring(0, endCharacter);
+    const param = SPLIT;
     if (!param) {
       throw new Error(
         `
@@ -42,10 +42,12 @@ async function generateFile(relativePath, copySRC) {
 }
 
 async function createNewProtocol() {
+  console.log(process.env.npm_lifecycle_script);
   const connectorParam = checkParam(
     process.env.npm_lifecycle_script,
-    'connector'
+    "connector"
   );
+  console.log(connectorParam);
   if (connectorParam.err) throw new Error(connectorParam.err.message);
   const connector = connectorParam.arg;
   if (!connector) {
