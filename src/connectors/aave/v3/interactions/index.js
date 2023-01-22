@@ -88,7 +88,7 @@ async function claimRewards(
   const abi = PoolABI;
   const method_name = 'claimRewards';
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
-  const args = [[underlying_tokens[0]], amount, receiver_address];
+  const args = [[underlying_tokens[0]], amountBN, receiver_address];
   const interaction_address = '';
 
   return {
