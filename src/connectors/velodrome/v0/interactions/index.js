@@ -27,6 +27,7 @@ async function deposit(
   deadline
 ) {
   const abi = ROUTERABI;
+  const stable = metadata.stable ? metadata.stable : false;
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
   const tokens = underlying_tokens.map((elem) => elem.toLowerCase());
@@ -92,6 +93,7 @@ async function deposit(
     args = [
       tokenA,
       tokenB,
+      stable,
       amountADesired,
       amountBDesired,
       amountAMinimum,
@@ -135,6 +137,7 @@ async function redeem(
   deadline
 ) {
   const abi = ROUTERABI;
+  const stable = metadata.stable ? metadata.stable : false;
   const method_name = 'removeLiquidity';
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
@@ -153,6 +156,7 @@ async function redeem(
   const args = [
     tokenA,
     tokenB,
+    stable,
     amountBN,
     amountAMinimum,
     amountBMinimum,
