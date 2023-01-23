@@ -5,6 +5,7 @@ const ROUTERABI = require('../abi/ROUTER');
 const STAKERABI = require('../abi/STAKER');
 const PID = require('./PID');
 
+/// invest
 async function deposit(
   pool_name,
   chain,
@@ -175,6 +176,45 @@ async function redeem(
   };
 }
 
+/// claimInterests
+async function claimInterests(
+  pool_name,
+  chain,
+  underlying_tokens,
+  pool_address,
+  investing_address,
+  staking_address,
+  boosting_address,
+  distributor_address,
+  rewards_tokens,
+  metadata,
+  amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp,
+  deadline
+) {
+  const interaction_address = staking_address;
+  const abi = STAKERABI;
+  // Indeed 'deposit' to claim_rewards on Pancake
+  const method_name = 'claimFees';
+  const args = [];
+
+  return {
+    abi: abi, //json file name
+    method_name: method_name, //method to interact with the pool
+    position_token: null, // token needed to approve
+    position_token_type: 'ERC-20', //token type to approve
+    interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+    amount: null,
+    args: args, //args to pass to the smart contracts to trigger 'method_name'
+  };
+}
+
 /// stake
 async function stake(
   pool_name,
@@ -251,45 +291,6 @@ async function unstake(
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: amountBN,
-    args: args, //args to pass to the smart contracts to trigger 'method_name'
-  };
-}
-
-/// claimInterests
-async function claimInterests(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
-  const interaction_address = staking_address;
-  const abi = STAKERABI;
-  // Indeed 'deposit' to claim_rewards on Pancake
-  const method_name = 'claimFees';
-  const args = [];
-
-  return {
-    abi: abi, //json file name
-    method_name: method_name, //method to interact with the pool
-    position_token: null, // token needed to approve
-    position_token_type: 'ERC-20', //token type to approve
-    interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-    amount: null,
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
