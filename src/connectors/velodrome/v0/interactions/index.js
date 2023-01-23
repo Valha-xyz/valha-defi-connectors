@@ -202,7 +202,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
   const abi = STAKERABI;
   const method_name = 'deposit';
-  const args = [pid, amountBN];
+  const args = [amountBN, pid];
 
   return {
     abi: abi, //json file name
@@ -241,8 +241,8 @@ async function unstake(
   const interaction_address = staking_address;
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
   const abi = STAKERABI;
-  const method_name = 'withdraw';
-  const args = [pid, amountBN];
+  const method_name = 'withdrawToken';
+  const args = [amountBN, pid];
 
   return {
     abi: abi, //json file name
