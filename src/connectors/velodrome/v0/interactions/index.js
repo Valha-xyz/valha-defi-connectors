@@ -278,12 +278,12 @@ async function claimRewards(
   deadline
 ) {
   const pid = PID[pool_address.toLowerCase()];
-  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
+  const interaction_address = staking_address;
   const amountBN = await toBnERC20Decimals(0, chain, pool_address);
   const abi = STAKERABI;
   // Indeed 'deposit' to claim_rewards on Pancake
   const method_name = 'getReward';
-  const args = [receiverAddress, amountBN];
+  const args = [receiverAddress, rewards_tokens];
 
   return {
     abi: abi, //json file name
