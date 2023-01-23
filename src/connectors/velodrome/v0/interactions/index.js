@@ -282,8 +282,8 @@ async function claimRewards(
   const amountBN = await toBnERC20Decimals(0, chain, pool_address);
   const abi = STAKERABI;
   // Indeed 'deposit' to claim_rewards on Pancake
-  const method_name = 'deposit';
-  const args = [pid, amountBN];
+  const method_name = 'getReward';
+  const args = [receiverAddress, amountBN];
 
   return {
     abi: abi, //json file name
