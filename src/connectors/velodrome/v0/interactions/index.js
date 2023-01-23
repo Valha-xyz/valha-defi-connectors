@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const PoolABI = require('');
+const { toBnERC20Decimals } = require('src/utils/toBNTokenDecimals');
+const ROUTERABI = require('../abi/ROUTER');
+const STAKERABI = require('../abi/STAKER');
+const PID = require('./PID');
 
-/// invest
 async function deposit(
   pool_name,
   chain,
@@ -24,19 +26,88 @@ async function deposit(
   lockupTimestamp,
   deadline
 ) {
-  const abi = PoolABI;
-  const method_name = 'deposit';
-  const amountBN = '';
-  const args = [];
-  const interaction_address = '';
+  const abi = ROUTERABI;
+  const tokenA = underlying_tokens[0];
+  const tokenB = underlying_tokens[1];
+  const tokens = underlying_tokens.map((elem) => elem.toLowerCase());
+  const interaction_address = investing_address;
+  let method_name = '';
+  let args = [];
+  const amountADesired = await toBnERC20Decimals(
+    amountsDesiredNotBN[0],
+    chain,
+    underlying_tokens[0]
+  );
+  const amountBDesired = await toBnERC20Decimals(
+    amountsDesiredNotBN[1],
+    chain,
+    underlying_tokens[1]
+  );
+
+  if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
+    method_name = 'addLiquidityETH';
+    let amountDesired;
+    let nativePosition;
+    let tokenPosition;
+    if (tokens[0] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
+      nativePosition = 0;
+      tokenPosition = 1;
+      amountDesired = amountADesired;
+    }
+    if (tokens[1] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
+      nativePosition = 1;
+      tokenPosition = 0;
+      amountDesired = amountBDesired;
+    }
+    const amountMin = await toBnERC20Decimals(
+      amountsMinimumNotBN[tokenPosition],
+      chain,
+      underlying_tokens[tokenPosition]
+    );
+    const amountNativeMin = await toBnERC20Decimals(
+      amountsMinimumNotBN[nativePosition],
+      chain,
+      underlying_tokens[nativePosition]
+    );
+    args = [
+      underlying_tokens[tokenPosition],
+      amountDesired,
+      amountMin,
+      amountNativeMin,
+      receiverAddress,
+      deadline,
+    ];
+  } else {
+    method_name = 'addLiquidity';
+    const amountAMinimum = await toBnERC20Decimals(
+      amountsMinimumNotBN[0],
+      chain,
+      underlying_tokens[0]
+    );
+    const amountBMinimum = await toBnERC20Decimals(
+      amountsMinimumNotBN[1],
+      chain,
+      underlying_tokens[1]
+    );
+    args = [
+      tokenA,
+      tokenB,
+      amountADesired,
+      amountBDesired,
+      amountAMinimum,
+      amountBMinimum,
+      receiverAddress,
+      deadline,
+    ];
+  }
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: underlying_tokens[0], // token needed to approve
+    position_token: underlying_tokens, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-    amount: amountBN,
+    amount: [amountADesired, amountBDesired], //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };
 }
@@ -63,11 +134,31 @@ async function redeem(
   lockupTimestamp,
   deadline
 ) {
-  const abi = PoolABI;
-  const method_name = 'redeem';
-  const amountBN = '';
-  const args = [];
-  const interaction_address = '';
+  const abi = ROUTERABI;
+  const method_name = 'removeLiquidity';
+  const tokenA = underlying_tokens[0];
+  const tokenB = underlying_tokens[1];
+  const interaction_address = investing_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  const amountAMinimum = await toBnERC20Decimals(
+    amountsMinimumNotBN[0],
+    chain,
+    underlying_tokens[0]
+  );
+  const amountBMinimum = await toBnERC20Decimals(
+    amountsMinimumNotBN[1],
+    chain,
+    underlying_tokens[1]
+  );
+  const args = [
+    tokenA,
+    tokenB,
+    amountBN,
+    amountAMinimum,
+    amountBMinimum,
+    receiverAddress,
+    deadline,
+  ];
 
   return {
     abi: abi, //json file name
@@ -93,20 +184,26 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  user_address,
-  receiver_address,
-  lockup_timestamp
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp,
+  deadline
 ) {
-  const abi = '';
-  const method_name = 'stake';
-  const amountBN = '';
-  const args = [];
-  const interaction_address = '';
+  const pid = PID[pool_address.toLowerCase()];
+  const interaction_address = staking_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  const abi = STAKERABI;
+  const method_name = 'deposit';
+  const args = [pid, amountBN];
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: null, // token needed to approve
+    position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: amountBN,
@@ -127,15 +224,21 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
-  user_address,
-  receiver_address,
-  lockup_timestamp
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp,
+  deadline
 ) {
-  const abi = '';
-  const method_name = 'unstake';
-  const args = [];
-  const amountBN = '';
-  const interaction_address = '';
+  const pid = PID[pool_address.toLowerCase()];
+  const interaction_address = staking_address;
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  const abi = STAKERABI;
+  const method_name = 'withdraw';
+  const args = [pid, amountBN];
 
   return {
     abi: abi, //json file name
@@ -161,20 +264,27 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
-  user_address,
-  receiver_address,
-  lockup_timestamp
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
+  userAddress,
+  receiverAddress,
+  lockupTimestamp,
+  deadline
 ) {
-  const abi = '';
-  const method_name = 'claim';
-  const amountBN = '';
-  const args = [];
-  const interaction_address = '';
+  const pid = PID[pool_address.toLowerCase()];
+  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
+  const amountBN = await toBnERC20Decimals(0, chain, pool_address);
+  const abi = STAKERABI;
+  // Indeed 'deposit' to claim_rewards on Pancake
+  const method_name = 'deposit';
+  const args = [pid, amountBN];
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: null, // token needed to approve
+    position_token: pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: amountBN,
