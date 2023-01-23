@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 const PoolABI = require('../abi/Pool.json');
 
 /// invest
@@ -21,9 +22,13 @@ async function deposit(
 ) {
   const abi = PoolABI;
   const method_name = 'supply';
-  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amountNotBN,
+    chain,
+    underlying_tokens[0]
+  );
   const args = [underlying_tokens[0], amountBN, userAddress, 0];
-  const interaction_address = '';
+  const interaction_address = investing_address;
 
   return {
     abi: abi, //json file name
@@ -54,9 +59,9 @@ async function redeem(
 ) {
   const abi = PoolABI;
   const method_name = 'withdraw';
-  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
+  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
   const args = [underlying_tokens[0], amountBN, receiverAddress];
-  const interaction_address = '';
+  const interaction_address = investing_address;
 
   return {
     abi: abi, //json file name
@@ -87,9 +92,13 @@ async function claimRewards(
 ) {
   const abi = PoolABI;
   const method_name = 'claimRewards';
-  const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amountNotBN,
+    chain,
+    underlying_tokens[0]
+  );
   const args = [[underlying_tokens[0]], amountBN, receiver_address];
-  const interaction_address = '';
+  const interaction_address = investing_address;
 
   return {
     abi: abi, //json file name

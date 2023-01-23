@@ -4,17 +4,23 @@ const external = require('./external/DefiLlama/index');
 const pools = require('../pools');
 
 async function loadExternal(chain) {
-  const pools = await external.getApy(chain);
-  if (!pools || pools.length === 0) {
-    return null;
+  try {
+    const pools = await external.getApy(chain);
+    if (!pools || pools.length === 0) {
+      return null;
+    }
+    return pools;
+  } catch (err) {
+    console.log(err);
   }
-  return pools;
 }
 
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
   if (!POOLS || POOLS.length === 0) return {};
+  console.log('here');
   const externalInformation = await loadExternal(chain);
+  console.log('bug');
   if (!externalInformation) return {};
   const externalInfo = _.find(externalInformation, (elem) => {
     return elem.address.includes(poolAddress.toLowerCase());

@@ -52,43 +52,41 @@ const API_URLS = {
   fantom: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v3-fantom',
 };
 
-const query = () => {
-  gql`
-    query ReservesQuery {
-      reserves {
-        name
-        borrowingEnabled
-        aToken {
+const query = gql`
+  query ReservesQuery {
+    reserves {
+      name
+      borrowingEnabled
+      aToken {
+        id
+        rewards {
           id
-          rewards {
-            id
-            emissionsPerSecond
-            rewardToken
-            rewardTokenDecimals
-            rewardTokenSymbol
-            distributionEnd
-          }
-          underlyingAssetAddress
-          underlyingAssetDecimals
+          emissionsPerSecond
+          rewardToken
+          rewardTokenDecimals
+          rewardTokenSymbol
+          distributionEnd
         }
-        vToken {
-          rewards {
-            emissionsPerSecond
-            rewardToken
-            rewardTokenDecimals
-            rewardTokenSymbol
-            distributionEnd
-          }
-        }
-        symbol
-        liquidityRate
-        variableBorrowRate
-        baseLTVasCollateral
-        isFrozen
+        underlyingAssetAddress
+        underlyingAssetDecimals
       }
+      vToken {
+        rewards {
+          emissionsPerSecond
+          rewardToken
+          rewardTokenDecimals
+          rewardTokenSymbol
+          distributionEnd
+        }
+      }
+      symbol
+      liquidityRate
+      variableBorrowRate
+      baseLTVasCollateral
+      isFrozen
     }
-  `;
-};
+  }
+`;
 
 const apy = async () => {
   let data = await Promise.all(

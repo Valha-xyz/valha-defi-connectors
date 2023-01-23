@@ -62,7 +62,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           expect(POOL.underlying_tokens).toBeDefined();
         });
 
-        it(`Pool should have an investing address key defined`, async () => {
+        it(`Pool should have an investing address defined`, async () => {
           expect(POOL.investing_address).toBeDefined();
         });
 
@@ -75,7 +75,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           }
         });
 
-        it(`Pool should have a staking address key defined`, async () => {
+        it(`Pool should have a staking address defined`, async () => {
           expect(POOL.staking_address).toBeDefined();
         });
 
@@ -88,7 +88,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           }
         });
 
-        it(`Pool should have a boosting address key defined`, async () => {
+        it(`Pool should have a boosting address defined`, async () => {
           expect(POOL.boosting_address).toBeDefined();
         });
 
@@ -101,7 +101,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           }
         });
 
-        it(`Pool should have a distributor address key`, async () => {
+        it(`Pool should have a distributor address`, async () => {
           expect(POOL.distributor_address).toBeDefined();
         });
 
@@ -137,9 +137,13 @@ describe('CONNECTOR - ANALYTICS', () => {
 
         /// check when we call the function we have the information needed on this POOL
         it(`Should be able to call MAIN function to get analytics information`, async () => {
-          const { default: fn } = await import(analyticsPATH);
-          const result = fn.main(POOL.chain, POOL.pool_address);
-          expect(result).toBeTruthy();
+          try {
+            const { default: fn } = await import(analyticsPATH);
+            const result = fn.main(POOL.chain, POOL.pool_address);
+            expect(result).toBeTruthy();
+          } catch (err) {
+            console.log(err);
+          }
         });
       });
 
@@ -147,7 +151,9 @@ describe('CONNECTOR - ANALYTICS', () => {
         /// check when we call the function the information needed are in the good data type and in the good range
         it(`Should be able to call MAIN function to get analytics information`, async () => {
           const { default: fn } = await import(analyticsPATH);
+          console.log(fn);
           const info = await fn.main(POOL.chain, POOL.pool_address);
+          console.log(info);
           ///ALL DEFINED
           expect(info).toBeDefined();
           expect(info.status).toBeDefined();

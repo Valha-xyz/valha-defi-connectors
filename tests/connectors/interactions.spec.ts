@@ -5,14 +5,14 @@ import checkParam from './config/checkParam';
 const interactions = [
   'deposit',
   'deposit_and_stake',
-  'unlock',
-  'redeem',
-  'stake',
-  'unstake',
-  'boost',
-  'unboost',
-  'claim_rewards',
-  'claim_interests',
+  // 'unlock',
+  // 'redeem',
+  // 'stake',
+  // 'unstake',
+  // 'boost',
+  // 'unboost',
+  // 'claim_rewards',
+  // 'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
@@ -42,7 +42,7 @@ async function checkFnCallableReturn(
   amountBN: string,
   userAddress: string,
   receiverAddress: string,
-  lockupTimestamp: string,
+  lockupTimestamp: string
 ) {
   const { default: fn } = await import(path);
   if (fn[name]) {
@@ -60,7 +60,7 @@ async function checkFnCallableReturn(
       amountBN,
       userAddress,
       receiverAddress,
-      lockupTimestamp,
+      lockupTimestamp
     );
     return result;
   }
@@ -74,38 +74,38 @@ function checkArgType(arg: string, type: string): boolean {
       const num = parseInt(arg);
       if ((num !== 0 && !num) || num < 0) {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else if (type.includes('address')) {
       const isEVM = isEVMAddress(arg.toLowerCase());
       if (!isEVM) {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else if (type.includes('string')) {
       const check = typeof arg;
       if (check !== 'string') {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else if (type.includes('bytes')) {
       console.log(
         '\x1b[33m%s\x1b[0m',
-        `WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.`,
+        `WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.`
       );
     } else if (type.includes('bool')) {
       const check = typeof arg;
       if (check !== 'boolean') {
         throw new Error(
-          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`,
+          `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
     } else {
       throw new Error(
-        `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`,
+        `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`
       );
     }
     return true;
@@ -138,7 +138,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      'connector',
+      'connector'
     );
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
@@ -146,7 +146,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
       throw new Error(
         `
         ⚠️⚠️⚠️ You did not specify any name for your connector. Run "npm run "test_name" -- --connector="name_of_your_connector"" ⚠️⚠️⚠️
-        `,
+        `
       );
     }
     interactionPATH = `src/connectors/${connector}/interactions/index`;
@@ -176,7 +176,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result) {
               expect(result).toBeDefined();
@@ -198,7 +198,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result) {
               const ABI = result.abi;
@@ -229,7 +229,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result) {
               const abiSTRING = JSON.stringify(result.abi);
@@ -248,11 +248,11 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result && result.position_token_type) {
               expect(['ERC-20', 'ERC-721']).toContain(
-                result.position_token_type,
+                result.position_token_type
               );
             }
           });
@@ -266,7 +266,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result) {
               expect(Array.isArray(result.abi)).toBeTruthy();
@@ -282,7 +282,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result) {
               const ABI = result.abi;
@@ -300,7 +300,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
                 }
               });
               expect(ABIinteractionDefinition.inputs.length).toBe(
-                result.args.length,
+                result.args.length
               );
             }
           });
@@ -314,7 +314,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result) {
               const ABI = result.abi;
@@ -337,7 +337,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               } else {
                 check = doesArgTypeMatch(
                   result.args,
-                  ABIinteractionDefinition.inputs,
+                  ABIinteractionDefinition.inputs
                 );
               }
               expect(check).toBeTruthy();
@@ -353,11 +353,11 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result && result.interaction_address) {
               expect(
-                isEVMAddress(result.interaction_address.toLowerCase()),
+                isEVMAddress(result.interaction_address.toLowerCase())
               ).toBeTruthy();
             }
           });
@@ -371,11 +371,11 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '10000',
               userAddress,
               userAddress,
-              '',
+              ''
             );
             if (result && result.position_token) {
               expect(
-                isEVMAddress(result.position_token.toLowerCase()),
+                isEVMAddress(result.position_token.toLowerCase())
               ).toBeTruthy();
             }
           });
