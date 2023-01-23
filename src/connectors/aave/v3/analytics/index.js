@@ -1,17 +1,43 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const _ = require('lodash');
+const external = require('./external/DefiLlama/index');
+const pools = require('../pools');
+
+async function loadExternal(chain) {
+  const pools = await external.getApy(chain);
+  if (!pools || pools.length === 0) {
+    return null;
+  }
+  return pools;
+}
+
 async function analytics(chain, poolAddress) {
-  const tvl = 0;
+  const POOLS = await pools();
+  if (!POOLS || POOLS.length === 0) return {};
+  const externalInformation = await loadExternal(chain);
+  if (!externalInformation) return {};
+  const externalInfo = _.find(externalInformation, (elem) => {
+    return elem.address.includes(poolAddress.toLowerCase());
+  });
+
+  const tvl = externalInfo['tvlUsd'];
+  const activity_apy = externalInfo['apyBase'];
+  const rewards_apy = externalInfo['apyReward'];
+  const outloans = externalInfo['totalBorrowUsd'];
+
+  const totalAPY = activity_apy + rewards_apy;
 
   const result = {
     status: null,
-    tvl: 10,
-    liquidity: 10,
-    outloans: 10,
+    tvl: tvl,
+    liquidity: tvl,
+    outloans: outloans,
     losses: null,
-    capacity: 5,
-    apy: 5.5,
-    activity_apy: 3,
-    rewards_apy: 2.5,
-    boosting_apy: 0,
+    capacity: Number.MAX_SAFE_INTEGER,
+    apy: totalAPY,
+    activity_apy: ActAPY,
+    rewards_apy: RewAPY,
+    boosting_apy: null,
     share_price: 1,
     minimum_deposit: null,
     maximum_deposit: null,
@@ -22,5 +48,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: external.url,
+  url: 'https://app.aave.com/',
 };

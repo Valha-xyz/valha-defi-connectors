@@ -336,6 +336,7 @@ const getApy = async (chain) => {
 
       return {
         pool: `${pool.aToken.id}-${chain}`.toLowerCase(),
+        address: pool.aToken.id.toLowerCase(),
         chain: utils.formatChain(chain),
         project: 'aave-v3',
         symbol: pool.symbol,
@@ -371,4 +372,5 @@ const getApy = async (chain) => {
 
 module.exports = {
   apy: apy,
+  getApy: getApy,
 };
