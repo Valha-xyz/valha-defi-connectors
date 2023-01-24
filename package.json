@@ -8,7 +8,7 @@
   },
   "scripts": {
     "install-foundry": "curl -L https://foundry.paradigm.xyz | bash && foundryup",
-    "create-connector": "node scripts/createConnectorFile -- --connector=curve/1",
+    "create-connector": "node scripts/createConnectorFile $npm_package_config_connector",
     "create-connector-erc4626": "node scripts/createConnectorERC4626File $npm_package_config_connector",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
     "test": "jest --forceExit",

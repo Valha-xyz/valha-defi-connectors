@@ -9,11 +9,11 @@ const analyticsSRC = "/blueprint/js/analytics.js";
 function checkParam(string, arg) {
   try {
     const SPLIT = string.split(`--${arg}=`)[1];
-    console.log("split", SPLIT);
     if (!SPLIT) {
       return { arg: null, err: null };
     }
-    const param = SPLIT;
+    const endCharacter = SPLIT.indexOf('"');
+    const param = SPLIT.substring(0, endCharacter);
     if (!param) {
       throw new Error(
         `
