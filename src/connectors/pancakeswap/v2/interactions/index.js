@@ -30,19 +30,9 @@ async function deposit(
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
   const tokens = underlying_tokens.map((elem) => elem.toLowerCase());
-  const interaction_address = pool_address;
+  const interaction_address = investing_address;
   let method_name = '';
   let args = [];
-  let nativeTokenPosition = -1;
-  let tokenPosition = -1;
-  if (tokenA === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-    nativeTokenPosition = 0;
-    tokenPosition = 1;
-  }
-  if (tokenB === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-    nativeTokenPosition = 1;
-    tokenPosition = 0;
-  }
   const amountADesired = await toBnERC20Decimals(
     amountsDesiredNotBN[0],
     chain,
@@ -148,7 +138,7 @@ async function redeem(
   const method_name = 'removeLiquidity';
   const tokenA = underlying_tokens[0];
   const tokenB = underlying_tokens[1];
-  const interaction_address = pool_address;
+  const interaction_address = investing_address;
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
   const amountAMinimum = await toBnERC20Decimals(
     amountsMinimumNotBN[0],
@@ -204,7 +194,7 @@ async function stake(
   deadline
 ) {
   const pid = PID[pool_address.toLowerCase()];
-  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
+  const interaction_address = staking_address;
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
   const abi = STAKERABI;
   const method_name = 'deposit';
@@ -244,7 +234,7 @@ async function unstake(
   deadline
 ) {
   const pid = PID[pool_address.toLowerCase()];
-  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
+  const interaction_address = staking_address;
   const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
   const abi = STAKERABI;
   const method_name = 'withdraw';
