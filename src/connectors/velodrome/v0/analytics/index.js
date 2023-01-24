@@ -1,4 +1,5 @@
 const checkVelodromeV0Data = require('./function/data');
+const checkVelodromeV0Supply = require('./function/totalSupply');
 
 async function analytics(chain, poolAddress) {
   try {
@@ -6,10 +7,15 @@ async function analytics(chain, poolAddress) {
     if (info.err) throw new Error(info.err);
     const data = info.data;
 
+    const supplyInfo = await checkVelodromeV0Supply(chain, poolAddress);
+    if (supplyInfo.err) throw new Error(supplyInfo.err);
+    const supply = supplyInfo.data;
+
     const ActAPY = 0;
     const RewAPY = data['rewards_apy'];
     const TotalAPY = ActAPY + RewAPY;
     const TVL = data['tvl'];
+    const sharePrice = TVL / supply;
 
     const result = {
       status: null,
@@ -22,7 +28,7 @@ async function analytics(chain, poolAddress) {
       activity_apy: ActAPY,
       rewards_apy: RewAPY,
       boosting_apy: null,
-      share_price: sharePrice.data,
+      share_price: sharePrice,
       minimum_deposit: null,
       maximum_deposit: null,
     };
