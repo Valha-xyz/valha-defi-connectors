@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 
 async function checkVelodromeV0Supply(chain, poolAddress) {

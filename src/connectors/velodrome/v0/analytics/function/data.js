@@ -22,8 +22,6 @@ async function checkVelodromeV0Data(chain, poolAddress) {
     const poolInfo = poolsInfo[0];
     const tvl = poolInfo.tvl;
     const apy = poolInfo.apr;
-    console.log(tvl);
-    console.log(apy);
     return {
       data: {
         tvl: tvl ? tvl : 0,

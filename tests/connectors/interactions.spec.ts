@@ -4,15 +4,15 @@ import checkParam from './config/checkParam';
 
 const interactions = [
   'deposit',
-  'deposit_and_stake',
+  // 'deposit_and_stake',
   // 'unlock',
-  // 'redeem',
-  // 'stake',
-  // 'unstake',
+  'redeem',
+  'stake',
+  'unstake',
   // 'boost',
   // 'unboost',
-  // 'claim_rewards',
-  // 'claim_interests',
+  'claim_rewards',
+  'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
@@ -49,32 +49,38 @@ async function checkFnCallableReturn(
   lockupTimestamp: string,
   deadline: number
 ) {
-  const { default: fn } = await import(path);
-  if (fn[name]) {
-    const result = fn[name](
-      POOL.name,
-      POOL.chain,
-      POOL.underlying_tokens,
-      POOL.pool_address,
-      POOL.investing_address,
-      POOL.staking_address,
-      POOL.boosting_address,
-      POOL.distributor_address,
-      POOL.rewards_tokens,
-      POOL.metadata,
-      amountBN,
-      amountsDesiredNotBN,
-      amountsMinimumNotBN,
-      ranges,
-      rangeToken,
-      userAddress,
-      receiverAddress,
-      lockupTimestamp,
-      deadline
-    );
-    return result;
+  try {
+    console.log(path);
+    const { default: fn } = await import(path);
+    if (fn[name]) {
+      const result = await fn[name](
+        POOL.name,
+        POOL.chain,
+        POOL.underlying_tokens,
+        POOL.pool_address,
+        POOL.investing_address,
+        POOL.staking_address,
+        POOL.boosting_address,
+        POOL.distributor_address,
+        POOL.rewards_tokens,
+        POOL.metadata,
+        amountBN,
+        amountsDesiredNotBN,
+        amountsMinimumNotBN,
+        ranges,
+        rangeToken,
+        userAddress,
+        receiverAddress,
+        lockupTimestamp,
+        deadline
+      );
+      console.log(result);
+      return result;
+    }
+    return null;
+  } catch (err) {
+    console.log(err);
   }
-  return null;
 }
 
 function checkArgType(arg: string, type: string): boolean {
