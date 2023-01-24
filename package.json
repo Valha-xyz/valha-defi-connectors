@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Valha-xyz/Valha-connectors#readme",
   "dependencies": {
+    "@curvefi/api": "^2.25.4",
     "@defillama/sdk": "^3.0.1",
     "bignumber.js": "^9.1.0",
     "dotenv": "^16.0.3",
