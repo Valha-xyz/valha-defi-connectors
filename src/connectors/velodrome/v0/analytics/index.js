@@ -22,5 +22,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: external.url,
+  url: 'https://app.velodrome.finance/liquidity',
 };
