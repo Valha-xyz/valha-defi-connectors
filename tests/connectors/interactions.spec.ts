@@ -5,14 +5,14 @@ import checkParam from './config/checkParam';
 const interactions = [
   'deposit',
   'deposit_and_stake',
-  'unlock',
-  'redeem',
-  'stake',
-  'unstake',
-  'boost',
-  'unboost',
-  'claim_rewards',
-  'claim_interests',
+  // 'unlock',
+  // 'redeem',
+  // 'stake',
+  // 'unstake',
+  // 'boost',
+  // 'unboost',
+  // 'claim_rewards',
+  // 'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
