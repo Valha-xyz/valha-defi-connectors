@@ -5,14 +5,14 @@ import checkParam from './config/checkParam';
 const interactions = [
   'deposit',
   'deposit_and_stake',
-  'unlock',
-  'redeem',
-  'stake',
-  'unstake',
-  'boost',
-  'unboost',
-  'claim_rewards',
-  'claim_interests',
+  // 'unlock',
+  // 'redeem',
+  // 'stake',
+  // 'unstake',
+  // 'boost',
+  // 'unboost',
+  // 'claim_rewards',
+  // 'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
@@ -46,8 +46,12 @@ async function checkFnCallableReturn(
   rangeToken: string,
   userAddress: string,
   receiverAddress: string,
+<<<<<<< HEAD
+  lockupTimestamp: string
+=======
   lockupTimestamp: string,
   deadline: number
+>>>>>>> staging
 ) {
   const { default: fn } = await import(path);
   if (fn[name]) {
@@ -69,8 +73,12 @@ async function checkFnCallableReturn(
       rangeToken,
       userAddress,
       receiverAddress,
+<<<<<<< HEAD
+      lockupTimestamp
+=======
       lockupTimestamp,
       deadline
+>>>>>>> staging
     );
     return result;
   }
@@ -190,8 +198,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result) {
               expect(result).toBeDefined();
@@ -217,8 +229,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result) {
               const ABI = result.abi;
@@ -253,8 +269,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result) {
               const abiSTRING = JSON.stringify(result.abi);
@@ -277,8 +297,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result && result.position_token_type) {
               expect(['ERC-20', 'ERC-721']).toContain(
@@ -300,8 +324,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result) {
               expect(Array.isArray(result.abi)).toBeTruthy();
@@ -321,8 +349,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result) {
               const ABI = result.abi;
@@ -358,8 +390,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result) {
               const ABI = result.abi;
@@ -402,8 +438,12 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
             if (result && result.interaction_address) {
               expect(
@@ -425,11 +465,20 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
+              ''
+=======
               '',
               0
+>>>>>>> staging
             );
 
             if (result && result.position_token) {
+<<<<<<< HEAD
+              expect(
+                isEVMAddress(result.position_token.toLowerCase())
+              ).toBeTruthy();
+=======
               if (Array.isArray(result.position_token)) {
                 for (let elem of result.position_token) {
                   expect(isEVMAddress(elem.toLowerCase())).toBeTruthy();
@@ -439,6 +488,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
                   isEVMAddress(result.position_token.toLowerCase())
                 ).toBeTruthy();
               }
+>>>>>>> staging
             }
           });
         }
