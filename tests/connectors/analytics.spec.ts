@@ -151,9 +151,7 @@ describe('CONNECTOR - ANALYTICS', () => {
         /// check when we call the function the information needed are in the good data type and in the good range
         it(`Should be able to call MAIN function to get analytics information`, async () => {
           const { default: fn } = await import(analyticsPATH);
-          console.log(fn);
           const info = await fn.main(POOL.chain, POOL.pool_address);
-          console.log(info);
           ///ALL DEFINED
           expect(info).toBeDefined();
           expect(info.status).toBeDefined();
