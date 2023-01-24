@@ -2,36 +2,20 @@
 const _ = require('lodash');
 const external = require('./external/DefiLlama/index');
 const pools = require('../pools');
-
-async function loadExternal(chain) {
-  try {
-    const pools = await external.getApy(chain);
-    if (!pools || pools.length === 0) {
-      return null;
-    }
-    return pools;
-  } catch (err) {
-    console.log(err);
-  }
-}
+const checkAaveV3TVL = require('./functions/tvl');
+const checkAaveV3Liquidity = require('./functions/liquidity');
+const checkAaveV3APYs = require('./functions/apys');
 
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
   if (!POOLS || POOLS.length === 0) return {};
-  console.log('here');
-  const externalInformation = await loadExternal(chain);
-  console.log('bug');
-  if (!externalInformation) return {};
-  const externalInfo = _.find(externalInformation, (elem) => {
-    return elem.address.includes(poolAddress.toLowerCase());
-  });
-
-  const tvl = externalInfo['tvlUsd'];
-  const liquidity = externalInfo['tvlUsd'];
+  const tvl = await checkAaveV3TVL(chain, poolAddress);
+  const liquidity = await checkAaveV3Liquidity(chain, poolAddress);
   const outloans = tvl - liquidity;
-  const activity_apy = externalInfo['apyBase'];
-  const rewards_apy = externalInfo['apyReward'];
-
+  const APY = await checkAaveV3APYs(chain, poolAddress, parseFloat(tvl));
+  if (APY.err) throw new Error(APY.err);
+  const ActAPY = APY.data['activity_apy'];
+  const RewAPY = APY.data['activity_rewards'];
   const totalAPY = activity_apy + rewards_apy;
 
   const result = {
