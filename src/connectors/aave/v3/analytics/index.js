@@ -27,16 +27,17 @@ async function analytics(chain, poolAddress) {
   });
 
   const tvl = externalInfo['tvlUsd'];
+  const liquidity = externalInfo['tvlUsd'];
+  const outloans = tvl - liquidity;
   const activity_apy = externalInfo['apyBase'];
   const rewards_apy = externalInfo['apyReward'];
-  const outloans = externalInfo['totalBorrowUsd'];
 
   const totalAPY = activity_apy + rewards_apy;
 
   const result = {
     status: null,
     tvl: tvl,
-    liquidity: tvl,
+    liquidity: liquidity,
     outloans: outloans,
     losses: null,
     capacity: Number.MAX_SAFE_INTEGER,

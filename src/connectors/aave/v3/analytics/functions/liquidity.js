@@ -4,7 +4,7 @@ const ethers = require('ethers');
 const ATokenABI = require('../../abi/AToken.json');
 const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 
-async function checkAaveV3Outloans(chain, poolAddress) {
+async function checkAaveV3TVL(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
@@ -27,4 +27,4 @@ async function checkAaveV3Outloans(chain, poolAddress) {
   }
 }
 
-module.exports = checkAaveV3Outloans;
+module.exports = checkAaveV3TVL;
