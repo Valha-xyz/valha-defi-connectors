@@ -83,6 +83,7 @@ async function checkAaveV3APYs(chain, poolAddress, totalSupplyUSD) {
       );
     const poolInfo = data[0];
 
+    /// information on 27 decimals coming from documentation
     const activity_apy = (poolInfo.liquidityRate / 10 ** 27) * 100;
     let rewards_apy = 0;
     const { rewards } = poolInfo.aToken;
