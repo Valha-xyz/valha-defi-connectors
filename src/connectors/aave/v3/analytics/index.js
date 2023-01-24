@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const external = require('./external/DefiLlama/index');
 const pools = require('../pools');
 const checkAaveV3TVL = require('./functions/tvl');
 const checkAaveV3Liquidity = require('./functions/liquidity');
@@ -33,6 +32,8 @@ async function analytics(chain, poolAddress) {
     minimum_deposit: null,
     maximum_deposit: null,
   };
+
+  console.log(result);
 
   return result;
 }

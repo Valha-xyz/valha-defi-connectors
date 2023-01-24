@@ -72,11 +72,9 @@ async function checkAaveV3APYs(chain, poolAddress, totalSupplyUSD) {
   try {
     const SUBGRAPH_URL = SUBGRAPH_URLS[chain];
     const { reserves } = await request(SUBGRAPH_URL, reserveQuery);
-    const data = await reserves.filter(
-      (elem) =>
-        poolAddress.toLowerCase() ===
-        elem.aToken.underlyingAssetAddress.toLowerCase()
-    );
+    const data = await reserves.filter((elem) => {
+      poolAddress.toLowerCase() === elem.aToken.id.toLowerCase();
+    });
     if (data.length !== 1)
       throw new Error(
         `AAVE V3: there was an issue while checking APY for ${poolAddress}`

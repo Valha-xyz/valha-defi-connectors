@@ -10,7 +10,7 @@ async function checkAaveV3Liquidity(chain, poolAddress) {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const AToken = new ethers.Contract(poolAddress, ATokenABI, provider);
-    const underlyingTokenAddress = await AToken.underlyingAssetAddress();
+    const underlyingTokenAddress = await AToken.UNDERLYING_ASSET_ADDRESS();
     const { data, err } = await getGeckoTokenPrice(
       chain,
       underlyingTokenAddress
