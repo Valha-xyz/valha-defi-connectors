@@ -40,9 +40,18 @@ async function checkFnCallableReturn(
   name: string,
   path: string,
   amountBN: string,
+  amountsDesiredNotBN: string[],
+  amountsMinimumNotBN: string[],
+  ranges: string[],
+  rangeToken: string,
   userAddress: string,
   receiverAddress: string,
+<<<<<<< HEAD
   lockupTimestamp: string
+=======
+  lockupTimestamp: string,
+  deadline: number
+>>>>>>> staging
 ) {
   const { default: fn } = await import(path);
   if (fn[name]) {
@@ -58,9 +67,18 @@ async function checkFnCallableReturn(
       POOL.rewards_tokens,
       POOL.metadata,
       amountBN,
+      amountsDesiredNotBN,
+      amountsMinimumNotBN,
+      ranges,
+      rangeToken,
       userAddress,
       receiverAddress,
+<<<<<<< HEAD
       lockupTimestamp
+=======
+      lockupTimestamp,
+      deadline
+>>>>>>> staging
     );
     return result;
   }
@@ -159,7 +177,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
     } - ${POOL.pool_address ? POOL.pool_address : 'NULL'} ####`, () => {
       describe(`-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS`, () => {
         for (const interaction of interactions) {
-          it(`Should have the ${interaction} function`, async () => {
+          it(`Should have the ${interaction.toUpperCase()} function`, async () => {
             await checkFnExists(interaction, interactionPATH);
           });
         }
@@ -167,16 +185,25 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
       describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
         for (const interaction of interactions) {
-          it(`${interaction} should be callable and return the expected information`, async () => {
+          it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result) {
               expect(result).toBeDefined();
@@ -189,16 +216,25 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return a "valid" ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return a "valid" ABI`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result) {
               const ABI = result.abi;
@@ -220,16 +256,25 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
+          it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result) {
               const abiSTRING = JSON.stringify(result.abi);
@@ -239,16 +284,25 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
+          it(`${interaction.toUpperCase()} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result && result.position_token_type) {
               expect(['ERC-20', 'ERC-721']).toContain(
@@ -257,32 +311,50 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return ARGS as an array`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS as an array`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result) {
               expect(Array.isArray(result.abi)).toBeTruthy();
             }
           });
 
-          it(`${interaction} should return ARGS with the same length than in the ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS with the same length than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result) {
               const ABI = result.abi;
@@ -305,16 +377,25 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return ARGS with the same type than in the ABI`, async () => {
+          it(`${interaction.toUpperCase()} should return ARGS with the same type than in the ABI`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result) {
               const ABI = result.abi;
@@ -344,16 +425,25 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
+          it(`${interaction.toUpperCase()} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
             if (result && result.interaction_address) {
               expect(
@@ -362,21 +452,43 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction} should return POSITION_TOKEN as a valid EVM address`, async () => {
+          it(`${interaction.toUpperCase()} should return POSITION_TOKEN as a valid EVM address`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
               '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
+<<<<<<< HEAD
               ''
+=======
+              '',
+              0
+>>>>>>> staging
             );
+
             if (result && result.position_token) {
+<<<<<<< HEAD
               expect(
                 isEVMAddress(result.position_token.toLowerCase())
               ).toBeTruthy();
+=======
+              if (Array.isArray(result.position_token)) {
+                for (let elem of result.position_token) {
+                  expect(isEVMAddress(elem.toLowerCase())).toBeTruthy();
+                }
+              } else {
+                expect(
+                  isEVMAddress(result.position_token.toLowerCase())
+                ).toBeTruthy();
+              }
+>>>>>>> staging
             }
           });
         }

@@ -4,7 +4,7 @@ import { checkTruefiV2Share } from './functions/sharePrice';
 import { checkTruefiV2Liquidity } from './functions/liquidity';
 import { checkTruefiV2Outloans } from './functions/outloans';
 import { checkTruefiV2Status } from './functions/status';
-import pools from '../pools';
+import pools from '../pools/pools';
 import { checkTruefiV2TVL } from './functions/tvl';
 
 /// APY

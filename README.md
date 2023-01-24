@@ -113,7 +113,8 @@ Your connector folder must respect the following structure to pass tests:
 │ │ │  │  ├── index.js/ts
 │ │ │  ├── interactions
 │ │ │  │  ├── index.js/ts
-│ │ │  ├── pools.js/ts
+│ │ │  ├── pools
+│ │ │  │  ├── pools.js/ts
 ```
 
 <br />
@@ -343,9 +344,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = ERC4626ABI;
   const method_name = 'deposit';
@@ -378,9 +384,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
-  lockupTimestamp
+  lockupTimestamp,
+  deadline
 ) {
   const abi = ERC4626ABI;
   const method_name = 'redeem';

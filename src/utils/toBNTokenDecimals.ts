@@ -5,7 +5,7 @@ import { getNodeProvider } from './getNodeProvider';
 export async function toBnERC20Decimals(
   amount: string,
   chain: string,
-  tokenAddress: string,
+  tokenAddress: string
 ): Promise<string | null> {
   try {
     const parsedAmount = parseFloat(amount);
@@ -24,10 +24,10 @@ export async function toBnERC20Decimals(
       decimals = await erc20Decimals(provider, tokenAddress);
     }
     const valueWithDecimalsPrecision = parseInt(
-      String(parsedAmount * 10 ** decimal_precision),
+      String(parsedAmount * 10 ** decimal_precision)
     );
     const value = new BN(String(valueWithDecimalsPrecision)).mul(
-      new BN(String(10 ** (decimals - decimal_precision))),
+      new BN(String(10 ** (decimals - decimal_precision)))
     );
     // return a Big Number
     return value.toString();

@@ -3,13 +3,7 @@
 const VaultABI = require('../abi/Vault.json');
 const StakingABI = require('../abi/FairLaunch.json');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-
-const POOLID = {
-  '0x800933d685e7dc753758ceb77c8bd34abf1e26d7': 24,
-  '0x158da805682bdc8ee32d52833ad41e74bb951e59': 16,
-  '0x7c9e73d4c71dae564d41f78d56439bb4ba87592f': 3,
-  '0x3282d2a151ca00bfe7ed17aa16e42880248cd3cd': 20,
-};
+const PID = require('./PID');
 
 /// invest
 async function deposit(
@@ -24,9 +18,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = VaultABI;
   const method_name = 'deposit';
@@ -63,9 +62,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = VaultABI;
   const method_name = 'withdraw';
@@ -97,11 +101,16 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
-  const poolId = POOLID[pool_address.toLowerCase()];
+  const poolId = PID[pool_address.toLowerCase()];
   const abi = StakingABI;
   const method_name = 'deposit';
   const position_token = pool_address;
@@ -132,11 +141,16 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
-  const poolId = POOLID[pool_address.toLowerCase()];
+  const poolId = PID[pool_address.toLowerCase()];
   const abi = StakingABI;
   const method_name = 'withdraw';
   const position_token = pool_address;
@@ -167,9 +181,14 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = StakingABI;
   const method_name = 'harvest';

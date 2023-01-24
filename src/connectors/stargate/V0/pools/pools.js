@@ -26,7 +26,7 @@ const POOLS = [
   {
     name: 'USDC Bridge',
     chain: 'optimism',
-    underlying_tokens: ['0x7f5c764cbc14f9669b88837ca1490cca17c316'],
+    underlying_tokens: ['0x7f5c764cbc14f9669b88837ca1490cca17c31607'],
     pool_address: '0xdecc0c09c3b5f6e92ef4184125d5648a66e35298',
     investing_address: '0xb0d502e938ed5f4df2e681fe6e419ff29631d62b',
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { apy, url } from './external/DefiLlama/index';
-import pools from '../pools';
+import pools from '../pools/pools';
 import { checkMapleV3Liquidity } from './functions/liquidity';
 import { checkMapleV3Outloans } from './functions/outloans';
 import { checkMapleV3Status } from './functions/status';

@@ -7,21 +7,9 @@ const MasterABI = require('../abi/Master.json');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { getCurrentBlock } = require('../../../../utils/getCurrentBlock');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { getWombatPid } = require('./PID');
 
 const MasterAddress = '0xE2C07d20AF0Fb50CAE6cDD615CA44AbaAA31F9c8';
-
-async function getWombatPid(poolAddress) {
-  try {
-    const provider = await getNodeProvider('bsc');
-    if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(MasterAddress, MasterABI, provider);
-    const idBN = await POOL.getAssetPid(poolAddress);
-    return idBN.toString();
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
-}
 
 /// invest
 async function deposit(
@@ -36,9 +24,14 @@ async function deposit(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'deposit';
@@ -79,9 +72,14 @@ async function redeem(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = PoolABI;
   const method_name = 'withdraw';
@@ -123,9 +121,14 @@ async function stake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = StakeABI;
   const method_name = 'deposit';
@@ -158,9 +161,14 @@ async function unstake(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = StakeABI;
   const method_name = 'withdraw';
@@ -193,9 +201,14 @@ async function boost(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -213,9 +226,14 @@ async function unboost(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   return {};
 }
@@ -233,9 +251,14 @@ async function claimRewards(
   rewards_tokens,
   metadata,
   amountNotBN,
+  amountsDesiredNotBN,
+  amountsMinimumNotBN,
+  ranges,
+  rangeToken,
   userAddress,
   receiverAddress,
   lockupTimestamp,
+  deadline
 ) {
   const abi = StakeABI;
   const method_name = 'multiClaim';
