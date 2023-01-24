@@ -167,7 +167,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           expect(info.rewards_apy).toBeDefined();
           expect(info.boosting_apy).toBeDefined();
           expect(info.share_price).toBeDefined();
-          ///SOME NECESSARY TO HAVE THE RIGHT TYPE
+          ///SOME NEED TO HAVE THE RIGHT TYPE
           expect(typeof info.tvl).toBe('number');
           expect(typeof info.liquidity).toBe('number');
           expect(typeof info.apy).toBe('number');
