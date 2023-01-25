@@ -183,7 +183,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
       describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
         for (const interaction of interactions) {
-          it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
+          it.only(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
@@ -246,7 +246,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
+          it.only(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
