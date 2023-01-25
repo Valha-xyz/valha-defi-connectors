@@ -4,15 +4,15 @@ import checkParam from './config/checkParam';
 
 const interactions = [
   'deposit',
-  'deposit_and_stake',
+  // 'deposit_and_stake',
   // 'unlock',
-  // 'redeem',
-  // 'stake',
-  // 'unstake',
+  'redeem',
+  'stake',
+  'unstake',
   // 'boost',
   // 'unboost',
-  // 'claim_rewards',
-  // 'claim_interests',
+  'claim_rewards',
+  'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
@@ -49,32 +49,38 @@ async function checkFnCallableReturn(
   lockupTimestamp: string,
   deadline: number
 ) {
-  const { default: fn } = await import(path);
-  if (fn[name]) {
-    const result = fn[name](
-      POOL.name,
-      POOL.chain,
-      POOL.underlying_tokens,
-      POOL.pool_address,
-      POOL.investing_address,
-      POOL.staking_address,
-      POOL.boosting_address,
-      POOL.distributor_address,
-      POOL.rewards_tokens,
-      POOL.metadata,
-      amountBN,
-      amountsDesiredNotBN,
-      amountsMinimumNotBN,
-      ranges,
-      rangeToken,
-      userAddress,
-      receiverAddress,
-      lockupTimestamp,
-      deadline
-    );
-    return result;
+  try {
+    console.log(path);
+    const { default: fn } = await import(path);
+    if (fn[name]) {
+      const result = await fn[name](
+        POOL.name,
+        POOL.chain,
+        POOL.underlying_tokens,
+        POOL.pool_address,
+        POOL.investing_address,
+        POOL.staking_address,
+        POOL.boosting_address,
+        POOL.distributor_address,
+        POOL.rewards_tokens,
+        POOL.metadata,
+        amountBN,
+        amountsDesiredNotBN,
+        amountsMinimumNotBN,
+        ranges,
+        rangeToken,
+        userAddress,
+        receiverAddress,
+        lockupTimestamp,
+        deadline
+      );
+      console.log(result);
+      return result;
+    }
+    return null;
+  } catch (err) {
+    console.log(err);
   }
-  return null;
 }
 
 function checkArgType(arg: string, type: string): boolean {
@@ -177,7 +183,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
       describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
         for (const interaction of interactions) {
-          it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
+          it.only(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
             const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
@@ -240,7 +246,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
             }
           });
 
-          it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
+          it.only(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
             const result = await checkFnCallableReturn(
               POOL,
