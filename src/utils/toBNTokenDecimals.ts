@@ -1,6 +1,6 @@
-import BN from 'bn.js';
-import { erc20Decimals } from './ERC20Decimals';
-import { getNodeProvider } from './getNodeProvider';
+import BN from "bn.js";
+import { erc20Decimals } from "./ERC20Decimals";
+import { getNodeProvider } from "./getNodeProvider";
 
 export async function toBnERC20Decimals(
   amount: string,
@@ -15,12 +15,12 @@ export async function toBnERC20Decimals(
     let decimals = 18;
     if (
       tokenAddress.toLowerCase() ===
-      String('0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE').toLowerCase()
+      String("0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE").toLowerCase()
     ) {
       decimals = 18;
     } else {
       const provider = await getNodeProvider(chain);
-      if (!provider) throw new Error('No provider was found.');
+      if (!provider) throw new Error("No provider was found.");
       decimals = await erc20Decimals(provider, tokenAddress);
     }
     const valueWithDecimalsPrecision = parseInt(

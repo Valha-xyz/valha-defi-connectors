@@ -78,8 +78,13 @@ async function prepareTestPools() {
     }
 
     fs.writeFileSync(
-      'tests/connectors/config/testPools.js',
-      'module.exports = ' + JSON.stringify(poolsToWrite)
+      'tests/connectors/config/testPools.ts',
+      `
+        import {Pool} from "../../../src/utils/types/connector-types"
+
+        export const POOLS: Pool[] = ${JSON.stringify(poolsToWrite)}
+
+      `
     );
   } catch (err) {
     formatError(err.message);

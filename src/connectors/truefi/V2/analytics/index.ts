@@ -1,11 +1,11 @@
-import _ from 'lodash';
-import { apy, url } from './external/DefiLlama/index';
-import { checkTruefiV2Share } from './functions/sharePrice';
-import { checkTruefiV2Liquidity } from './functions/liquidity';
-import { checkTruefiV2Outloans } from './functions/outloans';
-import { checkTruefiV2Status } from './functions/status';
-import pools from '../pools/pools';
-import { checkTruefiV2TVL } from './functions/tvl';
+import _ from "lodash";
+import { apy, url } from "./external/DefiLlama/index";
+import { checkTruefiV2Share } from "./functions/sharePrice";
+import { checkTruefiV2Liquidity } from "./functions/liquidity";
+import { checkTruefiV2Outloans } from "./functions/outloans";
+import { checkTruefiV2Status } from "./functions/status";
+import pools from "../pools/pools";
+import { checkTruefiV2TVL } from "./functions/tvl";
 
 /// APY
 /// TVL
@@ -26,8 +26,8 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     return elem.pool.includes(poolAddress.toLowerCase());
   });
 
-  const activity_apy = externalInfo['apyBase'];
-  const rewards_apy = externalInfo['apyReward'];
+  const activity_apy = externalInfo["apyBase"];
+  const rewards_apy = externalInfo["apyReward"];
   const tvl = await checkTruefiV2TVL(chain, poolAddress);
   const sharePrice = await checkTruefiV2Share(chain, poolAddress);
   const liquidity = await checkTruefiV2Liquidity(chain, poolAddress);

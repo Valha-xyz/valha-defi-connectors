@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const superagent = require('superagent');
+
 const { request, gql } = require('graphql-request');
 const { chunk } = require('lodash');
 const sdk = require('@defillama/sdk');
@@ -35,8 +36,9 @@ exports.getData = async (url, query = null) => {
   if (query !== null) {
     res = await superagent.post(url).send(query);
   } else {
-    res = await superagent.get(url);
+    res = await superagent.get(url)
   }
+
   res = res.body;
   return res;
 };
