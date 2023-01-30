@@ -7,43 +7,28 @@ const PID = require('./PID');
 
 /// invest
 async function deposit(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
-  const stable = metadata.stable ? metadata.stable : false;
-  const tokenA = underlying_tokens[0];
-  const tokenB = underlying_tokens[1];
-  const tokens = underlying_tokens.map((elem) => elem.toLowerCase());
-  const interaction_address = investing_address;
+  const stable = pool.metadata.stable ? pool.metadata.stable : false;
+  const tokenA = pool.underlying_tokens[0];
+  const tokenB = pool.underlying_tokens[1];
+  const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase());
+  const interaction_address = pool.investing_address;
   let method_name = '';
   let args = [];
   const amountADesired = await toBnERC20Decimals(
-    amountsDesiredNotBN[0],
-    chain,
-    underlying_tokens[0]
+    amount.amountsDesiredNotBN[0],
+    pool.chain,
+    pool.underlying_tokens[0]
   );
   const amountBDesired = await toBnERC20Decimals(
-    amountsDesiredNotBN[1],
-    chain,
-    underlying_tokens[1]
+    amount.amountsDesiredNotBN[1],
+    pool.chain,
+    pool.underlying_tokens[1]
   );
 
   if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
@@ -62,34 +47,34 @@ async function deposit(
       amountDesired = amountBDesired;
     }
     const amountMin = await toBnERC20Decimals(
-      amountsMinimumNotBN[tokenPosition],
-      chain,
-      underlying_tokens[tokenPosition]
+      amount.amountsMinimumNotBN[tokenPosition],
+      pool.chain,
+      pool.underlying_tokens[tokenPosition]
     );
     const amountNativeMin = await toBnERC20Decimals(
-      amountsMinimumNotBN[nativePosition],
-      chain,
-      underlying_tokens[nativePosition]
+      amount.amountsMinimumNotBN[nativePosition],
+      pool.chain,
+      pool.underlying_tokens[nativePosition]
     );
     args = [
-      underlying_tokens[tokenPosition],
+      pool.underlying_tokens[tokenPosition],
       amountDesired,
       amountMin,
       amountNativeMin,
-      receiverAddress,
-      deadline,
+      addresses.receiverAddress,
+      options.deadline,
     ];
   } else {
     method_name = 'addLiquidity';
     const amountAMinimum = await toBnERC20Decimals(
-      amountsMinimumNotBN[0],
-      chain,
-      underlying_tokens[0]
+      amount.amountsMinimumNotBN[0],
+      pool.chain,
+      pool.underlying_tokens[0]
     );
     const amountBMinimum = await toBnERC20Decimals(
-      amountsMinimumNotBN[1],
-      chain,
-      underlying_tokens[1]
+      amount.amountsMinimumNotBN[1],
+      pool.chain,
+      pool.underlying_tokens[1]
     );
     args = [
       tokenA,
@@ -99,15 +84,15 @@ async function deposit(
       amountBDesired,
       amountAMinimum,
       amountBMinimum,
-      receiverAddress,
-      deadline,
+      addresses.receiverAddress,
+      options.deadline,
     ];
   }
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: underlying_tokens, // token needed to approve
+    position_token: pool.underlying_tokens, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: [amountADesired, amountBDesired], //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
@@ -117,42 +102,31 @@ async function deposit(
 
 /// redeem
 async function redeem(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
-  const stable = metadata.stable ? metadata.stable : false;
+  const stable = pool.metadata.stable ? pool.metadata.stable : false;
   const method_name = 'removeLiquidity';
-  const tokenA = underlying_tokens[0];
-  const tokenB = underlying_tokens[1];
-  const interaction_address = investing_address;
-  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  const tokenA = pool.underlying_tokens[0];
+  const tokenB = pool.underlying_tokens[1];
+  const interaction_address = pool.investing_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    pool.pool_address
+  );
   const amountAMinimum = await toBnERC20Decimals(
-    amountsMinimumNotBN[0],
-    chain,
-    underlying_tokens[0]
+    amount.amountsMinimumNotBN[0],
+    pool.chain,
+    pool.underlying_tokens[0]
   );
   const amountBMinimum = await toBnERC20Decimals(
-    amountsMinimumNotBN[1],
-    chain,
-    underlying_tokens[1]
+    amount.amountsMinimumNotBN[1],
+    pool.chain,
+    pool.underlying_tokens[1]
   );
   const args = [
     tokenA,
@@ -161,14 +135,14 @@ async function redeem(
     amountBN,
     amountAMinimum,
     amountBMinimum,
-    receiverAddress,
-    deadline,
+    addresses.receiverAddress,
+    options.deadline,
   ];
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: pool_address, // token needed to approve
+    position_token: pool.pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: amountBN,
@@ -178,27 +152,12 @@ async function redeem(
 
 /// claimInterests
 async function claimInterests(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
-  const interaction_address = staking_address;
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const interaction_address = pool.staking_address;
   const abi = STAKERABI;
   // Indeed 'deposit' to claim_rewards on Pancake
   const method_name = 'claimFees';
@@ -217,29 +176,18 @@ async function claimInterests(
 
 /// stake
 async function stake(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
-  const pid = PID[pool_address.toLowerCase()];
-  const interaction_address = staking_address;
-  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const pid = PID[pool.pool_address.toLowerCase()];
+  const interaction_address = pool.staking_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    pool.pool_address
+  );
   const abi = STAKERABI;
   const method_name = 'deposit';
   const args = [amountBN, pid];
@@ -247,7 +195,7 @@ async function stake(
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: pool_address, // token needed to approve
+    position_token: pool.pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: amountBN,
@@ -257,29 +205,18 @@ async function stake(
 
 /// unstake
 async function unstake(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
-  const pid = PID[pool_address.toLowerCase()];
-  const interaction_address = staking_address;
-  const amountBN = await toBnERC20Decimals(amountNotBN, chain, pool_address);
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const pid = PID[pool.pool_address.toLowerCase()];
+  const interaction_address = pool.staking_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    pool.pool_address
+  );
   const abi = STAKERABI;
   const method_name = 'withdrawToken';
   const args = [amountBN, pid];
@@ -297,38 +234,23 @@ async function unstake(
 
 /// claimRewards
 async function claimRewards(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
-) {
-  const pid = PID[pool_address.toLowerCase()];
-  const interaction_address = staking_address;
-  const amountBN = await toBnERC20Decimals(0, chain, pool_address);
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const pid = PID[pool.pool_address.toLowerCase()];
+  const interaction_address = pool.staking_address;
+  const amountBN = await toBnERC20Decimals(0, pool.chain, pool.pool_address);
   const abi = STAKERABI;
   // Indeed 'deposit' to claim_rewards on Pancake
   const method_name = 'getReward';
-  const args = [receiverAddress, rewards_tokens];
+  const args = [addresses.receiverAddress, pool.rewards_tokens];
 
   return {
     abi: abi, //json file name
     method_name: method_name, //method to interact with the pool
-    position_token: pool_address, // token needed to approve
+    position_token: pool.pool_address, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
     amount: amountBN,
