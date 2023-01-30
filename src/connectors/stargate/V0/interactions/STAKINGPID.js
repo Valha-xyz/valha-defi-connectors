@@ -29,12 +29,12 @@ const STAKING_PID = {
   },
   //0x4DeA9e918c6289a52cd469cAC652727B7b412Cd2
   optimism: {
-    '': 0,
-    '': 1,
-    '': 2,
-    '': 3,
-    '': 4,
-    '': 5,
+    '0xdecc0c09c3b5f6e92ef4184125d5648a66e35298': 0,
+    '0xd22363e3762ca7339569f3d33eade20127d5f98c': 1,
+    '0x165137624f1f692e69659f944bf69de02874ee27': 2,
+    '0x368605d9c6243a80903b9e326f1cddde088b8924': 3,
+    '0x2f8bc9081c7fcfec25b9f41a50d97eaa592058ae': 4,
+    '0x3533f5e279bdbf550272a199a223da798d9eff78': 5,
   },
 };
 
