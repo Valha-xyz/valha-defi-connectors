@@ -150,6 +150,12 @@ Use the following command to run all the tests at once:
 npm run full-test -- --connector="protocol_name/product_version"
 ```
 
+🚨 If you have too many pools to test, you can make sure that your integration is working on a specific pool by using:
+
+```bash
+npm run full-test -- --connector="protocol_name/product_version" --pool="pool_address"
+```
+
 <br />
 <h3> 6. Make your integration live by submitting a PR to the STAGING branch 🎉🎉🎉 </h3>
 
