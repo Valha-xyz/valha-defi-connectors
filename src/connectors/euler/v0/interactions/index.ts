@@ -6,6 +6,8 @@ import {
   AddressesInput,
   Amount,
   AmountInput,
+  InteractionFunctionNames,
+  Interactions,
   InteractionsReturnObject,
   Pool,
 } from "src/utils/types/connector-types";
@@ -152,7 +154,7 @@ async function claimRewards(
   };
 }
 
-module.exports = {
+export default {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
@@ -163,4 +165,4 @@ module.exports = {
   unboost: null,
   claim_rewards: claimRewards,
   claim_interests: null,
-};
+} as Interactions;

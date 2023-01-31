@@ -63,6 +63,20 @@ export interface InteractionsReturnObject {
   args: any[]; // arguments to pass to the smart contracts to trigger 'method_name'
 }
 
+export enum InteractionFunctionNames{
+  deposit="deposit",
+  deposit_and_stake="deposit_and_stake",
+  unlock="unlock",
+  redeem="redeem",
+  stake="stake",
+  unstake="unstake",
+  boost="boost",
+  unboost="unboost",
+  claim_rewards="claim_rewards",
+  claim_interests="claim_interests",
+}
+
+
 export type InteractionFunction = (
   pool: Pool,
   amount: AmountInput,
@@ -70,4 +84,4 @@ export type InteractionFunction = (
   options?: AdditionalOptions
 ) => Promise<InteractionsReturnObject>;
 
-export type Interactions = Record<string, InteractionFunction>;
+export type Interactions = Record<InteractionFunctionNames, InteractionFunction>;
