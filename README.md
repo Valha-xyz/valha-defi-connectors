@@ -69,23 +69,23 @@ To integrate a DeFi protocol, one needs to know what are the related pools, to k
 
 ### Pools
 
-In this section, we will return all the current pools related to the protocol (and the associated information) by developing functions to get all the pools related to the protocol.
+In this folder, there will have a main function returning all the current pools related to the protocol (and the associated information) by developing functions to get all the pools related to the protocol.
 
 ### Analytics
 
-In this section, we will return all analytics about a specific pool by developing functions to get all the statictis related to one pool of the protocol.
+In this folder, there will have a main function returning all analytics about a specific pool by developing functions to get all the statictis related to one pool of the protocol.
 
 ### Interaction
 
-In this section, we will return all the information necessarty to interact with specific pool by developing functions to know how to make specific actions on a pool.
+In this folder, there will have a main function returning all the information necessarty to interact with specific pool by developing functions to know how to make specific actions on a pool.
 
 ## Getting Started
 
-To integrate a new DeFi protocol to Valha, you just have to follow the next few steps!
+To integrate a DeFi protocol to Valha, you have to follow the next few steps!
 
 ### Prerequisites
 
-<a href="https://nodejs.org/en/download/" target="_blank"> Node</a>
+<a href="https://nodejs.org/en/download/" target="_blank"> Node (>16)</a>
 
   <!-- <br> or <br>
 <!-- - <a href="https://docs.docker.com/get-docker/" target="_blank"> Docker </a> -->
