@@ -164,7 +164,7 @@ Keep in mind to "compare across forks" in the [pull request creation page](https
 🚨🚨🚨 Make sure the TITLE of your PR is your "protocol_name/product_version" to pass CI/CD 🚨🚨🚨
 
 <br />
-<h3>7. Now, just enjoy as you make DeFi easier for everyone 🍹🍹🍹 </h3>
+<h3>7. Now, just enjoy as you make DeFi easier and safer for everyone 🍹🍹🍹 </h3>
 
 <br />
 
