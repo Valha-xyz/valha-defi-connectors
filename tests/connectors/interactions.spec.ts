@@ -78,13 +78,10 @@ async function checkFnCallableReturn(
           deadline,
         }
       );
-      console.log("end", name);
       return result;
     }
-    console.log("end", name);
     return null;
   } catch (err) {
-    console.log("end", name);
     console.log(err);
   }
 }
@@ -206,8 +203,6 @@ describe("CONNECTOR - INTERACTIONS", () => {
               0
             );
 
-            console.log("results", result?.method_name);
-
             if (result) {
               expect(result).toBeDefined();
               expect(result.abi).toBeDefined();
@@ -271,7 +266,6 @@ describe("CONNECTOR - INTERACTIONS", () => {
               "",
               0
             );
-            console.log("results", result?.method_name);
             if (result) {
               const methodInAbi = result.abi.find((elem) => {
                 return (
