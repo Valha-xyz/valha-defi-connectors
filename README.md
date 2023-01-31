@@ -65,7 +65,8 @@ As a DeFi app (wallets, dapps, yield aggregators), you can easily integrate new 
 
 ## Integration Explanation
 
-To integrate a DeFi protocol, one needs to know what are the related pools, to know the current main statistics of the pools and to know how to interact with such pools. Therefore, in the integration process, we have three main following parts that end up in three folders: Pools, Analytics & Interactions.
+To integrate a DeFi protocol, one needs to know what are the related pools, to know the current main statistics of the pools and to know how to interact with such pools.
+Therefore, in the integration process, we have three main following parts that end up in three folders: Pools, Analytics & Interactions.
 
 ### Pools
 
