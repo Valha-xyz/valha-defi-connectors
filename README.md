@@ -192,7 +192,7 @@ interface Pool {
 
 ```typescript
 interface Analytics {
-  status: bool | null; // boolean that specify if a pool is open (true) or closed (false).
+  status: bool | null; // Current status of the pool. Boolean that specify if a pool is open (true) or closed (false).
   tvl: number | null; // TVL value in USD. Value that is invested in the pool (whatever the current use).
   liquidity: number | null; // Liquidity value in USD. Value that is available to withdraw from the pool.
   outloans: number | null; // Outloans value in USD. Value that is currently used by users of the protocols.
