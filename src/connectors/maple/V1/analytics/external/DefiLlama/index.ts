@@ -1,8 +1,8 @@
-import { request } from 'graphql-request';
-import utils from '../../../../../../utils/external/utils';
-import { query } from './query';
+import { request } from "graphql-request";
+import utils from "../../../../../../utils/external/utils";
+import { query } from "./query";
 
-const API_URL = 'https://api.maple.finance/v1/graphql';
+const API_URL = "https://api.maple.finance/v1/graphql";
 
 interface Pool {
   poolName: string;
@@ -41,9 +41,9 @@ export const apy = async () => {
     const tokenPrice = pool.liquidityAsset.price / 1e8;
 
     return {
-      pool: pool.poolPositions[0]?.id.split('-')[1],
-      chain: utils.formatChain('ethereum'),
-      project: 'maple',
+      pool: pool.poolPositions[0]?.id.split("-")[1],
+      chain: utils.formatChain("ethereum"),
+      project: "maple",
       symbol: pool.liquidityAsset.symbol,
       poolMeta: pool.poolDelegate.companyName,
       tvlUsd:
@@ -53,7 +53,7 @@ export const apy = async () => {
       apyReward: Number(pool.farmingApy) / 100,
       underlyingTokens: [pool.liquidityAsset.address],
       rewardTokens: [
-        '0x33349b282065b0284d756f0577fb39c158f935e6', //MAPLE
+        "0x33349b282065b0284d756f0577fb39c158f935e6", //MAPLE
       ],
       // borrow fields
       ltv: 0, // permissioned
@@ -62,4 +62,4 @@ export const apy = async () => {
   return pools.filter((p) => p.pool);
 };
 
-export const url = 'https://app.maple.finance/#/earn';
+export const url = "https://app.maple.finance/#/earn";

@@ -1,8 +1,8 @@
-import { ethers } from 'ethers';
-import { RPC_PROVIDERS } from './CONST/RPC_PROVIDERS';
+import { ethers } from "ethers";
+import { RPC_PROVIDERS } from "./CONST/RPC_PROVIDERS";
 
 export async function getNodeProvider(
-  chain: string,
+  chain: string
 ): Promise<ethers.providers.BaseProvider | null> {
   try {
     let provider: ethers.providers.BaseProvider =
