@@ -192,19 +192,19 @@ interface Pool {
 
 ```typescript
 interface Analytics {
-  status: bool | null; // boolean that specify if a pool is open (true) or closed (false). Null if unknown.
+  status: bool | null; // boolean that specify if a pool is open (true) or closed (false).
   tvl: number | null; // TVL value in USD. Value that is invested in the pool (whatever the current use).
   liquidity: number | null; // Liquidity value in USD. Value that is available to withdraw from the pool.
   outloans: number | null; // Outloans value in USD. Value that is currently used by users of the protocols.
   losses: number | null; // Losses value in USD. Value that is currently lost by the protocol (credit default, slashing events, bad debt, etc...).
   capacity: number | null; // Capacity value in USD. Value that the pool can take.
-  apy: number | null; // Rate you can earn on an account over a year by putting money into the pool. Sum of Activity APY + Rewards APY
-  activity_apy: number | null;
-  rewards_apy: number | null;
-  boosting_apy: number | null;
-  share_price: number | null;
-  minimum_deposit: number | null;
-  maximum_deposit: number | null;
+  apy: number | null; // Rate you can earn on an account over a year by putting money into the pool. Sum of Activity APY + Rewards APY.
+  activity_apy: number | null; // Rate you can earn on an account over a year by putting money into the pool coming from economics of the protocol.
+  rewards_apy: number | null; // Rate you can earn on an account over a year by putting money into the pool coming from incentives of the protocol (liquidity mining).
+  boosting_apy: number | null; // Rate you can earn on an account over a year by putting money into the pool coming from specific action in the protocol.
+  share_price: number | null; // Price to get one share of the pool in USD. Value that must be deposited in the pool to get 1 pool token.
+  minimum_deposit: number | null; // Minimum deposit in USD. Minimum amount that must be sent in one deposit transaction.
+  maximum_deposit: number | null; // Maximum deposit in USD. Maximum amount that must be sent in one deposit transaction.
 }
 ```
 
