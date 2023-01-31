@@ -14,6 +14,7 @@
 
 - [About](#about)
 - [Use-cases](#why)
+- [Integration Explanation](#integration)
 - [Integrate a new Protocol](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Integration steps](#🚀-add-a-new-protocol)
@@ -61,6 +62,22 @@ As a DeFi protocol, you can leverage your exposure to third-party distributors (
 As a DeFi app (wallets, dapps, yield aggregators), you can easily integrate new DeFi protocols by exploring the connectors made by protocols. By integrating the DeFi ecosystem directly in your interface, users won't have to hop from interface to interface. It will improve their experience and reduce their probability of being hacked.
 
 <br>
+
+## Integration Explanation
+
+To integrate a DeFi protocol, one needs to know what are the related pools, to know the current main statistics of the pools and to know how to interact with such pools. Therefore, in the integration process, we have three main following parts that end up in three folders: Pools, Analytics & Interactions.
+
+### Pools
+
+In this section, we will return all the current pools related to the protocol (and the associated information) by developing functions to get all the pools related to the protocol.
+
+### Analytics
+
+In this section, we will return all analytics about a specific pool by developing functions to get all the statictis related to one pool of the protocol.
+
+### Interaction
+
+In this section, we will return all the information necessarty to interact with specific pool by developing functions to know how to make specific actions on a pool.
 
 ## Getting Started
 
@@ -122,7 +139,7 @@ Your connector folder must respect the following structure to pass tests:
 
 🚨 Make sure your pools.js, analytics/index.js and interactions/index.js respect the expected EXPORT 🚨
 
-🤞 Check src/connectors or the INTERFACE section below
+🤞 Check in the `src/connectors` of the staging branch to check examples or read the INTERFACE section below
 
 <h3>5. Make sure your integration works by running the TEST suites. </h3>
 
