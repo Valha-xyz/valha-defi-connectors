@@ -14,7 +14,7 @@
 
 - [About](#about)
 - [Use-cases](#why)
-- [Integration Explanation](#integration)
+- [Integration Explanation](#integration-explanation)
 - [Integrate a new Protocol](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Integration steps](#🚀-add-a-new-protocol)
