@@ -1,4 +1,5 @@
 function checkParam(string, arg) {
+  console.log(string, arg)
   try {
     const SPLIT = string.split(`--${arg}=`)[1];
     if (!SPLIT) {

@@ -1,6 +1,6 @@
-import BigNumber from 'bignumber.js';
-import erc20Abi from './abis/erc20.json';
-import { web3 } from './connection';
+import BigNumber from "bignumber.js";
+import erc20Abi from "./abis/erc20.json";
+import { web3 } from "./connection";
 
 const YEAR_IN_DAYS = 365;
 const SECOND_IN_MS = 1000;
@@ -9,7 +9,7 @@ const DAY_IN_SECONDS = 24 * 60 * 60;
 const PRECISION = 10 ** 10;
 const APY_PRECISION = 10_000;
 
-const LENDER_ADDRESS = '0xa606dd423dF7dFb65Efe14ab66f5fDEBf62FF583';
+const LENDER_ADDRESS = "0xa606dd423dF7dFb65Efe14ab66f5fDEBf62FF583";
 
 export interface Loan {
   amount: typeof BigNumber;
@@ -27,7 +27,7 @@ function getInterestForPeriod(periodInDays: number, apyInBps: number) {
 
 async function getLoanWeightedApyValue(
   { apy, startDate, endDate, id }: Loan,
-  nowInDays: number,
+  nowInDays: number
 ) {
   if (nowInDays > endDate) {
     return new BigNumber(0);
@@ -40,12 +40,12 @@ async function getLoanWeightedApyValue(
   const accruedInterest = getInterestForPeriod(daysPassed, apy);
 
   const loanTokenPrice = Math.floor(
-    (accruedInterest / totalInterest) * PRECISION,
+    (accruedInterest / totalInterest) * PRECISION
   );
 
   const loan = new web3.eth.Contract(erc20Abi as any, id);
   const lenderBalance = new BigNumber(
-    await loan.methods.balanceOf(LENDER_ADDRESS).call(),
+    await loan.methods.balanceOf(LENDER_ADDRESS).call()
   );
 
   const scaledAmount = lenderBalance
@@ -57,18 +57,18 @@ async function getLoanWeightedApyValue(
 export async function getPoolApyBase(
   poolLoans: Loan[],
   poolValue: number,
-  tokenDecimals: number,
+  tokenDecimals: number
 ) {
   const nowInDays = Date.now() / SECOND_IN_MS;
 
   const loanWeightedApyValues = await Promise.all(
     poolLoans.map(
-      async (loan) => await getLoanWeightedApyValue(loan, nowInDays),
-    ),
+      async (loan) => await getLoanWeightedApyValue(loan, nowInDays)
+    )
   );
   const loansWeightedApySum = loanWeightedApyValues.reduce(
     (sum, value) => sum.plus(value),
-    new BigNumber(0),
+    new BigNumber(0)
   );
 
   const poolApyBaseInBps =
