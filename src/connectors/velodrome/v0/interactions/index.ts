@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  InteractionsReturnObject,
+  Pool,
+} from 'src/utils/types/connector-types';
 const { toBnERC20Decimals } = require('src/utils/toBNTokenDecimals');
 const ROUTERABI = require('../abi/ROUTER');
 const STAKERABI = require('../abi/STAKER');
@@ -21,12 +28,12 @@ async function deposit(
   let method_name = '';
   let args = [];
   const amountADesired = await toBnERC20Decimals(
-    amount.amountsDesiredNotBN[0],
+    amount.amountsDesired[0],
     pool.chain,
     pool.underlying_tokens[0]
   );
   const amountBDesired = await toBnERC20Decimals(
-    amount.amountsDesiredNotBN[1],
+    amount.amountsDesired[1],
     pool.chain,
     pool.underlying_tokens[1]
   );
@@ -47,12 +54,12 @@ async function deposit(
       amountDesired = amountBDesired;
     }
     const amountMin = await toBnERC20Decimals(
-      amount.amountsMinimumNotBN[tokenPosition],
+      amount.amountsMinimum[tokenPosition],
       pool.chain,
       pool.underlying_tokens[tokenPosition]
     );
     const amountNativeMin = await toBnERC20Decimals(
-      amount.amountsMinimumNotBN[nativePosition],
+      amount.amountsMinimum[nativePosition],
       pool.chain,
       pool.underlying_tokens[nativePosition]
     );
@@ -67,12 +74,12 @@ async function deposit(
   } else {
     method_name = 'addLiquidity';
     const amountAMinimum = await toBnERC20Decimals(
-      amount.amountsMinimumNotBN[0],
+      amount.amountsMinimum[0],
       pool.chain,
       pool.underlying_tokens[0]
     );
     const amountBMinimum = await toBnERC20Decimals(
-      amount.amountsMinimumNotBN[1],
+      amount.amountsMinimum[1],
       pool.chain,
       pool.underlying_tokens[1]
     );

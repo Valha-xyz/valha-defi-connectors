@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  InteractionsReturnObject,
+  Pool,
+} from 'src/utils/types/connector-types';
+
 const VaultABI = require('../abi/Vault.json');
 const StakingABI = require('../abi/FairLaunch.json');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
@@ -89,7 +97,7 @@ async function stake(
     method_name: method_name, //method to interact with the pool
     position_token: position_token, // token needed to approve
     position_token_type: 'ERC-20', //token type to approve
-    interaction_address: staking_address, // contract to interact with to interact with poolAddress
+    interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
     amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
     args: args, //args to pass to the smart contracts to trigger 'method_name'
   };

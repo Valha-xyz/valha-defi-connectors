@@ -1,5 +1,5 @@
-import { BigNumber } from "ethers";
-import { Chain } from "./networks";
+import { BigNumber } from 'ethers';
+import { Chain } from './networks';
 
 export interface Pool {
   name: string;
@@ -11,7 +11,7 @@ export interface Pool {
   boosting_address: string | null;
   distributor_address: string | null;
   rewards_tokens: string[] | null;
-  metadata: object;
+  metadata: any;
 }
 
 export interface Amount {
@@ -56,26 +56,25 @@ export interface Analytics {
 export interface InteractionsReturnObject {
   abi: any; // JSON file that represent a contract ABI
   method_name: string; // method to interact with the pool
-  position_token: string; // token needed to approve
-  position_token_type: "ERC-20" | "ERC-721" | "CUSTOM"; // token type to approve
-  amount?: string; // amount that will be use in the ERC20 approve tx of the position token if it is an ERC20 or that will be use as the 'value' of the transaction
-  interaction_address: string; // contract to interact with to interact with poolAddress
+  position_token: string | string[]; // token needed to approve
+  position_token_type: 'ERC-20' | 'ERC-721' | 'CUSTOM'; // token type to approve
+  amount?: string | string[]; // amount that will be use in the ERC20 approve tx of the position token if it is an ERC20 or that will be use as the 'value' of the transaction
+  interaction_address: string | string[]; // contract to interact with to interact with poolAddress
   args: any[]; // arguments to pass to the smart contracts to trigger 'method_name'
 }
 
-export enum InteractionFunctionNames{
-  deposit="deposit",
-  deposit_and_stake="deposit_and_stake",
-  unlock="unlock",
-  redeem="redeem",
-  stake="stake",
-  unstake="unstake",
-  boost="boost",
-  unboost="unboost",
-  claim_rewards="claim_rewards",
-  claim_interests="claim_interests",
+export enum InteractionFunctionNames {
+  deposit = 'deposit',
+  deposit_and_stake = 'deposit_and_stake',
+  unlock = 'unlock',
+  redeem = 'redeem',
+  stake = 'stake',
+  unstake = 'unstake',
+  boost = 'boost',
+  unboost = 'unboost',
+  claim_rewards = 'claim_rewards',
+  claim_interests = 'claim_interests',
 }
-
 
 export type InteractionFunction = (
   pool: Pool,
@@ -84,4 +83,7 @@ export type InteractionFunction = (
   options?: AdditionalOptions
 ) => Promise<InteractionsReturnObject>;
 
-export type Interactions = Record<InteractionFunctionNames, InteractionFunction>;
+export type Interactions = Record<
+  InteractionFunctionNames,
+  InteractionFunction
+>;

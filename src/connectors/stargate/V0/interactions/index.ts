@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  InteractionsReturnObject,
+  Pool,
+} from 'src/utils/types/connector-types';
 const ROUTERABI = require('../abi/Router.json');
 const LPSTAKING = require('../abi/LPStaking.json');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');

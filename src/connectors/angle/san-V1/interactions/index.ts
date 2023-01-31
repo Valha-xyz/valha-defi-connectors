@@ -1,4 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  InteractionsReturnObject,
+  Pool,
+} from 'src/utils/types/connector-types';
+
 const SanPoolABI = require('../abi/SanToken.json');
 const StakingABI = require('../abi/StakingPool.json');
 const DistributorABI = require('../abi/Distributor.json');
