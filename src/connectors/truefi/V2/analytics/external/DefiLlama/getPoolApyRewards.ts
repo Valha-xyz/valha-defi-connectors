@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js';
+import BigNumber from "bignumber.js";
 
 const TRU_DECIMALS = 8;
 const YEAR_IN_DAYS = 365;
@@ -9,19 +9,19 @@ export async function getPoolApyRewards(
   poolDecimals: number,
   truPrice: number,
   multifarm: any,
-  distributor: any,
+  distributor: any
 ) {
   const poolStakes = new BigNumber(
-    await multifarm.methods.stakes(poolAddress).call(),
+    await multifarm.methods.stakes(poolAddress).call()
   );
   const poolShare = new BigNumber(
-    await multifarm.methods.getShare(poolAddress).call(),
+    await multifarm.methods.getShare(poolAddress).call()
   );
   const totalShares = new BigNumber(await multifarm.methods.shares().call());
 
   const duration = new BigNumber(await distributor.methods.duration().call());
   const totalAmount = new BigNumber(
-    await distributor.methods.totalAmount().call(),
+    await distributor.methods.totalAmount().call()
   );
 
   const divider = duration.multipliedBy(totalShares);
