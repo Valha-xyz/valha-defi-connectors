@@ -192,13 +192,13 @@ interface Pool {
 
 ```typescript
 interface Analytics {
-  status: bool | null;
-  tvl: number | null;
-  liquidity: number | null;
-  outloans: number | null;
-  losses: number | null;
-  capacity: number | null;
-  apy: number | null;
+  status: bool | null; // boolean that specify if a pool is open (true) or closed (false). Null if unknown.
+  tvl: number | null; // TVL value in USD. Value that is invested in the pool (whatever the current use).
+  liquidity: number | null; // Liquidity value in USD. Value that is available to withdraw from the pool.
+  outloans: number | null; // Outloans value in USD. Value that is currently used by users of the protocols.
+  losses: number | null; // Losses value in USD. Value that is currently lost by the protocol (credit default, slashing events, bad debt, etc...).
+  capacity: number | null; // Capacity value in USD. Value that the pool can take.
+  apy: number | null; // Rate you can earn on an account over a year by putting money into the pool. Sum of Activity APY + Rewards APY
   activity_apy: number | null;
   rewards_apy: number | null;
   boosting_apy: number | null;
