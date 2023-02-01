@@ -18,7 +18,7 @@ async function deposit(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "deposit";
   const position_token = pool.underlying_tokens[0];
@@ -50,7 +50,7 @@ async function unlock(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "intendToWithdraw";
   const args = [];
@@ -72,7 +72,7 @@ async function redeem(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "withdraw";
   const position_token = pool.pool_address;
@@ -105,7 +105,7 @@ async function stake(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
   const method_name = "stake";
   const position_token = pool.pool_address;
@@ -138,7 +138,7 @@ async function unstake(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
   const method_name = "withdraw";
   const position_token = pool.pool_address;

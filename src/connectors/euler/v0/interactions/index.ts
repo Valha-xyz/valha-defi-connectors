@@ -174,4 +174,4 @@ const interactions: Interactions = {
   claim_rewards: claimRewards,
   claim_interests: null,
 };
-export default interactions
+export default interactions;

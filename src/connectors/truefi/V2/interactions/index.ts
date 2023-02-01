@@ -1,11 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import { AdditionalOptions, AddressesInput, AmountInput, Interactions, InteractionsReturnObject, Pool } from "src/utils/types/connector-types";
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  Interactions,
+  InteractionsReturnObject,
+  Pool,
+} from "src/utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const PoolABI = require('../abi/PoolToken.json');
-const MultiFarmABI = require('../abi/MultiFarm.json');
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const PoolABI = require("../abi/PoolToken.json");
+const MultiFarmABI = require("../abi/MultiFarm.json");
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 
 /// invest
 async function deposit(
@@ -13,11 +20,15 @@ async function deposit(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'join';
+  const method_name = "join";
   const position_token = pool.underlying_tokens[0];
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
   const args = [amountBN];
 
   return {
@@ -30,9 +41,9 @@ async function deposit(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// unlock
@@ -46,11 +57,15 @@ async function redeem(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'liquidExit';
+  const method_name = "liquidExit";
   const position_token = pool.pool_address;
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
   const args = [amountBN];
 
   return {
@@ -63,9 +78,9 @@ async function redeem(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// stake
@@ -74,11 +89,15 @@ async function stake(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = MultiFarmABI;
-  const method_name = 'stake';
+  const method_name = "stake";
   const position_token = pool.pool_address;
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
   const args = [pool.pool_address, amountBN];
 
   return {
@@ -91,9 +110,9 @@ async function stake(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// unstake
@@ -102,10 +121,14 @@ async function unstake(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = MultiFarmABI;
-  const method_name = 'unstake';
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, pool.pool_address);
+  const method_name = "unstake";
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    pool.pool_address
+  );
   const args = [pool.pool_address, amountBN];
 
   return {
@@ -116,7 +139,7 @@ async function unstake(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 /// claim
@@ -125,14 +148,14 @@ async function claimRewards(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = MultiFarmABI;
-  const method_name = 'claim';
+  const method_name = "claim";
   const ids = [
-    '0x1Ed460D149D48FA7d91703bf4890F97220C09437',
-    '0x97cE06c3e3D027715b2d6C22e67D5096000072E5',
-    '0x6002b1dcB26E7B1AA797A17551C6F487923299d7',
-    '0xA991356d261fbaF194463aF6DF8f0464F8f1c742',
+    "0x1Ed460D149D48FA7d91703bf4890F97220C09437",
+    "0x97cE06c3e3D027715b2d6C22e67D5096000072E5",
+    "0x6002b1dcB26E7B1AA797A17551C6F487923299d7",
+    "0xA991356d261fbaF194463aF6DF8f0464F8f1c742",
   ];
   const args = [ids];
 
@@ -144,7 +167,7 @@ async function claimRewards(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 const interactions: Interactions = {

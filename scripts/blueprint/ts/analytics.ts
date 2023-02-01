@@ -1,3 +1,5 @@
+import { Chain } from "../../../src/utils/types/networks";
+
 async function analytics(chain: Chain, poolAddress: string) {
   const tvl = 0;
 
@@ -22,5 +24,5 @@ async function analytics(chain: Chain, poolAddress: string) {
 
 module.exports = {
   main: analytics,
-  url: external.url,
+  url: "http://link-to-project-analytics"
 };

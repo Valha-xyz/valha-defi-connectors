@@ -39,9 +39,9 @@ async function deposit(
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 //// NOT A REAL "REDEEM" function, it enables to get the balance that was not staked yet but send to RocketPool

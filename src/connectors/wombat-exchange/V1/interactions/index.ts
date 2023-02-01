@@ -19,14 +19,13 @@ const { getCurrentBlock } = require("../../../../utils/getCurrentBlock");
 import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 const { getWombatPid } = require("./PID");
 
-
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "deposit";
   const currentBlockData = await getCurrentBlock();
@@ -56,9 +55,9 @@ async function deposit(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// redeem
@@ -67,14 +66,18 @@ async function redeem(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "withdraw";
   const currentBlockData = await getCurrentBlock();
   const currentTimestamp = currentBlockData.data.timestamp;
   const position_token = pool.pool_address;
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, position_token);
-  
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
+
   // TO REVIEW
   // We take a maximum 2% slippage
   const minAmountBN = BigNumber.from(amountBN).mul(98).div(100).toString();
@@ -97,9 +100,9 @@ async function redeem(
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// stake
@@ -108,12 +111,16 @@ async function stake(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
   const method_name = "deposit";
   const poolId = await getWombatPid(pool.pool_address);
   const position_token = pool.pool_address;
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
   const args = [poolId, amountBN];
 
   return {
@@ -126,9 +133,9 @@ async function stake(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// unstake
@@ -137,12 +144,16 @@ async function unstake(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
   const method_name = "withdraw";
   const id = await getWombatPid(pool.pool_address);
   const position_token = pool.pool_address;
-  const amountBN = await toBnERC20Decimals(amount.amount.humanValue, pool.chain, position_token);
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
   const args = [id, amountBN];
 
   return {
@@ -153,7 +164,7 @@ async function unstake(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 /// boost
@@ -197,7 +208,7 @@ async function claimRewards(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
   const method_name = "multiClaim";
   const id = await getWombatPid(pool.pool_address);
@@ -211,7 +222,7 @@ async function claimRewards(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 const interactions: Interactions = {

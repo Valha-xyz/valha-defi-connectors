@@ -107,9 +107,9 @@ async function deposit(
     assetInfo: {
       position_token: pool.underlying_tokens, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: [amountADesired, amountBDesired]
+      amount: [amountADesired, amountBDesired],
     },
-  }
+  };
 }
 
 /// redeem
@@ -161,9 +161,9 @@ async function redeem(
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// claimInterests
@@ -179,7 +179,7 @@ async function claimInterests(
   const method_name = "claimFees";
   const args = [];
 
-  return  {
+  return {
     txInfo: {
       abi: abi, //abi array
       interaction_address: interaction_address, // contract to interact with to interact with poolAddress
@@ -187,7 +187,7 @@ async function claimInterests(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 /// stake
@@ -218,9 +218,9 @@ async function stake(
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// unstake
@@ -241,7 +241,7 @@ async function unstake(
   const method_name = "withdrawToken";
   const args = [amountBN, pid];
 
-  return  {
+  return {
     txInfo: {
       abi: abi, //abi array
       interaction_address: interaction_address, // contract to interact with to interact with poolAddress
@@ -249,7 +249,7 @@ async function unstake(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 /// claimRewards
@@ -277,9 +277,9 @@ async function claimRewards(
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 const interactions: Interactions = {

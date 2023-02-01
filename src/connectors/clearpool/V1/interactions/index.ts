@@ -20,7 +20,7 @@ async function deposit(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "provide";
   const position_token = pool.underlying_tokens[0];
@@ -52,7 +52,7 @@ async function redeem(
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-): Promise<InteractionsReturnObject>  {
+): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = "redeem";
   const position_token = pool.pool_address;

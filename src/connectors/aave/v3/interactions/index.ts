@@ -10,7 +10,7 @@ import {
 
 import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 import PoolABI from "../abi/Pool.json";
-import DistributorABI from "../abi/Distributor.json"
+import DistributorABI from "../abi/Distributor.json";
 
 /// invest
 async function deposit(
@@ -85,10 +85,7 @@ async function claimRewards(
 ): Promise<InteractionsReturnObject> {
   const abi = DistributorABI;
   const method_name = "claimAllRewards";
-  const args = [
-    pool.underlying_tokens,
-    addresses.receiverAddress,
-  ];
+  const args = [pool.underlying_tokens, addresses.receiverAddress];
   const interaction_address = pool.distributor_address;
 
   return {
@@ -115,4 +112,4 @@ const interactions: Interactions = {
   claim_interests: null,
 };
 
-export default interactions
+export default interactions;

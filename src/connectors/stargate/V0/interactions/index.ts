@@ -42,9 +42,9 @@ async function deposit(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// unlock
@@ -80,9 +80,9 @@ async function redeem(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// stake
@@ -113,9 +113,9 @@ async function stake(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: "ERC-20", //token type to approve
-      amount: amountBN
+      amount: amountBN,
     },
-  }
+  };
 }
 
 /// unstake
@@ -144,7 +144,7 @@ async function unstake(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 /// boost
@@ -187,7 +187,7 @@ async function claimRewards(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
-  }
+  };
 }
 
 const interactions: Interactions = {
