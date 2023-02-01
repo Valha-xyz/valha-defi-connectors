@@ -3,12 +3,14 @@ import {
   AdditionalOptions,
   AddressesInput,
   AmountInput,
+  Interactions,
   InteractionsReturnObject,
   Pool,
 } from "src/utils/types/connector-types";
 
 import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 import PoolABI from "../abi/Pool.json";
+import DistributorABI from "../abi/Distributor.json"
 
 /// invest
 async function deposit(
@@ -81,19 +83,13 @@ async function claimRewards(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const method_name = "claimRewards";
-  const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
-    pool.chain,
-    pool.underlying_tokens[0]
-  );
+  const abi = DistributorABI;
+  const method_name = "claimAllRewards";
   const args = [
-    [pool.underlying_tokens[0]],
-    amountBN,
+    pool.underlying_tokens,
     addresses.receiverAddress,
   ];
-  const interaction_address = pool.investing_address;
+  const interaction_address = pool.distributor_address;
 
   return {
     txInfo: {
@@ -106,7 +102,7 @@ async function claimRewards(
   };
 }
 
-module.exports = {
+const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
@@ -118,3 +114,5 @@ module.exports = {
   claim_rewards: claimRewards,
   claim_interests: null,
 };
+
+export default interactions
