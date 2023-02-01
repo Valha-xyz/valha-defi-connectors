@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('../../../../../utils/getNodeProvider')
-const ethers = require('ethers')
-const ATokenABI = require('../../abi/AToken.json')
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice')
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
+import { ethers } from 'ethers'
+import ATokenABI from '../../abi/AToken.json'
+import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice'
 
 async function checkAaveV3TVL (chain, poolAddress) {
   try {
@@ -27,4 +27,4 @@ async function checkAaveV3TVL (chain, poolAddress) {
   }
 }
 
-module.exports = checkAaveV3TVL
+export default checkAaveV3TVL

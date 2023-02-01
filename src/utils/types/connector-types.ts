@@ -36,18 +36,23 @@ export interface AdditionalOptions {
 
 export interface Analytics {
   status: boolean | null;
-  tvl: number | null;
-  liquidity: number | null;
-  outloans: number | null;
-  losses: number | null;
-  capacity: number | null;
-  apy: number | null;
-  activity_apy: number | null;
-  rewards_apy: number | null;
-  boosting_apy: number | null;
-  share_price: number | null;
-  minimum_deposit: number | null;
-  maximum_deposit: number | null;
+  tvl: number | null; // In USD amount.
+  liquidity: number | null; // In USD amount
+  outloans: number | null;// In USD amount
+  losses: number | null; // In USD amount
+  capacity: number | null; // ?
+  apy: number | null; // In full number, (e.g. 0.04 = 4% APY)
+  activity_apy: number | null; // In full number, (e.g. 0.04 = 4% APY)
+  rewards_apy: number | null; // In full number, (e.g. 0.04 = 4% APY)
+  boosting_apy: number | null; // In full number, (e.g. 0.04 = 4% APY)
+  share_price: number | null; // In USD amount
+  minimum_deposit: number | null; // In underlying asset amount
+  maximum_deposit: number | null; // In underlying asset amount
+}
+
+export interface AnalyticsExport {
+  main: Analytics | Record<never, never>,
+  url: string,
 }
 
 export interface InteractionsReturnObject {

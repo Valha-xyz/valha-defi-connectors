@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const axios = require('axios')
-const { gql, request } = require('graphql-request')
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice')
+import { gql, request } from 'graphql-request';
+import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice'
 
 const SECONDS_PER_YEAR = 31536000
 const SUBGRAPH_URLS = {
@@ -53,7 +51,7 @@ async function getRewardsAPY (chain, rewards) {
     // const USDRewardPrice = await getGeckoTokenPrice(chain, rewards.rewardToken);
     const rewardPerYear = rewards.reduce(async (acc, rew) => {
       const { data, err } = await getGeckoTokenPrice(chain, rew.rewardToken)
-      if (err) throw new Error(err)
+      if (err) throw err
       const USDRewardPrice = data
       return (
         acc +
@@ -107,4 +105,4 @@ async function checkAaveV3APYs (chain, poolAddress, totalSupplyUSD) {
   }
 }
 
-module.exports = checkAaveV3APYs
+export default checkAaveV3APYs

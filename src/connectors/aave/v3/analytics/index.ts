@@ -1,11 +1,13 @@
+import { Analytics, AnalyticsExport } from "src/utils/types/connector-types"
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash')
-const pools = require('../pools')
-const checkAaveV3TVL = require('./functions/tvl')
-const checkAaveV3Liquidity = require('./functions/liquidity')
-const checkAaveV3APYs = require('./functions/apys')
+import pools from '../pools/pools';
+import checkAaveV3TVL from './functions/tvl'
+import checkAaveV3Liquidity from './functions/liquidity'
+import checkAaveV3APYs from './functions/apys'
 
-async function analytics (chain, poolAddress) {
+async function analytics (chain, poolAddress): Promise<Analytics | Record<never,never>> {
   try {
     const POOLS = await pools()
     if (!POOLS || POOLS.length === 0) return {}
@@ -45,7 +47,8 @@ async function analytics (chain, poolAddress) {
   }
 }
 
-module.exports = {
+const analyticsExport: AnalyticsExport = {
   main: analytics,
   url: 'https://app.aave.com/'
 }
+export default analyticsExport

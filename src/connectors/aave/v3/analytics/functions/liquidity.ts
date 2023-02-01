@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('../../../../../utils/getNodeProvider')
-const ethers = require('ethers')
-const ATokenABI = require('../../abi/AToken.json')
-const ERC20ABI = require('../../../../../utils/abi/ERC20.json')
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice')
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
+import { ethers } from 'ethers'
+import ATokenABI from '../../abi/AToken.json'
+import ERC20ABI from '../../../../../utils/abi/ERC20.json'
+import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice'
 
 async function checkAaveV3Liquidity (chain, poolAddress) {
   try {
@@ -33,4 +33,4 @@ async function checkAaveV3Liquidity (chain, poolAddress) {
   }
 }
 
-module.exports = checkAaveV3Liquidity
+export default checkAaveV3Liquidity
