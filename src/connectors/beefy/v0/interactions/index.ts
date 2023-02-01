@@ -4,7 +4,6 @@ import { toBnERC20Decimals } from "src/utils/toBNTokenDecimals";
 import {
   AdditionalOptions,
   AddressesInput,
-  Amount,
   AmountInput,
   Interactions,
   InteractionsReturnObject,
