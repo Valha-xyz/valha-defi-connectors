@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x4c19596f5aaff459fa38b0f7ed92f11ae6543784'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'USDC pool',
@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x4c19596f5aaff459fa38b0f7ed92f11ae6543784'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'TUSD pool',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x4c19596f5aaff459fa38b0f7ed92f11ae6543784'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'USDT pool',
@@ -45,13 +45,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x4c19596f5aaff459fa38b0f7ed92f11ae6543784'],
-    metadata: {},
-  },
-];
+    metadata: {}
+  }
+]
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

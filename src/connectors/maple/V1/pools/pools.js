@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x33349b282065b0284d756f0577fb39c158f935e6'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Maven 11',
@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x33349b282065b0284d756f0577fb39c158f935e6'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Icebreaker',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x33349b282065b0284d756f0577fb39c158f935e6'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Maven 11 Permissioned',
@@ -45,7 +45,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x33349b282065b0284d756f0577fb39c158f935e6'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Orthogonal Trading',
@@ -57,13 +57,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: ['0x33349b282065b0284d756f0577fb39c158f935e6'],
-    metadata: {},
-  },
-];
+    metadata: {}
+  }
+]
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

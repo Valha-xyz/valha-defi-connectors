@@ -1,20 +1,20 @@
-import { erc20Decimals } from 'src/connectors/utils/ERC20Decimals';
-import PoolTokenABI from '../../abi/PoolToken.json';
-import ERC20ABI from 'src/helpers/abi/ERC20.json';
-import { ethers } from 'ethers';
-import { DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface';
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
-import { BigNumber } from 'bignumber.js';
-import { gql, request } from 'graphql-request';
+import { erc20Decimals } from "src/connectors/utils/ERC20Decimals";
+import PoolTokenABI from "../../abi/PoolToken.json";
+import ERC20ABI from "src/helpers/abi/ERC20.json";
+import { ethers } from "ethers";
+import { DataNumberResponse } from "src/interfaces/response/Internal/DataNumberInterface";
+import { getNodeProvider } from "src/helpers/provider/getNodeProvider";
+import { BigNumber } from "bignumber.js";
+import { gql, request } from "graphql-request";
 
 const YEAR_IN_DAYS = 365;
 const SECOND_IN_MS = 1000;
 const DAY_IN_SECONDS = 24 * 60 * 60;
 const PRECISION = 10 ** 10;
 const APY_PRECISION = 10_000;
-const LENDER_ADDRESS = '0xa606dd423dF7dFb65Efe14ab66f5fDEBf62FF583';
+const LENDER_ADDRESS = "0xa606dd423dF7dFb65Efe14ab66f5fDEBf62FF583";
 const SUBGRAPH_URL =
-  'https://api.thegraph.com/subgraphs/name/mikemccready/truefi-legacy';
+  "https://api.thegraph.com/subgraphs/name/mikemccready/truefi-legacy";
 
 interface Loan {
   id: string;
@@ -41,7 +41,7 @@ const getLoans = gql`
 `;
 
 function isLoanActive(status: string) {
-  return status === '1' || status === '2';
+  return status === "1" || status === "2";
 }
 
 async function getActiveLoans() {
@@ -54,7 +54,7 @@ async function getActiveLoans() {
       startDate: Number(startDate),
       endDate: Number(endDate),
       amount: new BigNumber(Number(amount)),
-    }),
+    })
   );
   return activeLoans;
 }
@@ -66,7 +66,7 @@ function getInterestForPeriod(periodInDays: number, apyInBps: number) {
 async function getLoanWeightedApyValue(
   { apy, startDate, endDate, id }: Loan,
   nowInDays: number,
-  provider: ethers.providers.BaseProvider,
+  provider: ethers.providers.BaseProvider
 ) {
   if (nowInDays > endDate) {
     return new BigNumber(0);
@@ -79,12 +79,12 @@ async function getLoanWeightedApyValue(
   const accruedInterest = getInterestForPeriod(daysPassed, apy);
 
   const loanTokenPrice = Math.floor(
-    (accruedInterest / totalInterest) * PRECISION,
+    (accruedInterest / totalInterest) * PRECISION
   );
 
   const LOAN = new ethers.Contract(id, ERC20ABI, provider);
   const lenderBalance = new BigNumber(
-    (await LOAN.balanceOf(LENDER_ADDRESS)).toString(),
+    (await LOAN.balanceOf(LENDER_ADDRESS)).toString()
   );
 
   const scaledAmount = lenderBalance
@@ -98,17 +98,17 @@ async function getPoolApyBase(
   poolLoans: Loan[],
   poolValue: number,
   tokenDecimals: number,
-  provider: ethers.providers.BaseProvider,
+  provider: ethers.providers.BaseProvider
 ) {
   const nowInDays = Date.now() / SECOND_IN_MS;
   const loanWeightedApyValues = await Promise.all(
     poolLoans.map(
-      async (loan) => await getLoanWeightedApyValue(loan, nowInDays, provider),
-    ),
+      async (loan) => await getLoanWeightedApyValue(loan, nowInDays, provider)
+    )
   );
   const loansWeightedApySum = loanWeightedApyValues.reduce(
     (sum, value) => sum.plus(value),
-    new BigNumber(0),
+    new BigNumber(0)
   );
   const poolApyBaseInBps =
     loansWeightedApySum.div(poolValue).toNumber() / 10 ** tokenDecimals;
@@ -117,7 +117,7 @@ async function getPoolApyBase(
 
 export async function checkTruefiV2APY(
   chain: string,
-  poolAddress: string,
+  poolAddress: string
 ): Promise<DataNumberResponse> {
   try {
     const provider = await getNodeProvider(chain);

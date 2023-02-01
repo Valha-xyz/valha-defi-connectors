@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'USDC Bridge',
@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'USDC Bridge',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'DAI Bridge',
@@ -45,7 +45,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'FRAX Bridge',
@@ -57,7 +57,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'sUSD Bridge',
@@ -69,7 +69,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'LUSD Bridge',
@@ -81,7 +81,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'MAI Bridge',
@@ -93,7 +93,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   // {
   //   name: 'USDC Bridge',
@@ -117,7 +117,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   // {
   //   name: 'USDT Bridge',
@@ -165,7 +165,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'USDT Bridge',
@@ -177,7 +177,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'BUSD Bridge',
@@ -189,7 +189,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'USDT Bridge',
@@ -201,13 +201,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
-  },
-];
+    metadata: {}
+  }
+]
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

@@ -1,14 +1,14 @@
-import poolAbi from './abis/pool.json';
-import { web3 } from './connection';
+import poolAbi from "./abis/pool.json";
+import { web3 } from "./connection";
 
 const unitsMap = {
-  6: 'mwei',
-  18: 'ether',
+  6: "mwei",
+  18: "ether",
 };
 
 export async function getPoolValues(
   poolAddress: string,
-  tokenDecimals: number,
+  tokenDecimals: number
 ) {
   const pool = new web3.eth.Contract(poolAbi as any, poolAddress);
 
@@ -18,7 +18,7 @@ export async function getPoolValues(
   const liquidValueRaw: string = await pool.methods.liquidValue().call();
   const liquidValue = web3.utils.fromWei(
     liquidValueRaw,
-    unitsMap[tokenDecimals],
+    unitsMap[tokenDecimals]
   );
 
   return { poolValue, liquidValue };

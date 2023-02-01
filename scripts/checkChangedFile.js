@@ -1,6 +1,6 @@
-async function checkChangedFiles(connectors) {
+async function checkChangedFiles (connectors) {
   if (connectors.length === 1) {
-    return true;
+    return true
   }
-  return false;
+  return false
 }

@@ -1,15 +1,15 @@
-import { config } from 'dotenv';
+import { config } from "dotenv";
 config();
-import fs from 'fs';
-import checkParam from './config/checkParam';
+import fs from "fs";
+import checkParam from "./config/checkParam";
 
-describe('CONNECTOR - REPOSITORY', () => {
+describe("CONNECTOR - REPOSITORY", () => {
   let connector: string;
 
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      'connector'
+      "connector"
     );
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
@@ -71,12 +71,12 @@ describe('CONNECTOR - REPOSITORY', () => {
     const path = `src/connectors/${connector}/abi`;
     const abis = fs.readdirSync(path);
     for (const abi of abis) {
-      expect(abi.includes('.json')).toBeTruthy();
+      expect(abi.includes(".json")).toBeTruthy();
     }
   });
 
   it(`There must be ONLY repositories at the route of the protocol repository`, async () => {
-    const split = connector.split('/');
+    const split = connector.split("/");
     const protocol = split[0];
     const path = `src/connectors/${protocol}`;
     const versions = fs.readdirSync(path);
