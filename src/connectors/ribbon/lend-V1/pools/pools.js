@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x312853485a41f76f20A14f927Cd0ea676588936C',
     rewards_tokens: ['0x6123b0049f904d730db3c36a31167d9d4121fa6b'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Folkvang',
@@ -21,13 +21,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x312853485a41f76f20A14f927Cd0ea676588936C',
     rewards_tokens: ['0x6123b0049f904d730db3c36a31167d9d4121fa6b'],
-    metadata: {},
-  },
-];
+    metadata: {}
+  }
+]
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

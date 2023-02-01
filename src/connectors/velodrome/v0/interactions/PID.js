@@ -404,7 +404,7 @@ const PID = {
   '0x3905870e647c97cb9c8d99db24384f480531b5b9': 402,
   '0x14ad16b5ef4bcc5418e27aa3064d72fbd52abc0b': 403,
   '0xffd2b192305e8207f52a48e859d5b4e99ad0bea1': 404,
-  '0x76ca22557dc983ac70432aa1e616972f883b832e': 405,
-};
+  '0x76ca22557dc983ac70432aa1e616972f883b832e': 405
+}
 
-module.exports = PID;
+module.exports = PID

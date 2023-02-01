@@ -1,9 +1,10 @@
-import { gql, request } from 'graphql-request';
+import { gql, request } from "graphql-request";
 
-export const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/euler-xyz/euler-mainnet"
+export const SUBGRAPH_URL =
+  "https://api.thegraph.com/subgraphs/name/euler-xyz/euler-mainnet";
 const poolsQuery = gql`
   {
-    eulerMarketStores{
+    eulerMarketStores {
       id
       markets(first: 1000) {
         id
@@ -27,6 +28,6 @@ const poolsQuery = gql`
 // totalBorrowsUsd is the total amount of assets borrowed from the contract
 // We use supply APY to get the deposit APY
 export async function queryEulerGraphData() {
-    const { eulerMarketStores } = await request(SUBGRAPH_URL, poolsQuery);
-    return eulerMarketStores.find((el) => el.id == "euler-market-store").markets
+  const { eulerMarketStores } = await request(SUBGRAPH_URL, poolsQuery);
+  return eulerMarketStores.find((el) => el.id == "euler-market-store").markets;
 }

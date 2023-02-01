@@ -205,12 +205,11 @@ describe("CONNECTOR - INTERACTIONS", () => {
 
             if (result) {
               expect(result).toBeDefined();
-              expect(result.abi).toBeDefined();
-              expect(result.method_name).toBeDefined();
-              expect(result.position_token).toBeDefined();
-              expect(result.position_token_type).toBeDefined();
-              expect(result.interaction_address).toBeDefined();
-              expect(result.args).toBeDefined();
+              expect(result.txInfo.abi).toBeDefined();
+              expect(result.txInfo.method_name).toBeDefined();
+              expect(result.assetInfo).toBeDefined();
+              expect(result.txInfo.interaction_address).toBeDefined();
+              expect(result.txInfo.args).toBeDefined();
             }
           });
 
@@ -267,13 +266,14 @@ describe("CONNECTOR - INTERACTIONS", () => {
               0
             );
             if (result) {
-              const methodInAbi = result.abi.find((elem) => {
+              const methodInAbi = result.txInfo.abi.find((elem) => {
                 return (
-                  elem.name == result.method_name && elem.type == "function"
+                  elem.name == result.txInfo.method_name &&
+                  elem.type == "function"
                 );
               });
               expect(methodInAbi).toBeTruthy();
-              expect(typeof result.method_name).toBe("string");
+              expect(typeof result.txInfo.method_name).toBe("string");
             }
           });
 

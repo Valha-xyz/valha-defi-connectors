@@ -4,11 +4,12 @@ import {
   AdditionalOptions,
   AddressesInput,
   AmountInput,
+  Interactions,
   InteractionsReturnObject,
   Pool,
-} from 'src/utils/types/connector-types';
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-const PoolABI = require('../abi/DepositPool.json');
+} from "src/utils/types/connector-types";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const PoolABI = require("../abi/DepositPool.json");
 
 /// invest
 async function deposit(
@@ -18,7 +19,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'deposit';
+  const method_name = "deposit";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -29,13 +30,17 @@ async function deposit(
   const interaction_address = pool.investing_address;
 
   return {
-    abi: abi, //json file name
-    method_name: method_name, //method to interact with the pool
-    position_token: pool.underlying_tokens[0], // token needed to approve
-    position_token_type: 'ERC-20', //token type to approve
-    interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
-    args: args, //args to pass to the smart contracts to trigger 'method_name'
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: pool.underlying_tokens[0], // token needed to approve
+      position_token_type: "ERC-20", //token type to approve
+      amount: amountBN,
+    },
   };
 }
 
@@ -176,7 +181,7 @@ async function deposit(
 //   };
 // }
 
-module.exports = {
+const interaction: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
@@ -188,3 +193,5 @@ module.exports = {
   claim_rewards: null,
   claim_interests: null,
 };
+
+export default interactions;

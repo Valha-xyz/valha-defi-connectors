@@ -1,33 +1,33 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const _ = require('lodash');
-const external = require('./external/DefiLlama/index');
-const pools = require('../pools/pools');
-const checkStargateV0TVL = require('./functions/tvl');
+const _ = require('lodash')
+const external = require('./external/DefiLlama/index')
+const pools = require('../pools/pools')
+const checkStargateV0TVL = require('./functions/tvl')
 
 /// APY
 /// TVL
-async function loadExternal(chain) {
-  const pools = await external.apyChain(chain);
+async function loadExternal (chain) {
+  const pools = await external.apyChain(chain)
   if (!pools || pools.length === 0) {
-    return null;
+    return null
   }
-  return pools;
+  return pools
 }
 
-async function analytics(chain, poolAddress) {
-  const POOLS = await pools();
-  if (!POOLS || POOLS.length === 0) return {};
-  const externalInformation = await loadExternal(chain);
-  if (!externalInformation) return {};
+async function analytics (chain, poolAddress) {
+  const POOLS = await pools()
+  if (!POOLS || POOLS.length === 0) return {}
+  const externalInformation = await loadExternal(chain)
+  if (!externalInformation) return {}
   const externalInfo = _.find(externalInformation, (elem) => {
-    return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
-  });
+    return elem.pool.toLowerCase().includes(poolAddress.toLowerCase())
+  })
 
-  if (!externalInfo) return {};
+  if (!externalInfo) return {}
 
-  const rewards_apy = externalInfo['apyReward'];
-  const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0;
-  const tvl = await checkStargateV0TVL(chain, poolAddress);
+  const rewards_apy = externalInfo.apyReward
+  const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0
+  const tvl = await checkStargateV0TVL(chain, poolAddress)
 
   const result = {
     status: null,
@@ -42,15 +42,15 @@ async function analytics(chain, poolAddress) {
     boosting_apy: null,
     share_price: 1,
     minimum_deposit: null,
-    maximum_deposit: null,
-  };
+    maximum_deposit: null
+  }
 
-  console.log(result);
+  console.log(result)
 
-  return result;
+  return result
 }
 
 module.exports = {
   main: analytics,
-  url: external.url,
-};
+  url: external.url
+}
