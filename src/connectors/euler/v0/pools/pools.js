@@ -1,8 +1,8 @@
-const POOLS = require("./generatedPools.json");
+const POOLS = require('./generatedPools.json')
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

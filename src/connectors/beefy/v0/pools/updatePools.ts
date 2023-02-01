@@ -43,29 +43,30 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
   // Check all available oracles
   // console.log(_.uniq(pools.map(pool=> pool.oracle)))
 
-  const modifiedPools: Pool[] = _.compact(pools
-    // Should we filter by pool.status to only keep active ones ? (possible states : [ 'active', 'eol', 'paused' ])
-    .filter((pool) => pool)
-    .map((elem): Pool | undefined => {
+  const modifiedPools: Pool[] = _.compact(
+    pools
+      // Should we filter by pool.status to only keep active ones ? (possible states : [ 'active', 'eol', 'paused' ])
+      .filter((pool) => pool)
+      .map((elem): Pool | undefined => {
+        const network = mapDistantChainToLocal(elem.network);
 
-      const network = mapDistantChainToLocal(elem.network);
-
-      if(!network){
-        return undefined
-      }
-      return {
-        name: elem.name,
-        chain: network,
-        underlying_tokens: [elem.tokenAddress],
-        pool_address: elem.earnedTokenAddress,
-        investing_address: elem.earnedTokenAddress,
-        staking_address: null,
-        boosting_address: null,
-        distributor_address: null,
-        rewards_tokens: null,
-        metadata: {},
-      };
-    }));
+        if (!network) {
+          return undefined;
+        }
+        return {
+          name: elem.name,
+          chain: network,
+          underlying_tokens: [elem.tokenAddress],
+          pool_address: elem.earnedTokenAddress,
+          investing_address: elem.earnedTokenAddress,
+          staking_address: null,
+          boosting_address: null,
+          distributor_address: null,
+          rewards_tokens: null,
+          metadata: {},
+        };
+      })
+  );
   return modifiedPools;
 }
 

@@ -9,13 +9,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {},
-  },
-];
+    metadata: {}
+  }
+]
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

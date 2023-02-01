@@ -4,11 +4,12 @@ import {
   AdditionalOptions,
   AddressesInput,
   AmountInput,
+  Interactions,
   InteractionsReturnObject,
   Pool,
-} from 'src/utils/types/connector-types';
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-const STETHABI = require('../abi/STETH.json');
+} from "src/utils/types/connector-types";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const STETHABI = require("../abi/STETH.json");
 
 /// invest
 async function deposit(
@@ -18,23 +19,27 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STETHABI;
-  const method_name = 'submit';
+  const method_name = "submit";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     position_token
   );
-  const args = ['0x0000000000000000000000000000000000000000'];
+  const args = ["0x0000000000000000000000000000000000000000"];
 
   return {
-    abi: abi, //json file name
-    method_name: method_name, //method to interact with the pool
-    position_token: position_token, // token needed to approve
-    position_token_type: 'ERC-20', //token type to approve
-    interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
-    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
-    args: args, //args to pass to the smart contracts to trigger 'method_name'
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: "ERC-20", //token type to approve
+      amount: amountBN,
+    },
   };
 }
 
@@ -193,7 +198,7 @@ async function claimRewards(
   return {};
 }
 
-module.exports = {
+const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
@@ -205,3 +210,5 @@ module.exports = {
   claim_rewards: null,
   claim_interests: null,
 };
+
+export default interactions;

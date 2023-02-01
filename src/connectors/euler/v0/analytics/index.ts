@@ -21,16 +21,29 @@ async function analytics(chain: Chain, poolAddress: string) {
 
   const result = {
     status: null,
-    tvl: BigNumber.from(currentPoolInfo.totalBalancesUsd).div(decimalFactor).toNumber(),
-    liquidity: BigNumber.from(currentPoolInfo.totalBalancesUsd).sub(currentPoolInfo.totalBorrowsUsd).div(decimalFactor).toNumber(),
-    outloans: BigNumber.from(currentPoolInfo.totalBorrowsUsd).div(decimalFactor).toNumber(),
+    tvl: BigNumber.from(currentPoolInfo.totalBalancesUsd)
+      .div(decimalFactor)
+      .toNumber(),
+    liquidity: BigNumber.from(currentPoolInfo.totalBalancesUsd)
+      .sub(currentPoolInfo.totalBorrowsUsd)
+      .div(decimalFactor)
+      .toNumber(),
+    outloans: BigNumber.from(currentPoolInfo.totalBorrowsUsd)
+      .div(decimalFactor)
+      .toNumber(),
     losses: null,
     capacity: Number.MAX_SAFE_INTEGER,
-    apy: BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() / 10**9,
-    activity_apy: BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() / 10**9,
+    apy:
+      BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() /
+      10 ** 9,
+    activity_apy:
+      BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() /
+      10 ** 9,
     rewards_apy: 0,
     boosting_apy: null,
-    share_price: parseInt(currentPoolInfo.totalBalancesUsd)/parseInt(currentPoolInfo.totalSupply),
+    share_price:
+      parseInt(currentPoolInfo.totalBalancesUsd) /
+      parseInt(currentPoolInfo.totalSupply),
     minimum_deposit: null,
     maximum_deposit: null,
   };

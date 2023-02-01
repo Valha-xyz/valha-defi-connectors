@@ -6,17 +6,16 @@ import { fetchLps, fetchTokenPrices } from "../external/beefy.api";
 
 export async function checkBeefyVaultPrice(chain, poolInfo) {
   try {
-
     let allPrices;
-    if(poolInfo.oracle == "lps"){
+    if (poolInfo.oracle == "lps") {
       allPrices = await fetchLps();
-    }else if(poolInfo.oracle == "lps"){
+    } else if (poolInfo.oracle == "lps") {
       allPrices = await fetchTokenPrices();
-    }else{
-      allPrices = []
+    } else {
+      allPrices = [];
     }
 
-    const price = allPrices[poolInfo.oracleId]
+    const price = allPrices[poolInfo.oracleId];
 
     return { data: price, err: null };
   } catch (err) {

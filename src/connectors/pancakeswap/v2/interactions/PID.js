@@ -139,7 +139,7 @@ const PID = {
   '0x657f0675c67627f91ea6c6f35785489b3af77ee2': 137,
   '0x54cd9d6ce45cef4fcc1ac568329254661b28711d': 138,
   '0x269043694d070e8811c620bf95485314bcc7b4b7': 139,
-  '0x4d4310f465c6db2081c3d24fa3b571cb29abddb7': 140,
-};
+  '0x4d4310f465c6db2081c3d24fa3b571cb29abddb7': 140
+}
 
-module.exports = PID;
+module.exports = PID

@@ -22,7 +22,7 @@ export async function checkBeefyTVL(chain, poolAddress) {
     const formattedTVL = tvl / 10 ** decimals;
     return { data: formattedTVL, err: null };
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return { data: null, err: err };
   }
 }

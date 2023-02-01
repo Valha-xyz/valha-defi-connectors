@@ -4,11 +4,12 @@ import {
   AdditionalOptions,
   AddressesInput,
   AmountInput,
+  Interactions,
   InteractionsReturnObject,
   Pool,
-} from 'src/utils/types/connector-types';
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-const STABI = require('../abi/STMATIC.json');
+} from "src/utils/types/connector-types";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const STABI = require("../abi/STMATIC.json");
 
 /// invest
 async function deposit(
@@ -18,7 +19,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
-  const method_name = 'submit';
+  const method_name = "submit";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -28,13 +29,17 @@ async function deposit(
   const args = [amountBN];
 
   return {
-    abi: abi, //json file name
-    method_name: method_name, //method to interact with the pool
-    position_token: position_token, // token needed to approve
-    position_token_type: 'ERC-20', //token type to approve
-    interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
-    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
-    args: args, //args to pass to the smart contracts to trigger 'method_name'
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: "ERC-20", //token type to approve
+      amount: amountBN,
+    },
   };
 }
 
@@ -46,7 +51,7 @@ async function unlock(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
-  const method_name = 'requestWithdraw';
+  const method_name = "requestWithdraw";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -56,13 +61,17 @@ async function unlock(
   const args = [amountBN];
 
   return {
-    abi: abi, //json file name
-    method_name: method_name, //method to interact with the pool
-    position_token: position_token, // token needed to approve
-    position_token_type: 'ERC-20', //token type to approve
-    interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
-    amount: amountBN, //amount that will be use in the ERC20 approve tx of the position token is an ERC20 or that will be use as the 'value' of the transaction
-    args: args, //args to pass to the smart contracts to trigger 'method_name'
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: "ERC-20", //token type to approve
+      amount: amountBN,
+    },
   };
 }
 
@@ -99,130 +108,55 @@ async function unlock(
 
 /// stake
 async function stake(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
 ) {
   return {};
 }
 
 /// unstake
 async function unstake(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
 ) {
   return {};
 }
 
 /// boost
 async function boost(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
 ) {
   return {};
 }
 
 /// unboost
 async function unboost(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
 ) {
   return {};
 }
 
 /// claim
 async function claimRewards(
-  pool_name,
-  chain,
-  underlying_tokens,
-  pool_address,
-  investing_address,
-  staking_address,
-  boosting_address,
-  distributor_address,
-  rewards_tokens,
-  metadata,
-  amountNotBN,
-  amountsDesiredNotBN,
-  amountsMinimumNotBN,
-  ranges,
-  rangeToken,
-  userAddress,
-  receiverAddress,
-  lockupTimestamp,
-  deadline
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
 ) {
   return {};
 }
 
-module.exports = {
+const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: unlock,
@@ -234,3 +168,5 @@ module.exports = {
   claim_rewards: null,
   claim_interests: null,
 };
+
+export default interactions;
