@@ -2,7 +2,7 @@ import { erc20Decimals } from "../../../../../utils/ERC20Decimals";
 import VaultABI from "../../abi/vault.json";
 import { ethers } from "ethers";
 import { getNodeProvider } from "../../../../../utils/getNodeProvider";
-import { NumberedData } from "src/utils/types/fetched-data";
+import { NumberedData } from "../../../../../utils/types/fetched-data";
 
 export async function checkYearnOutstandingLoans(
   chain,

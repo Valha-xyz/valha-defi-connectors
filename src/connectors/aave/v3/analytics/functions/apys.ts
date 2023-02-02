@@ -1,5 +1,5 @@
 import { gql, request } from 'graphql-request';
-import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice'
+import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice'
 
 const SECONDS_PER_YEAR = 31536000
 const SUBGRAPH_URLS = {

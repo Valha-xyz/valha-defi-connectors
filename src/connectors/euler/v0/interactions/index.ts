@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-
-import { toBnERC20Decimals } from 'src/utils/toBNTokenDecimals';
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 import {
   AdditionalOptions,
   AddressesInput,
@@ -9,7 +8,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from 'src/utils/types/connector-types';
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
@@ -73,7 +72,11 @@ async function redeem(
       method_name: method_name, //method to interact with the pool
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
-    assetInfo: null,
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
+      amount: amountBN,
+    },
   };
 }
 
@@ -86,14 +89,14 @@ async function stake(
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'stake';
-  const position_token = pool.underlying_tokens[0];
+  const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     position_token
   );
   const args = [options?.other?.subAccountId ?? 0, amountBN];
-  const interaction_address = pool.investing_address;
+  const interaction_address = pool.staking_address;
 
   return {
     txInfo: {
@@ -119,7 +122,7 @@ async function unstake(
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'withdraw';
-  const position_token = pool.underlying_tokens[0];
+  const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,

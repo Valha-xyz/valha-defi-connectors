@@ -1,11 +1,16 @@
 import { fetchVaults } from "../analytics/external/yearn.api";
 import fs from "fs";
 import { Pool } from "../../../../utils/types/connector-types";
-import { Chain } from "src/utils/types/networks";
+import { Chain } from "../../../../utils/types/networks";
+import { getChainById } from "../../../../utils/getChainId";
 const path = require("path");
+const _ = require("lodash")
 
 async function generatePools(): Promise<Pool | Record<never, never>> {
   const pools = await fetchVaults();
+
+
+  console.log(_.uniq(pools.map((pool)=> pool.chainID)))
 
   if (!pools || pools.length === 0) {
     return {};
@@ -21,7 +26,7 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
     .map((elem): Pool => {
       return {
         name: elem.name,
-        chain: Chain.ethereum,
+        chain: getChainById(elem.chainID),
         underlying_tokens: [elem.token.address],
         pool_address: elem.address,
         investing_address: elem.address,

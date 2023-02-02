@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { getNodeProvider } from "src/utils/getNodeProvider";
+import { getNodeProvider } from "../../../../utils/getNodeProvider";
 import MasterABI from "../abi/Master.json";
 
 const MasterAddress = "0xE2C07d20AF0Fb50CAE6cDD615CA44AbaAA31F9c8";

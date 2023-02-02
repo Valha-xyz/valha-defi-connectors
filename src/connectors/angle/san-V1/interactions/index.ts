@@ -6,7 +6,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from 'src/utils/types/connector-types';
+} from "../../../../utils/types/connector-types";
 
 const SanPoolABI = require('../abi/SanToken.json');
 const StakingABI = require('../abi/StakingPool.json');

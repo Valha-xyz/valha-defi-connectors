@@ -7,7 +7,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 const ROUTERABI = require("../abi/Router.json");
 const LPSTAKING = require("../abi/LPStaking.json");
 const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");

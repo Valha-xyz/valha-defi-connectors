@@ -1,19 +1,16 @@
-import { BigNumber } from "ethers";
-import { erc20Decimals } from "../../../../utils/ERC20Decimals";
-import { getNodeProvider } from "../../../../utils/getNodeProvider";
-import { Chain } from "../../../../utils/types/networks";
-import { queryEulerGraphData, SUBGRAPH_URL } from "./external/graph-query";
+import { BigNumber } from 'ethers';
+import { erc20Decimals } from '../../../../utils/ERC20Decimals';
+import { getNodeProvider } from '../../../../utils/getNodeProvider';
+import { Chain } from '../../../../utils/types/networks';
+import { queryEulerGraphData, SUBGRAPH_URL } from './external/graph-query';
 
 async function analytics(chain: Chain, poolAddress: string) {
   const allPoolInfo = await queryEulerGraphData();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) => pool.eTokenAddress == poolAddress
+    (pool) => pool.eTokenAddress.toLowerCase() == poolAddress.toLowerCase()
   );
-
-  const provider = await getNodeProvider("ethereum");
-
   const apiDecimals = 18;
   const decimalFactor = BigNumber.from(10).pow(apiDecimals);
 
@@ -21,24 +18,21 @@ async function analytics(chain: Chain, poolAddress: string) {
 
   const result = {
     status: null,
-    tvl: BigNumber.from(currentPoolInfo.totalBalancesUsd)
-      .div(decimalFactor)
-      .toNumber(),
+    tvl: BigNumber.from(currentPoolInfo.totalBalancesUsd).toNumber(),
     liquidity: BigNumber.from(currentPoolInfo.totalBalancesUsd)
       .sub(currentPoolInfo.totalBorrowsUsd)
-      .div(decimalFactor)
       .toNumber(),
-    outloans: BigNumber.from(currentPoolInfo.totalBorrowsUsd)
-      .div(decimalFactor)
-      .toNumber(),
+    outloans: BigNumber.from(currentPoolInfo.totalBorrowsUsd).toNumber(),
     losses: null,
     capacity: Number.MAX_SAFE_INTEGER,
     apy:
-      BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() /
-      10 ** 9,
+      (BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() /
+        10 ** additionalPercentageDecimals) *
+      100,
     activity_apy:
-      BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() /
-      10 ** 9,
+      (BigNumber.from(currentPoolInfo.supplyAPY).div(decimalFactor).toNumber() /
+        10 ** additionalPercentageDecimals) *
+      100,
     rewards_apy: 0,
     boosting_apy: null,
     share_price:

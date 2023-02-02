@@ -1,4 +1,4 @@
-import { Analytics, AnalyticsExport } from "src/utils/types/connector-types"
+import { Analytics, AnalyticsExport } from "../../../../utils/types/connector-types"
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash')
