@@ -1,4 +1,4 @@
-const CHAIND_ID = {
+const CHAIN_ID = {
   ethereum: 1,
   polygon: 137,
   bsc: 56,
@@ -8,11 +8,22 @@ const CHAIND_ID = {
   avalanche: 43114,
 };
 
-export async function getChainId(chain: string): Promise<number> {
+export function getChainId(chain: string): number {
   try {
-    const id = CHAIND_ID[chain];
+    const id = CHAIN_ID[chain];
     if (!id) throw new Error(`Not found CHAIN_ID for ${chain}`);
     return id;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
+
+export function getChainById(id: number): string {
+  try {
+    const chain = Object.keys(CHAIN_ID).find(key => CHAIN_ID[key] === id);
+    if (!chain) throw new Error(`Not found chain for ${id}`);
+    return chain;
   } catch (err) {
     console.log(err);
     return null;

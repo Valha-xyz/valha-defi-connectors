@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require("lodash");
 
-import { fetchVaultInfo, VAULT_EXTENDED_API_ADDR } from "./external/yearn.api";
+import { fetchVaults, getVaultExtendedApiAddr } from "./external/yearn.api";
 import { checkYearnLiquidity } from "./functions/liquidity";
 import { checkYearnMaxDeposit } from "./functions/maxDeposit";
 import { checkYearnOutstandingLoans } from "./functions/outloans";
 import { checkYearnSharePrice } from "./functions/sharePrice";
 
 async function analytics(chain, poolAddress) {
-  const allPoolInfo = await fetchVaultInfo();
+  const allPoolInfo = await fetchVaults();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
@@ -47,5 +47,5 @@ async function analytics(chain, poolAddress) {
 //analytics("ethereum", "0x04c8bfe2eb09a1e2e9fA97A2fd970E06d87B43de")
 module.exports = {
   main: analytics,
-  url: VAULT_EXTENDED_API_ADDR,
+  url: getVaultExtendedApiAddr("ethereum")
 };
