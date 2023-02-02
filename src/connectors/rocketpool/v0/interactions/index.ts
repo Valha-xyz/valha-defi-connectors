@@ -7,9 +7,9 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
-const PoolABI = require("../abi/DepositPool.json");
+} from '../../../../utils/types/connector-types';
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const PoolABI = require('../abi/DepositPool.json');
 
 /// invest
 async function deposit(
@@ -19,7 +19,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "deposit";
+  const method_name = 'deposit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -38,7 +38,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
