@@ -17,7 +17,7 @@ async function analytics(chain, poolAddress) {
 
   const tvl = currentPoolInfo?.tvl?.tvl;
   const sharePrice = await checkYearnSharePrice(chain, poolAddress);
-  const activityApy = currentPoolInfo?.apy?.net_apy;
+  const activityApy = currentPoolInfo?.apy?.net_apy * 100;
   const rewardsApy = { data: 0, err: null };
   const liquidity = await checkYearnLiquidity(chain, poolAddress);
   const outloans = await checkYearnOutstandingLoans(chain, poolAddress);
