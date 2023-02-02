@@ -7,8 +7,8 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
-import { toBnERC20Decimals } from "src/utils/toBNTokenDecimals";
+} from "../../../../utils/types/connector-types";
+import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 const ROUTERABI = require("../abi/ROUTER");
 const STAKERABI = require("../abi/STAKER");
 const PID = require("./PID");

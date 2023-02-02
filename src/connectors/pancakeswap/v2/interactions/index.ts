@@ -7,7 +7,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { toBnERC20Decimals } = require("src/utils/toBNTokenDecimals");

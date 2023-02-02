@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import { toBnERC20Decimals } from "src/utils/toBNTokenDecimals";
+import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 import {
   AdditionalOptions,
   AddressesInput,
@@ -9,7 +9,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 

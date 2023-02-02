@@ -1,7 +1,7 @@
 import { fetchVaults } from "../analytics/external/yearn.api";
 import fs from "fs";
 import { Pool } from "../../../../utils/types/connector-types";
-import { Chain } from "src/utils/types/networks";
+import { Chain } from "../../../../utils/types/networks";
 const path = require("path");
 
 async function generatePools(): Promise<Pool | Record<never, never>> {

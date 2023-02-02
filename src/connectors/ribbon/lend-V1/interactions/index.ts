@@ -8,7 +8,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import FACTORYABI from "../abi/Factory.json";
