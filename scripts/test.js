@@ -1,5 +1,5 @@
-async function analytics(chain, poolAddress) {
-  const tvl = 0;
+async function analytics (chain, poolAddress) {
+  const tvl = 0
 
   const result = {
     status: null,
@@ -14,13 +14,13 @@ async function analytics(chain, poolAddress) {
     boosting_apy: 0,
     share_price: 1,
     minimum_deposit: null,
-    maximum_deposit: null,
-  };
+    maximum_deposit: null
+  }
 
-  return result;
+  return result
 }
 
 module.exports = {
   main: analytics,
-  url: external.url,
-};
+  url: external.url
+}

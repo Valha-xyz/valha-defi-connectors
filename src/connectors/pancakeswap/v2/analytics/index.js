@@ -1,51 +1,51 @@
-const _ = require('lodash');
-const external = require('./external/DefiLlama/index');
+const _ = require('lodash')
+const external = require('./external/DefiLlama/index')
 
 /// APY
 /// TVL
-async function loadExternal() {
-  const pools = await external.apy();
+async function loadExternal () {
+  const pools = await external.apy()
   if (!pools || pools.length === 0) {
-    return null;
+    return null
   }
 
-  return pools;
+  return pools
 }
 
-async function analytics(chain, poolAddress) {
-  const externalInformation = await loadExternal();
-  console.log(externalInformation);
-  if (!externalInformation) return {};
+async function analytics (chain, poolAddress) {
+  const externalInformation = await loadExternal()
+  console.log(externalInformation)
+  if (!externalInformation) return {}
   const externalInfo = _.find(externalInformation, (elem) => {
-    return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
-  });
+    return elem.pool.toLowerCase().includes(poolAddress.toLowerCase())
+  })
 
-  if (!externalInfo) return {};
+  if (!externalInfo) return {}
 
-  const tvl = externalInfo['tvlUsd'];
-  const rewardsAPY = externalInfo['apyReward'];
-  const activityAPY = externalInfo['apyBase'];
-  const totalAPY = rewardsAPY + activityAPY;
+  const tvl = externalInfo.tvlUsd
+  const rewardsAPY = externalInfo.apyReward
+  const activityAPY = externalInfo.apyBase
+  const totalAPY = rewardsAPY + activityAPY
 
   const result = {
     status: true,
-    tvl: tvl ? tvl : null,
+    tvl: tvl || null,
     liquidity: tvl,
     outloans: null,
     losses: null,
     capacity: Number.MAX_SAFE_INTEGER,
     apy: totalAPY,
-    activity_apy: activityAPY ? activityAPY : 0,
-    rewards_apy: rewardsAPY ? rewardsAPY : 0,
+    activity_apy: activityAPY || 0,
+    rewards_apy: rewardsAPY || 0,
     boosting_apy: 0,
     share_price: null,
     minimum_deposit: null,
-    maximum_deposit: null,
-  };
-  return result;
+    maximum_deposit: null
+  }
+  return result
 }
 
 module.exports = {
   main: analytics,
-  url: external.url,
-};
+  url: external.url
+}

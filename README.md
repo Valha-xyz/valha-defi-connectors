@@ -14,6 +14,7 @@
 
 - [About](#about)
 - [Use-cases](#why)
+- [Integration Explanation](#integration-explanation)
 - [Integrate a new Protocol](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Integration steps](#🚀-add-a-new-protocol)
@@ -62,13 +63,30 @@ As a DeFi app (wallets, dapps, yield aggregators), you can easily integrate new 
 
 <br>
 
+## Integration Explanation
+
+To integrate a DeFi protocol, one needs to know what are the related pools, to know the current main statistics of the pools and to know how to interact with such pools.
+Therefore, in the integration process, we have three main following parts that end up in three folders: Pools, Analytics & Interactions.
+
+### Pools
+
+In this folder, there will have a main function returning all the current pools related to the protocol (and the associated information) by developing functions to get all the pools related to the protocol.
+
+### Analytics
+
+In this folder, there will have a main function returning all analytics about a specific pool by developing functions to get all the statictis related to one pool of the protocol.
+
+### Interaction
+
+In this folder, there will have a main function returning all the information necessarty to interact with specific pool by developing functions to know how to make specific actions on a pool.
+
 ## Getting Started
 
-To integrate a new DeFi protocol to Valha, you just have to follow the next few steps!
+To integrate a DeFi protocol to Valha, you have to follow the next few steps!
 
 ### Prerequisites
 
-<a href="https://nodejs.org/en/download/" target="_blank"> Node</a>
+<a href="https://nodejs.org/en/download/" target="_blank"> Node (>16)</a>
 
   <!-- <br> or <br>
 <!-- - <a href="https://docs.docker.com/get-docker/" target="_blank"> Docker </a> -->
@@ -122,7 +140,7 @@ Your connector folder must respect the following structure to pass tests:
 
 🚨 Make sure your pools.js, analytics/index.js and interactions/index.js respect the expected EXPORT 🚨
 
-🤞 Check src/connectors or the INTERFACE section below
+🤞 Check in the `src/connectors` of the staging branch to check examples or read the INTERFACE section below
 
 <h3>5. Make sure your integration works by running the TEST suites. </h3>
 
@@ -150,6 +168,12 @@ Use the following command to run all the tests at once:
 npm run full-test -- --connector="protocol_name/product_version"
 ```
 
+🚨 If you have too many pools to test, you can make sure that your integration is working on a specific pool by using:
+
+```bash
+npm run full-test -- --connector="protocol_name/product_version" --pool="pool_address"
+```
+
 <br />
 <h3> 6. Make your integration live by submitting a PR to the STAGING branch 🎉🎉🎉 </h3>
 
@@ -168,16 +192,16 @@ Keep in mind to "compare across forks" in the [pull request creation page](https
 
 ```typescript
 interface Pool {
-  name: string;
-  chain: string;
-  underlying_tokens: string[];
-  pool_address: string;
-  investing_address: string;
-  staking_address: string;
-  boosting_address: string;
-  distributor_address: string;
-  rewards_tokens: string;
-  metadata: object;
+  name: string; // Name of the pool.
+  chain: string; // Chain on which the pool exists.
+  underlying_tokens: string[]; // Addresses of the Tokens that are accepted by the pool.
+  pool_address: string; // Address to track an one's shares of the pool.
+  investing_address: string; // Address to use in order to deposit/redeem into the pool.
+  staking_address: string; // Address to use in order to stake/unstake to the pool.
+  boosting_address: string; // Address to use in order to boost/unboost one's positions the pool.
+  distributor_address: string; // Address to use in order to claim its rewards from the pool.
+  rewards_tokens: string; // Addresses of the Tokens that are use as rewards by the pool.
+  metadata: any; // Undefined object in order to pass pool-specific information for analytics or interactions purposes.
 }
 ```
 
@@ -186,19 +210,19 @@ interface Pool {
 
 ```typescript
 interface Analytics {
-  status: bool | null;
-  tvl: number | null;
-  liquidity: number | null;
-  outloans: number | null;
-  losses: number | null;
-  capacity: number | null;
-  apy: number | null;
-  activity_apy: number | null;
-  rewards_apy: number | null;
-  boosting_apy: number | null;
-  share_price: number | null;
-  minimum_deposit: number | null;
-  maximum_deposit: number | null;
+  status: bool | null; // Current status of the pool. Boolean that specify if a pool is open (true) or closed (false).
+  tvl: number | null; // TVL value in USD. Value that is invested in the pool (whatever the current use).
+  liquidity: number | null; // Liquidity value in USD. Value that is available to withdraw from the pool.
+  outloans: number | null; // Outloans value in USD. Value that is currently used by users of the protocols.
+  losses: number | null; // Losses value in USD. Value that is currently lost by the protocol (credit default, slashing events, bad debt, etc...).
+  capacity: number | null; // Capacity value in USD. Value that the pool can take.
+  apy: number | null; // Rate you can earn on an account over a year by putting money into the pool. Sum of Activity APY + Rewards APY.
+  activity_apy: number | null; // Rate you can earn on an account over a year by putting money into the pool coming from economics of the protocol.
+  rewards_apy: number | null; // Rate you can earn on an account over a year by putting money into the pool coming from incentives of the protocol (liquidity mining).
+  boosting_apy: number | null; // Rate you can earn on an account over a year by putting money into the pool coming from specific action in the protocol.
+  share_price: number | null; // Price to get one share of the pool in USD. Value that must be deposited in the pool to get 1 pool token.
+  minimum_deposit: number | null; // Minimum deposit in USD. Minimum amount that must be sent in one deposit transaction.
+  maximum_deposit: number | null; // Maximum deposit in USD. Maximum amount that must be sent in one deposit transaction.
 }
 ```
 
@@ -207,16 +231,16 @@ interface Analytics {
 
 ```typescript
 interface Interactions {
-  deposit: deposit() | null;
-  deposit_and_stake: deposit_and_stake() | null;
-  unlock: unlock() | null;
-  redeem: redeem() | null;
-  stake: stake() | null;
-  unstake: unstake() | null;
-  boost: boost() | null;
-  unboost: unboost() | null;
-  claim_rewards: claimRewards() | null;
-  claim_interests: claimInterests() | null;
+  deposit: deposit() | null; // Action to put asset in a pool.
+  deposit_and_stake: deposit_and_stake() | null; // Action to put asset in a pool and let the protocol use this asset for a its specific use case.
+  unlock: unlock() | null; // Action to unlock asset from a pool.
+  redeem: redeem() | null; // Action to remove asset from a pool.
+  stake: stake() | null; // Action to let the protocol use an asset for a defined use case.
+  unstake: unstake() | null; // Action to stop the protocol from using an asset for a defined use case.
+  boost: boost() | null; // Action to take part into protocol-specific mechanisms to earn extra yield.
+  unboost: unboost() | null; // Action to stop taking part into protocol-specific mechanisms to earn extra yield.
+  claim_rewards: claimRewards() | null; // Action to claim the rewards generated by staking your assets.
+  claim_interests: claimInterests() | null; // Action to claim the interests generated by participating in the pool.
 }
 ```
 

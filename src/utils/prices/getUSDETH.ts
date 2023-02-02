@@ -1,6 +1,6 @@
-import { config } from 'dotenv';
+import { config } from "dotenv";
 config();
-import axios from 'axios';
+import axios from "axios";
 
 export async function getUSDETH(): Promise<{ data: number; err: Error }> {
   try {

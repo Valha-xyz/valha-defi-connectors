@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
-import BigNumber from 'bignumber.js';
-import { gql, request } from 'graphql-request';
+import BigNumber from "bignumber.js";
+import { gql, request } from "graphql-request";
 const SUBGRAPH_URL =
-  'https://api.thegraph.com/subgraphs/name/mikemccready/truefi-legacy';
+  "https://api.thegraph.com/subgraphs/name/mikemccready/truefi-legacy";
 const LOAN_FACTORY_2_START_BLOCK = 12467595;
 
 interface Loan {
@@ -30,13 +30,13 @@ const getLoans = gql`
 `;
 
 function isLoanActive(status: string) {
-  return status === '1' || status === '2';
+  return status === "1" || status === "2";
 }
 
 async function getActiveLoans() {
   const { loans } = await request(
     SUBGRAPH_URL,
-    getLoans.replace('<PLACEHOLDER>', String(LOAN_FACTORY_2_START_BLOCK)),
+    getLoans.replace("<PLACEHOLDER>", String(LOAN_FACTORY_2_START_BLOCK))
   );
   const activeLoansRaw = loans.filter(({ status }) => isLoanActive(status));
   const activeLoans: Loan[] = activeLoansRaw.map(
@@ -46,7 +46,7 @@ async function getActiveLoans() {
       startDate: Number(startDate),
       endDate: Number(endDate),
       amount: new BigNumber(Number(amount)),
-    }),
+    })
   );
   return activeLoans;
 }

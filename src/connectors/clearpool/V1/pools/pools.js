@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0xdE204e5a060bA5d3B63C7A4099712959114c2D48',
     rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Amber Group',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0xdE204e5a060bA5d3B63C7A4099712959114c2D48',
     rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Folkvang',
@@ -45,7 +45,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0xdE204e5a060bA5d3B63C7A4099712959114c2D48',
     rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Wintermute',
@@ -57,7 +57,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0xdE204e5a060bA5d3B63C7A4099712959114c2D48',
     rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
-    metadata: {},
+    metadata: {}
   },
   {
     name: 'Auros',
@@ -69,7 +69,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0xdE204e5a060bA5d3B63C7A4099712959114c2D48',
     rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
-    metadata: {},
+    metadata: {}
   },
   // {
   //   name: 'Amber Group',
@@ -93,8 +93,8 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0xdE204e5a060bA5d3B63C7A4099712959114c2D48',
     rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
-    metadata: {},
-  },
+    metadata: {}
+  }
   // {
   //   name: 'Bastion Trading',
   //   chain: 'polygon',
@@ -143,11 +143,11 @@ const POOLS = [
   //   rewards_tokens: ['0x66761fa41377003622aee3c7675fc7b5c1c2fac5'],
   //   metadata: {},
   // },
-];
+]
 
 /// pools
-async function pools() {
-  return POOLS;
+async function pools () {
+  return POOLS
 }
 
-module.exports = pools;
+module.exports = pools

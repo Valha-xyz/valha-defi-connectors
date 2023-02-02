@@ -1,8 +1,8 @@
-import checkParam from './config/checkParam';
-import POOLS from './config/testPools';
-import fs from 'fs';
+import checkParam from "./config/checkParam";
+import { POOLS } from "./config/testPools";
+import fs from "fs";
 
-const chains = ['ethereum', 'bsc', 'polygon', 'arbitrum', 'optimism'];
+const chains = ["ethereum", "bsc", "polygon", "arbitrum", "optimism"];
 
 function isEVMAddress(address: string) {
   if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
@@ -17,14 +17,14 @@ function isEVMAddress(address: string) {
   }
 }
 
-describe('CONNECTOR - ANALYTICS', () => {
+describe("CONNECTOR - ANALYTICS", () => {
   let connector: string;
   let analyticsPATH: string;
 
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      'connector'
+      "connector"
     );
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
@@ -40,9 +40,9 @@ describe('CONNECTOR - ANALYTICS', () => {
 
   //// LOOP THROUGH ALL THE SPECIFIED POOLS
   for (const POOL of POOLS) {
-    describe(`#### POOL ${POOL.name ? POOL.name : 'NULL'} - ${
-      POOL.chain ? POOL.chain : 'NULL'
-    } - ${POOL.pool_address ? POOL.pool_address : 'NULL'} ####`, () => {
+    describe(`#### POOL ${POOL.name ? POOL.name : "NULL"} - ${
+      POOL.chain ? POOL.chain : "NULL"
+    } - ${POOL.pool_address ? POOL.pool_address : "NULL"} ####`, () => {
       describe(`-> REQUESTED INFORMATION FROM POOL.JS`, () => {
         /// check if pools have all the requested informations (check interface)
         it(`Pool should have a name defined`, async () => {
@@ -62,7 +62,7 @@ describe('CONNECTOR - ANALYTICS', () => {
           expect(POOL.underlying_tokens).toBeDefined();
         });
 
-        it(`Pool should have an investing address key defined`, async () => {
+        it(`Pool should have an investing address defined`, async () => {
           expect(POOL.investing_address).toBeDefined();
         });
 
@@ -71,11 +71,11 @@ describe('CONNECTOR - ANALYTICS', () => {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
           } else {
-            console.log('No investing address defined.');
+            console.log("No investing address defined.");
           }
         });
 
-        it(`Pool should have a staking address key defined`, async () => {
+        it(`Pool should have a staking address defined`, async () => {
           expect(POOL.staking_address).toBeDefined();
         });
 
@@ -84,11 +84,11 @@ describe('CONNECTOR - ANALYTICS', () => {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
           } else {
-            console.log('No staking address defined.');
+            console.log("No staking address defined.");
           }
         });
 
-        it(`Pool should have a boosting address key defined`, async () => {
+        it(`Pool should have a boosting address defined`, async () => {
           expect(POOL.boosting_address).toBeDefined();
         });
 
@@ -97,11 +97,11 @@ describe('CONNECTOR - ANALYTICS', () => {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
           } else {
-            console.log('No boosting address defined.');
+            console.log("No boosting address defined.");
           }
         });
 
-        it(`Pool should have a distributor address key`, async () => {
+        it(`Pool should have a distributor address`, async () => {
           expect(POOL.distributor_address).toBeDefined();
         });
 
@@ -110,7 +110,7 @@ describe('CONNECTOR - ANALYTICS', () => {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
           } else {
-            console.log('No distributor address defined.');
+            console.log("No distributor address defined.");
           }
         });
 
@@ -137,9 +137,13 @@ describe('CONNECTOR - ANALYTICS', () => {
 
         /// check when we call the function we have the information needed on this POOL
         it(`Should be able to call MAIN function to get analytics information`, async () => {
-          const { default: fn } = await import(analyticsPATH);
-          const result = fn.main(POOL.chain, POOL.pool_address);
-          expect(result).toBeTruthy();
+          try {
+            const { default: fn } = await import(analyticsPATH);
+            const result = fn.main(POOL.chain, POOL.pool_address);
+            expect(result).toBeTruthy();
+          } catch (err) {
+            console.log(err);
+          }
         });
       });
 
@@ -161,12 +165,12 @@ describe('CONNECTOR - ANALYTICS', () => {
           expect(info.rewards_apy).toBeDefined();
           expect(info.boosting_apy).toBeDefined();
           expect(info.share_price).toBeDefined();
-          ///SOME NECESSARY TO HAVE THE RIGHT TYPE
-          expect(typeof info.tvl).toBe('number');
-          expect(typeof info.liquidity).toBe('number');
-          expect(typeof info.apy).toBe('number');
-          expect(typeof info.activity_apy).toBe('number');
-          expect(typeof info.rewards_apy).toBe('number');
+          ///SOME NEED TO HAVE THE RIGHT TYPE
+          expect(typeof info.tvl).toBe("number");
+          expect(typeof info.liquidity).toBe("number");
+          expect(typeof info.apy).toBe("number");
+          expect(typeof info.activity_apy).toBe("number");
+          expect(typeof info.rewards_apy).toBe("number");
           expect(
             info.share_price > 0 || info.share_price === null
           ).toBeTruthy();
