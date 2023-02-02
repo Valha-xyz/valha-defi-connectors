@@ -6,7 +6,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 import PoolABI from "../abi/Pool.json";

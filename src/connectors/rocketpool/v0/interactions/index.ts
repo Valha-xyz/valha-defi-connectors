@@ -7,7 +7,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 const PoolABI = require("../abi/DepositPool.json");
 
@@ -181,7 +181,7 @@ async function deposit(
 //   };
 // }
 
-const interaction: Interactions = {
+const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,

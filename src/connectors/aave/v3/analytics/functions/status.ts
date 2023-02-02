@@ -2,7 +2,7 @@
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import { ethers } from 'ethers'
 import ATokenABI from '../../abi/AToken.json'
-import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice'
+import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice'
 
 async function checkAaveV3Status (chain, poolAddress) {
   try {

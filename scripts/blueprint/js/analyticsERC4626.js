@@ -7,7 +7,7 @@
 */
 
 const ERC4626ABI = require('../abi/ERC4626.json')
-const { getNodeProvider } = require('src/utils/getNodeProvider')
+const { getNodeProvider } = require('../../../src/utils/getNodeProvider')
 const ethers = require('ethers')
 
 async function getStatus (chain, pool_address) {

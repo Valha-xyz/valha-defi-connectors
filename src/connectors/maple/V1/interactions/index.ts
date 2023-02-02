@@ -5,7 +5,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const PoolABI = require("../abi/PoolToken.json");

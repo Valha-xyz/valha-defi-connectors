@@ -7,7 +7,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 const VaultABI = require("../abi/Vault.json");
 const StakingABI = require("../abi/FairLaunch.json");

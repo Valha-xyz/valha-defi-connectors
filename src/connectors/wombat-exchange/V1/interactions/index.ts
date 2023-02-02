@@ -6,7 +6,7 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "src/utils/types/connector-types";
+} from "../../../../utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const BN = require("bn.js");
