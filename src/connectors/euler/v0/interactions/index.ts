@@ -12,15 +12,15 @@ import {
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import eTokenABI from '../abi/euler_etoken.json';
-import stakeABI from '../abi/euler_staking.json';
+import { eTokenABI } from '../abi/euler_etoken';
+import { stakeABI } from '../abi/euler_staking';
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = eTokenABI;
   const method_name = 'deposit';
@@ -28,7 +28,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [options?.other?.subAccountId ?? 0, amountBN];
 
@@ -52,7 +52,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = eTokenABI;
   const method_name = 'withdraw';
@@ -60,7 +60,7 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   // Here we could check if amountBN is undefined. The contract allows for passing the max number value to withdraw all
   const args = [options?.other?.subAccountId ?? 0, amountBN];
@@ -85,7 +85,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'stake';
@@ -93,7 +93,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [options?.other?.subAccountId ?? 0, amountBN];
   const interaction_address = pool.staking_address;
@@ -118,7 +118,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'withdraw';
@@ -126,7 +126,7 @@ async function unstake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [options?.other?.subAccountId ?? 0, amountBN];
   const interaction_address = pool.investing_address;
@@ -147,7 +147,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'getReward';

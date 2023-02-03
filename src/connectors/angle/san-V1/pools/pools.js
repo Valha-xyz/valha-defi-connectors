@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
     rewards_tokens: ['0x31429d1856ad1377a8a0079410b297e1a9e214c2'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'USDC Pool',
@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
     rewards_tokens: ['0x31429d1856ad1377a8a0079410b297e1a9e214c2'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Frax Pool',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
     rewards_tokens: ['0x31429d1856ad1377a8a0079410b297e1a9e214c2'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'WETH Pool',
@@ -45,7 +45,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
     rewards_tokens: ['0x31429d1856ad1377a8a0079410b297e1a9e214c2'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Dai Pool ',
@@ -57,13 +57,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
     rewards_tokens: ['0x31429d1856ad1377a8a0079410b297e1a9e214c2'],
-    metadata: {}
-  }
-]
+    metadata: {},
+  },
+];
 
 /// pools
-async function pools () {
-  return POOLS
+async function pools() {
+  return POOLS;
 }
 
-module.exports = pools
+module.exports = pools;

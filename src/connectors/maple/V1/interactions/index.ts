@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import {
   AdditionalOptions,
   AddressesInput,
@@ -5,27 +6,27 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const PoolABI = require("../abi/PoolToken.json");
-const RewardsABI = require("../abi/MplRewards.json");
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const PoolABI = require('../abi/PoolToken.json');
+const RewardsABI = require('../abi/MplRewards.json');
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "deposit";
+  const method_name = 'deposit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -38,7 +39,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -49,10 +50,10 @@ async function unlock(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "intendToWithdraw";
+  const method_name = 'intendToWithdraw';
   const args = [];
 
   return {
@@ -71,15 +72,15 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "withdraw";
+  const method_name = 'withdraw';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -92,7 +93,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -104,15 +105,15 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
-  const method_name = "stake";
+  const method_name = 'stake';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -125,7 +126,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -137,15 +138,15 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
-  const method_name = "withdraw";
+  const method_name = 'withdraw';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -165,10 +166,10 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
-  const method_name = "getReward";
+  const method_name = 'getReward';
   const args = [];
 
   return {

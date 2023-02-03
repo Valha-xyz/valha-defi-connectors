@@ -1,6 +1,6 @@
-import { getData } from "../../../../../utils/external/utils";
+import { getData } from '../../../../../utils/external/utils';
 
-export const BEEFY_API = "https://api.beefy.finance";
+export const BEEFY_API = 'https://api.beefy.finance';
 
 export async function fetchVaults() {
   return getData(`${BEEFY_API}/vaults`);

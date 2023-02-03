@@ -10,7 +10,8 @@ async function analytics(chain: Chain, poolAddress: string) {
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) => pool.earnedTokenAddress.toLowerCase() == poolAddress.toLowerCase()
+    (pool) =>
+      pool.earnedTokenAddress.toLowerCase() == poolAddress.toLowerCase(),
   );
   const vaultPrice = await checkBeefyVaultPrice(chain, currentPoolInfo);
   const tvl = await checkBeefyTVL(chain, poolAddress);

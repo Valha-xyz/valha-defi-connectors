@@ -9,7 +9,7 @@ async function analytics(chain: Chain, poolAddress: string) {
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) => pool.eTokenAddress.toLowerCase() == poolAddress.toLowerCase()
+    (pool) => pool.eTokenAddress.toLowerCase() == poolAddress.toLowerCase(),
   );
 
   const provider = await getNodeProvider(chain);
@@ -51,5 +51,5 @@ async function analytics(chain: Chain, poolAddress: string) {
 //analytics(Chain.ethereum, "0x1b808f49add4b8c6b5117d9681cf7312fcf0dc1d")
 module.exports = {
   main: analytics,
-  url: 'https://app.euler.finance/',
+  url: SUBGRAPH_URL,
 };

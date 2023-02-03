@@ -1,30 +1,30 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const utils = require('../../../../../../utils/external/utils')
+const utils = require('../../../../../../utils/external/utils');
 
 const poolsFunction = async () => {
   const networks = {
     1: 'Ethereum',
-    137: 'Polygon'
-  }
+    137: 'Polygon',
+  };
 
   const rewardTokens = {
     1: '0x66761fa41377003622aee3c7675fc7b5c1c2fac5',
-    137: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270'
-  }
+    137: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
+  };
 
   const underlyingTokens = {
     1: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
-    137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174'
-  }
+    137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+  };
 
   const dataPools = await utils.getData(
-    'https://clearpool.finance/api/top-pools'
-  )
+    'https://clearpool.finance/api/top-pools',
+  );
 
-  const pools = []
+  const pools = [];
   Object.keys(dataPools).map((chainId) => {
     dataPools[chainId].map((pool) => {
-      const chainName = utils.formatChain(networks[chainId])
+      const chainName = utils.formatChain(networks[chainId]);
       const toAdd = {
         pool: `${pool.address}-${chainName}`.toLowerCase(),
         chain: chainName,
@@ -38,17 +38,17 @@ const poolsFunction = async () => {
         poolMeta: pool.borrower.name, // A string value which can stand for any specific details of a pool position, market, fee tier, lock duration, specific strategy etc
         totalSupplyUsd: pool.poolSize,
         totalBorrowUsd: pool.utilization,
-        ltv: 0 // permissioned
-      }
-      pools.push(toAdd)
-    })
-  })
+        ltv: 0, // permissioned
+      };
+      pools.push(toAdd);
+    });
+  });
 
-  return pools.filter((p) => utils.keepFinite(p))
-}
+  return pools.filter((p) => utils.keepFinite(p));
+};
 
 module.exports = {
   timetravel: false,
   apy: poolsFunction,
-  url: 'https://clearpool.finance/'
-}
+  url: 'https://clearpool.finance/',
+};
