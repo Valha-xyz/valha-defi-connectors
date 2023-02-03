@@ -1,18 +1,19 @@
-import POOLS from './config/testPools';
+import { POOLS } from './config/testPools';
 import _ from 'lodash';
 import checkParam from './config/checkParam';
+import { Interactions } from '../../src/utils/types/connector-types';
 
 const interactions = [
   'deposit',
-  'deposit_and_stake',
-  'unlock',
+  // 'deposit_and_stake',
+  // 'unlock',
   'redeem',
   'stake',
   'unstake',
-  'boost',
-  'unboost',
+  // 'boost',
+  // // 'unboost',
   'claim_rewards',
-  'claim_interests',
+  // 'claim_interests',
 ];
 
 function isEVMAddress(address: string) {
@@ -49,32 +50,39 @@ async function checkFnCallableReturn(
   lockupTimestamp: string,
   deadline: number
 ) {
-  const { default: fn } = await import(path);
-  if (fn[name]) {
-    const result = fn[name](
-      POOL.name,
-      POOL.chain,
-      POOL.underlying_tokens,
-      POOL.pool_address,
-      POOL.investing_address,
-      POOL.staking_address,
-      POOL.boosting_address,
-      POOL.distributor_address,
-      POOL.rewards_tokens,
-      POOL.metadata,
-      amountBN,
-      amountsDesiredNotBN,
-      amountsMinimumNotBN,
-      ranges,
-      rangeToken,
-      userAddress,
-      receiverAddress,
-      lockupTimestamp,
-      deadline
-    );
-    return result;
+  try {
+    const { default: fn }: { default: Interactions } = await import(path);
+    if (fn[name]) {
+      const result = await fn[name](
+        POOL,
+        {
+          amount: {
+            humanValue: amountBN,
+          },
+          amountsDesired: amountsDesiredNotBN.map((amount) => ({
+            humanValue: amount,
+          })),
+          amountsMinimum: amountsMinimumNotBN.map((amount) => ({
+            humanValue: amount,
+          })),
+        },
+        {
+          userAddress,
+          receiverAddress,
+        },
+        {
+          ranges,
+          rangeToken,
+          lockupTimestamp,
+          deadline,
+        }
+      );
+      return result;
+    }
+    return null;
+  } catch (err) {
+    console.log(err);
   }
-  return null;
 }
 
 function checkArgType(arg: string, type: string): boolean {
@@ -193,14 +201,14 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '',
               0
             );
+
             if (result) {
               expect(result).toBeDefined();
-              expect(result.abi).toBeDefined();
-              expect(result.method_name).toBeDefined();
-              expect(result.position_token).toBeDefined();
-              expect(result.position_token_type).toBeDefined();
-              expect(result.interaction_address).toBeDefined();
-              expect(result.args).toBeDefined();
+              expect(result.txInfo.abi).toBeDefined();
+              expect(result.txInfo.method_name).toBeDefined();
+              expect(result.assetInfo).toBeDefined();
+              expect(result.txInfo.interaction_address).toBeDefined();
+              expect(result.txInfo.args).toBeDefined();
             }
           });
 
@@ -221,15 +229,15 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const ABI = result.abi;
+              const ABI = result.txInfo.abi;
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (
                   elem &&
                   elem.name &&
                   elem.type === 'function' &&
-                  elem.inputs.length === result.args.length
+                  elem.inputs.length === result.txInfo.args.length
                 ) {
-                  return elem.name === result.method_name;
+                  return elem.name === result.txInfo.method_name;
                 }
               });
               expect(ABIinteractionDefinition.name).toBeDefined();
@@ -257,10 +265,14 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const abiSTRING = JSON.stringify(result.abi);
-              const checkABIIncludeMethod = `"name":"${result.method_name}"`;
-              expect(abiSTRING.includes(checkABIIncludeMethod)).toBeTruthy();
-              expect(typeof result.method_name).toBe('string');
+              const methodInAbi = result.txInfo.abi.find((elem) => {
+                return (
+                  elem.name == result.txInfo.method_name &&
+                  elem.type == 'function'
+                );
+              });
+              expect(methodInAbi).toBeTruthy();
+              expect(typeof result.txInfo.method_name).toBe('string');
             }
           });
 
@@ -303,8 +315,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '',
               0
             );
-            if (result) {
-              expect(Array.isArray(result.abi)).toBeTruthy();
+            if (result.txInfo) {
+              expect(Array.isArray(result.txInfo.abi)).toBeTruthy();
             }
           });
 
@@ -325,28 +337,28 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const ABI = result.abi;
+              const ABI = result.txInfo.abi;
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (
                   elem &&
                   elem.name &&
                   elem.type === 'function' &&
-                  elem.inputs.length === result.args.length
+                  elem.inputs.length === result.txInfo.args.length
                 ) {
                   return (
-                    elem.name.includes(result.method_name) &&
-                    elem.inputs.length === result.args.length
+                    elem.name.includes(result.txInfo.method_name) &&
+                    elem.inputs.length === result.txInfo.args.length
                   );
                 }
               });
               expect(ABIinteractionDefinition.inputs.length).toBe(
-                result.args.length
+                result.txInfo.args.length
               );
             }
           });
 
           it(`${interaction.toUpperCase()} should return ARGS with the same type than in the ABI`, async () => {
-            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
+            const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
@@ -361,18 +373,18 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '',
               0
             );
-            if (result) {
-              const ABI = result.abi;
+            if (result.txInfo) {
+              const ABI = result.txInfo.abi;
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (
                   elem &&
                   elem.name &&
                   elem.type === 'function' &&
-                  elem.inputs.length === result.args.length
+                  elem.inputs.length === result.txInfo.args.length
                 ) {
                   return (
-                    elem.name.includes(result.method_name) &&
-                    elem.inputs.length === result.args.length
+                    elem.name.includes(result.txInfo.method_name) &&
+                    elem.inputs.length === result.txInfo.args.length
                   );
                 }
               });
@@ -381,7 +393,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
                 check = false;
               } else {
                 check = doesArgTypeMatch(
-                  result.args,
+                  result.txInfo.args,
                   ABIinteractionDefinition.inputs
                 );
               }

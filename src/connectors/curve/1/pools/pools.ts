@@ -1,4 +1,4 @@
-import { Pools } from "../../../../utils/Pools";
+import { Pool } from "src/utils/types/connector-types";
 
 const POOLS = [
   {
@@ -873,7 +873,7 @@ const POOLS = [
     rewards_tokens: [],
     metadata: {},
   },
-] as Pools[];
+] as Pool[];
 
 export async function pools() {
   return POOLS;

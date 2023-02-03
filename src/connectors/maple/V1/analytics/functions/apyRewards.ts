@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 export async function checkMapleV3RewardsAPY(
-  poolAddress: string,
+  poolAddress: string
 ): Promise<any> {
   try {
     let LM = 0;
@@ -26,7 +26,7 @@ export async function checkMapleV3RewardsAPY(
       poolContractAddress: poolAddress.toLowerCase(),
     };
 
-    const { data } = await axios.post('https://api.maple.finance/v1/graphql', {
+    const { data } = await axios.post("https://api.maple.finance/v1/graphql", {
       query: query,
       variables: variables,
     });

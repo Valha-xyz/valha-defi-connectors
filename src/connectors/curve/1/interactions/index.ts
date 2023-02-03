@@ -1,29 +1,33 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import curve from "@curvefi/api";
 import axios from "axios";
 import { ethers } from "ethers";
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  Pool,
+} from "src/utils/types/connector-types";
+import { Amount } from "src/utils/types/utils";
 import { toBnERC20Decimals } from "../../../../utils/toBnTokenDecimals";
 
 async function getDepositAmountsArg(
-  underlyingCoinAddresses: string[],
+  underlying_coin_addresses: string[],
   underlying_tokens_to_invest: string[],
-  amountsMinimumNotBN: string[],
+  amountsMinimumNotBN: Amount[],
   chain: string
 ) {
   const amounts = [];
-  for (let i = 0; i < underlyingCoinAddresses.length; i++) {
+  for (let i = 0; i < underlying_coin_addresses.length; i++) {
     const index = underlying_tokens_to_invest.indexOf(
-      underlyingCoinAddresses[i]
+      underlying_coin_addresses[i]
     );
     if (index === -1) amounts.push("0");
     else {
       amounts.push(
         await toBnERC20Decimals(
-          amountsMinimumNotBN[index],
+          amountsMinimumNotBN[index].humanValue,
           chain,
-          underlyingCoinAddresses[i]
+          underlying_coin_addresses[i]
         )
       );
     }
@@ -31,53 +35,42 @@ async function getDepositAmountsArg(
   return amounts;
 }
 
-async function deposit(info: {
-  pool_name: string;
-  chain: string;
-  underlying_tokens: string[];
-  pool_address: string;
-  investing_address: string;
-  staking_address: string;
-  boosting_address: string;
-  distributor_address: string;
-  rewards_tokens: string[];
-  metadata: string;
-  amountNotBN: string;
-  amountsDesiredNotBN: string[];
-  amountsMinimumNotBN: string[];
-  ranges: string[];
-  rangeToken: string;
-  userAddress: string;
-  receiverAddress: string;
-  lockupTimestamp: string;
-  deadline: string;
-}) {
-  const pool = curve.getPool(info.pool_name);
+async function deposit(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+) {
+  const poolInfo = curve.getPool(pool.name);
 
   let args: [string[], string] = [[], "0"];
 
   args[0] = await getDepositAmountsArg(
-    pool.underlyingCoinAddresses,
-    info.underlying_tokens,
-    info.amountsDesiredNotBN,
-    info.chain
+    poolInfo.underlyingCoinAddresses,
+    pool.underlying_tokens,
+    amount.amountsMinimum,
+    pool.chain
   );
-  args[1] = await toBnERC20Decimals(info.amountNotBN, info.chain, pool.lpToken);
+  args[1] = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    poolInfo.lpToken
+  );
 
   return {
-    abi: `stablePool${pool.underlyingCoins.length}.ts`,
-    pool_address: pool.address,
-    pool_name: pool.name,
-    position_token: pool.lpToken,
-    interaction_address: pool.address,
-    amount: await toBnERC20Decimals(info.amountNotBN, info.chain, pool.lpToken),
+    abi: `stablePool${poolInfo.underlyingCoins.length}.ts`,
+    pool_address: poolInfo.address,
+    pool_name: poolInfo.name,
+    position_token: poolInfo.lpToken,
+    interaction_address: poolInfo.address,
+    amount: args[1],
     method_name: "add_liquidity",
     args: args,
   };
 }
 
 // main();
-// /// redeem
+/// redeem
 // async function redeem(
 //   pool_name,
 //   chain,
