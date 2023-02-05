@@ -1,14 +1,9 @@
 import curve from "@curvefi/api";
 import { Pools } from "../../../../utils/Pools";
+import { initiateCurve } from "../interactions";
 
-async function generateBasePools() {
-  await curve.init(
-    "Alchemy",
-    { network: "homestead", apiKey: "i25CEzZu6JD-2uH08tSkKRJKzGts26PE" },
-    { chainId: 1 }
-  );
-  await curve.fetchFactoryPools();
-  await curve.fetchCryptoFactoryPools();
+async function generateBasePools(chain: string) {
+  await initiateCurve(chain);
   const list = curve.getPoolList();
   const POOLS = new Map<string, Pools>();
   console.log("import { Pools } from '../../../../utils/Pools';\n");
@@ -40,4 +35,4 @@ async function generateBasePools() {
   );
 }
 
-generateBasePools();
+generateBasePools("ethereum");

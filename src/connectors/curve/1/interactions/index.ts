@@ -1,7 +1,6 @@
 import curve from "@curvefi/api";
 import { PoolTemplate } from "@curvefi/api/lib/pools";
-import axios from "axios";
-import { ethers } from "ethers";
+
 import {
   AdditionalOptions,
   AddressesInput,
@@ -14,7 +13,7 @@ import { RPC_PROVIDERS } from "../../../../utils/CONST/RPC_PROVIDERS";
 import { toBnERC20Decimals } from "../../../../utils/toBnTokenDecimals";
 
 export async function initiateCurve(network: string) {
-  await curve.init("JsonRpc", RPC_PROVIDERS[network], { chainId: 1 });
+  await curve.init("JsonRpc", RPC_PROVIDERS[network]);
   await curve.fetchCryptoFactoryPools();
   await curve.fetchFactoryPools();
 }
