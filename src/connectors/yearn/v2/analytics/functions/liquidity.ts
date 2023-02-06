@@ -10,13 +10,12 @@ export async function checkYearnLiquidity(chain, poolAddress) {
     const POOL = new ethers.Contract(
       poolAddress,
       JSON.stringify(VaultABI),
-      provider,
+      provider
     );
 
     /// TVL function ///
     const pricePerShare = await POOL.pricePerShare();
     const maxShares = await POOL.maxAvailableShares();
-
     const liquidity = pricePerShare * maxShares;
 
     const decimals = await erc20Decimals(provider, poolAddress);
