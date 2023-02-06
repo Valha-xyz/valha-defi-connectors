@@ -13,7 +13,7 @@ import { RPC_PROVIDERS } from "../../../../utils/CONST/RPC_PROVIDERS";
 import { toBnERC20Decimals } from "../../../../utils/toBnTokenDecimals";
 
 export async function initiateCurve(network: string) {
-  await curve.init("JsonRpc", RPC_PROVIDERS[network]);
+  await curve.init("JsonRpc", { url: RPC_PROVIDERS[network] });
   await curve.fetchCryptoFactoryPools();
   await curve.fetchFactoryPools();
 }
@@ -196,49 +196,78 @@ async function unstake(
   };
 }
 
-// /// claimRewards
-// async function claimRewards(
-//   pool_name,
-//   chain,
-//   underlying_tokens,
-//   pool_address,
-//   investing_address,
-//   staking_address,
-//   boosting_address,
-//   distributor_address,
-//   rewards_tokens,
-//   metadata,
-//   amountNotBN,
-//   user_address,
-//   receiver_address,
-//   lockup_timestamp
-// ) {
-//   const abi = "";
-//   const method_name = "claim";
-//   const amountBN = "";
-//   const args = [];
-//   const interaction_address = "";
+async function claimRewards(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+) {
+  const supportedPools = [
+    "susd",
+    "sbtc",
+    "musd",
+    "rsv",
+    "dusd",
+    "pbtc",
+    "seth",
+    "eurs",
+    "aave",
+    "steth",
+    "saave",
+    "ankreth",
+    "usdp",
+    "ironbank",
+    "link",
+    "tusd",
+    "frax",
+    "lusd",
+    "busdv2",
+    "reth",
+    "alusd",
+    "mim",
+    "tricrypto2",
+    "eurt",
+    "eurtusd",
+    "eursusd",
+    "crveth",
+    "rai",
+    "cvxeth",
+    "xautusd",
+    "spelleth",
+    "teth",
+    "2pool",
+    "fraxusdc",
+    "euroc",
+    "frxeth",
+    "sbtc2",
+  ];
 
-//   return {
-//     abi: abi, //json file name
-//     method_name: method_name, //method to interact with the pool
-//     position_token: null, // token needed to approve
-//     position_token_type: "ERC-20", //token type to approve
-//     interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-//     amount: amountBN,
-//     args: args, //args to pass to the smart contracts to trigger 'method_name'
-//   };
-// }
+  if (supportedPools.find((p) => p === pool.name) === undefined)
+    throw new Error("Pool not supported");
 
-// module.exports = {
-//   deposit: deposit,
-//   deposit_and_stake: null,
-//   unlock: null,
-//   redeem: redeem,
-//   stake: stake,
-//   unstake: unstake,
-//   boost: null,
-//   unboost: null,
-//   claim_rewards: claimRewards,
-//   claim_interests: null,
-// };
+  await initiateCurve(pool.chain);
+
+  const poolInfo = curve.getPool(pool.name);
+
+  return {
+    txInfo: {
+      abi: "LiquidityGaugeV2.json", //abi array
+      interaction_address: poolInfo.gauge, // contract to interact with to interact with poolAddress
+      method_name: "claim_rewards", //method to interact with the pool
+      args: [], //args to pass to the smart contracts to trigger 'method_name'
+    },
+  };
+}
+
+module.exports = {
+  deposit: deposit,
+  // deposit_and_stake: null,
+  unlock: null,
+  redeem: redeem,
+  stake: stake,
+  unstake: unstake,
+  boost: null,
+  unboost: null,
+  claim_rewards: claimRewards,
+  claim_interests: null,
+};
