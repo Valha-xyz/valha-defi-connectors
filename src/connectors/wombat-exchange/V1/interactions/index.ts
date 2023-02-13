@@ -1,4 +1,4 @@
-import { BigNumber } from "ethers";
+import { BigNumber } from 'ethers';
 import {
   AdditionalOptions,
   AddressesInput,
@@ -6,35 +6,31 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-const BN = require("bn.js");
-const ethers = require("ethers");
-const PoolABI = require("../abi/Pool.json");
-const StakeABI = require("../abi/StakePool.json");
-const MasterABI = require("../abi/Master.json");
-const { getNodeProvider } = require("../../../../utils/getNodeProvider");
-const { getCurrentBlock } = require("../../../../utils/getCurrentBlock");
-import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
-const { getWombatPid } = require("./PID");
+const { PoolABI } = require('../abi/Pool');
+const { StakeABI } = require('../abi/StakePool');
+const { getCurrentBlock } = require('../../../../utils/getCurrentBlock');
+import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
+const { getWombatPid } = require('./PID');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "deposit";
+  const method_name = 'deposit';
   const currentBlockData = await getCurrentBlock();
   const currentTimestamp = currentBlockData.data.timestamp;
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [
     pool.underlying_tokens[0],
@@ -54,7 +50,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -65,17 +61,17 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "withdraw";
+  const method_name = 'withdraw';
   const currentBlockData = await getCurrentBlock();
   const currentTimestamp = currentBlockData.data.timestamp;
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
 
   // TO REVIEW
@@ -99,7 +95,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -110,16 +106,16 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
-  const method_name = "deposit";
+  const method_name = 'deposit';
   const poolId = await getWombatPid(pool.pool_address);
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [poolId, amountBN];
 
@@ -132,7 +128,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -143,16 +139,16 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
-  const method_name = "withdraw";
+  const method_name = 'withdraw';
   const id = await getWombatPid(pool.pool_address);
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [id, amountBN];
 
@@ -172,7 +168,7 @@ async function boost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -197,7 +193,7 @@ async function unboost(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
@@ -207,10 +203,10 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
-  const method_name = "multiClaim";
+  const method_name = 'multiClaim';
   const id = await getWombatPid(pool.pool_address);
   const args = [[id]];
 

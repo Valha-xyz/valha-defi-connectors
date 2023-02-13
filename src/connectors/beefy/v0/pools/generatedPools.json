@@ -4063,7 +4063,7 @@
         "name": "MATIC",
         "chain": "polygon",
         "underlying_tokens": [
-            null
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
         ],
         "pool_address": "0x1d23ecC0645B07791b7D99349e253ECEbe43f614",
         "investing_address": "0x1d23ecC0645B07791b7D99349e253ECEbe43f614",
@@ -12169,7 +12169,7 @@
         "name": "BNB",
         "chain": "bsc",
         "underlying_tokens": [
-            null
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
         ],
         "pool_address": "0x6BE4741AB0aD233e4315a10bc783a7B923386b71",
         "investing_address": "0x6BE4741AB0aD233e4315a10bc783a7B923386b71",
@@ -16579,7 +16579,7 @@
         "name": "ETH",
         "chain": "optimism",
         "underlying_tokens": [
-            null
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
         ],
         "pool_address": "0x7eE71053102d54Fc843BaEBaf07277C2b6dB64f1",
         "investing_address": "0x7eE71053102d54Fc843BaEBaf07277C2b6dB64f1",

@@ -1,6 +1,6 @@
-import { BigNumber } from "ethers";
-import { Chain } from "./networks";
-import { Amount, AssetInfo, TxInfo } from "./utils";
+import { BigNumber } from 'ethers';
+import { Chain } from './networks';
+import { Amount, AssetInfo, TxInfo } from './utils';
 
 export interface Pool {
   name: string;
@@ -38,7 +38,7 @@ export interface Analytics {
   status: boolean | null;
   tvl: number | null; // In USD amount.
   liquidity: number | null; // In USD amount
-  outloans: number | null;// In USD amount
+  outloans: number | null; // In USD amount
   losses: number | null; // In USD amount
   capacity: number | null; // ?
   apy: number | null; // In full number, (e.g. 0.04 = 4% APY)
@@ -51,8 +51,8 @@ export interface Analytics {
 }
 
 export interface AnalyticsExport {
-  main: Analytics | Record<never, never>,
-  url: string,
+  main: Analytics | Record<never, never>;
+  url: string;
 }
 
 export interface InteractionsReturnObject {
@@ -61,23 +61,23 @@ export interface InteractionsReturnObject {
 }
 
 export enum InteractionFunctionNames {
-  deposit = "deposit",
-  deposit_and_stake = "deposit_and_stake",
-  unlock = "unlock",
-  redeem = "redeem",
-  stake = "stake",
-  unstake = "unstake",
-  boost = "boost",
-  unboost = "unboost",
-  claim_rewards = "claim_rewards",
-  claim_interests = "claim_interests",
+  deposit = 'deposit',
+  deposit_and_stake = 'deposit_and_stake',
+  unlock = 'unlock',
+  redeem = 'redeem',
+  stake = 'stake',
+  unstake = 'unstake',
+  boost = 'boost',
+  unboost = 'unboost',
+  claim_rewards = 'claim_rewards',
+  claim_interests = 'claim_interests',
 }
 
 export type InteractionFunction = (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) => Promise<InteractionsReturnObject>;
 
 export type Interactions = Record<

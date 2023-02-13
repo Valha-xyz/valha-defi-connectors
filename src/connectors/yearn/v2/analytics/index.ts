@@ -1,20 +1,22 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 
-import { fetchVaults, getVaultExtendedApiAddr } from './external/yearn.api';
+import { fetchVaultInfo, VAULT_EXTENDED_API_ADDR } from './external/yearn.api';
 import { checkYearnLiquidity } from './functions/liquidity';
 import { checkYearnMaxDeposit } from './functions/maxDeposit';
 import { checkYearnOutstandingLoans } from './functions/outloans';
 import { checkYearnSharePrice } from './functions/sharePrice';
+import { checkYearnCapacity } from './functions/capacity';
 
 async function analytics(chain, poolAddress) {
-  const allPoolInfo = await fetchVaults();
+  const allPoolInfo = await fetchVaultInfo();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) => pool.address.toLowerCase() == poolAddress.toLowerCase()
+    (pool) => pool.address.toLowerCase() == poolAddress.toLowerCase(),
   );
 
+  console.log(currentPoolInfo);
   const tvl = currentPoolInfo?.tvl?.tvl;
   const sharePrice = await checkYearnSharePrice(chain, poolAddress);
   const activityApy = currentPoolInfo?.apy?.net_apy * 100;
@@ -22,7 +24,7 @@ async function analytics(chain, poolAddress) {
   const liquidity = await checkYearnLiquidity(chain, poolAddress);
   const outloans = await checkYearnOutstandingLoans(chain, poolAddress);
   const maxDeposit = await checkYearnMaxDeposit(chain, poolAddress);
-
+  const capacity = await checkYearnCapacity(chain, poolAddress);
   const totalAPY = activityApy + rewardsApy.data;
 
   const result = {
@@ -31,7 +33,7 @@ async function analytics(chain, poolAddress) {
     liquidity: liquidity.data,
     outloans: outloans.data,
     losses: null,
-    capacity: Number.MAX_SAFE_INTEGER,
+    capacity: capacity.data ? capacity.data : 0,
     apy: totalAPY,
     activity_apy: activityApy,
     rewards_apy: rewardsApy.data,
@@ -47,5 +49,5 @@ async function analytics(chain, poolAddress) {
 //analytics("ethereum", "0x04c8bfe2eb09a1e2e9fA97A2fd970E06d87B43de")
 module.exports = {
   main: analytics,
-  url: getVaultExtendedApiAddr('ethereum'),
+  url: VAULT_EXTENDED_API_ADDR,
 };
