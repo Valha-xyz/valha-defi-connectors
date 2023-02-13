@@ -78,9 +78,9 @@ export type InteractionFunction = (
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
-) => Promise<InteractionsReturnObject> | null;
+) => Promise<InteractionsReturnObject>;
 
 export type Interactions = Record<
   InteractionFunctionNames,
-  InteractionFunction
+  InteractionFunction | null
 >;
