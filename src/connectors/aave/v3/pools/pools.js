@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
     rewards_tokens: ['0x4200000000000000000000000000000000000042'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Pool WETH',
@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
     rewards_tokens: ['0x4200000000000000000000000000000000000043'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Pool WBTC',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
     rewards_tokens: ['0x4200000000000000000000000000000000000044'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Pool DAI',
@@ -45,7 +45,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
     rewards_tokens: ['0x4200000000000000000000000000000000000045'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Pool USDT',
@@ -57,7 +57,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
     rewards_tokens: ['0x4200000000000000000000000000000000000046'],
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'Pool SUSD',
@@ -69,13 +69,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
     rewards_tokens: ['0x4200000000000000000000000000000000000047'],
-    metadata: {}
-  }
-]
+    metadata: {},
+  },
+];
 
 /// pools
-async function pools () {
-  return POOLS
+async function pools() {
+  return POOLS;
 }
 
-module.exports = pools
+module.exports = pools;

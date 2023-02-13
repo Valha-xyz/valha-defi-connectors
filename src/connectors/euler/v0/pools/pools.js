@@ -1,8 +1,9 @@
-const POOLS = require('./generatedPools.json')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const POOLS = require('./generatedPools.json');
 
 /// pools
-async function pools () {
-  return POOLS
+async function pools() {
+  return POOLS;
 }
 
-module.exports = pools
+module.exports = pools;

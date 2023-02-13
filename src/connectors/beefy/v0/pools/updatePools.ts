@@ -1,31 +1,32 @@
-import { fetchTokens, fetchVaults } from "../analytics/external/beefy.api";
-import fs from "fs";
-import { Pool } from "../../../../utils/types/connector-types";
-import { Chain } from "../../../../utils/types/networks";
-const path = require("path");
-const _ = require("lodash");
+/* eslint-disable @typescript-eslint/no-var-requires */
+import { fetchTokens, fetchVaults } from '../analytics/external/beefy.api';
+import fs from 'fs';
+import { Pool } from '../../../../utils/types/connector-types';
+import { Chain } from '../../../../utils/types/networks';
+const path = require('path');
+const _ = require('lodash');
 
 function mapDistantChainToLocal(network): Chain {
   switch (network) {
-    case "ethereum":
+    case 'ethereum':
       return Chain.ethereum;
       break;
-    case "polygon":
+    case 'polygon':
       return Chain.polygon;
       break;
-    case "bsc":
+    case 'bsc':
       return Chain.bsc;
       break;
-    case "arbitrum":
+    case 'arbitrum':
       return Chain.arbitrum;
       break;
-    case "optimism":
+    case 'optimism':
       return Chain.optimism;
       break;
-    case "celo":
+    case 'celo':
       return Chain.celo;
       break;
-    case "avalanche":
+    case 'avalanche':
       return Chain.avalanche;
       break;
     default:
@@ -65,7 +66,7 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
           rewards_tokens: null,
           metadata: {},
         };
-      })
+      }),
   );
   return modifiedPools;
 }
@@ -73,7 +74,7 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
 async function updatePools() {
   const pools = await generatePools();
   const strPools = JSON.stringify(pools, null, 4);
-  const relativePath = path.join(__dirname, "/generatedPools.json");
+  const relativePath = path.join(__dirname, '/generatedPools.json');
   fs.writeFileSync(relativePath, strPools);
 }
 
