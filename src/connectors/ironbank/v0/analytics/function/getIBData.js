@@ -12,7 +12,6 @@ async function checkIBData(chain, poolAddress) {
       throw new Error(`Data from Ibank indexer not ok for ${poolAddress}`);
     }
     for (const elem of data) {
-      console.log(elem);
       if (elem.token_address.toLowerCase() === poolAddress.toLowerCase()) {
         return elem;
       }
