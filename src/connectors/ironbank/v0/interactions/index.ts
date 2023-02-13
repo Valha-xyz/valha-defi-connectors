@@ -26,6 +26,7 @@ async function deposit(
     pool.chain,
     pool.underlying_tokens[0]
   );
+  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [amountBN];
   const interaction_address = pool.investing_address;
 
@@ -128,7 +129,7 @@ async function unstake(
   return {
     txInfo: {
       abi: abi, //abi array
-      interaction_address: pool.staking_address ? pool.staking_address : '';, // contract to interact with to interact with poolAddress
+      interaction_address: pool.staking_address ? pool.staking_address : '', // contract to interact with to interact with poolAddress
       method_name: method_name, //method to interact with the pool
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
