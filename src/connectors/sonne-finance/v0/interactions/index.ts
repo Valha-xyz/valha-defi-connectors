@@ -25,6 +25,7 @@ async function deposit(
     pool.chain,
     pool.underlying_tokens[0]
   );
+  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [amountBN];
   const interaction_address = pool.investing_address;
 
@@ -57,6 +58,7 @@ async function redeem(
     pool.chain,
     pool.pool_address
   );
+  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [amountBN];
   const interaction_address = pool.investing_address;
 
