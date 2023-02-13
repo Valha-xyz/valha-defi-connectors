@@ -6,12 +6,11 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
+} from '../../../../utils/types/connector-types';
 
-const SanPoolABI = require('../abi/SanToken.json');
-const StakingABI = require('../abi/StakingPool.json');
-const DistributorABI = require('../abi/Distributor.json');
-const StableABI = require('../abi/StableMaster.json');
+const { SanPoolABI } = require('../abi/SanToken');
+const { StakingABI } = require('../abi/StakingPool');
+const { StableABI } = require('../abi/StableMaster');
 const ethers = require('ethers');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
@@ -34,7 +33,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
   const method_name = 'deposit';
@@ -44,7 +43,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN, addresses.userAddress, poolManager];
 
@@ -68,7 +67,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
   const method_name = 'withdraw';
@@ -78,7 +77,7 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [
     amountBN,
@@ -107,7 +106,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
   const method_name = 'deposit';
@@ -118,7 +117,7 @@ async function stake(
     amountBN = await toBnERC20Decimals(
       amount.amount.humanValue,
       pool.chain,
-      position_token
+      position_token,
     );
     args = [amountBN, addresses.userAddress];
   } else {
@@ -145,7 +144,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
   const method_name = 'withdraw';
@@ -156,7 +155,7 @@ async function unstake(
     amountBN = await toBnERC20Decimals(
       amount.amount.humanValue,
       pool.chain,
-      position_token
+      position_token,
     );
     args = [amountBN];
   } else {
@@ -183,7 +182,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
   const method_name = 'claim_rewards';

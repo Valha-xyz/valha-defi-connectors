@@ -9,22 +9,22 @@ import {
   Pool,
 } from '../../../../utils/types/connector-types';
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-const PoolABI = require('../abi/DepositPool.json');
+const { POOLABI } = require('../abi/DepositPool');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
+  const abi = POOLABI;
   const method_name = 'deposit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [];
   const interaction_address = pool.investing_address;
@@ -67,7 +67,7 @@ async function deposit(
 //   lockupTimestamp,
 //   deadline
 // ) {
-//   const abi = PoolABI;
+//   const abi = POOLABI;
 //   const method_name = 'withdrawExcessBalance';
 //   const position_token = pool_address;
 //   const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);

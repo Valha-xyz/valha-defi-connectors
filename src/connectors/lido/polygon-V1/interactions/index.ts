@@ -7,24 +7,24 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
-const STABI = require("../abi/STMATIC.json");
+} from '../../../../utils/types/connector-types';
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { STABI } = require('../abi/STMATIC');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
-  const method_name = "submit";
+  const method_name = 'submit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -37,7 +37,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -48,15 +48,15 @@ async function unlock(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
-  const method_name = "requestWithdraw";
+  const method_name = 'requestWithdraw';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -69,7 +69,7 @@ async function unlock(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -111,7 +111,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -121,7 +121,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -131,7 +131,7 @@ async function boost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -141,7 +141,7 @@ async function unboost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -151,7 +151,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }

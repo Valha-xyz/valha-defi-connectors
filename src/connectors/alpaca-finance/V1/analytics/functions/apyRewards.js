@@ -1,24 +1,26 @@
-import axios from 'axios'
+import axios from 'axios';
 
-async function checkAlpacaV1RewardsAPY (chain, poolAddress) {
+async function checkAlpacaV1RewardsAPY(chain, poolAddress) {
   try {
-    let LM = 0
+    let LM = 0;
     const { data } = await axios.get(
-      'https://alpaca-static-api.alpacafinance.org/bsc/v1/landing/summary.json'
-    )
-    if (data.data.lendingPools.length === 0) { throw new Error(`Data from Alpaca indexer not ok for ${poolAddress}`) }
+      'https://alpaca-static-api.alpacafinance.org/bsc/v1/landing/summary.json',
+    );
+    if (data.data.lendingPools.length === 0) {
+      throw new Error(`Data from Alpaca indexer not ok for ${poolAddress}`);
+    }
     for (const elem of data.data.lendingPools) {
       if (
         elem.ibToken.address.toLowerCase() === String(poolAddress).toLowerCase()
       ) {
-        LM = parseFloat(elem.stakingApr) + parseFloat(elem.protocolApr)
+        LM = parseFloat(elem.stakingApr) + parseFloat(elem.protocolApr);
       }
     }
-    return { data: LM, err: null }
+    return { data: LM, err: null };
   } catch (err) {
-    console.log(err)
-    return { data: null, err }
+    console.log(err);
+    return { data: null, err };
   }
 }
 
-module.exports = checkAlpacaV1RewardsAPY
+module.exports = checkAlpacaV1RewardsAPY;

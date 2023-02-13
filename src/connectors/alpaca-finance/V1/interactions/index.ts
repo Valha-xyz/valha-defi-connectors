@@ -7,27 +7,27 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
+} from '../../../../utils/types/connector-types';
 
-const VaultABI = require("../abi/Vault.json");
-const StakingABI = require("../abi/FairLaunch.json");
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
-const PID = require("./PID");
+const { VaultABI } = require('../abi/Vault');
+const { StakingABI } = require('../abi/FairLaunch');
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const PID = require('./PID');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
-  const method_name = "deposit";
+  const method_name = 'deposit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -40,7 +40,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -56,15 +56,15 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
-  const method_name = "withdraw";
+  const method_name = 'withdraw';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -77,7 +77,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -88,16 +88,16 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const poolId = PID[pool.pool_address.toLowerCase()];
   const abi = StakingABI;
-  const method_name = "deposit";
+  const method_name = 'deposit';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [addresses.userAddress, poolId, amountBN];
 
@@ -110,7 +110,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -121,16 +121,16 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const poolId = PID[pool.pool_address.toLowerCase()];
   const abi = StakingABI;
-  const method_name = "withdraw";
+  const method_name = 'withdraw';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [addresses.userAddress, poolId, amountBN];
 
@@ -150,10 +150,10 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = "harvest";
+  const method_name = 'harvest';
   const poolId = PID[pool.pool_address.toLowerCase()];
   const args = [poolId];
 

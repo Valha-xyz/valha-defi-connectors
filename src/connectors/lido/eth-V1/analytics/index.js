@@ -1,30 +1,30 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const _ = require('lodash')
-const external = require('./external/DefiLlama/index')
-const pools = require('../pools/pools')
-const checkApyActivity = require('./functions/apyActivity')
+const _ = require('lodash');
+const external = require('./external/DefiLlama/index');
+const pools = require('../pools/pools');
+const checkApyActivity = require('./functions/apyActivity');
 
 /// APY
 /// TVL
-async function loadExternal () {
-  const pools = await external.apy()
+async function loadExternal() {
+  const pools = await external.apy();
   if (!pools || pools.length === 0) {
-    return null
+    return null;
   }
-  return pools
+  return pools;
 }
 
-async function analytics (chain, poolAddress) {
-  const POOLS = await pools()
-  if (!POOLS || POOLS.length === 0) return {}
-  const externalInformation = await loadExternal()
-  if (!externalInformation) return {}
+async function analytics(chain, poolAddress) {
+  const POOLS = await pools();
+  if (!POOLS || POOLS.length === 0) return {};
+  const externalInformation = await loadExternal();
+  if (!externalInformation) return {};
   const externalInfo = _.find(externalInformation, (elem) => {
-    return elem.pool.includes(poolAddress.toLowerCase())
-  })
+    return elem.pool.includes(poolAddress.toLowerCase());
+  });
 
-  const tvl = externalInfo.tvlUsd
-  const activity_apy = externalInfo.apyBase
+  const tvl = externalInfo.tvlUsd;
+  const activity_apy = externalInfo.apyBase;
 
   const result = {
     status: null,
@@ -39,15 +39,15 @@ async function analytics (chain, poolAddress) {
     boosting_apy: null,
     share_price: 1,
     minimum_deposit: null,
-    maximum_deposit: null
-  }
+    maximum_deposit: null,
+  };
 
-  console.log(result)
+  console.log(result);
 
-  return result
+  return result;
 }
 
 module.exports = {
   main: analytics,
-  url: external.url
-}
+  url: external.url,
+};

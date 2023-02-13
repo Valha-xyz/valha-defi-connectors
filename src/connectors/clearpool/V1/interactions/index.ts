@@ -7,27 +7,27 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const PoolABI = require("../abi/PoolToken.json");
-const FACTORYABI = require("../abi/Factory.json");
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const PoolABI = require('../abi/PoolToken.json');
+const FACTORYABI = require('../abi/Factory.json');
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "provide";
+  const method_name = 'provide';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -40,7 +40,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -51,15 +51,15 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = "redeem";
+  const method_name = 'redeem';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -72,7 +72,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -83,7 +83,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -93,7 +93,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -103,10 +103,10 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = FACTORYABI;
-  const method_name = "withdrawReward";
+  const method_name = 'withdrawReward';
   const args = [[pool.pool_address]];
 
   return {

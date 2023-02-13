@@ -7,26 +7,26 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
-const STETHABI = require("../abi/STETH.json");
+} from '../../../../utils/types/connector-types';
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { STETHABI } = require('../abi/STETH');
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = STETHABI;
-  const method_name = "submit";
+  const method_name = 'submit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
-  const args = ["0x0000000000000000000000000000000000000000"];
+  const args = ['0x0000000000000000000000000000000000000000'];
 
   return {
     txInfo: {
@@ -37,7 +37,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -68,7 +68,7 @@ async function redeem(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
@@ -93,7 +93,7 @@ async function stake(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
@@ -118,7 +118,7 @@ async function unstake(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
@@ -143,7 +143,7 @@ async function boost(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
@@ -168,7 +168,7 @@ async function unboost(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
@@ -193,7 +193,7 @@ async function claimRewards(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline
+  deadline,
 ) {
   return {};
 }
