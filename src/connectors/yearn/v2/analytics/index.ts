@@ -47,5 +47,5 @@ async function analytics(chain, poolAddress) {
 //analytics("ethereum", "0x04c8bfe2eb09a1e2e9fA97A2fd970E06d87B43de")
 module.exports = {
   main: analytics,
-  url: getVaultExtendedApiAddr("ethereum")
+  url: getVaultExtendedApiAddr("ethereum"),
 };

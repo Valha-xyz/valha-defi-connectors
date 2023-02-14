@@ -4,13 +4,12 @@ import { Pool } from "../../../../utils/types/connector-types";
 import { Chain } from "../../../../utils/types/networks";
 import { getChainById } from "../../../../utils/getChainId";
 const path = require("path");
-const _ = require("lodash")
+const _ = require("lodash");
 
 async function generatePools(): Promise<Pool | Record<never, never>> {
   const pools = await fetchVaults();
 
-
-  console.log(_.uniq(pools.map((pool)=> pool.chainID)))
+  console.log(_.uniq(pools.map((pool) => pool.chainID)));
 
   if (!pools || pools.length === 0) {
     return {};

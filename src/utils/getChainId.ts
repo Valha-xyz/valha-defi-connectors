@@ -21,7 +21,7 @@ export function getChainId(chain: string): number {
 
 export function getChainById(id: number): string {
   try {
-    const chain = Object.keys(CHAIN_ID).find(key => CHAIN_ID[key] === id);
+    const chain = Object.keys(CHAIN_ID).find((key) => CHAIN_ID[key] === id);
     if (!chain) throw new Error(`Not found chain for ${id}`);
     return chain;
   } catch (err) {

@@ -8,18 +8,18 @@ import {
   Pool,
 } from "../../../../utils/types/connector-types";
 
-const SanPoolABI = require('../abi/SanToken.json');
-const StakingABI = require('../abi/StakingPool.json');
-const DistributorABI = require('../abi/Distributor.json');
-const StableABI = require('../abi/StableMaster.json');
-const ethers = require('ethers');
-const { getNodeProvider } = require('../../../../utils/getNodeProvider');
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const SanPoolABI = require("../abi/SanToken.json");
+const StakingABI = require("../abi/StakingPool.json");
+const DistributorABI = require("../abi/Distributor.json");
+const StableABI = require("../abi/StableMaster.json");
+const ethers = require("ethers");
+const { getNodeProvider } = require("../../../../utils/getNodeProvider");
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 
 async function getSanPoolManager(poolAddress) {
   try {
-    const provider = await getNodeProvider('ethereum');
-    if (!provider) throw new Error('No provider was found.');
+    const provider = await getNodeProvider("ethereum");
+    if (!provider) throw new Error("No provider was found.");
     const POOL = new ethers.Contract(poolAddress, SanPoolABI, provider);
     const poolManagerAddress = await POOL.poolManager();
     return poolManagerAddress;
@@ -37,9 +37,9 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
-  const method_name = 'deposit';
+  const method_name = "deposit";
   const poolManager = await getSanPoolManager(pool.pool_address);
-  if (!poolManager) throw new Error('Angle pool manager was not found');
+  if (!poolManager) throw new Error("Angle pool manager was not found");
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -57,7 +57,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -71,9 +71,9 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
-  const method_name = 'withdraw';
+  const method_name = "withdraw";
   const poolManager11 = await getSanPoolManager(pool.pool_address);
-  if (!poolManager11) throw new Error('Angle pool manager was not found');
+  if (!poolManager11) throw new Error("Angle pool manager was not found");
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -96,7 +96,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -110,10 +110,10 @@ async function stake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = 'deposit';
+  const method_name = "deposit";
   const position_token = pool.pool_address;
   let args = [];
-  let amountBN = '';
+  let amountBN = "";
   if (pool.staking_address) {
     amountBN = await toBnERC20Decimals(
       amount.amount.humanValue,
@@ -122,7 +122,7 @@ async function stake(
     );
     args = [amountBN, addresses.userAddress];
   } else {
-    args = ['0', addresses.userAddress];
+    args = ["0", addresses.userAddress];
   }
 
   return {
@@ -134,7 +134,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -148,10 +148,10 @@ async function unstake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = 'withdraw';
+  const method_name = "withdraw";
   const position_token = pool.staking_address;
   let args = [];
-  let amountBN = '';
+  let amountBN = "";
   if (pool.staking_address) {
     amountBN = await toBnERC20Decimals(
       amount.amount.humanValue,
@@ -160,7 +160,7 @@ async function unstake(
     );
     args = [amountBN];
   } else {
-    args = ['0'];
+    args = ["0"];
   }
 
   return {
@@ -172,7 +172,7 @@ async function unstake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -186,7 +186,7 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = 'claim_rewards';
+  const method_name = "claim_rewards";
   const args = [addresses.userAddress];
 
   return {

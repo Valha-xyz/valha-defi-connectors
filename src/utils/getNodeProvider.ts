@@ -1,9 +1,9 @@
 import { ethers } from "ethers";
 import { RPC_PROVIDERS } from "./CONST/RPC_PROVIDERS";
 
-export async function getNodeProvider(
+export function getNodeProvider(
   chain: string
-): Promise<ethers.providers.BaseProvider | null> {
+): ethers.providers.BaseProvider | null {
   try {
     let provider: ethers.providers.BaseProvider =
       {} as ethers.providers.BaseProvider;

@@ -1,4 +1,3 @@
-import { BigNumber } from "ethers";
 import { Chain } from "./networks";
 import { Amount, AssetInfo, TxInfo } from "./utils";
 
@@ -38,7 +37,7 @@ export interface Analytics {
   status: boolean | null;
   tvl: number | null; // In USD amount.
   liquidity: number | null; // In USD amount
-  outloans: number | null;// In USD amount
+  outloans: number | null; // In USD amount
   losses: number | null; // In USD amount
   capacity: number | null; // ?
   apy: number | null; // In full number, (e.g. 0.04 = 4% APY)
@@ -51,8 +50,8 @@ export interface Analytics {
 }
 
 export interface AnalyticsExport {
-  main: Analytics | Record<never, never>,
-  url: string,
+  main: Analytics | Record<never, never>;
+  url: string;
 }
 
 export interface InteractionsReturnObject {
