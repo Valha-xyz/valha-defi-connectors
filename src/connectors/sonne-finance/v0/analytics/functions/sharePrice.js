@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { VaultABI } from '../../abi/Vault';
+import { PoolABI } from '../../abi/Pool';
 import { ethers } from 'ethers';
+import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 
 async function checkCompoundV2Share(chain, poolAddress, underlyingDecimals) {
@@ -8,7 +9,7 @@ async function checkCompoundV2Share(chain, poolAddress, underlyingDecimals) {
     const COMPPrecision = 18;
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, VaultABI, provider);
+    const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const ExchangeRateBN = await POOL.exchangeRateStored();
     const decimals = await erc20Decimals(provider, poolAddress);
     const rateDecimals = COMPPrecision + underlyingDecimals - decimals;

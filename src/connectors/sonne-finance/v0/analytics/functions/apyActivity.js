@@ -11,8 +11,7 @@ async function checkSonneV0ActivityAPY(chain, poolAddress) {
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const SupplyBN = await POOL.supplyRatePerBlock();
-    const decimals = await erc20Decimals(provider, poolAddress);
-    const supplyRate = SupplyBN / 10 ** decimals;
+    const supplyRate = SupplyBN / 10 ** 18;
     const ActivtyAPY = (Math.pow(1 + supplyRate * BLOCKS, days) - 1) * 100;
     return { data: ActivtyAPY, err: null };
   } catch (err) {
