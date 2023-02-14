@@ -73,14 +73,16 @@ export enum InteractionFunctionNames {
   claim_interests = 'claim_interests',
 }
 
-export type InteractionFunction = (
-  pool: Pool,
-  amount: AmountInput,
-  addresses: AddressesInput,
-  options?: AdditionalOptions
-) => Promise<InteractionsReturnObject> | null;
+export type InteractionFunction =
+  | ((
+      pool: Pool,
+      amount: AmountInput,
+      addresses: AddressesInput,
+      options?: AdditionalOptions
+    ) => Promise<InteractionsReturnObject>)
+  | null;
 
 export type Interactions = Record<
   InteractionFunctionNames,
-  InteractionFunction
+  InteractionFunction | null
 >;
