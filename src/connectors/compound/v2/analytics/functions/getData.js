@@ -4,12 +4,12 @@ const axios = require('axios');
 async function checkCompoundv2Data(chain, poolAddress) {
   try {
     const { data } = await axios.get(
-      'https://api.compound.finance/api/v2/ctoken'
+      'https://api.compound.finance/api/v2/ctoken',
     );
-    if (!data) {
+    if (!data || !data.cToken) {
       throw new Error(`Data from Compound indexer not ok for ${poolAddress}`);
     }
-    for (const elem of data) {
+    for (const elem of data.cToken) {
       if (elem.token_address.toLowerCase() === poolAddress.toLowerCase()) {
         return elem;
       }

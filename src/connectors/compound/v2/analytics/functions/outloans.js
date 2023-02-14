@@ -9,7 +9,7 @@ async function checkCompoundV2Outloans(chain, poolAddress, underlyingDecimals) {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
-    const TvlBN = await POOL.totalBorrowsCurrent();
+    const TvlBN = await POOL.totalBorrows();
     const TVL = TvlBN / 10 ** underlyingDecimals;
     return { data: TVL, err: null };
   } catch (err) {

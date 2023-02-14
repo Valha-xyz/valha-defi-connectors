@@ -2,8 +2,11 @@
 const _ = require('lodash');
 const pools = require('../pools/pools');
 const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
-const { getNodeProvider } = require('src/utils/getNodeProvider');
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
+const { erc20TotalSupply } = require('../../../../utils/ERC20TotalSupply');
+const { getNodeProvider } = require('../../../../utils/getNodeProvider');
+const {
+  getGeckoTokenPrice,
+} = require('../../../../utils/prices/getGeckoTokenPrice');
 const checkCompoundv2Data = require('./functions/getData');
 const checkCompoundV2TVL = require('./functions/tvl');
 const checkCompoundV2Liquidity = require('./functions/liquidity');
@@ -31,32 +34,34 @@ async function analytics(chain, poolAddress) {
   const tokenPrice = data;
 
   // Find information on Pool contract.
-  const sharePrice = await checkCompoundV2Share(
+  const sharePriceResult = await checkCompoundV2Share(
     chain,
     poolAddress,
-    underlyingDecimals
+    underlyingDecimals,
   );
+  const sharePrice = sharePriceResult.data;
   const TVLNative = await checkCompoundV2TVL(chain, poolAddress);
-  const TVL = TVLNative * sharePrice * tokenPrice;
+  const TVL = TVLNative.data * sharePrice * tokenPrice;
   const OutloansNative = await checkCompoundV2Outloans(
     chain,
     poolAddress,
-    underlyingDecimals
+    underlyingDecimals,
   );
-  const Outloans = OutloansNative * tokenPrice;
+  const Outloans = OutloansNative.data * tokenPrice;
   const LiquidityNative = await checkCompoundV2Liquidity(
     chain,
     poolAddress,
-    underlyingDecimals
+    underlyingDecimals,
   );
-  const Liquidity = LiquidityNative * tokenPrice;
+  const Liquidity = LiquidityNative.data * tokenPrice;
 
   // Find information on Compound API.
   const info = await checkCompoundv2Data(chain, poolAddress);
   console.log(info);
-  const ActAPY = info['supply_rate'] ? info['supply_rate'] * 100 : 0;
+  console.log(info.supply_rate);
+  const ActAPY = info['supply_rate'] ? info['supply_rate'].value * 100 : 0;
   const RewAPY = info['comp_supply_apy']
-    ? info['comp_supply_apy'].value * 100
+    ? parseFloat(info['comp_supply_apy'].value)
     : 0;
   const totalAPY = ActAPY + RewAPY;
 

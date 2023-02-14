@@ -7,7 +7,7 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 async function checkCompoundV2Liquidity(
   chain,
   poolAddress,
-  underlyingDecimals
+  underlyingDecimals,
 ) {
   try {
     const provider = await getNodeProvider(chain);
