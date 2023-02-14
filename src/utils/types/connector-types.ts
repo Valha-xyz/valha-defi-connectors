@@ -77,8 +77,8 @@ export type InteractionFunction = (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
-) => Promise<InteractionsReturnObject>;
+  options?: AdditionalOptions
+) => Promise<InteractionsReturnObject> | null;
 
 export type Interactions = Record<
   InteractionFunctionNames,
