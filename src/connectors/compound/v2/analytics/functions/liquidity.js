@@ -4,16 +4,19 @@ import { ethers } from 'ethers';
 const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 
-async function checkCompoundV2Liquidity(chain, poolAddress) {
+async function checkCompoundV2Liquidity(
+  chain,
+  poolAddress,
+  underlyingDecimals
+) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
-    const decimals = await erc20Decimals(provider, poolAddress);
     const CashBN = await POOL.getCash();
-    const Cash = CashBN / 10 ** decimals;
+    const Cash = CashBN / 10 ** underlyingDecimals;
     const ReservesBN = await POOL.totalReserves();
-    const Reserves = ReservesBN / 10 ** decimals;
+    const Reserves = ReservesBN / 10 ** underlyingDecimals;
     const Liquidity = Cash - Reserves;
     return { data: Liquidity, err: null };
   } catch (err) {

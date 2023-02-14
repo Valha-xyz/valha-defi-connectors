@@ -3,18 +3,16 @@ import { VaultABI } from '../../abi/Vault';
 import { ethers } from 'ethers';
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 
-async function checkAlpacaV1Share(chain, poolAddress) {
+async function checkCompoundV2Share(chain, poolAddress, underlyingDecimals) {
   try {
+    const COMPPrecision = 18;
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, VaultABI, provider);
-    const TotalSupplyBN = await POOL.totalSupply();
-    const TotalTokenBN = await POOL.totalToken();
-    const precision = 10 ** 6;
-    const precisionBN = ethers.BigNumber.from(precision);
-    const TotalTokenWithPrecision = precisionBN.mul(TotalTokenBN);
-    const SharePriceBN = TotalTokenWithPrecision.div(TotalSupplyBN);
-    const sharePrice = SharePriceBN.toString() / precision;
+    const ExchangeRateBN = await POOL.exchangeRateStored();
+    const decimals = await erc20Decimals(provider, poolAddress);
+    const rateDecimals = COMPPrecision + underlyingDecimals - decimals;
+    const sharePrice = ExchangeRateBN / 10 ** rateDecimals;
     return { data: sharePrice, err: null };
   } catch (err) {
     console.log(err);
@@ -22,4 +20,4 @@ async function checkAlpacaV1Share(chain, poolAddress) {
   }
 }
 
-module.exports = checkAlpacaV1Share;
+module.exports = checkCompoundV2Share;
