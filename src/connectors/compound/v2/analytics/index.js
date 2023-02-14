@@ -5,6 +5,10 @@ const { erc20Decimals } = require('src/utils/ERC20Decimals');
 const { getNodeProvider } = require('src/utils/getNodeProvider');
 const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 const checkCompoundv2Data = require('./functions/getData');
+const checkCompoundV2TVL = require('./functions/tvl');
+const checkCompoundV2Liquidity = require('./functions/liquidity');
+const checkCompoundV2Outloans = require('./functions/outloans');
+const checkCompoundV2Share = require('./functions/sharePrice');
 
 async function analytics(chain, poolAddress) {
   // Find information about underlying token.
@@ -27,16 +31,33 @@ async function analytics(chain, poolAddress) {
   const tokenPrice = data;
 
   // Find information on Pool contract.
-  const sharePrice = await checkCompoundV2Share(chain, poolAddress);
-  const TVL = await checkShare(chain, poolAddress);
-  const Outloans = await checkShare(chain, poolAddress);
-  const Liquidity = await checkShare(chain, poolAddress);
+  const sharePrice = await checkCompoundV2Share(
+    chain,
+    poolAddress,
+    underlyingDecimals
+  );
+  const TVLNative = await checkCompoundV2TVL(chain, poolAddress);
+  const TVL = TVLNative * sharePrice * tokenPrice;
+  const OutloansNative = await checkCompoundV2Outloans(
+    chain,
+    poolAddress,
+    underlyingDecimals
+  );
+  const Outloans = OutloansNative * tokenPrice;
+  const LiquidityNative = await checkCompoundV2Liquidity(
+    chain,
+    poolAddress,
+    underlyingDecimals
+  );
+  const Liquidity = LiquidityNative * tokenPrice;
 
   // Find information on Compound API.
   const info = await checkCompoundv2Data(chain, poolAddress);
   console.log(info);
-  const ActAPY = 0;
-  const RewAPY = 0;
+  const ActAPY = info['supply_rate'] ? info['supply_rate'] * 100 : 0;
+  const RewAPY = info['comp_supply_apy']
+    ? info['comp_supply_apy'].value * 100
+    : 0;
   const totalAPY = ActAPY + RewAPY;
 
   const result = {
