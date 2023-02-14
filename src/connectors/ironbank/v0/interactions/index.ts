@@ -17,14 +17,14 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'mint(uint256)';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.underlying_tokens[0]
+    pool.underlying_tokens[0],
   );
   if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [amountBN];
@@ -50,14 +50,14 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'redeem(uint256)';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const args = [amountBN];
   const interaction_address = pool.investing_address;
@@ -82,7 +82,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
   const method_name = 'stake(uint256)';
@@ -90,7 +90,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
@@ -114,17 +114,19 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
   const method_name = 'withdraw(uint256)';
-  const position_token = pool.staking_address ? pool.staking_address : '';
+  const position_token = pool.pool_address ? pool.pool_address : '';
+  console.log(position_token);
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
-  const args = [position_token, amountBN, false];
+  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
+  const args = [amountBN];
 
   return {
     txInfo: {
@@ -136,7 +138,7 @@ async function unstake(
     assetInfo: {
       position_token: position_token, // token needed to approve
       position_token_type: 'ERC-20', //token type to approve
-      amount: amountBN ? amountBN : '0',
+      amount: amountBN,
     },
   };
 }
@@ -146,7 +148,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
   const method_name = 'getReward()';

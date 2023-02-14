@@ -4,7 +4,7 @@ const axios = require('axios');
 async function checkFluxData(chain, poolAddress) {
   try {
     const { data } = await axios.get(
-      'https://ondo.finance/api/lending/markets'
+      'https://ondo.finance/api/lending/markets',
     );
     if (!data) {
       throw new Error(`Data from Flux indexer not ok for ${poolAddress}`);
