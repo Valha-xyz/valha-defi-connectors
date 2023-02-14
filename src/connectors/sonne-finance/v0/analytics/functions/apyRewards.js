@@ -25,4 +25,4 @@ async function checkSonneV0RewardsAPY(
   }
 }
 
-module.exports = checkSonneV0Reward;
+module.exports = checkSonneV0RewardsAPY;
