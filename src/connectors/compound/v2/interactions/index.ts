@@ -76,7 +76,7 @@ async function redeem(
 }
 
 /// redeem
-async function redeem(
+async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
