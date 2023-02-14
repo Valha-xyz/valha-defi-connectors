@@ -7,14 +7,14 @@ async function checkCompoundv2Data(chain, poolAddress) {
       'https://api.compound.finance/api/v2/ctoken'
     );
     if (!data) {
-      throw new Error(`Data from Flux indexer not ok for ${poolAddress}`);
+      throw new Error(`Data from Compound indexer not ok for ${poolAddress}`);
     }
     for (const elem of data) {
       if (elem.token_address.toLowerCase() === poolAddress.toLowerCase()) {
         return elem;
       }
     }
-    throw new Error(`Data from Flux indexer not ok for ${poolAddress}`);
+    throw new Error(`Data from Compound indexer not ok for ${poolAddress}`);
   } catch (err) {
     console.log(err);
     return { data: null, err };
