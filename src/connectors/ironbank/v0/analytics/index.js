@@ -37,13 +37,10 @@ async function analytics(chain, poolAddress) {
     maximum_deposit: null,
   };
 
-  console.log(result);
   return result;
 }
 
-// module.exports = {
-//   main: analytics,
-//   url: 'https://fluxfinance.com/',
-// };
-
-analytics('optimism', '0x049E04bEE77cFfB055f733A138a2F204D3750283');
+module.exports = {
+  main: analytics,
+  url: 'https://app.ib.xyz/',
+};
