@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 const pools = require('../pools/pools');
-const { erc20Decimals } = require('src/utils/ERC20Decimals');
+const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
 const { getNodeProvider } = require('src/utils/getNodeProvider');
 const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 const checkCompoundv2Data = require('./functions/getData');
@@ -17,7 +17,7 @@ async function analytics(chain, poolAddress) {
   const poolInfo = _.find(POOLS, (elem) => {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });
-  const underlyingToken = poolinfo.underlying_tokens[0];
+  const underlyingToken = poolInfo.underlying_tokens[0];
   if (!underlyingToken)
     throw new Error('Error: no underlying found for Compound');
   const provider = await getNodeProvider(chain);
@@ -75,8 +75,6 @@ async function analytics(chain, poolAddress) {
     minimum_deposit: null,
     maximum_deposit: null,
   };
-
-  console.log(result);
 
   return result;
 }
