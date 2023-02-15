@@ -1,12 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
+const pools = require('../pools/pools');
 const getCurvePoolTVL = require('./functions/getCurvePoolTvl');
 const checkConvexData = require('./functions/getData');
 const checkPoolSupply = require('./functions/totalSupply');
 
 async function analytics(chain, poolAddress) {
+  // Find pool information
+  const POOLS = await pools();
+  if (!POOLS || POOLS.length === 0) return {};
+  const poolInfo = _.find(POOLS, (elem) => {
+    return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
+  });
+
   const id = '';
-  // find APYs information
+  // Find APYs information
   const info = await checkConvexData(chain, poolAddress, id);
   if (info.err) throw new Error(info.err.message);
   const apyInfo = info.data;
@@ -15,10 +23,15 @@ async function analytics(chain, poolAddress) {
   const totalAPY = ActAPY + RewAPY;
 
   // Find TVL information
-  // find TotalSupply poolCxx
-  // find TotalSupply poolCurve
-  // find totalTVLUSD poolCurve
-  const underlyingLPAddress = '';
+  const underlyingLPAddress =
+    poolInfo.underlying_tokens.length > 0
+      ? poolInfo.underlying_tokens[0]
+      : null;
+  if (!underlyingLPAddress) {
+    throw new Error(
+      `Error: impossible to find the LP pool on Cvx for ${poolAddress}`
+    );
+  }
   const supplyCvxInfo = await checkPoolSupply(chain, poolAddress);
   if (supplyCvxInfo.err) throw new Error(supplyCvxInfo.err.message);
   const supplyCvx = supplyCvxInfo.data;
@@ -38,7 +51,7 @@ async function analytics(chain, poolAddress) {
     liquidity: liquidity,
     outloans: null,
     losses: null,
-    capacity: CurvePoolTVL, // tvl of underlying
+    capacity: tvlUSDCrv, // tvl of underlying
     apy: totalAPY,
     activity_apy: ActAPY,
     rewards_apy: RewAPY,
