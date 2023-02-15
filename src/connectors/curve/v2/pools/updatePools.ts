@@ -50,7 +50,9 @@ async function getDataChain(chain: string): Promise<Pool[] | null> {
           rewards_tokens: elem.gaugeRewards
             ? [CRV, ...elem.gaugeRewards.map((coin) => coin.gaugeAddress)]
             : [],
-          metadata: {},
+          metadata: {
+            id: elem.id,
+          },
         };
       }
     });
