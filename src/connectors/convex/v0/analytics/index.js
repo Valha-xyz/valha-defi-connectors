@@ -18,7 +18,7 @@ async function analytics(chain, poolAddress) {
   const info = await checkConvexData(chain, poolAddress, id);
   if (info.err) throw new Error(info.err.message);
   const apyInfo = info.data;
-  const ActAPY = info['supplyApy'] ? info['supplyApy'] : 0;
+  const ActAPY = 0;
   const RewAPY = 0;
   const totalAPY = ActAPY + RewAPY;
 
