@@ -13,15 +13,6 @@ async function analytics(chain, poolAddress) {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });
 
-  const id = '';
-  // Find APYs information
-  const info = await checkConvexData(chain, poolAddress, id);
-  if (info.err) throw new Error(info.err.message);
-  const apyInfo = info.data;
-  const ActAPY = 0;
-  const RewAPY = 0;
-  const totalAPY = ActAPY + RewAPY;
-
   // Find TVL information
   const underlyingLPAddress =
     poolInfo.underlying_tokens.length > 0
@@ -38,12 +29,21 @@ async function analytics(chain, poolAddress) {
   const supplyCrvInfo = await checkPoolSupply(chain, underlyingLPAddress);
   if (supplyCrvInfo.err) throw new Error(supplyCrvInfo.err.message);
   const supplyCrv = supplyCrvInfo.data;
-  const tvlUSDCrvInfo = await getCurvePoolTVL(chain);
-  if (tvlUSDCrvInfo.err) throw new Error(tvlUSDCrvInfo.err.message);
-  const tvlUSDCrv = tvlUSDCrvInfo.data;
+  const CrvInfo = await getCurvePoolTVL(chain);
+  if (CrvInfo.err) throw new Error(CrvInfo.err.message);
+  const tvlUSDCrv = CrvInfo.data.tvlUsd;
   const TVL = (supplyCvx / supplyCrv) * tvlUSDCrv;
   const liquidity = TVL;
   const sharePrice = 1;
+
+  // Find APYs information
+  const id = CrvInfo.data.id;
+  const info = await checkConvexData(chain, poolAddress, id);
+  if (info.err) throw new Error(info.err.message);
+  const apyInfo = info.data;
+  const ActAPY = apyInfo ? apyInfo['baseApy'] : 0;
+  const RewAPY = apyInfo ? 0 : 0;
+  const totalAPY = ActAPY + RewAPY;
 
   const result = {
     status: true,
