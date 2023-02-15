@@ -117,6 +117,92 @@ async function redeem(
   };
 }
 
+/// stake
+async function stake(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = GaugeABI;
+  const method_name = 'deposit(uint256,address)';
+  const position_token = pool.pool_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
+  const args = [amountBN, addresses.userAddress];
+
+  return {
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
+      amount: amountBN,
+    },
+  };
+}
+
+/// unstake
+async function unstake(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = GaugeABI;
+  const method_name = 'withdraw(uint256,bool)';
+  const position_token = pool.staking_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount.humanValue,
+    pool.chain,
+    position_token
+  );
+  const args = [amountBN, true];
+
+  return {
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
+      amount: amountBN,
+    },
+  };
+}
+
+/// claim
+async function claimRewards(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = GaugeABI;
+  const method_name = 'claim_rewards(address)';
+  const args = [addresses.userAddress];
+
+  return {
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: null,
+  };
+}
+
 const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
