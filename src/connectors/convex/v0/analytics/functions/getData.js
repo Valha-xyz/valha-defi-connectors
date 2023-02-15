@@ -29,4 +29,4 @@ async function checkConvexData(chain, poolAddress, id) {
   }
 }
 
-module.exports = checkFluxData;
+module.exports = checkConvexData;

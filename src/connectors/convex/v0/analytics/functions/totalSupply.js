@@ -4,7 +4,7 @@ const ethers = require('ethers');
 const PoolTokenABI = require('../../abi/PoolToken.json');
 const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
-async function checkConvexSupply(chain, poolAddress) {
+async function checkPoolSupply(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
@@ -19,4 +19,4 @@ async function checkConvexSupply(chain, poolAddress) {
   }
 }
 
-module.exports = checkConvexSupply;
+module.exports = checkPoolSupply;
