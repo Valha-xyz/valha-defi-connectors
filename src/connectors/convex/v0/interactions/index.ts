@@ -10,6 +10,7 @@ import {
 
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
 import { PoolABI } from '../abi/Pool';
+import { StakeABI } from '../abi/Stake';
 
 /// invest
 async function deposit(
@@ -153,7 +154,7 @@ async function stake(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
+  const abi = StakeABI;
   const method_name = 'stake(uint256)';
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
@@ -186,7 +187,7 @@ async function unstake(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
+  const abi = StakeABI;
   const method_name = 'withdraw(uint256, bool)';
   const positionToken = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
@@ -218,7 +219,7 @@ async function claimRewards(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
+  const abi = StakeABI;
   const method_name = 'getReward()';
   const positionToken = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
