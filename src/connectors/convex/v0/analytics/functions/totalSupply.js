@@ -19,4 +19,4 @@ async function checkConvexSupply(chain, poolAddress) {
   }
 }
 
-module.exports = checkClearpoolV1TVL;
+module.exports = checkConvexSupply;
