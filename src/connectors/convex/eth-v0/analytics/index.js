@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 const pools = require('../pools/pools');
+const checkCvxAPY = require('./functions/checkCvxAPY');
 const getCurvePoolTVL = require('./functions/getCurvePoolTvl');
 const checkConvexData = require('./functions/getData');
 const checkPoolSupply = require('./functions/totalSupply');
@@ -37,12 +38,23 @@ async function analytics(chain, poolAddress) {
   const sharePrice = 1;
 
   // Find APYs information
-  const id = CrvInfo.data.id;
-  const info = await checkConvexData(chain, poolAddress, id);
-  if (info.err) throw new Error(info.err.message);
-  const apyInfo = info.data;
-  const ActAPY = apyInfo ? apyInfo['baseApy'] : 0;
-  const RewAPY = apyInfo ? 0 : 0;
+  // send the id form crv
+  const convexAPYInfo = await checkConvexData(
+    chain,
+    poolInfo.underlying_tokens[0]
+  );
+  if (convexAPYInfo.err) throw new Error(info.err.message);
+  // Take baseAPY and crvApr from Convex API
+  const ActAPY = convexAPYInfo.data.activityAPY;
+  const crvAPY = convexAPYInfo.data.crvRewardsAPY;
+  // Calculate rewards from on-chain data
+  const cvxAPYInfo = await checkCvxAPY(
+    chain,
+    poolInfo.staking_address ? poolInfo.staking_address : ''
+  );
+  if (cvxAPYInfo.err) throw new Error(info.err.message);
+  const cvxAPY = cvxAPYInfo.data / TVL;
+  const RewAPY = crvAPY + cvxAPY;
   const totalAPY = ActAPY + RewAPY;
 
   const result = {
