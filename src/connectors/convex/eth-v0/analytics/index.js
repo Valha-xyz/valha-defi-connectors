@@ -31,7 +31,7 @@ async function analytics(chain, poolAddress) {
   const supplyCrv = supplyCrvInfo.data;
   const CrvInfo = await getCurvePoolTVL(chain, poolInfo.underlying_tokens[0]);
   if (CrvInfo.err) throw new Error(CrvInfo.err.message);
-  const tvlUSDCrv = CrvInfo.data.tvlUsd;
+  const tvlUSDCrv = CrvInfo.data;
   const TVL = (supplyCvx / supplyCrv) * tvlUSDCrv;
   const liquidity = TVL;
   const sharePrice = 1;
