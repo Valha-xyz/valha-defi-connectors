@@ -63,5 +63,3 @@ module.exports = {
   main: analytics,
   url: 'https://curve.fi/#/ethereum/pools',
 };
-
-analytics('optimism', '0x9f2fe3500b1a7e285fdc337acace94c480e00130');
