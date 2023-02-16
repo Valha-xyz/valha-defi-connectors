@@ -1,27 +1,26 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const axios = require('axios');
+const pools = require('../../../../curve/v2/pools/pools');
+const _ = require('lodash');
 
-async function checkConvexData(chain, poolAddress, id) {
+async function checkConvexData(chain, poolAddress) {
   try {
-    let url = '';
-    let poolId = '';
-    if (chain === 'ethereum') {
-      url = 'https://www.convexfinance.com/api/curve-apys';
-      pooLId = id;
-    } else if (chain === 'arbitrum') {
-      url = 'https://www.convexfinance.com/api/sidechains-apys';
-      poolId = 'arbitrum-' + poolAddress.toLowerCase();
-    } else {
-      throw new Error(
-        'Error: error with Convex Indexer for APYs. Unknown chain.'
-      );
-    }
-    const { data } = await axios.get(url);
+    // Get right underlying ID from Curve for the API
+    const POOLS = await pools();
+    const poolInfo = _.find(POOLS, (elem) => {
+      return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
+    });
+    if (!poolInfo)
+      throw new Error(`Data from Convex V0 indexer not ok for ${poolAddress}`);
+    const id = poolInfo.metadata.id;
+    //Get URL Data
+    const URL = 'https://www.convexfinance.com/api/curve-apys';
+    const { data } = await axios.get(URL);
     if (!data || !data.apys) {
-      throw new Error(`Data from Flux indexer not ok for ${poolAddress}`);
+      throw new Error(`Data from Convex V0 indexer not ok for ${poolAddress}`);
     }
     let info = data.apys;
-    const result = info[poolId];
+    const result = info[id];
     return { data: result, err: null };
   } catch (err) {
     console.log(err);

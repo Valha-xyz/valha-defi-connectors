@@ -9,10 +9,10 @@ async function checkPoolSupply(chain, poolAddress) {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolTokenABI, provider);
-    const TvlBN = await POOL.totalSupply();
+    const SupplyBN = await POOL.totalSupply();
     const decimals = await erc20Decimals(provider, poolAddress);
-    const TVL = TvlBN / 10 ** decimals;
-    return { data: TVL, err: null };
+    const Supply = SupplyBN / 10 ** decimals;
+    return { data: Supply, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err };
