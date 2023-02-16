@@ -6,6 +6,7 @@ const getCurvePoolTVL = require('./functions/getCurvePoolTvl');
 const checkConvexData = require('./functions/getData');
 const checkPoolSupply = require('./functions/totalSupply');
 
+// TO DO: review analytics specifically for Arbitrum
 async function analytics(chain, poolAddress) {
   // Find pool information
   const POOLS = await pools();
