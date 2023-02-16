@@ -29,7 +29,7 @@ async function analytics(chain, poolAddress) {
   const supplyCrvInfo = await checkPoolSupply(chain, underlyingLPAddress);
   if (supplyCrvInfo.err) throw new Error(supplyCrvInfo.err.message);
   const supplyCrv = supplyCrvInfo.data;
-  const CrvInfo = await getCurvePoolTVL(chain);
+  const CrvInfo = await getCurvePoolTVL(chain, poolInfo.underlying_tokens[0]);
   if (CrvInfo.err) throw new Error(CrvInfo.err.message);
   const tvlUSDCrv = CrvInfo.data.tvlUsd;
   const TVL = (supplyCvx / supplyCrv) * tvlUSDCrv;
