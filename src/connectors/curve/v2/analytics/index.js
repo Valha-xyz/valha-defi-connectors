@@ -9,7 +9,6 @@ async function analytics(chain, poolAddress) {
   const poolInfo = _.find(POOLS, (elem) => {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });
-  console.log(poolInfo);
 
   //Get data from the API
   const info = await getData(chain, poolAddress, poolInfo.metadata.id);
@@ -44,9 +43,9 @@ async function analytics(chain, poolAddress) {
   // return result;
 }
 
-// module.exports = {
-//   main: analytics,
-//   url: 'https://curve.fi/#/ethereum/pools',
-// };
+module.exports = {
+  main: analytics,
+  url: 'https://curve.fi/#/ethereum/pools',
+};
 
 analytics('ethereum', '0x6c3f90f043a72fa612cbac8115ee7e52bde6e490');
