@@ -10,6 +10,7 @@ import {
 
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
 import { PoolABI } from '../abi/Pool';
+import INVEST_PID from './INVESTPID';
 
 /// invest
 async function depositAndStake(
@@ -19,7 +20,7 @@ async function depositAndStake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const PID = '';
+  const PID = INVEST_PID[pool.chain][pool.pool_address];
   const method_name = 'deposit(uint256, uint256, bool)';
   const positionToken = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
@@ -52,7 +53,7 @@ async function unstakeAndRedeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const PID = '';
+  const PID = INVEST_PID[pool.chain][pool.pool_address];
   const method_name = 'withdraw(uint256, uint256, bool)';
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(

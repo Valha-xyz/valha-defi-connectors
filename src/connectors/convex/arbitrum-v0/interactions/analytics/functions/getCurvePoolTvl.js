@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const axios = require('axios');
 const getData = require('src/connectors/curve/v2/analytics/functions/getData');
-const pools = require('../../../../curve/v2/pools/pools');
+const pools = require('../../../../../curve/v2/pools/pools');
 const _ = require('lodash');
 
 async function getCurvePoolTVL(chain, poolAddress) {

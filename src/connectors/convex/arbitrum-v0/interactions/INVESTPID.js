@@ -1,4 +1,4 @@
-const PID = {
+const INVEST_PID = {
   arbitrum: {
     '0xd1fdd572dbbc6f53375c9834decc1f489f4d04e7': 0,
     '0x63f00f688086f0109d586501e783e33f2c950e78': 1,
@@ -10,4 +10,4 @@ const PID = {
   optimism: {},
 };
 
-module.exports = PID;
+module.exports = INVEST_PID;
