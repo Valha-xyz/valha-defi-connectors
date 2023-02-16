@@ -693,7 +693,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: ibEUR/sEUR",
+    "name": "Curve.fi Factory Pool: ibEUR/sEUR",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x96E61422b6A9bA0e068B6c5ADd4fFaBC6a4aae27",
@@ -830,7 +830,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: cvxCRV",
+    "name": "Curve.fi Factory Pool: cvxCRV",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -898,7 +898,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Badger Locked CVX",
+    "name": "Curve.fi Factory Pool: Badger Locked CVX",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B",
@@ -932,7 +932,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: 3EURpool",
+    "name": "Curve.fi Factory Pool: 3EURpool",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
@@ -970,7 +970,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: rETH/wstETH",
+    "name": "Curve.fi Factory Pool: rETH/wstETH",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xae78736Cd615f374D3085123A210448E74Fc6393",
@@ -987,7 +987,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Tokemak tFOX/FOX",
+    "name": "Curve.fi Factory Pool: Tokemak tFOX/FOX",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x808D3E6b23516967ceAE4f17a5F9038383ED5311",
@@ -1004,7 +1004,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Tokemak tALCX/ALCX",
+    "name": "Curve.fi Factory Pool: Tokemak tALCX/ALCX",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xD3B5D9a561c293Fb42b446FE7e237DaA9BF9AA84",
@@ -1021,7 +1021,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Tokemak tFXS/FXS",
+    "name": "Curve.fi Factory Pool: Tokemak tFXS/FXS",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xADF15Ec41689fc5b6DcA0db7c53c9bFE7981E655",
@@ -1038,7 +1038,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: sdANGLE",
+    "name": "Curve.fi Factory Pool: sdANGLE",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x31429d1856aD1377A8A0079410B297e1a9e214c2",
@@ -1055,7 +1055,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: sdCRV",
+    "name": "Curve.fi Factory Pool: sdCRV",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -1092,7 +1092,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: stETH concentrated",
+    "name": "Curve.fi Factory Pool: stETH concentrated",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -1112,7 +1112,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Stax Frax/Temple xLP + LP",
+    "name": "Curve.fi Factory Pool: Stax Frax/Temple xLP + LP",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xBcB8b7FC9197fEDa75C101fA69d3211b5a30dCD9",
@@ -1248,7 +1248,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Euro Pool",
+    "name": "Curve.fi Factory Pool: Euro Pool",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xEE586e7Eaad39207F0549BC65f19e336942C992f",
@@ -1300,7 +1300,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: agEUR/EUROC",
+    "name": "Curve.fi Factory Pool: agEUR/EUROC",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x1a7e4e63778B4f12a199C062f3eFdD288afCBce8",
@@ -1351,7 +1351,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: yCRV",
+    "name": "Curve.fi Factory Pool: yCRV",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -1385,7 +1385,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: Clever clevCVX/CVX",
+    "name": "Curve.fi Factory Pool: Clever clevCVX/CVX",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B",
@@ -2334,7 +2334,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: VST+FRAX",
+    "name": "Curve.fi Factory Pool: VST+FRAX",
     "chain": "arbitrum",
     "underlying_tokens": [
       "0x64343594Ab9b56e99087BfA6F2335Db24c2d1F17",
@@ -2351,7 +2351,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: FRAXBP",
+    "name": "Curve.fi Factory Pool: FRAXBP",
     "chain": "arbitrum",
     "underlying_tokens": [
       "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
@@ -2463,7 +2463,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: sBTC/wbtc",
+    "name": "Curve.fi Factory Pool: sBTC/wbtc",
     "chain": "optimism",
     "underlying_tokens": [
       "0x298B9B95708152ff6968aafd889c6586e9169f1D",
@@ -2480,7 +2480,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: FRAXBP",
+    "name": "Curve.fi Factory Pool: FRAXBP",
     "chain": "optimism",
     "underlying_tokens": [
       "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
@@ -2550,7 +2550,7 @@
     }
   },
   {
-    "name": "Curve.fi Factory Plain Pool: YUSD Pool",
+    "name": "Curve.fi Factory Pool: YUSD Pool",
     "chain": "avalanche",
     "underlying_tokens": [
       "0x111111111111ed1D73f860F57b2798b683f2d325",
