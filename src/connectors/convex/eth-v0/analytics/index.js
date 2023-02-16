@@ -45,8 +45,8 @@ async function analytics(chain, poolAddress) {
   );
   if (convexAPYInfo.err) throw new Error(info.err.message);
   // Take baseAPY and crvApr from Convex API
-  const ActAPY = convexAPYInfo.data.activityAPY;
-  const crvAPY = convexAPYInfo.data.crvRewardsAPY;
+  const ActAPY = convexAPYInfo.data.baseApy;
+  const crvAPY = convexAPYInfo.data.crvApy;
   // Calculate rewards from on-chain data
   const cvxAPYInfo = await checkCvxAPY(
     chain,

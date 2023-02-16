@@ -3,18 +3,12 @@ const axios = require('axios');
 const pools = require('../../../../../curve/v2/pools/pools');
 const _ = require('lodash');
 
-async function checkConvexData(chain, poolAddress) {
+async function getConvexData(chain, poolAddress) {
   try {
     // Get right underlying ID from Curve for the API
-    const POOLS = await pools();
-    const poolInfo = _.find(POOLS, (elem) => {
-      return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
-    });
-    if (!poolInfo)
-      throw new Error(`Data from Convex V0 indexer not ok for ${poolAddress}`);
-    const id = poolInfo.metadata.id;
+    const id = 'arbitrum-' + poolAddress.toLowerCase();
     //Get URL Data
-    const URL = 'https://www.convexfinance.com/api/curve-apys';
+    const URL = 'https://www.convexfinance.com/api/sidechains-apys';
     const { data } = await axios.get(URL);
     if (!data || !data.apys) {
       throw new Error(`Data from Convex V0 indexer not ok for ${poolAddress}`);
@@ -28,4 +22,4 @@ async function checkConvexData(chain, poolAddress) {
   }
 }
 
-module.exports = checkConvexData;
+module.exports = getConvexData;

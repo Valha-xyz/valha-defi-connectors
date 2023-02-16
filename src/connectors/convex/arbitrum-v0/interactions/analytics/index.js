@@ -3,8 +3,8 @@ const _ = require('lodash');
 const pools = require('../../pools/pools');
 const checkCvxAPY = require('./functions/checkCvxAPY');
 const getCurvePoolTVL = require('./functions/getCurvePoolTvl');
-const checkConvexData = require('./functions/getData');
 const checkPoolSupply = require('./functions/totalSupply');
+const getConvexData = require('./functions/getConvexData');
 
 // TO DO: review analytics specifically for Arbitrum
 async function analytics(chain, poolAddress) {
@@ -40,21 +40,15 @@ async function analytics(chain, poolAddress) {
 
   // Find APYs information
   // send the id form crv
-  const convexAPYInfo = await checkConvexData(
+  const convexAPYInfo = await getConvexData(
     chain,
     poolInfo.underlying_tokens[0]
   );
   if (convexAPYInfo.err) throw new Error(info.err.message);
   // Take baseAPY and crvApr from Convex API
-  const ActAPY = convexAPYInfo.data.activityAPY;
-  const crvAPY = convexAPYInfo.data.crvRewardsAPY;
-  // Calculate rewards from on-chain data
-  const cvxAPYInfo = await checkCvxAPY(
-    chain,
-    poolInfo.staking_address ? poolInfo.staking_address : ''
-  );
-  if (cvxAPYInfo.err) throw new Error(info.err.message);
-  const cvxAPY = cvxAPYInfo.data / TVL;
+  const ActAPY = convexAPYInfo.data.baseApy;
+  const crvAPY = convexAPYInfo.data.crvApy;
+  const cvxAPY = convexAPYInfo.data.cvxApy;
   const RewAPY = crvAPY + cvxAPY;
   const totalAPY = ActAPY + RewAPY;
 
@@ -74,7 +68,6 @@ async function analytics(chain, poolAddress) {
     maximum_deposit: null,
   };
 
-  console.log(result);
   return result;
 }
 
