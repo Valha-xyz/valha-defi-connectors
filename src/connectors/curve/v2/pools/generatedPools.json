@@ -371,7 +371,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x0000000000085d4780B73119b644AE5ecd22b376",
@@ -388,7 +388,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
@@ -408,7 +408,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x853d955aCEf822Db058eb8505911ED77F175b99e",
@@ -428,7 +428,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
@@ -465,7 +465,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "ethereum",
     "underlying_tokens": [
       "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
@@ -502,7 +502,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "ethereum",
     "underlying_tokens": [
       "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
@@ -2193,7 +2193,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "arbitrum",
     "underlying_tokens": [
       "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
@@ -2228,7 +2228,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "arbitrum",
     "underlying_tokens": [
       "0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A",
@@ -2245,7 +2245,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "arbitrum",
     "underlying_tokens": [
       "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
@@ -2368,7 +2368,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "optimism",
     "underlying_tokens": [
       "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
@@ -2386,7 +2386,7 @@
     }
   },
   {
-    "name": "Curve.fi Pool",
+    "name": "Pool Curve.fi",
     "chain": "optimism",
     "underlying_tokens": [
       "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
