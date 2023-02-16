@@ -20,13 +20,13 @@ async function getData(chain, poolAddress, id) {
     const URL = `https://api.curve.fi/api/getPools/${chain}/${type}`;
     const res = await axios.get(URL);
     if (!res.data.success)
-      throw new Error(`Data from Angle indexer not ok for ${poolAddress}`);
+      throw new Error(`Data from Curve V2 indexer not ok for ${poolAddress}`);
     const info = res.data.data.poolData;
     const poolInfo = _.find(info, (elem) => {
       return elem.id.toLowerCase() === id.toLowerCase();
     });
-    console.log(poolInfo);
-
+    if (!poolInfo || (poolInfo && !poolInfo.usdTotal))
+      throw new Error(`Data from Curve V2 indexer not ok for ${poolAddress}`);
     return {
       data: poolInfo,
       err: null,
