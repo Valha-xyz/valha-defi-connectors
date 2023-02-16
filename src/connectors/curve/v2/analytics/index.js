@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
+const { erc20Decimals } = require('src/utils/ERC20Decimals');
+const { getNodeProvider } = require('src/utils/getNodeProvider');
 const pools = require('../pools/pools');
 const getData = require('./functions/getData');
 
@@ -11,32 +13,41 @@ async function analytics(chain, poolAddress) {
   });
 
   //Get data from the API
-  const info = await getData(chain, poolAddress, poolInfo.metadata.id);
-  console.log(info);
+  const resultInfo = await getData(chain, poolAddress, poolInfo.metadata.id);
+  if (resultInfo.err)
+    throw new Error(`Data from Curve V2 indexer not ok for ${poolAddress}`);
+  const info = resultInfo.data;
 
-  // const sharePrice
+  //Get Main Pool Info
+  const provider = await getNodeProvider(chain);
+  const decimals = await erc20Decimals(provider, poolInfo.pool_address);
 
-  // //SHAREPRICE
-  // const ActAPY = dataAPY ? dataAPY.activity_apy : 0;
-  // const RewAPY = dataAPY ? dataAPY.rewards_apy : 0;
-  // const totalAPY = ActAPY + RewAPY;
-  // const TVL = dataAPY ? dataAPY.tvl : 0;
+  const TVL = info.usdTotal;
+  const sharePrice = info.virtualPrice / 10 ** decimals;
+  const RewAPY =
+    info.gaugeCrvApy && info.gaugeCrvApy.length > 0 ? info.gaugeCrvApy[0] : 0;
 
-  // const result = {
-  //   status: null,
-  //   tvl: TVL,
-  //   liquidity: TVL,
-  //   outloans: null,
-  //   losses: null,
-  //   capacity: Number.MAX_SAFE_INTEGER,
-  //   apy: totalAPY,
-  //   activity_apy: ActAPY,
-  //   rewards_apy: RewAPY,
-  //   boosting_apy: null,
-  //   share_price: sharePrice.data,
-  //   minimum_deposit: null,
-  //   maximum_deposit: null,
-  // };
+  //Get daily activity APY
+  const 
+
+  
+  const totalAPY = ActAPY + RewAPY;
+
+  const result = {
+    status: true,
+    tvl: TVL,
+    liquidity: TVL,
+    outloans: null,
+    losses: null,
+    capacity: Number.MAX_SAFE_INTEGER,
+    apy: totalAPY,
+    activity_apy: ActAPY,
+    rewards_apy: RewAPY,
+    boosting_apy: null,
+    share_price: sharePrice,
+    minimum_deposit: null,
+    maximum_deposit: null,
+  };
 
   // console.log(result);
 
