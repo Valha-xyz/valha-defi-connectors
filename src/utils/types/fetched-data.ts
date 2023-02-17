@@ -1,4 +1,4 @@
 export interface NumberedData {
-  data: number
-  err: any
+  data: number;
+  err: any;
 }

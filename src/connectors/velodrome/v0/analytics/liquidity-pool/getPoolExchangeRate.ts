@@ -1,10 +1,10 @@
-import { type BigNumber, Contract } from 'ethers'
-import { getNodeProvider } from '../../../../../utils/getNodeProvider'
-import VelodromeRouterAbi from './../../abi/ROUTER.json'
-import { type Pool } from '../../../../../utils/types/connector-types'
-import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders'
+import { type BigNumber, Contract } from "ethers";
+import { getNodeProvider } from "../../../../../utils/getNodeProvider";
+import VelodromeRouterAbi from "./../../abi/ROUTER.json";
+import { type Pool } from "../../../../../utils/types/connector-types";
+import { type GetExchangeRateFunction } from "../../../../../utils/types/liquidityProviders";
 
-const ROUTER_CONTRACT = '0x9c12939390052919af3155f41bf4160fd3666a6f'
+const ROUTER_CONTRACT = "0x9c12939390052919af3155f41bf4160fd3666a6f";
 
 // We only want to know the exchange rate between two assets.
 // This should return the amount of token2 equivalent to amount1 token1
@@ -17,14 +17,14 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   token2: string,
   pool: Pool
 ): Promise<BigNumber> => {
-  const provider = getNodeProvider(pool.chain)
+  const provider = getNodeProvider(pool.chain);
   const liquidityProvidingContract = new Contract(
     ROUTER_CONTRACT,
     VelodromeRouterAbi,
     provider
-  )
+  );
   if (token1 == token2) {
-    return amount1
+    return amount1;
   }
 
   return liquidityProvidingContract
@@ -32,8 +32,8 @@ export const getExchangeRate: GetExchangeRateFunction = async (
       {
         from: token1,
         to: token2,
-        stable: pool.metadata.stable
-      }
+        stable: pool.metadata.stable,
+      },
     ])
-    .then((response) => response[1])
-}
+    .then((response) => response[1]);
+};

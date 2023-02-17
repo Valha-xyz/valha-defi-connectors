@@ -14,7 +14,9 @@ async function getPoolEnterAmounts(
   poolType: string
 ): Promise<InputAmounts> {
   const pool = await getPool(poolAddress, poolType);
-
+  if(!pool){
+    throw "Pool not found"
+  }
   // 0. We check which token we have
   // Only 2 assets in UniswapV2 pools
   if (!pool.underlying_tokens.find((t) => t == token)) {
@@ -35,13 +37,11 @@ async function getPoolEnterAmounts(
         tokenOut,
         pool
       );
-      return {
-        [tokenOut]: liquidityProvidingAmount,
-      };
+      return liquidityProvidingAmount
     }
   );
 
-  return Object.assign({}, ...inputTokenAmount);
+  return inputTokenAmount
 }
 
 getPoolEnterAmounts(

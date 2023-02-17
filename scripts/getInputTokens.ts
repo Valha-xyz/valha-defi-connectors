@@ -7,6 +7,21 @@ import {
 } from "../src/utils/types/liquidityProviders";
 import { GetQuoteTypeExport } from "../src/utils/types/quotePrice";
 import { getPool } from "../src/utils/accessors";
+import { Pool } from "../src/utils/types/connector-types";
+import { getSwapQuote } from "./getSwapQuote";
+const _ = require("lodash");
+const path = require('path');
+
+
+// Connector developers for liquidity pool providers should implement the following functions : 
+
+// 1. a getQuotePrice function (of type GetQuotePriceFunction)
+//  This function should from an input of a token1, an associated amount1 and another token2 
+//      return the swap result from the amount1 token1 to token2
+// 2. EITHER OF
+// - a getPoolExchangeRate function (type: GetExchangeRateFunction) that computes the exchange rate between two assets in the pool
+// - a getMinimumDeposit function that returns the minimum deposit to the pool for a token, if deposited alone in the pool
+
 
 async function getInputTokens(
   token: string,
@@ -14,13 +29,70 @@ async function getInputTokens(
   poolAddress: string,
   poolType: string,
   swapType: string
+){  
+  const pool = await getPool(poolAddress, poolType);
+  if(!pool){
+    throw "Pool not found"
+  }
+  try{  // If a minimum deposit function is present, we load it
+    require.resolve(`../src/connectors/${poolType}/analytics/liquidity-pool/getMinimumDeposit`)
+    return getInputTokensSingle(token, amount, pool, poolType, swapType)
+  }catch{  // Else, we optimize the pool deposits for equal token repartition
+    return getInputTokensEqual(token, amount, pool, poolType, swapType)
+  }
+}
+
+async function getInputTokensSingle(
+  token: string,
+  amount: BigNumberish,
+  pool: Pool,
+  poolType: string,
+  swapType: string
+){
+
+  // On the curve pool, we enter the pool by :
+  // 1. Swapping the inputToken to the first token of the pool
+  // 2. Deposit all the amount in the pool
+  // We need to compute a desired lp token amount.
+
+
+  const tokenSwapPrices = await getSwapQuote(
+    token, amount, pool, swapType
+  );
+
+  // 2.
+  const { getMinimumDeposit } = await import(
+     `../src/connectors/${poolType}/analytics/liquidity-pool/getMinimumDeposit`
+    );
+
+  const minimumLpTokens = await pMap(
+    tokenSwapPrices,
+    async ({ tokenOut, amountOut }) => {
+      return {
+        tokenOut,
+        lpAmount: await getMinimumDeposit(amountOut, tokenOut, pool)
+      };
+    }
+  );
+
+  const bestRoute = _.maxBy(minimumLpTokens, (v) => v.lpAmount);
+
+  return [bestRoute.lpAmount];
+}
+
+
+async function getInputTokensEqual(
+  token: string,
+  amount: BigNumberish,
+  pool: Pool,
+  poolType: string,
+  swapType: string
 ): Promise<InputAmounts> {
 
-  const pool = await getPool(poolAddress, poolType);
 
   // 0. In this function, we want to optimize providing liquidity to a n-pool
   // We have two equations :
-  // a. The equations ensuring we don't have impermanent loss
+  // a. The equations ensuring we don't have impermanent loss on equal deposit pools
   //				\forall i, V(X_i) = C,
   //	where Xi is the amount of the ith asset you want to deposit in the pool
   //  V(x) is the value of the amount x in USD denomination
@@ -32,27 +104,8 @@ async function getInputTokens(
   // 2. The exchange rate of assets with each other (\frac{X_i}{X_0}, \forall i), where we want to deposit the tokens (poolType)
 
   // 1.
-  const { getQuotePrice }: GetQuoteTypeExport = await import(
-    `../src/connectors/${swapType}/analytics/liquidity-pool/getQuotePrice`
-  );
-
-  const tokenSwapPrices: TokenPrice[] = await pMap(
-    pool.underlying_tokens,
-    async (tokenOut) => {
-      const swapAmount = await getQuotePrice(
-        token,
-        amount,
-        tokenOut,
-        pool.chain
-      );
-      return {
-        tokenIn: token,
-        tokenOut,
-        amountIn: BigNumber.from(amount),
-        amountOut: swapAmount,
-        price: FixedNumber.from(amount).divUnsafe(FixedNumber.from(swapAmount)),
-      };
-    }
+  const tokenSwapPrices = await getSwapQuote(
+    token, amount, pool, swapType
   );
 
   // 2.
@@ -92,11 +145,11 @@ async function getInputTokens(
         ) // sum of all rate*price
     );
 
-  const tokenInputs = exchangeRates.map(({ exchangeRate, tokenOut }) => ({
-    [tokenOut]: referenceTokenAmount.mulUnsafe(exchangeRate),
-  }));
+  const tokenInputs = exchangeRates.map(({ exchangeRate, tokenOut }) => 
+    referenceTokenAmount.mulUnsafe(exchangeRate),
+  );
 
-  return Object.assign({}, ...tokenInputs);
+  return tokenInputs.map((tokenInput)=> BigNumber.from(tokenInput))
 }
 
 
@@ -110,9 +163,9 @@ getInputTokens(
 
 
 getInputTokens(
-  "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb", // 18 decimals - stWEth - 1500$
+  "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", // 18 decimals - stWEth - 1500$
   "1000000000000000000", // Amount
-  "0xd16232ad60188b68076a235c65d692090caba155", // Pool address
-  "velodrome/v0", // Pool type
+  "0x6c3f90f043a72fa612cbac8115ee7e52bde6e490", // Pool address
+  "curve/v2", // Pool type
   "oneinch/v5" // Swap Type
 ).then((response) => console.log(response));

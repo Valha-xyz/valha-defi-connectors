@@ -1,20 +1,22 @@
-import { type BigNumber, type FixedNumber } from 'ethers'
+import { BigNumberish, type BigNumber, type FixedNumber } from "ethers";
+import { getMinimumRedeem } from "src/connectors/curve/v2/analytics/liquidity-pool/getMinimumRedeem";
+import { Pool } from "./connector-types";
 
-export type InputAmounts = Record<string, BigNumber>
+export type InputAmounts = BigNumber[];
 
 export interface TokenPrice {
-  tokenIn: string
-  tokenOut: string
-  amountIn: BigNumber
-  amountOut: BigNumber
-  price: FixedNumber
+  tokenIn: string;
+  tokenOut: string;
+  amountIn: BigNumber;
+  amountOut: BigNumber;
+  price: FixedNumber;
 }
 
 export interface ExchangeRate {
-  price: FixedNumber
-  exchangeRate: FixedNumber
-  referenceToken: string
-  tokenOut: string
+  price: FixedNumber;
+  exchangeRate: FixedNumber;
+  referenceToken: string;
+  tokenOut: string;
 }
 
 export type GetExchangeRateFunction = (
@@ -22,8 +24,18 @@ export type GetExchangeRateFunction = (
   token1: string,
   token2: string,
   pool: Pool
-) => Promise<BigNumber>
+) => Promise<BigNumber>;
 
 export interface GetExchangeRateExport {
-  getExchangeRate: GetExchangeRateFunction
+  getExchangeRate: GetExchangeRateFunction;
+}
+
+
+export type GetMinimumRedeemFunction = (
+  amount: BigNumberish,
+  pool: Pool
+) => Promise<BigNumber[]>;
+
+export interface GetMinimumRedeemExport {
+  getMinimumRedeem: GetMinimumRedeemFunction
 }

@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from "graphql-request";
 
 const query = {
   query: gql`
@@ -154,7 +154,7 @@ const query = {
       timestamp
       __typename
     }
-  `
-}
+  `,
+};
 
-export { query }
+export { query };

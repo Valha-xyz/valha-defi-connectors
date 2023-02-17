@@ -6,42 +6,42 @@ import {
   type AmountInput,
   type Interactions,
   type InteractionsReturnObject,
-  type Pool
-} from '../../../../utils/types/connector-types'
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals')
-const PoolABI = require('../abi/DepositPool.json')
+  type Pool,
+} from "../../../../utils/types/connector-types";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const PoolABI = require("../abi/DepositPool.json");
 
 /// invest
-async function deposit (
+async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI
-  const method_name = 'deposit'
-  const position_token = pool.underlying_tokens[0]
+  const abi = PoolABI;
+  const method_name = "deposit";
+  const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     position_token
-  )
-  const args = []
-  const interaction_address = pool.investing_address
+  );
+  const args = [];
+  const interaction_address = pool.investing_address;
 
   return {
     txInfo: {
       abi, // abi array
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
-      position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN
-    }
-  }
+      position_token_type: "ERC-20", // token type to approve
+      amount: amountBN,
+    },
+  };
 }
 
 /// / NOT A REAL "REDEEM" function, it enables to get the balance that was not staked yet but send to RocketPool
@@ -191,7 +191,7 @@ const interactions: Interactions = {
   boost: null,
   unboost: null,
   claim_rewards: null,
-  claim_interests: null
-}
+  claim_interests: null,
+};
 
-export default interactions
+export default interactions;
