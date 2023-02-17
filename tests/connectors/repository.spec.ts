@@ -1,7 +1,7 @@
 import { config } from "dotenv";
-config();
 import fs from "fs";
 import checkParam from "./config/checkParam";
+config();
 
 describe("CONNECTOR - REPOSITORY", () => {
   let connector: string;
@@ -22,52 +22,52 @@ describe("CONNECTOR - REPOSITORY", () => {
     }
   });
 
-  it(`The connector must exist in the connector repository`, async () => {
+  it("The connector must exist in the connector repository", async () => {
     const path = `src/connectors/${connector}`;
     const result = fs.existsSync(path);
     expect(result).toBeTruthy();
   });
 
-  it(`The connector must respect the repository structure: abi available in lowercase`, async () => {
+  it("The connector must respect the repository structure: abi available in lowercase", async () => {
     const path = `src/connectors/${connector}/abi`;
     const result = fs.existsSync(path);
     expect(result).toBeTruthy();
   });
 
-  it(`The connector must respect the repository structure: analytics available in lowercase`, async () => {
+  it("The connector must respect the repository structure: analytics available in lowercase", async () => {
     const path = `src/connectors/${connector}/analytics`;
     const result = fs.existsSync(path);
     expect(result).toBeTruthy();
   });
 
-  it(`The connector must respect the repository structure: interactions available in lowercase`, async () => {
+  it("The connector must respect the repository structure: interactions available in lowercase", async () => {
     const path = `src/connectors/${connector}/interactions`;
     const result = fs.existsSync(path);
     expect(result).toBeTruthy();
   });
 
-  it(`There must be a file named "index.js/ts" in the analytics repository`, async () => {
+  it('There must be a file named "index.js/ts" in the analytics repository', async () => {
     const path = `src/connectors/${connector}/analytics`;
     const resultJS = fs.existsSync(`${path}/index.js`);
     const resultTS = fs.existsSync(`${path}/index.ts`);
     expect(resultJS || resultTS).toBeTruthy();
   });
 
-  it(`There must be a file named "index.js/ts" in the interactions repository`, async () => {
+  it('There must be a file named "index.js/ts" in the interactions repository', async () => {
     const path = `src/connectors/${connector}/interactions`;
     const resultJS = fs.existsSync(`${path}/index.js`);
     const resultTS = fs.existsSync(`${path}/index.ts`);
     expect(resultJS || resultTS).toBeTruthy();
   });
 
-  it(`There must be a file named "pools.js/ts" at the pools repository`, async () => {
+  it('There must be a file named "pools.js/ts" at the pools repository', async () => {
     const path = `src/connectors/${connector}/pools`;
     const resultJS = fs.existsSync(`${path}/pools.js`);
     const resultTS = fs.existsSync(`${path}/pools.ts`);
     expect(resultJS || resultTS).toBeTruthy();
   });
 
-  it(`There must be ONLY JSON files in the ABI repository`, async () => {
+  it("There must be ONLY JSON files in the ABI repository", async () => {
     const path = `src/connectors/${connector}/abi`;
     const abis = fs.readdirSync(path);
     for (const abi of abis) {
@@ -75,7 +75,7 @@ describe("CONNECTOR - REPOSITORY", () => {
     }
   });
 
-  it(`There must be ONLY repositories at the route of the protocol repository`, async () => {
+  it("There must be ONLY repositories at the route of the protocol repository", async () => {
     const split = connector.split("/");
     const protocol = split[0];
     const path = `src/connectors/${protocol}`;

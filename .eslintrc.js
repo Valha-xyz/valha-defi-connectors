@@ -9,7 +9,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['/src']
+    project: ['tsconfig.json']
   },
   rules: {
   	camelcase: 'off'

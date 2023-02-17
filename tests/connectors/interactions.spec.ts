@@ -1,7 +1,7 @@
 import { POOLS } from "./config/testPools";
 import _ from "lodash";
 import checkParam from "./config/checkParam";
-import { Interactions } from "../../src/utils/types/connector-types";
+import { type Interactions } from "../../src/utils/types/connector-types";
 
 const interactions = [
   "deposit",
@@ -112,7 +112,7 @@ function checkArgType(arg: string, type: string): boolean {
     } else if (type.includes("bytes")) {
       console.log(
         "\x1b[33m%s\x1b[0m",
-        `WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.`
+        'WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.'
       );
     } else if (type.includes("bool")) {
       const check = typeof arg;
@@ -170,12 +170,12 @@ describe("CONNECTOR - INTERACTIONS", () => {
     interactionPATH = `src/connectors/${connector}/interactions/index`;
   });
 
-  //// LOOP THROUGH ALL THE SPECIFIED POOLS
+  /// / LOOP THROUGH ALL THE SPECIFIED POOLS
   for (const POOL of POOLS) {
     describe(`#### POOL ${POOL.name ? POOL.name : "NULL"} - ${
       POOL.chain ? POOL.chain : "NULL"
     } - ${POOL.pool_address ? POOL.pool_address : "NULL"} ####`, () => {
-      describe(`-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS`, () => {
+      describe("-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS", () => {
         for (const interaction of interactions) {
           it(`Should have the ${interaction.toUpperCase()} function`, async () => {
             await checkFnExists(interaction, interactionPATH);
@@ -183,7 +183,7 @@ describe("CONNECTOR - INTERACTIONS", () => {
         }
       });
 
-      describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
+      describe("-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE", () => {
         for (const interaction of interactions) {
           it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
             const userAddress = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
@@ -443,7 +443,7 @@ describe("CONNECTOR - INTERACTIONS", () => {
 
             if (result && result.position_token) {
               if (Array.isArray(result.position_token)) {
-                for (let elem of result.position_token) {
+                for (const elem of result.position_token) {
                   expect(isEVMAddress(elem.toLowerCase())).toBeTruthy();
                 }
               } else {

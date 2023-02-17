@@ -1,23 +1,23 @@
-import { getData } from "../../../../../utils/external/utils";
+import { getData } from '../../../../../utils/external/utils'
 
-export const BEEFY_API = "https://api.beefy.finance";
+export const BEEFY_API = 'https://api.beefy.finance'
 
-export async function fetchVaults() {
-  return getData(`${BEEFY_API}/vaults`);
+export async function fetchVaults () {
+  return await getData(`${BEEFY_API}/vaults`)
 }
 
-export async function fetchTokens() {
-  return getData(`${BEEFY_API}/tokens`);
+export async function fetchTokens () {
+  return await getData(`${BEEFY_API}/tokens`)
 }
 
-export async function fetchLps() {
-  return getData(`${BEEFY_API}/lps`);
+export async function fetchLps () {
+  return await getData(`${BEEFY_API}/lps`)
 }
 
-export async function fetchTokenPrices() {
-  return getData(`${BEEFY_API}/prices`);
+export async function fetchTokenPrices () {
+  return await getData(`${BEEFY_API}/prices`)
 }
 
-export async function fetchAPY() {
-  return getData(`${BEEFY_API}/apy`);
+export async function fetchAPY () {
+  return await getData(`${BEEFY_API}/apy`)
 }

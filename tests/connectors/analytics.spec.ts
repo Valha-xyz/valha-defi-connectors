@@ -38,35 +38,35 @@ describe("CONNECTOR - ANALYTICS", () => {
     analyticsPATH = `src/connectors/${connector}/analytics/index`;
   });
 
-  //// LOOP THROUGH ALL THE SPECIFIED POOLS
+  /// / LOOP THROUGH ALL THE SPECIFIED POOLS
   for (const POOL of POOLS) {
     describe(`#### POOL ${POOL.name ? POOL.name : "NULL"} - ${
       POOL.chain ? POOL.chain : "NULL"
     } - ${POOL.pool_address ? POOL.pool_address : "NULL"} ####`, () => {
-      describe(`-> REQUESTED INFORMATION FROM POOL.JS`, () => {
+      describe("-> REQUESTED INFORMATION FROM POOL.JS", () => {
         /// check if pools have all the requested informations (check interface)
-        it(`Pool should have a name defined`, async () => {
+        it("Pool should have a name defined", async () => {
           expect(POOL.name).toBeDefined();
         });
 
-        it(`Pool should have a chain defined`, async () => {
+        it("Pool should have a chain defined", async () => {
           expect(POOL.chain).toBeDefined();
         });
 
-        it(`Pool should have specified an available chain in LOWERCASE`, async () => {
+        it("Pool should have specified an available chain in LOWERCASE", async () => {
           const check = chains.includes(POOL.chain);
           expect(check).toBeTruthy();
         });
 
-        it(`Pool should have underlying_tokens defined`, async () => {
+        it("Pool should have underlying_tokens defined", async () => {
           expect(POOL.underlying_tokens).toBeDefined();
         });
 
-        it(`Pool should have an investing address defined`, async () => {
+        it("Pool should have an investing address defined", async () => {
           expect(POOL.investing_address).toBeDefined();
         });
 
-        it(`Pool should have a valid EVM investing address`, async () => {
+        it("Pool should have a valid EVM investing address", async () => {
           if (POOL.investing_address) {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
@@ -75,11 +75,11 @@ describe("CONNECTOR - ANALYTICS", () => {
           }
         });
 
-        it(`Pool should have a staking address defined`, async () => {
+        it("Pool should have a staking address defined", async () => {
           expect(POOL.staking_address).toBeDefined();
         });
 
-        it(`Pool should have a valid EVM staking address`, async () => {
+        it("Pool should have a valid EVM staking address", async () => {
           if (POOL.staking_address) {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
@@ -88,11 +88,11 @@ describe("CONNECTOR - ANALYTICS", () => {
           }
         });
 
-        it(`Pool should have a boosting address defined`, async () => {
+        it("Pool should have a boosting address defined", async () => {
           expect(POOL.boosting_address).toBeDefined();
         });
 
-        it(`Pool should have a valid EVM boosting address`, async () => {
+        it("Pool should have a valid EVM boosting address", async () => {
           if (POOL.boosting_address) {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
@@ -101,11 +101,11 @@ describe("CONNECTOR - ANALYTICS", () => {
           }
         });
 
-        it(`Pool should have a distributor address`, async () => {
+        it("Pool should have a distributor address", async () => {
           expect(POOL.distributor_address).toBeDefined();
         });
 
-        it(`Pool should have a valid EVM distributor address`, async () => {
+        it("Pool should have a valid EVM distributor address", async () => {
           if (POOL.distributor_address) {
             const check = isEVMAddress(POOL.investing_address.toLowerCase());
             expect(check).toBeTruthy();
@@ -114,18 +114,18 @@ describe("CONNECTOR - ANALYTICS", () => {
           }
         });
 
-        it(`Pool should have rewards token defined`, async () => {
+        it("Pool should have rewards token defined", async () => {
           expect(POOL.rewards_tokens).toBeDefined();
         });
 
-        it(`Pool should have metadata defined`, async () => {
+        it("Pool should have metadata defined", async () => {
           expect(POOL.rewards_tokens).toBeDefined();
         });
       });
 
-      describe(`-> FUNCTION FROM ANALYTICS/INDEX.JS CAN BE CALLED`, () => {
+      describe("-> FUNCTION FROM ANALYTICS/INDEX.JS CAN BE CALLED", () => {
         /// check that we have access to the url of the app
-        it(`Should be able to retrieve the URL of the protocol`, async () => {
+        it("Should be able to retrieve the URL of the protocol", async () => {
           try {
             const { default: fn } = await import(analyticsPATH);
             const result = fn.url;
@@ -136,7 +136,7 @@ describe("CONNECTOR - ANALYTICS", () => {
         });
 
         /// check when we call the function we have the information needed on this POOL
-        it(`Should be able to call MAIN function to get analytics information`, async () => {
+        it("Should be able to call MAIN function to get analytics information", async () => {
           try {
             const { default: fn } = await import(analyticsPATH);
             const result = fn.main(POOL.chain, POOL.pool_address);
@@ -147,12 +147,12 @@ describe("CONNECTOR - ANALYTICS", () => {
         });
       });
 
-      describe(`-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE`, () => {
+      describe("-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE", () => {
         /// check when we call the function the information needed are in the good data type and in the good range
-        it(`Should be able to call MAIN function to get analytics information`, async () => {
+        it("Should be able to call MAIN function to get analytics information", async () => {
           const { default: fn } = await import(analyticsPATH);
           const info = await fn.main(POOL.chain, POOL.pool_address);
-          ///ALL DEFINED
+          /// ALL DEFINED
           expect(info).toBeDefined();
           expect(info.status).toBeDefined();
           expect(info.tvl).toBeDefined();
@@ -165,7 +165,7 @@ describe("CONNECTOR - ANALYTICS", () => {
           expect(info.rewards_apy).toBeDefined();
           expect(info.boosting_apy).toBeDefined();
           expect(info.share_price).toBeDefined();
-          ///SOME NEED TO HAVE THE RIGHT TYPE
+          /// SOME NEED TO HAVE THE RIGHT TYPE
           expect(typeof info.tvl).toBe("number");
           expect(typeof info.liquidity).toBe("number");
           expect(typeof info.apy).toBe("number");

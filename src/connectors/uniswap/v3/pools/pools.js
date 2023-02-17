@@ -7,7 +7,7 @@ const POOLS = [
       '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984' // UniswapToken - 18 decimals
     ],
     investing_address: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
-    pool_address: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
+    pool_address: '0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640'
   }
 ]
 

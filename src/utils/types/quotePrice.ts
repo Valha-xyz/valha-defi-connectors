@@ -1,12 +1,13 @@
-import { BigNumber, BigNumberish } from "ethers";
+import { type BigNumber, type BigNumberish } from 'ethers'
+import { type Pool } from './connector-types'
 
 export type GetQuotePriceFunction = (
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
   chain: string
-) => Promise<BigNumber>;
+) => Promise<BigNumber>
 
-export type GetQuoteTypeExport = {
-  getQuotePrice: GetQuotePriceFunction;
-};
+export interface GetQuoteTypeExport {
+  getQuotePrice: GetQuotePriceFunction
+}

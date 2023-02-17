@@ -1,18 +1,18 @@
-import { fetchVaults } from "../analytics/external/yearn.api";
-import fs from "fs";
-import { Pool } from "../../../../utils/types/connector-types";
-import { Chain } from "../../../../utils/types/networks";
-import { getChainById } from "../../../../utils/getChainId";
-const path = require("path");
-const _ = require("lodash");
+import { fetchVaults } from '../analytics/external/yearn.api'
+import fs from 'fs'
+import { type Pool } from '../../../../utils/types/connector-types'
+import { Chain } from '../../../../utils/types/networks'
+import { getChainById } from '../../../../utils/getChainId'
+const path = require('path')
+const _ = require('lodash')
 
-async function generatePools(): Promise<Pool | Record<never, never>> {
-  const pools = await fetchVaults();
+async function generatePools (): Promise<Pool | Record<never, never>> {
+  const pools = await fetchVaults()
 
-  console.log(_.uniq(pools.map((pool) => pool.chainID)));
+  console.log(_.uniq(pools.map((pool) => pool.chainID)))
 
   if (!pools || pools.length === 0) {
-    return {};
+    return {}
   }
   const modifiedPools: Pool[] = pools
     .filter(
@@ -33,17 +33,17 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
         boosting_address: null,
         distributor_address: null,
         rewards_tokens: [elem.details.rewards],
-        metadata: {},
-      };
-    });
-  return modifiedPools;
+        metadata: {}
+      }
+    })
+  return modifiedPools
 }
 
-async function updatePools() {
-  const pools = await generatePools();
-  const strPools = JSON.stringify(pools, null, 4);
-  const relativePath = path.join(__dirname, "/generatedPools.json");
-  fs.writeFileSync(relativePath, strPools);
+async function updatePools () {
+  const pools = await generatePools()
+  const strPools = JSON.stringify(pools, null, 4)
+  const relativePath = path.join(__dirname, '/generatedPools.json')
+  fs.writeFileSync(relativePath, strPools)
 }
 
-updatePools();
+updatePools()

@@ -1,4 +1,4 @@
-import { Pool } from "../../../src/utils/types/connector-types";
+import { type Pool } from "../../../src/utils/types/connector-types";
 
 export const POOLS: Pool[] = [
   {
