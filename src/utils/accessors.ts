@@ -9,5 +9,7 @@ export async function getPool(
 
   const POOLS: Pool[] = await pools();
 
-  return POOLS.find((pool) => pool.pool_address.toLowerCase() == poolAddress.toLowerCase());
+  return POOLS.find(
+    (pool) => pool.pool_address.toLowerCase() == poolAddress.toLowerCase()
+  );
 }

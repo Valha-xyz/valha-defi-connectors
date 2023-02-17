@@ -21,9 +21,9 @@ export const getMinimumRedeem = async (
     provider
   );
 
-  const allAmounts = await pMap(pool.underlying_tokens, async (v,i) => 
-	poolContract.calc_withdraw_one_coin(amount1, i, {gasLimit: 100000})
-  )
+  const allAmounts = await pMap(pool.underlying_tokens, async (v, i) =>
+    poolContract.calc_withdraw_one_coin(amount1, i, { gasLimit: 100000 })
+  );
   //TODO , for now, but we have to change that
   return [allAmounts[0]];
 };

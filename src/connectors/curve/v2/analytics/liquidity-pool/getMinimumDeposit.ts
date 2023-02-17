@@ -5,7 +5,6 @@ import RouterABI from "./../../abi/router.json";
 import { type Pool } from "src/utils/types/connector-types";
 import { findTokenPosition } from "./getQuotePrice";
 
-
 export const getMinimumDeposit = async (
   amount1: BigNumber,
   token1: string, // Token OF THE POOL that you will actually enter with

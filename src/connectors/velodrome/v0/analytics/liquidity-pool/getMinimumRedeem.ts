@@ -18,10 +18,10 @@ export const getMinimumRedeem = async (
   );
 
   const allAmounts = poolContract.quoteRemoveLiquidity(
-		pool.underlying_tokens[0],
-		pool.underlying_tokens[1],
-		pool.metadata.stable,
-		amount1
-  )
-  return allAmounts
+    pool.underlying_tokens[0],
+    pool.underlying_tokens[1],
+    pool.metadata.stable,
+    amount1
+  );
+  return allAmounts;
 };

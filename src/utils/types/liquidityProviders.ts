@@ -29,12 +29,11 @@ export interface GetExchangeRateExport {
   getExchangeRate: GetExchangeRateFunction;
 }
 
-
 export type GetMinimumRedeemFunction = (
   amount: BigNumberish,
   pool: Pool
 ) => Promise<BigNumber[]>;
 
 export interface GetMinimumRedeemExport {
-  getMinimumRedeem: GetMinimumRedeemFunction
+  getMinimumRedeem: GetMinimumRedeemFunction;
 }
