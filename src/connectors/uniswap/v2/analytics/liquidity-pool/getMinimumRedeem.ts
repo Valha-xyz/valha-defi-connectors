@@ -2,7 +2,7 @@
 import { BigNumber, BigNumberish, Contract } from "ethers";
 import { getNodeProvider } from "../../../../../utils/getNodeProvider";
 import { Pool } from "../../../../../utils/types/connector-types";
-import RouterABI from "./../../abi/uniswapv2-router.json";
+import PairABI from "./../../abi/uniswapv2-pair.json";
 
 // This needs to return the minimum amount expected for each token.
 // For curve, we simply choose the first token (not the best this time...)
@@ -12,24 +12,19 @@ export const getMinimumRedeem = async (
 ): Promise<BigNumber[]> => {
   const provider = getNodeProvider(pool.chain);
   const poolContract = new Contract(
-    pool.investing_address,
-    RouterABI,
+    pool.pool_address,
+    PairABI,
     provider
   );
 
-  // TODO this is not tested, because I don't have liquidity in that pool (and it reverts when you don't have liquidity)
-  const allAmounts = await poolContract
-    .callStatic
-    .removeLiquidity(
-      pool.underlying_tokens[0],
-      pool.underlying_tokens[1],
-      amount,
-      0,
-      0,
-      pool.pool_address,
-      10000000000
-    )
-  console.log(allAmounts)
+  // We reimplement the `burn` function computation in : https://etherscan.io/address/0x3041cbd36888becc7bbcbc0045e3b1f144466f5f#code
+  const [[reserve0, reserve1], totalSupply] = await Promise.all([
+    poolContract.getReserves(),
+    poolContract.totalSupply()
+  ])
 
-  return allAmounts
+  const amount0 = BigNumber.from(amount).mul(reserve0).div(totalSupply);
+  const amount1 = BigNumber.from(amount).mul(reserve1).div(totalSupply);
+
+  return[amount0, amount1];
 };

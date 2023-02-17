@@ -1,5 +1,4 @@
 import { BigNumberish, type BigNumber, type FixedNumber } from "ethers";
-import { getMinimumRedeem } from "src/connectors/curve/v2/analytics/liquidity-pool/getMinimumRedeem";
 import { Pool } from "./connector-types";
 
 export type InputAmounts = BigNumber[];

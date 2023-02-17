@@ -3,8 +3,9 @@ import { type GetQuotePriceFunction } from "../../../../../utils/types/quotePric
 import { getNodeProvider } from "../../../../../utils/getNodeProvider";
 import UniswapV2RouterAbi from "./../../abi/uniswapv2-router.json";
 import Quoter from "@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json";
+
+
 const QUOTER_CONTRACT_ADDRESS = "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6";
-const SWAP_ROUTE_CONTRACT = "0xE592427A0AEce92De3Edee1F18E0157C05861564";
 
 const FEE_AMOUNT_MEDIUM = 3000;
 
@@ -20,7 +21,6 @@ export const getQuotePrice: GetQuotePriceFunction = async (
     Quoter.abi,
     provider
   );
-
   const quotedAmountOut = await quoterContract.callStatic.quoteExactInputSingle(
     tokenIn,
     tokenOut,

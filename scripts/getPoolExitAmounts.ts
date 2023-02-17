@@ -42,7 +42,7 @@ async function getPoolExitAmounts(
 
   return allSwapResults.reduce((acc, v)=> acc.add(v), BigNumber.from(0));
 }
-
+/*
 getPoolExitAmounts(
   "0x4200000000000000000000000000000000000006", // 18 decimals
   "1000000000000000000",
@@ -51,20 +51,18 @@ getPoolExitAmounts(
   "oneinch/v5" // Swap Type
 ).then((response) => console.log(response));
 
-/*
-getPoolExitAmounts(
-  "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", // 18 decimals
-  "1000",
-  "0xEBFb684dD2b01E698ca6c14F10e4f289934a54D6",
-  "uniswap/v2", // Pool Type
-  "oneinch/v5" // Swap Type
-).then((response) => console.log(response));
-*/
-
 getPoolExitAmounts(
   "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", // 18 decimals - stWEth - 1500$
   "1000000000000000000", // Amount
   "0x6c3f90f043a72fa612cbac8115ee7e52bde6e490", // Pool address
   "curve/v2", // Pool type
+  "oneinch/v5" // Swap Type
+).then((response) => console.log(response));
+*/
+getPoolExitAmounts(
+  "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", // 18 decimals
+  "1000",
+  "0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f",
+  "uniswap/v2", // Pool Type
   "oneinch/v5" // Swap Type
 ).then((response) => console.log(response));
