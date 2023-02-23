@@ -19,7 +19,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const method_name = 'addLiquidity';
@@ -28,7 +28,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [poolId, amountBN, addresses.userAddress];
 
@@ -57,7 +57,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const method_name = 'instantRedeemLocal';
@@ -66,7 +66,7 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [poolId, amountBN, addresses.userAddress];
 
@@ -90,7 +90,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -99,7 +99,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [poolId, amountBN];
 
@@ -123,7 +123,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -132,7 +132,7 @@ async function unstake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [poolId, amountBN];
 
@@ -152,7 +152,7 @@ async function boost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -162,7 +162,7 @@ async function unboost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -172,7 +172,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -195,6 +195,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
+  unstake_and_redeem: null,
   stake: stake,
   unstake: unstake,
   boost: null,

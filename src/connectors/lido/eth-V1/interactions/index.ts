@@ -16,7 +16,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STETHABI;
   const method_name = 'submit';
@@ -24,7 +24,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = ['0x0000000000000000000000000000000000000000'];
 
@@ -68,7 +68,7 @@ async function redeem(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline,
+  deadline
 ) {
   return {};
 }
@@ -93,7 +93,7 @@ async function stake(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline,
+  deadline
 ) {
   return {};
 }
@@ -118,7 +118,7 @@ async function unstake(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline,
+  deadline
 ) {
   return {};
 }
@@ -143,7 +143,7 @@ async function boost(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline,
+  deadline
 ) {
   return {};
 }
@@ -168,7 +168,7 @@ async function unboost(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline,
+  deadline
 ) {
   return {};
 }
@@ -193,7 +193,7 @@ async function claimRewards(
   userAddress,
   receiverAddress,
   lockupTimestamp,
-  deadline,
+  deadline
 ) {
   return {};
 }
@@ -203,6 +203,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: null,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,

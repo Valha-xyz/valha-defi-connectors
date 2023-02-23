@@ -18,7 +18,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const stable = pool.metadata.stable ? pool.metadata.stable : false;
@@ -31,12 +31,12 @@ async function deposit(
   const amountADesired = await toBnERC20Decimals(
     amount.amountsDesired[0].humanValue,
     pool.chain,
-    pool.underlying_tokens[0],
+    pool.underlying_tokens[0]
   );
   const amountBDesired = await toBnERC20Decimals(
     amount.amountsDesired[1].humanValue,
     pool.chain,
-    pool.underlying_tokens[1],
+    pool.underlying_tokens[1]
   );
 
   if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
@@ -57,12 +57,12 @@ async function deposit(
     const amountMin = await toBnERC20Decimals(
       amount.amountsMinimum[tokenPosition].humanValue,
       pool.chain,
-      pool.underlying_tokens[tokenPosition],
+      pool.underlying_tokens[tokenPosition]
     );
     const amountNativeMin = await toBnERC20Decimals(
       amount.amountsMinimum[nativePosition].humanValue,
       pool.chain,
-      pool.underlying_tokens[nativePosition],
+      pool.underlying_tokens[nativePosition]
     );
     args = [
       pool.underlying_tokens[tokenPosition],
@@ -77,12 +77,12 @@ async function deposit(
     const amountAMinimum = await toBnERC20Decimals(
       amount.amountsMinimum[0].humanValue,
       pool.chain,
-      pool.underlying_tokens[0],
+      pool.underlying_tokens[0]
     );
     const amountBMinimum = await toBnERC20Decimals(
       amount.amountsMinimum[1].humanValue,
       pool.chain,
-      pool.underlying_tokens[1],
+      pool.underlying_tokens[1]
     );
     args = [
       tokenA,
@@ -117,7 +117,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const stable = pool.metadata.stable ? pool.metadata.stable : false;
@@ -128,17 +128,17 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address,
+    pool.pool_address
   );
   const amountAMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[0].humanValue,
     pool.chain,
-    pool.underlying_tokens[0],
+    pool.underlying_tokens[0]
   );
   const amountBMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[1].humanValue,
     pool.chain,
-    pool.underlying_tokens[1],
+    pool.underlying_tokens[1]
   );
   const args = [
     tokenA,
@@ -171,7 +171,7 @@ async function claimInterests(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const interaction_address = pool.staking_address;
   const abi = STAKERABI;
@@ -195,14 +195,14 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const pid = PID[pool.pool_address.toLowerCase()];
   const interaction_address = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address,
+    pool.pool_address
   );
   const abi = STAKERABI;
   const method_name = 'deposit';
@@ -228,14 +228,14 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const pid = PID[pool.pool_address.toLowerCase()];
   const interaction_address = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address,
+    pool.pool_address
   );
   const abi = STAKERABI;
   const method_name = 'withdrawToken';
@@ -257,7 +257,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const pid = PID[pool.pool_address.toLowerCase()];
   const interaction_address = pool.staking_address;
@@ -287,6 +287,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
+  unstake_and_redeem: null,
   stake: stake,
   unstake: unstake,
   boost: null,

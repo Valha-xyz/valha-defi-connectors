@@ -17,14 +17,14 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'supply(address,uint256,address,uint16)';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.underlying_tokens[0],
+    pool.underlying_tokens[0]
   );
   const args = [pool.underlying_tokens[0], amountBN, addresses.userAddress, 0];
   const interaction_address = pool.investing_address;
@@ -49,14 +49,14 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'withdraw(address,uint256,address)';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address,
+    pool.pool_address
   );
   const args = [pool.underlying_tokens[0], amountBN, addresses.receiverAddress];
   const interaction_address = pool.investing_address;
@@ -81,7 +81,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = DistributorABI;
   const method_name = 'claimAllRewards';
@@ -104,6 +104,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,

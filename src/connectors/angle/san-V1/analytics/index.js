@@ -8,7 +8,6 @@ const checkAngleV1APYTVL = require('./functions/apy');
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
   if (!POOLS || POOLS.length === 0) return {};
-
   const poolInfo = _.find(POOLS, (elem) => {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });

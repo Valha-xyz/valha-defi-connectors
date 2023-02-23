@@ -16,7 +16,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
   const method_name = 'deposit';
@@ -24,7 +24,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [];
   const interaction_address = pool.investing_address;
@@ -186,6 +186,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: null,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,

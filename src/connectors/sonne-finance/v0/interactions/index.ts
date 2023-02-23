@@ -111,6 +111,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,

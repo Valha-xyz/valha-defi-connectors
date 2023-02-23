@@ -17,14 +17,14 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'mint(uint256)';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.underlying_tokens[0],
+    pool.underlying_tokens[0]
   );
   if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [amountBN];
@@ -50,14 +50,14 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'redeem(uint256)';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address,
+    pool.pool_address
   );
   if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [amountBN];
@@ -83,7 +83,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
   const method_name = 'claimComp(address)';
@@ -112,6 +112,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,

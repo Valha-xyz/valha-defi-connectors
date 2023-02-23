@@ -16,7 +16,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
   const method_name = 'submit';
@@ -24,7 +24,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountBN];
 
@@ -48,7 +48,7 @@ async function unlock(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
   const method_name = 'requestWithdraw';
@@ -56,7 +56,7 @@ async function unlock(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountBN];
 
@@ -111,7 +111,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -121,7 +121,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -131,7 +131,7 @@ async function boost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -141,7 +141,7 @@ async function unboost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -151,7 +151,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ) {
   return {};
 }
@@ -161,6 +161,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   unlock: unlock,
   redeem: null,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,

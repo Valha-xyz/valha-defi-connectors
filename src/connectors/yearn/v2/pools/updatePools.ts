@@ -17,7 +17,7 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
         !pool.details.retired &&
         !pool.hideAlways &&
         pool.endorsed &&
-        (!pool.details.depositsDisabled || pool.details.withdrawalsEnabled),
+        (!pool.details.depositsDisabled || pool.details.withdrawalsEnabled)
     ) // Some pools are hidden by the interface
     .map((elem): Pool => {
       return {
