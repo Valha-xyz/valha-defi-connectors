@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const pools = require('../../pools/pools');
+const pools = require('../pools/pools');
 const checkCvxAPY = require('./functions/checkCvxAPY');
 const getCurvePoolTVL = require('./functions/getCurvePoolTvl');
 const checkPoolSupply = require('./functions/totalSupply');

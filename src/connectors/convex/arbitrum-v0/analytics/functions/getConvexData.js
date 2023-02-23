@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const axios = require('axios');
-const pools = require('../../../../../curve/v2/pools/pools');
+const pools = require('../../../../curve/v2/pools/pools');
 const _ = require('lodash');
 
 async function getConvexData(chain, poolAddress) {

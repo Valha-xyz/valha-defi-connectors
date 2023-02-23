@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('../../../../../../utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const PoolTokenABI = require('../../abi/PoolToken.json');
-const { erc20Decimals } = require('../../../../../../utils/ERC20Decimals');
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
 async function checkPoolSupply(chain, poolAddress) {
   try {

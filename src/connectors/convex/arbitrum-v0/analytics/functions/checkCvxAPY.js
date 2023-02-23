@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getNodeProvider } = require('../../../../../../utils/getNodeProvider');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice';
 import { StakeABI } from '../abi/Stake';
 import checkPoolSupply from './totalSupply';
-const { erc20Decimals } = require('../../../../../../utils/ERC20Decimals');
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
 const CVX_ADDRESS = '0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b';
 const cliffSize = 100000; // * 1e18; //new cliff every 100,000 tokens
