@@ -3,10 +3,10 @@ const axios = require('axios');
 const pools = require('../../../../curve/v2/pools/pools');
 const _ = require('lodash');
 
-async function getConvexData(chain, poolAddress) {
+async function getConvexData(chain, poolAddress, convexId) {
   try {
     // Get right underlying ID from Curve for the API
-    const id = 'arbitrum-' + poolAddress.toLowerCase();
+    const id = 'arbitrum-' + poolAddress.toLowerCase() + '-' + convexId;
     //Get URL Data
     const URL = 'https://www.convexfinance.com/api/sidechains-apys';
     const { data } = await axios.get(URL);
