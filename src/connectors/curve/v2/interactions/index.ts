@@ -20,7 +20,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
@@ -40,14 +40,14 @@ async function deposit(
     const amountBN = await toBnERC20Decimals(
       amount.amountsDesired[i],
       pool.chain,
-      pool.underlying_tokens[i]
+      pool.underlying_tokens[i],
     );
     amountsBN.push(amountBN);
   }
   const amountMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const args = [amountsBN, amountMinimum];
 
@@ -71,7 +71,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
@@ -88,19 +88,21 @@ async function redeem(
   const position_token = pool.pool_address;
   const amountsBN = [];
   for (const i in pool.underlying_tokens) {
+    pool.underlying_tokens[i];
     const amountBN = await toBnERC20Decimals(
       amount.amountsMinimum[i],
       pool.chain,
-      pool.underlying_tokens[i]
+      pool.underlying_tokens[i],
     );
     amountsBN.push(amountBN);
   }
   const amountDesired = await toBnERC20Decimals(
-    amount.amountsMinimum[0],
+    amount.amountsDesired[0],
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountDesired, amountsBN];
+  console.log(args);
 
   return {
     txInfo: {
@@ -110,9 +112,9 @@ async function redeem(
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
-      position_token: position_token, // token needed to approve
+      position_token: [position_token], // token needed to approve
       position_token_type: 'ERC-20', //token type to approve
-      amount: amountDesired,
+      amount: [amountDesired],
     },
   };
 }
@@ -122,7 +124,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
   const method_name = 'deposit(uint256,address)';
@@ -130,7 +132,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN, addresses.userAddress];
 
@@ -154,7 +156,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
   const method_name = 'withdraw(uint256,bool)';
@@ -162,7 +164,7 @@ async function unstake(
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN, true];
 
@@ -186,7 +188,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
   const method_name = 'claim_rewards(address)';
@@ -206,8 +208,11 @@ async function claimRewards(
 const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
+  deposit_all: null,
   unlock: null,
   redeem: redeem,
+  redeem_all: null,
+  unstake_and_redeem: null,
   stake: stake,
   unstake: unstake,
   boost: null,

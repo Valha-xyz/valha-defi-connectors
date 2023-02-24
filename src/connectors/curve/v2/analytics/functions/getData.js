@@ -3,6 +3,7 @@ const axios = require('axios');
 const _ = require('lodash');
 
 function checkAPIType(id) {
+  console.log(id);
   if (id.includes('factory-crypto')) {
     return 'factory-crypto';
   } else if (id.includes('factory')) {

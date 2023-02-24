@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 const pools = require('../pools/pools');
+const poolsCurve = require('../../../curve/v2/pools/pools');
 const checkCvxAPY = require('./functions/checkCvxAPY');
 const getCurvePoolTVL = require('./functions/getCurvePoolTvl');
 const checkPoolSupply = require('./functions/totalSupply');
@@ -15,6 +16,19 @@ async function analytics(chain, poolAddress) {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });
 
+  // Get right underlying ID from Curve for the API
+  const POOLSCurve = await poolsCurve();
+  const poolInfoCurve = _.find(POOLSCurve, (elem) => {
+    return (
+      elem.chain === 'arbitrum' &&
+      elem.pool_address.toLowerCase() ===
+        poolInfo.underlying_tokens[0].toLowerCase()
+    );
+  });
+  if (!poolInfoCurve)
+    throw new Error(`Data from Convex V0 indexer not ok for ${poolAddress}`);
+  const curveID = poolInfoCurve.metadata.id;
+
   // Find TVL information
   const underlyingLPAddress =
     poolInfo.underlying_tokens.length > 0
@@ -22,7 +36,7 @@ async function analytics(chain, poolAddress) {
       : null;
   if (!underlyingLPAddress) {
     throw new Error(
-      `Error: impossible to find the LP pool on Cvx for ${poolAddress}`
+      `Error: impossible to find the LP pool on Cvx for ${poolAddress}`,
     );
   }
   const supplyCvxInfo = await checkPoolSupply(chain, poolAddress);
@@ -31,7 +45,11 @@ async function analytics(chain, poolAddress) {
   const supplyCrvInfo = await checkPoolSupply(chain, underlyingLPAddress);
   if (supplyCrvInfo.err) throw new Error(supplyCrvInfo.err.message);
   const supplyCrv = supplyCrvInfo.data;
-  const CrvInfo = await getCurvePoolTVL(chain, poolInfo.underlying_tokens[0]);
+  const CrvInfo = await getCurvePoolTVL(
+    chain,
+    poolInfo.underlying_tokens[0],
+    curveID,
+  );
   if (CrvInfo.err) throw new Error(CrvInfo.err.message);
   const tvlUSDCrv = CrvInfo.data;
   const TVL = (supplyCvx / supplyCrv) * tvlUSDCrv;
@@ -42,7 +60,8 @@ async function analytics(chain, poolAddress) {
   // send the id form crv
   const convexAPYInfo = await getConvexData(
     chain,
-    poolInfo.underlying_tokens[0]
+    poolInfo.underlying_tokens[0],
+    poolInfo.metadata.id,
   );
   if (convexAPYInfo.err) throw new Error(info.err.message);
   // Take baseAPY and crvApr from Convex API

@@ -10,7 +10,7 @@ import {
 } from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { toBnERC20Decimals } = require('../../../../../utils/toBNTokenDecimals');
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 const { ROUTERABI } = require('../abi/ROUTER');
 const { STAKERABI } = require('../abi/STAKER');
 const PID = require('./PID');
@@ -19,9 +19,11 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
+  console.log(amount);
+  console.log(pool);
   const tokenA = pool.underlying_tokens[0];
   const tokenB = pool.underlying_tokens[1];
   const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase());
@@ -29,14 +31,14 @@ async function deposit(
   let method_name = '';
   let args = [];
   const amountADesired = await toBnERC20Decimals(
-    amount.amountsDesired[0].humanValue,
+    amount.amountsDesired[0],
     pool.chain,
-    pool.underlying_tokens[0]
+    pool.underlying_tokens[0],
   );
   const amountBDesired = await toBnERC20Decimals(
-    amount.amountsDesired[1].humanValue,
+    amount.amountsDesired[1],
     pool.chain,
-    pool.underlying_tokens[1]
+    pool.underlying_tokens[1],
   );
 
   if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
@@ -55,14 +57,14 @@ async function deposit(
       amountDesired = amountBDesired;
     }
     const amountMin = await toBnERC20Decimals(
-      amount.amountsMinimum[tokenPosition].humanValue,
+      amount.amountsMinimum[tokenPosition],
       pool.chain,
-      pool.underlying_tokens[tokenPosition]
+      pool.underlying_tokens[tokenPosition],
     );
     const amountNativeMin = await toBnERC20Decimals(
-      amount.amountsMinimum[nativePosition].humanValue,
+      amount.amountsMinimum[nativePosition],
       pool.chain,
-      pool.underlying_tokens[nativePosition]
+      pool.underlying_tokens[nativePosition],
     );
     args = [
       pool.underlying_tokens[tokenPosition],
@@ -75,14 +77,14 @@ async function deposit(
   } else {
     method_name = 'addLiquidity';
     const amountAMinimum = await toBnERC20Decimals(
-      amount.amountsMinimum[0].humanValue,
+      amount.amountsMinimum[0],
       pool.chain,
-      pool.underlying_tokens[0]
+      pool.underlying_tokens[0],
     );
     const amountBMinimum = await toBnERC20Decimals(
-      amount.amountsMinimum[1].humanValue,
+      amount.amountsMinimum[1],
       pool.chain,
-      pool.underlying_tokens[1]
+      pool.underlying_tokens[1],
     );
     args = [
       tokenA,
@@ -116,7 +118,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const method_name = 'removeLiquidity';
@@ -124,19 +126,19 @@ async function redeem(
   const tokenB = pool.underlying_tokens[1];
   const interaction_address = pool.investing_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const amountAMinimum = await toBnERC20Decimals(
-    amount.amountsMinimum[0].humanValue,
+    amount.amountsMinimum[0],
     pool.chain,
-    pool.underlying_tokens[0]
+    pool.underlying_tokens[0],
   );
   const amountBMinimum = await toBnERC20Decimals(
-    amount.amountsMinimum[1].humanValue,
+    amount.amountsMinimum[1],
     pool.chain,
-    pool.underlying_tokens[1]
+    pool.underlying_tokens[1],
   );
   const args = [
     tokenA,
@@ -168,14 +170,14 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const pid = PID[pool.pool_address.toLowerCase()];
   const interaction_address = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const abi = STAKERABI;
   const method_name = 'deposit';
@@ -201,14 +203,14 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const pid = PID[pool.pool_address.toLowerCase()];
   const interaction_address = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const abi = STAKERABI;
   const method_name = 'withdraw';
@@ -230,7 +232,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const pid = PID[pool.pool_address.toLowerCase()];
   const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
@@ -259,10 +261,12 @@ const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
+  deposit_all: null,
+  redeem_all: null,
   redeem: redeem,
-  unstake_and_redeem: null,
   stake: stake,
   unstake: unstake,
+  unstake_and_redeem: null,
   boost: null,
   unboost: null,
   claim_rewards: claimRewards,

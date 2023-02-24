@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
-import { getGeckoTokenPrice } from 'src/utils/prices/getGeckoTokenPrice';
-import { StakeABI } from '../abi/Stake';
+import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice';
+import { PoolABI } from '../../abi/Pool';
 import checkPoolSupply from './totalSupply';
 const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
@@ -17,7 +17,7 @@ async function checkCvxAPY(chain, poolAddress) {
     if (!poolAddress) return { data: 0, err: null };
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, StakeABI, provider);
+    const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const rewardRate = await POOL.rewardRate();
     const crvPerUnderlying = rewardRate / 10 ** 18;
     const crvPerYear = crvPerUnderlying * 86400 * 365;
@@ -43,7 +43,7 @@ async function checkCvxAPY(chain, poolAddress) {
       const cvxInfo = await getGeckoTokenPrice(chain, CVX_ADDRESS);
       if (cvxInfo.err) {
         throw new Error(
-          `Data from Curve V2 indexer not ok for CVX token price for ${poolAddress}`
+          `Data from Curve V2 indexer not ok for CVX token price for ${poolAddress}`,
         );
       }
       const cvxPrice = cvxInfo.data;

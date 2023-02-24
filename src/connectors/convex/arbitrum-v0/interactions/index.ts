@@ -10,6 +10,7 @@ import {
 
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
 import { PoolABI } from '../abi/Pool';
+import { InvestABI } from '../abi/Invest';
 import INVEST_PID from './INVESTPID';
 
 /// invest
@@ -17,18 +18,18 @@ async function depositAndStake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const PID = INVEST_PID[pool.chain][pool.pool_address];
-  const method_name = 'deposit(uint256, uint256, bool)';
+  const abi = InvestABI;
+  const PID = INVEST_PID[pool.chain][pool.pool_address.toLowerCase()];
+  const method_name = 'deposit(uint256,uint256)';
   const positionToken = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken
+    positionToken,
   );
-  const args = [PID, amountBN, true];
+  const args = [PID, amountBN];
   const interaction_address = pool.investing_address;
 
   return {
@@ -50,18 +51,18 @@ async function unstakeAndRedeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const PID = INVEST_PID[pool.chain][pool.pool_address];
-  const method_name = 'withdraw(uint256, uint256, bool)';
+  const abi = InvestABI;
+  const PID = INVEST_PID[pool.chain][pool.pool_address.toLowerCase()];
+  const method_name = 'withdrawTo(uint256,uint256,address)';
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken
+    positionToken,
   );
-  const args = [PID, amountBN, true];
+  const args = [PID, amountBN, addresses.userAddress];
   const interaction_address = pool.investing_address;
 
   return {
@@ -83,17 +84,12 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'getReward()';
-  const positionToken = pool.staking_address;
-  const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
-    pool.chain,
-    positionToken
-  );
-  const args = [amountBN, true];
+  const method_name = 'getReward(address)';
+  const args = [addresses.userAddress];
+  console.log(pool);
   const interaction_address = pool.staking_address;
 
   return {
@@ -114,8 +110,10 @@ async function claimRewards(
 const interactions: Interactions = {
   deposit: null,
   deposit_and_stake: depositAndStake,
+  deposit_all: null,
   unlock: null,
   redeem: null,
+  redeem_all: null,
   unstake_and_redeem: unstakeAndRedeem,
   stake: null,
   unstake: null,
