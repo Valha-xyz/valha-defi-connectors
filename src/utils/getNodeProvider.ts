@@ -1,5 +1,5 @@
-import { ethers } from "ethers";
-import { RPC_PROVIDERS } from "./CONST/RPC_PROVIDERS";
+import { ethers } from 'ethers';
+import { RPC_PROVIDERS } from './CONST/RPC_PROVIDERS';
 
 export function getNodeProvider(
   chain: string
