@@ -16,11 +16,11 @@ interface Pool {
   lendingApy: string;
   farmingApy: string;
   poolDelegate: { companyName: string };
-  poolPositions: Array<PoolPositions>;
+  poolPositions: PoolPositions[];
 }
 
 interface Pools {
-  results: { list: Array<Pool> };
+  results: { list: Pool[] };
 }
 
 interface PoolPositions {
@@ -53,7 +53,7 @@ export const apy = async () => {
       apyReward: Number(pool.farmingApy) / 100,
       underlyingTokens: [pool.liquidityAsset.address],
       rewardTokens: [
-        "0x33349b282065b0284d756f0577fb39c158f935e6", //MAPLE
+        "0x33349b282065b0284d756f0577fb39c158f935e6", // MAPLE
       ],
       // borrow fields
       ltv: 0, // permissioned

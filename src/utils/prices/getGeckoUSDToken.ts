@@ -1,6 +1,6 @@
 import { config } from "dotenv";
-config();
 import axios from "axios";
+config();
 
 export async function getUSDToken(
   id: string
@@ -14,6 +14,6 @@ export async function getUSDToken(
     return { data: usdPrice, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

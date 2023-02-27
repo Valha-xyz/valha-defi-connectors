@@ -9,7 +9,7 @@ export async function checkMapleV3Window(
   userAddress: string
 ): Promise<any> {
   try {
-    //Pool.withdrawCooldown(userRelayerAddress) + lpCooldownPeriod
+    // Pool.withdrawCooldown(userRelayerAddress) + lpCooldownPeriod
     const provider = await getNodeProvider("ethereum");
     if (!provider) throw new Error("No provider was found.");
     const GLOBALS = new ethers.Contract(globalAddress, GlobalABI, provider);
@@ -18,6 +18,6 @@ export async function checkMapleV3Window(
     return { data: lpWithdrawWindow, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

@@ -1,7 +1,7 @@
 import { config } from "dotenv";
-config();
 import axios from "axios";
 import { GECKO_PLATFORMS } from "./GeckoPlatform";
+config();
 
 export async function getGeckoTokenPrice(
   chain: string,
@@ -19,6 +19,6 @@ export async function getGeckoTokenPrice(
     return { data: usdPrice, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

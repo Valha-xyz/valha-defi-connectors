@@ -1,4 +1,4 @@
-import { fetchAPY } from '../external/beefy.api';
+import { fetchAPY } from "../external/beefy.api";
 
 export async function checkBeefyAPY(chain, poolId) {
   try {
@@ -8,6 +8,6 @@ export async function checkBeefyAPY(chain, poolId) {
     return { data: apysBase100, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

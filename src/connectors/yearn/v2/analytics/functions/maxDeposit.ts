@@ -1,16 +1,16 @@
-import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
-import { VaultABI } from '../../abi/vault';
-import { ethers } from 'ethers';
-import { getNodeProvider } from '../../../../../utils/getNodeProvider';
+import { erc20Decimals } from "../../../../../utils/ERC20Decimals";
+import { VaultABI } from "../../abi/vault";
+import { ethers } from "ethers";
+import { getNodeProvider } from "../../../../../utils/getNodeProvider";
 
 export async function checkYearnMaxDeposit(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
-    if (!provider) throw new Error('No provider was found.');
+    if (!provider) throw new Error("No provider was found.");
     const POOL = new ethers.Contract(
       poolAddress,
       JSON.stringify(VaultABI),
-      provider,
+      provider
     );
 
     /// TVL function ///
@@ -21,6 +21,6 @@ export async function checkYearnMaxDeposit(chain, poolAddress) {
     return { data: formattedMaxDeposit, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

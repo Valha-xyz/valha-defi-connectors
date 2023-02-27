@@ -1,4 +1,3 @@
-import { BigNumber } from 'ethers';
 import { Chain } from './networks';
 import { Amount, AssetInfo, TxInfo } from './utils';
 
@@ -63,7 +62,6 @@ export interface InteractionsReturnObject {
 export enum InteractionFunctionNames {
   deposit = 'deposit',
   deposit_and_stake = 'deposit_and_stake',
-  deposit_all = 'deposit_all',
   unlock = 'unlock',
   redeem = 'redeem',
   unstake_and_redeem = 'unstake_and_redeem',

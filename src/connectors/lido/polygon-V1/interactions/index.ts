@@ -7,9 +7,9 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-const { STABI } = require('../abi/STMATIC');
+} from "../../../../utils/types/connector-types";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const { STABI } = require("../abi/STMATIC");
 
 /// invest
 async function deposit(
@@ -19,7 +19,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
-  const method_name = 'submit';
+  const method_name = "submit";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -37,7 +37,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -51,7 +51,7 @@ async function unlock(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = STABI;
-  const method_name = 'requestWithdraw';
+  const method_name = "requestWithdraw";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -69,7 +69,7 @@ async function unlock(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };

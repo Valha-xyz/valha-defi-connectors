@@ -1,15 +1,15 @@
-import { erc20Decimals } from '../../../../utils/ERC20Decimals';
-import { getNodeProvider } from '../../../../utils/getNodeProvider';
-import { BigNumber } from 'ethers';
-import { Chain } from '../../../../utils/types/networks';
-import { queryEulerGraphData, SUBGRAPH_URL } from './external/graph-query';
+import { erc20Decimals } from "../../../../utils/ERC20Decimals";
+import { getNodeProvider } from "../../../../utils/getNodeProvider";
+import { BigNumber } from "ethers";
+import { Chain } from "../../../../utils/types/networks";
+import { queryEulerGraphData, SUBGRAPH_URL } from "./external/graph-query";
 
 async function analytics(chain: Chain, poolAddress: string) {
   const allPoolInfo = await queryEulerGraphData();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) => pool.eTokenAddress.toLowerCase() == poolAddress.toLowerCase(),
+    (pool) => pool.eTokenAddress.toLowerCase() == poolAddress.toLowerCase()
   );
 
   const provider = await getNodeProvider(chain);

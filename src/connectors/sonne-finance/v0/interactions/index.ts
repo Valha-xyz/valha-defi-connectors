@@ -6,10 +6,10 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
+} from "../../../../utils/types/connector-types";
 
-import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
-import { PoolABI } from '../abi/Pool';
+import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
+import { PoolABI } from "../abi/Pool";
 
 /// invest
 async function deposit(
@@ -19,13 +19,13 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'mint(uint256)';
+  const method_name = "mint(uint256)";
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     pool.underlying_tokens[0]
   );
-  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
+  if (!amountBN) throw new Error("Error: wrong big number amount conversion.");
   const args = [amountBN];
   const interaction_address = pool.investing_address;
 
@@ -38,7 +38,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -52,13 +52,13 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'redeem(uint256)';
+  const method_name = "redeem(uint256)";
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     pool.pool_address
   );
-  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
+  if (!amountBN) throw new Error("Error: wrong big number amount conversion.");
   const args = [amountBN];
   const interaction_address = pool.investing_address;
 
@@ -71,7 +71,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -85,11 +85,11 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'claimComp(address)';
+  const method_name = "claimComp(address)";
   const args = [addresses.userAddress];
   const interaction_address = pool.distributor_address
     ? pool.distributor_address
-    : '';
+    : "";
 
   return {
     txInfo: {
@@ -100,8 +100,8 @@ async function claimRewards(
     },
     assetInfo: {
       position_token: null, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
-      amount: '0',
+      position_token_type: "ERC-20", //token type to approve
+      amount: "0",
     },
   };
 }

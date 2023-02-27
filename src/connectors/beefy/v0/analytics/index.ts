@@ -1,17 +1,16 @@
-import { Chain } from '../../../../utils/types/networks';
-import { BEEFY_API, fetchVaults } from './external/beefy.api';
-import { checkBeefyAPY } from './functions/apy';
-import { checkBeefySharePrice } from './functions/sharePrice';
-import { checkBeefyVaultPrice } from './functions/sharePriceInUSD';
-import { checkBeefyTVL } from './functions/tvl';
+import { Chain } from "../../../../utils/types/networks";
+import { BEEFY_API, fetchVaults } from "./external/beefy.api";
+import { checkBeefyAPY } from "./functions/apy";
+import { checkBeefySharePrice } from "./functions/sharePrice";
+import { checkBeefyVaultPrice } from "./functions/sharePriceInUSD";
+import { checkBeefyTVL } from "./functions/tvl";
 
 async function analytics(chain: Chain, poolAddress: string) {
   const allPoolInfo = await fetchVaults();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) =>
-      pool.earnedTokenAddress.toLowerCase() == poolAddress.toLowerCase(),
+    (pool) => pool.earnedTokenAddress.toLowerCase() == poolAddress.toLowerCase()
   );
   const vaultPrice = await checkBeefyVaultPrice(chain, currentPoolInfo);
   const tvl = await checkBeefyTVL(chain, poolAddress);
@@ -38,7 +37,7 @@ async function analytics(chain: Chain, poolAddress: string) {
   return result;
 }
 
-//analytics(Chain.celo, "0xf68C61E3c2f9C48E53391E1FCd2db1f19998151b")
+// analytics(Chain.celo, "0xf68C61E3c2f9C48E53391E1FCd2db1f19998151b")
 module.exports = {
   main: analytics,
   url: BEEFY_API,

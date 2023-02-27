@@ -7,12 +7,12 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
-const { ROUTERABI } = require('../abi/Router');
-const { LPSTAKING } = require('../abi/LPStaking');
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-const INVEST_PID = require('./INVESTPID');
-const STAKING_PID = require('./STAKINGPID');
+} from "../../../../utils/types/connector-types";
+const { ROUTERABI } = require("../abi/Router");
+const { LPSTAKING } = require("../abi/LPStaking");
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+const INVEST_PID = require("./INVESTPID");
+const STAKING_PID = require("./STAKINGPID");
 
 /// invest
 async function deposit(
@@ -22,7 +22,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
-  const method_name = 'addLiquidity';
+  const method_name = "addLiquidity";
   const poolId = INVEST_PID[pool.chain][pool.pool_address.toLowerCase()];
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
@@ -41,7 +41,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -60,7 +60,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
-  const method_name = 'instantRedeemLocal';
+  const method_name = "instantRedeemLocal";
   const poolId = INVEST_PID[pool.chain][pool.pool_address.toLowerCase()];
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
@@ -79,7 +79,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -94,7 +94,7 @@ async function stake(
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
-  const method_name = 'deposit';
+  const method_name = "deposit";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -112,7 +112,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -127,7 +127,7 @@ async function unstake(
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
-  const method_name = 'withdraw';
+  const method_name = "withdraw";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -176,8 +176,8 @@ async function claimRewards(
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
-  const method_name = 'deposit';
-  const args = [poolId, '0'];
+  const method_name = "deposit";
+  const args = [poolId, "0"];
 
   return {
     txInfo: {

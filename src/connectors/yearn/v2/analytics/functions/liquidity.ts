@@ -1,12 +1,12 @@
-import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
-import { VaultABI } from '../../abi/vault';
-import { ethers } from 'ethers';
-import { getNodeProvider } from '../../../../../utils/getNodeProvider';
+import { erc20Decimals } from "../../../../../utils/ERC20Decimals";
+import { VaultABI } from "../../abi/vault";
+import { ethers } from "ethers";
+import { getNodeProvider } from "../../../../../utils/getNodeProvider";
 
 export async function checkYearnLiquidity(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
-    if (!provider) throw new Error('No provider was found.');
+    if (!provider) throw new Error("No provider was found.");
     const POOL = new ethers.Contract(
       poolAddress,
       JSON.stringify(VaultABI),
@@ -22,6 +22,6 @@ export async function checkYearnLiquidity(chain, poolAddress) {
     const formattedLiquidity = liquidity / 10 ** (2 * decimals);
     return { data: formattedLiquidity, err: null };
   } catch (err) {
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

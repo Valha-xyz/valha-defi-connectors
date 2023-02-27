@@ -11,7 +11,7 @@ export async function checkMapleV3Cooldown(
   userAddress: string
 ): Promise<any> {
   try {
-    //Pool.withdrawCooldown(userRelayerAddress) + lpCooldownPeriod
+    // Pool.withdrawCooldown(userRelayerAddress) + lpCooldownPeriod
     const provider = await getNodeProvider("ethereum");
     if (!provider) throw new Error("No provider was found.");
     const POOL = new ethers.Contract(poolAddress, PoolTokenABI, provider);
@@ -30,6 +30,6 @@ export async function checkMapleV3Cooldown(
     return { data: remainingCooldown, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

@@ -17,6 +17,6 @@ export async function checkMapleV3Status(
     return { data: !Status, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }
