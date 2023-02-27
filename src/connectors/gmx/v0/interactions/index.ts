@@ -7,12 +7,7 @@ import {
   InteractionsReturnObject,
   Pool,
 } from '../../../../utils/types/connector-types';
-
-const { SanPoolABI } = require('../abi/SanToken');
-const { StakingABI } = require('../abi/StakingPool');
-const { StableABI } = require('../abi/StableMaster');
 const ethers = require('ethers');
-const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
 /// invest
@@ -26,11 +21,11 @@ async function deposit(
   const method_name = 'mintAndStakeGlp';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   );
-  const args = [position_token, amountBN, addresses.userAddress];
+  const args = [position_token, amountBN, '0'];
 
   return {
     txInfo: {
@@ -59,7 +54,7 @@ async function redeem(
   const position_token = pool.pool_address;
   const underlying = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   );
@@ -111,7 +106,6 @@ async function claimRewards(
 const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
-  deposit_all: null,
   unlock: null,
   redeem: redeem,
   unstake_and_redeem: null,

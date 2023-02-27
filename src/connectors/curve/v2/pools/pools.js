@@ -6,8 +6,4 @@ async function pools() {
   return POOLS;
 }
 
-<<<<<<< HEAD
 module.exports = pools;
-=======
-module.exports = pools;
->>>>>>> staging
