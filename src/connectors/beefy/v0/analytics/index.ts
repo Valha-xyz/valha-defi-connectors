@@ -1,26 +1,16 @@
-<<<<<<< HEAD
-import { type Chain } from "../../../../utils/types/networks";
+import { Chain } from "../../../../utils/types/networks";
 import { BEEFY_API, fetchVaults } from "./external/beefy.api";
 import { checkBeefyAPY } from "./functions/apy";
 import { checkBeefySharePrice } from "./functions/sharePrice";
 import { checkBeefyVaultPrice } from "./functions/sharePriceInUSD";
 import { checkBeefyTVL } from "./functions/tvl";
-=======
-import { Chain } from '../../../../utils/types/networks';
-import { BEEFY_API, fetchVaults } from './external/beefy.api';
-import { checkBeefyAPY } from './functions/apy';
-import { checkBeefySharePrice } from './functions/sharePrice';
-import { checkBeefyVaultPrice } from './functions/sharePriceInUSD';
-import { checkBeefyTVL } from './functions/tvl';
->>>>>>> e5e6648550ba793bfe713047cd4725386e5eb8af
 
 async function analytics(chain: Chain, poolAddress: string) {
   const allPoolInfo = await fetchVaults();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) =>
-      pool.earnedTokenAddress.toLowerCase() == poolAddress.toLowerCase(),
+    (pool) => pool.earnedTokenAddress.toLowerCase() == poolAddress.toLowerCase()
   );
   const vaultPrice = await checkBeefyVaultPrice(chain, currentPoolInfo);
   const tvl = await checkBeefyTVL(chain, poolAddress);

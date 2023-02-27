@@ -1,14 +1,14 @@
-import { gql, request } from 'graphql-request';
-import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice';
+import { gql, request } from "graphql-request";
+import { getGeckoTokenPrice } from "../../../../../utils/prices/getGeckoTokenPrice";
 
 const SECONDS_PER_YEAR = 31536000;
 const SUBGRAPH_URLS = {
-  optimism: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v3-optimism',
+  optimism: "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-optimism",
   avalanche:
-    'https://api.thegraph.com/subgraphs/name/aave/protocol-v3-avalanche',
-  arbitrum: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v3-arbitrum',
-  polygon: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v3-polygon',
-  fantom: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v3-fantom',
+    "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-avalanche",
+  arbitrum: "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-arbitrum",
+  polygon: "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-polygon",
+  fantom: "https://api.thegraph.com/subgraphs/name/aave/protocol-v3-fantom",
 };
 const reserveQuery = gql`
   query ReservesQuery {
@@ -71,11 +71,11 @@ async function checkAaveV3APYs(chain, poolAddress, totalSupplyUSD) {
     const SUBGRAPH_URL = SUBGRAPH_URLS[chain];
     const { reserves } = await request(SUBGRAPH_URL, reserveQuery);
     const data = await reserves.filter(
-      (elem) => poolAddress.toLowerCase() === elem.aToken.id.toLowerCase(),
+      (elem) => poolAddress.toLowerCase() === elem.aToken.id.toLowerCase()
     );
     if (data.length !== 1) {
       throw new Error(
-        `AAVE V3: there was an issue while checking APY for ${poolAddress}`,
+        `AAVE V3: there was an issue while checking APY for ${poolAddress}`
       );
     }
     const poolInfo = data[0];

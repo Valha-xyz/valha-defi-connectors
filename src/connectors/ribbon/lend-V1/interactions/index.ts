@@ -8,12 +8,12 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
+} from "../../../../utils/types/connector-types";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-import { FACTORYABI } from '../abi/Factory';
-import { PoolTokenABI } from '../abi/Pool';
-import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
+import { FACTORYABI } from "../abi/Factory";
+import { PoolTokenABI } from "../abi/Pool";
+import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
 
 /// invest
 async function deposit(
@@ -23,14 +23,14 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolTokenABI;
-  const method_name = 'provide';
+  const method_name = "provide";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     position_token
   );
-  const args = [amountBN, '0x0000000000000000000000000000000000000000'];
+  const args = [amountBN, "0x0000000000000000000000000000000000000000"];
 
   return {
     txInfo: {
@@ -41,7 +41,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -60,7 +60,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolTokenABI;
-  const method_name = 'redeem';
+  const method_name = "redeem";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -78,7 +78,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -112,7 +112,7 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = FACTORYABI;
-  const method_name = 'withdrawReward';
+  const method_name = "withdrawReward";
   const args = [[pool.pool_address]];
 
   return {

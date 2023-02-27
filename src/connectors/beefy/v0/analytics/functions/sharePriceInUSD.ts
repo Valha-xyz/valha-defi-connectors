@@ -1,15 +1,15 @@
-import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
-import { VaultABI } from '../../abi/beefy_vault';
-import { ethers } from 'ethers';
-import { getNodeProvider } from '../../../../../utils/getNodeProvider';
-import { fetchLps, fetchTokenPrices } from '../external/beefy.api';
+import { erc20Decimals } from "../../../../../utils/ERC20Decimals";
+import { VaultABI } from "../../abi/beefy_vault";
+import { ethers } from "ethers";
+import { getNodeProvider } from "../../../../../utils/getNodeProvider";
+import { fetchLps, fetchTokenPrices } from "../external/beefy.api";
 
 export async function checkBeefyVaultPrice(chain, poolInfo) {
   try {
     let allPrices;
-    if (poolInfo.oracle == 'lps') {
+    if (poolInfo.oracle == "lps") {
       allPrices = await fetchLps();
-    } else if (poolInfo.oracle == 'tokens') {
+    } else if (poolInfo.oracle == "tokens") {
       allPrices = await fetchTokenPrices();
     } else {
       allPrices = [];

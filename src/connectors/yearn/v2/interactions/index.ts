@@ -11,7 +11,7 @@ import {
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { VaultABI } from '../abi/vault';
+import { VaultABI } from "../abi/vault";
 
 /// invest
 async function deposit(
@@ -20,8 +20,8 @@ async function deposit(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-    const abi = VaultABI;
-  const method_name = 'deposit(uint256)';
+  const abi = VaultABI;
+  const method_name = "deposit(uint256)";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -53,7 +53,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
-  const method_name = 'withdraw(uint256)';
+  const method_name = "withdraw(uint256)";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
