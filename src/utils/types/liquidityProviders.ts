@@ -1,21 +1,21 @@
-import { BigNumberish, type BigNumber, type FixedNumber } from "ethers";
-import { Pool } from "./connector-types";
+import { type BigNumberish, type BigNumber, type FixedNumber } from 'ethers'
+import { type Pool } from './connector-types'
 
-export type InputAmounts = BigNumber[];
+export type InputAmounts = BigNumber[]
 
 export interface TokenPrice {
-  tokenIn: string;
-  tokenOut: string;
-  amountIn: BigNumber;
-  amountOut: BigNumber;
-  price: FixedNumber;
+  tokenIn: string
+  tokenOut: string
+  amountIn: BigNumber
+  amountOut: BigNumber
+  price: FixedNumber
 }
 
 export interface ExchangeRate {
-  price: FixedNumber;
-  exchangeRate: FixedNumber;
-  referenceToken: string;
-  tokenOut: string;
+  price: FixedNumber
+  exchangeRate: FixedNumber
+  referenceToken: string
+  tokenOut: string
 }
 
 export type GetExchangeRateFunction = (
@@ -23,19 +23,19 @@ export type GetExchangeRateFunction = (
   token1: string,
   token2: string,
   pool: Pool
-) => Promise<BigNumber>;
+) => Promise<BigNumber>
 
 export interface GetExchangeRateExport {
-  getExchangeRate: GetExchangeRateFunction;
+  getExchangeRate: GetExchangeRateFunction
 }
 
 export type GetMinimumRedeemFunction = (
   amount: BigNumberish,
   pool: Pool
-) => Promise<BigNumber[]>;
+) => Promise<BigNumber[]>
 
 export interface GetMinimumRedeemExport {
-  getMinimumRedeem: GetMinimumRedeemFunction;
+  getMinimumRedeem: GetMinimumRedeemFunction
 }
 
 export type GetSwapCalldataFunction = (
@@ -45,9 +45,9 @@ export type GetSwapCalldataFunction = (
   tokenOut: string,
   swapperAddress: string
 ) => Promise<{
-  calldata: string;
-}>;
+  calldata: string
+}>
 
 export interface GetSwapCalldataExport {
-  getSwapCalldata: GetSwapCalldataFunction;
+  getSwapCalldata: GetSwapCalldataFunction
 }

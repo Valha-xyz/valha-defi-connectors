@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { fetchVaults } from "../analytics/external/yearn.api";
-import fs from "fs";
-import { Pool } from "../../../../utils/types/connector-types";
-import { Chain } from "../../../../utils/types/networks";
-const path = require("path");
+import { fetchVaults } from '../analytics/external/yearn.api'
+import fs from 'fs'
+import { type Pool } from '../../../../utils/types/connector-types'
+import { Chain } from '../../../../utils/types/networks'
+const path = require('path')
 
-async function generatePools(): Promise<Pool | Record<never, never>> {
-  const pools = await fetchVaults();
+async function generatePools (): Promise<Pool | Record<never, never>> {
+  const pools = await fetchVaults()
 
   if (!pools || pools.length === 0) {
-    return {};
+    return {}
   }
   const modifiedPools: Pool[] = pools
     .filter(
@@ -30,17 +30,17 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
         boosting_address: null,
         distributor_address: null,
         rewards_tokens: [elem.details.rewards],
-        metadata: {},
-      };
-    });
-  return modifiedPools;
+        metadata: {}
+      }
+    })
+  return modifiedPools
 }
 
-async function updatePools() {
-  const pools = await generatePools();
-  const strPools = JSON.stringify(pools, null, 4);
-  const relativePath = path.join(__dirname, "/generatedPools.json");
-  fs.writeFileSync(relativePath, strPools);
+async function updatePools () {
+  const pools = await generatePools()
+  const strPools = JSON.stringify(pools, null, 4)
+  const relativePath = path.join(__dirname, '/generatedPools.json')
+  fs.writeFileSync(relativePath, strPools)
 }
 
-updatePools();
+updatePools()

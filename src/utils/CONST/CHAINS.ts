@@ -1,1 +1,1 @@
-export const CHAINS = ["ethereum", "polygon", "bsc"];
+export const CHAINS = ['ethereum', 'polygon', 'bsc']
