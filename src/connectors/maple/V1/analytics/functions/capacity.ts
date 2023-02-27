@@ -17,6 +17,6 @@ export async function checkMapleV3Capacity(
     return { data: capacity, err: null };
   } catch (err) {
     console.log(err.message);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

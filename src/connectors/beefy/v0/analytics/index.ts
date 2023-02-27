@@ -1,9 +1,18 @@
+<<<<<<< HEAD
+import { type Chain } from "../../../../utils/types/networks";
+import { BEEFY_API, fetchVaults } from "./external/beefy.api";
+import { checkBeefyAPY } from "./functions/apy";
+import { checkBeefySharePrice } from "./functions/sharePrice";
+import { checkBeefyVaultPrice } from "./functions/sharePriceInUSD";
+import { checkBeefyTVL } from "./functions/tvl";
+=======
 import { Chain } from '../../../../utils/types/networks';
 import { BEEFY_API, fetchVaults } from './external/beefy.api';
 import { checkBeefyAPY } from './functions/apy';
 import { checkBeefySharePrice } from './functions/sharePrice';
 import { checkBeefyVaultPrice } from './functions/sharePriceInUSD';
 import { checkBeefyTVL } from './functions/tvl';
+>>>>>>> e5e6648550ba793bfe713047cd4725386e5eb8af
 
 async function analytics(chain: Chain, poolAddress: string) {
   const allPoolInfo = await fetchVaults();
@@ -38,7 +47,7 @@ async function analytics(chain: Chain, poolAddress: string) {
   return result;
 }
 
-//analytics(Chain.celo, "0xf68C61E3c2f9C48E53391E1FCd2db1f19998151b")
+// analytics(Chain.celo, "0xf68C61E3c2f9C48E53391E1FCd2db1f19998151b")
 module.exports = {
   main: analytics,
   url: BEEFY_API,

@@ -24,6 +24,6 @@ export async function checkMapleV3Liquidity(
     return { data: liquidity, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

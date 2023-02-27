@@ -3,7 +3,7 @@ import superagent from "superagent";
 import { web3 } from "./connection";
 import { getPoolValues } from "./getPoolValues";
 import { getActiveLoans } from "./getActiveLoans";
-import { getPoolApyBase, Loan } from "./getPoolApyBase";
+import { getPoolApyBase, type Loan } from "./getPoolApyBase";
 import { getPoolApyRewards } from "./getPoolApyRewards";
 import multifarmAbi from "./abis/multifarm.json";
 import distributorAbi from "./abis/distributor.json";
@@ -59,8 +59,8 @@ interface PoolAdapter {
   tvlUsd: number;
   apyBase?: number;
   apyReward?: number;
-  rewardTokens?: Array<string>;
-  underlyingTokens?: Array<string>;
+  rewardTokens?: string[];
+  underlyingTokens?: string[];
   ltv: number;
 }
 

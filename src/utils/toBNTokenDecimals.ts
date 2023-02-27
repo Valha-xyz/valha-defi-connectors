@@ -9,8 +9,9 @@ export async function toBnERC20Decimals(
 ): Promise<string | null> {
   try {
     const parsedAmount = parseFloat(amount);
-    if (parsedAmount < 0 || isNaN(parsedAmount))
+    if (parsedAmount < 0 || isNaN(parsedAmount)) {
       throw new Error(`Error while parsing ${amount}`);
+    }
     const decimal_precision = 5;
     let decimals = 18;
     if (

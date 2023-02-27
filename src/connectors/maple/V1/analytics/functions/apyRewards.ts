@@ -27,16 +27,17 @@ export async function checkMapleV3RewardsAPY(
     };
 
     const { data } = await axios.post("https://api.maple.finance/v1/graphql", {
-      query: query,
-      variables: variables,
+      query,
+      variables,
     });
     const result = data.data.results;
-    if (!result)
+    if (!result) {
       throw new Error(`Data from Maple indexer not ok for ${poolAddress}`);
+    }
     LM = result.farmingApy / 100;
     return { data: LM, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

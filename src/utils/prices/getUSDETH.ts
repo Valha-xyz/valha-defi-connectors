@@ -1,6 +1,6 @@
 import { config } from "dotenv";
-config();
 import axios from "axios";
+config();
 
 export async function getUSDETH(): Promise<{ data: number; err: Error }> {
   try {
@@ -13,6 +13,6 @@ export async function getUSDETH(): Promise<{ data: number; err: Error }> {
     return { data: exchangePrice, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 import { getNodeProvider } from "src/helpers/provider/getNodeProvider";
+import { type DataNumberResponse } from "src/interfaces/response/Internal/DataNumberInterface";
 config();
-import { DataNumberResponse } from "src/interfaces/response/Internal/DataNumberInterface";
 
 export async function getBlockTimestamp(
   blockNumber: string
@@ -17,6 +17,6 @@ export async function getBlockTimestamp(
   } catch (err) {
     console.log("ERROR -------------------------");
     console.log(err.response.data);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

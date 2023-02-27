@@ -22,6 +22,6 @@ export async function checkYearnLiquidity(chain, poolAddress) {
     const formattedLiquidity = liquidity / 10 ** (2 * decimals);
     return { data: formattedLiquidity, err: null };
   } catch (err) {
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

@@ -21,6 +21,6 @@ export async function checkYearnMaxDeposit(chain, poolAddress) {
     return { data: formattedMaxDeposit, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

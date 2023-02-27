@@ -32,10 +32,10 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
   });
   if (!poolInfo) return;
-  const tokenAddress = poolInfo["underlying_tokens"][0];
+  const tokenAddress = poolInfo.underlying_tokens[0];
 
-  const activity_apy = externalInfo["apyBase"];
-  const rewards_apy = externalInfo["apyReward"];
+  const activity_apy = externalInfo.apyBase;
+  const rewards_apy = externalInfo.apyReward;
   const liquidity = await checkMapleV3Liquidity(
     chain,
     poolAddress,
@@ -66,5 +66,5 @@ async function analytics(chain: string, poolAddress: string): Promise<any> {
 
 export default {
   main: analytics,
-  url: url,
+  url,
 };

@@ -23,6 +23,6 @@ export async function checkBeefyTVL(chain, poolAddress) {
     return { data: formattedTVL, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

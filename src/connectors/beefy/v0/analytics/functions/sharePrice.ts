@@ -20,6 +20,6 @@ export async function checkBeefySharePrice(chain, poolAddress) {
     const finalPricePerShare = pricePerShare / 10 ** decimals;
     return { data: finalPricePerShare, err: null };
   } catch (err) {
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

@@ -1,4 +1,3 @@
-import { BigNumber } from 'ethers';
 import { Chain } from './networks';
 import { Amount, AssetInfo, TxInfo } from './utils';
 

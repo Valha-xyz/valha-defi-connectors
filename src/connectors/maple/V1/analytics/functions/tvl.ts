@@ -25,6 +25,6 @@ export async function checkMapleV3TVL(
     return { data: TVL, err: null };
   } catch (err) {
     console.log(err);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

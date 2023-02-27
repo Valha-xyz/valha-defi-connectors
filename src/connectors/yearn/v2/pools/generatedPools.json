@@ -1,0 +1,1506 @@
+[
+    {
+        "name": "Curve CLEV-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6c280db098db673d30d5b34ec04b6387185d3620"
+        ],
+        "pool_address": "0x3a51269E0707A3416044bad5066858A12198fCf5",
+        "investing_address": "0x3a51269E0707A3416044bad5066858A12198fCf5",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sdFXS Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8c524635d52bd7b1bd55e062303177a7d916c046"
+        ],
+        "pool_address": "0x7e113c504263354ba99290dadAd00D1e1F2b6476",
+        "investing_address": "0x7e113c504263354ba99290dadAd00D1e1F2b6476",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibGBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xd6ac1cb9019137a896343da59dde6d097f710538"
+        ],
+        "pool_address": "0xbE4afE6737CCf34cA21cdeF461E5C7547Adc8C77",
+        "investing_address": "0xbE4afE6737CCf34cA21cdeF461E5C7547Adc8C77",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve GEAR-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5be6c45e2d074faa20700c49ada3e88a1cc0025d"
+        ],
+        "pool_address": "0x04c8bfe2eb09a1e2e9fA97A2fd970E06d87B43de",
+        "investing_address": "0x04c8bfe2eb09a1e2e9fA97A2fd970E06d87B43de",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibCHF Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9c2c8910f113181783c249d8f6aa41b51cde0f0c"
+        ],
+        "pool_address": "0x72FaEA467BD88db6720A861e56A3a72B4Aa579DF",
+        "investing_address": "0x72FaEA467BD88db6720A861e56A3a72B4Aa579DF",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve MATIC-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xd8eb58d76af99547333cfeeb6a0f9bd1a63b6492"
+        ],
+        "pool_address": "0x63c5c0604Ec410130C69C958aCab81794f7a622F",
+        "investing_address": "0x63c5c0604Ec410130C69C958aCab81794f7a622F",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibGBP Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xd6ac1cb9019137a896343da59dde6d097f710538"
+        ],
+        "pool_address": "0x595a68a8c9D5C230001848B69b1947ee2A607164",
+        "investing_address": "0x595a68a8c9D5C230001848B69b1947ee2A607164",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve pETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9848482da3ee3076165ce6497eda906e66bb85c5"
+        ],
+        "pool_address": "0x5CBF567cb0C3D319A052C91eFB3B3318899338DF",
+        "investing_address": "0x5CBF567cb0C3D319A052C91eFB3B3318899338DF",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve STG-USDC Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xdf55670e27be5cde7228dd0a6849181891c9eba1"
+        ],
+        "pool_address": "0x341bb10D8f5947f3066502DC8125d9b8949FD3D6",
+        "investing_address": "0x341bb10D8f5947f3066502DC8125d9b8949FD3D6",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibCHF Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9c2c8910f113181783c249d8f6aa41b51cde0f0c"
+        ],
+        "pool_address": "0x490bD0886F221A5F79713D3E84404355A9293C50",
+        "investing_address": "0x490bD0886F221A5F79713D3E84404355A9293C50",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibKRW Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8461a004b50d321cb22b7d034969ce6803911899"
+        ],
+        "pool_address": "0x5359680A80c1FB2175cD33efF32f762e43cD8C41",
+        "investing_address": "0x5359680A80c1FB2175cD33efF32f762e43cD8C41",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve DYDX-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4acc1bf7d6a591016641325aa6664a1cd178f002"
+        ],
+        "pool_address": "0xca46d6e44499AfbD8795f8F86910F068a6bF1a7c",
+        "investing_address": "0xca46d6e44499AfbD8795f8F86910F068a6bF1a7c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Staked Yearn CRV Vault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xfcc5c47be19d06bf83eb04298b026f81069ff65b"
+        ],
+        "pool_address": "0x27B5739e22ad9033bcBf192059122d163b60349D",
+        "investing_address": "0x27B5739e22ad9033bcBf192059122d163b60349D",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "LP Yearn CRV Vault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x453d92c7d4263201c69aacfaf589ed14202d83a4"
+        ],
+        "pool_address": "0xc97232527B62eFb0D8ed38CF3EA103A6CcA4037e",
+        "investing_address": "0xc97232527B62eFb0D8ed38CF3EA103A6CcA4037e",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve FXSETH-f Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x90244f43d548a4f8dfecfad91a193465b1fad6f7"
+        ],
+        "pool_address": "0xE6570a24Ce63dD588195B98aAD9F91B121d5F3D7",
+        "investing_address": "0xE6570a24Ce63dD588195B98aAD9F91B121d5F3D7",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibEUR-USDC Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8682fbf0cbf312c891532ba9f1a91e44f81ad7df"
+        ],
+        "pool_address": "0x9F8B5c0fc18B79DdFc05b21c43da7E324Cf3B8Eb",
+        "investing_address": "0x9F8B5c0fc18B79DdFc05b21c43da7E324Cf3B8Eb",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve CRV-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xed4064f376cb8d68f770fb1ff088a3d0f3ff5c4d"
+        ],
+        "pool_address": "0x6f0Ace0F94f4B9890Dfa99A4175B3Ef0288C16B3",
+        "investing_address": "0x6f0Ace0F94f4B9890Dfa99A4175B3Ef0288C16B3",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve OHM-FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5271045f7b73c17825a7a7aee6917ee46b0b7520"
+        ],
+        "pool_address": "0x7788A5492bc948e1d8c2caa53b2e0a60ed5403b0",
+        "investing_address": "0x7788A5492bc948e1d8c2caa53b2e0a60ed5403b0",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sdCRV Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xf7b55c3732ad8b2c2da7c24f30a69f55c54fb717"
+        ],
+        "pool_address": "0x429EA2d8d5B06CA40dD986FaC0734BA0E0CaC022",
+        "investing_address": "0x429EA2d8d5B06CA40dD986FaC0734BA0E0CaC022",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve msUSD-FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc3b19502f8c02be75f3f77fd673503520deb51dd"
+        ],
+        "pool_address": "0xDb26d8815EdA864Dfa43306766f2F8CA50C03F9E",
+        "investing_address": "0xDb26d8815EdA864Dfa43306766f2F8CA50C03F9E",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibKRW Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8461a004b50d321cb22b7d034969ce6803911899"
+        ],
+        "pool_address": "0x528D50dC9a333f01544177a924893FA1F5b9F748",
+        "investing_address": "0x528D50dC9a333f01544177a924893FA1F5b9F748",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve BUSD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4807862aa8b2bf68830e4c8dc86d0e9a998e085a"
+        ],
+        "pool_address": "0x6Ede7F19df5df6EF23bD5B9CeDb651580Bdf56Ca",
+        "investing_address": "0x6Ede7F19df5df6EF23bD5B9CeDb651580Bdf56Ca",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve CVX-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3a283d9c08e8b55966afb64c515f5143cf907611"
+        ],
+        "pool_address": "0x75A291F0232ADD37d72Dd1Dcff55B715755ECDEe",
+        "investing_address": "0x75A291F0232ADD37d72Dd1Dcff55B715755ECDEe",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve 3Crypto Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc4ad29ba4b3c580e6d59105fff484999997675ff"
+        ],
+        "pool_address": "0x8078198Fc424986ae89Ce4a910Fc109587b6aBF3",
+        "investing_address": "0x8078198Fc424986ae89Ce4a910Fc109587b6aBF3",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve cvxCRV Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9d0464996170c6b9e75eed71c68b99ddedf279e8"
+        ],
+        "pool_address": "0x4560b99C904aAD03027B5178CCa81584744AC01f",
+        "investing_address": "0x4560b99C904aAD03027B5178CCa81584744AC01f",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibEUR Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x19b080fe1ffa0553469d20ca36219f17fcf03859"
+        ],
+        "pool_address": "0xD347e7A3DdF5Ce4C42E19a4F30eEAA761795C72B",
+        "investing_address": "0xD347e7A3DdF5Ce4C42E19a4F30eEAA761795C72B",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Balancer FUD Auto-Compounding yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x178e029173417b1f9c8bc16dcec6f697bc323746"
+        ],
+        "pool_address": "0xA9412Ffd7E0866755ae0dda3318470A61F62abe8",
+        "investing_address": "0xA9412Ffd7E0866755ae0dda3318470A61F62abe8",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve MIM Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5a6a4d54456819380173272a5e8e9b9904bdf41b"
+        ],
+        "pool_address": "0xa540744DEDBDA9eF64cf753F0E851EfE4a419EA9",
+        "investing_address": "0xa540744DEDBDA9eF64cf753F0E851EfE4a419EA9",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve DOLA-FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xe57180685e3348589e9521aa53af0bcd497e884d"
+        ],
+        "pool_address": "0xe5F625e8f4D2A038AE9583Da254945285E5a77a4",
+        "investing_address": "0xe5F625e8f4D2A038AE9583Da254945285E5a77a4",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sdANGLE Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x48ff31bbbd8ab553ebe7cbd84e1ea3dba8f54957"
+        ],
+        "pool_address": "0x9E0E0AF468FbD041Cab7883c5eEf16D1A99a47C3",
+        "investing_address": "0x9E0E0AF468FbD041Cab7883c5eEf16D1A99a47C3",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve XAI-FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x326290a1b0004eee78fa6ed4f1d8f4b2523ab669"
+        ],
+        "pool_address": "0x00e8Eb340f8AF587EEA6200D2081E31dC87285ac",
+        "investing_address": "0x00e8Eb340f8AF587EEA6200D2081E31dC87285ac",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve bLUSD Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5ca0313d44551e32e0d7a298ec024321c4bc59b4"
+        ],
+        "pool_address": "0x2D59aa422A7AaE58038CF8aE6eD07330Cc7d3ae8",
+        "investing_address": "0x2D59aa422A7AaE58038CF8aE6eD07330Cc7d3ae8",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve 3EUR Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb9446c4ef5ebe66268da6700d26f96273de3d571"
+        ],
+        "pool_address": "0x82c83ddA32DB09F63F9A59A129278f3fdC3EeE67",
+        "investing_address": "0x82c83ddA32DB09F63F9A59A129278f3fdC3EeE67",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sdYFI Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x79e281bc69a03dabccd66858c65ef6724e50aebe"
+        ],
+        "pool_address": "0x5331009B82853e9FB711bC0b300E1b374724AdaC",
+        "investing_address": "0x5331009B82853e9FB711bC0b300E1b374724AdaC",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve cbETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5b6c539b224014a09b3388e51caaa8e354c959c8"
+        ],
+        "pool_address": "0xF614d3864EF53510909a94c618a5EC1Ff75103BF",
+        "investing_address": "0xF614d3864EF53510909a94c618a5EC1Ff75103BF",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa3d87fffce63b53e0d54faa1cc983b7eb0b74a9c"
+        ],
+        "pool_address": "0xB5dE7250128775a317B3f775a7AFcEC73571B732",
+        "investing_address": "0xB5dE7250128775a317B3f775a7AFcEC73571B732",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve agEUR-EUROC Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xba3436fd341f2c8a928452db3c5a3670d1d5cc73"
+        ],
+        "pool_address": "0x321d570790fd2f109Fe4e55aa419Adf2fce0c842",
+        "investing_address": "0x321d570790fd2f109Fe4e55aa419Adf2fce0c842",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "UNI yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+        ],
+        "pool_address": "0xFBEB78a723b8087fD2ea7Ef1afEc93d35E8Bed42",
+        "investing_address": "0xFBEB78a723b8087fD2ea7Ef1afEc93d35E8Bed42",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve alETH Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc4c319e2d4d66cca4464c0c2b32c9bd23ebe784e"
+        ],
+        "pool_address": "0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D",
+        "investing_address": "0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Balancer Boosted Aave USD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa13a9247ea42d743238089903570127dda72fe44"
+        ],
+        "pool_address": "0xc5F3D11580c41cD07104e9AF154Fc6428bb93c73",
+        "investing_address": "0xc5F3D11580c41cD07104e9AF154Fc6428bb93c73",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve alUSD Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x43b4fdfd4ff969587185cdb6f0bd875c5fc83f8c"
+        ],
+        "pool_address": "0x4CbB6A5EC00cEEC252a7091559484F7adb83165f",
+        "investing_address": "0x4CbB6A5EC00cEEC252a7091559484F7adb83165f",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve Iron Bank Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5282a4ef67d9c33135340fb3289cc1711c13638c"
+        ],
+        "pool_address": "0xa8E0c42F45C877e611C76F2D4bF57476f2014381",
+        "investing_address": "0xa8E0c42F45C877e611C76F2D4bF57476f2014381",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve EURT-USD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3b6831c0077a1e44ed0a21841c3bc4dc11bce833"
+        ],
+        "pool_address": "0xBCBB5b54Fa51e7b7Dc920340043B203447842A6b",
+        "investing_address": "0xBCBB5b54Fa51e7b7Dc920340043B203447842A6b",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sBTCv2 Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x051d7e5609917bd9b73f04bac0ded8dd46a74301"
+        ],
+        "pool_address": "0x571B384636BA518697d745AC218aD4cEE5EE0ABC",
+        "investing_address": "0x571B384636BA518697d745AC218aD4cEE5EE0ABC",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve stETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x06325440d014e39736583c165c2963ba99faf14e"
+        ],
+        "pool_address": "0x5B8C556B8b2a78696F0B9B830B3d67623122E270",
+        "investing_address": "0x5B8C556B8b2a78696F0B9B830B3d67623122E270",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sUSD Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc25a3a3b969415c80451098fa907ec722572917f"
+        ],
+        "pool_address": "0x5b2384D566D2E4a0b29B8eccB642C63199cd393c",
+        "investing_address": "0x5b2384D566D2E4a0b29B8eccB642C63199cd393c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve YFI-ETH Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x29059568bb40344487d62f7450e78b8e6c74e0e5"
+        ],
+        "pool_address": "0x790a60024bC3aea28385b60480f15a0771f26D09",
+        "investing_address": "0x790a60024bC3aea28385b60480f15a0771f26D09",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve BTRFLY-ETH Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7483dd57f6488b0e194a151c57df6ec85c00ace9"
+        ],
+        "pool_address": "0x3221BFBE308144f19089CB197b7C11c2Bf495906",
+        "investing_address": "0x3221BFBE308144f19089CB197b7C11c2Bf495906",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "SNX yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
+        ],
+        "pool_address": "0xF29AE508698bDeF169B89834F76704C3B205aedf",
+        "investing_address": "0xF29AE508698bDeF169B89834F76704C3B205aedf",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve tBTC Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xf95aaa7ebb1620e46221b73588502960ef63dba0"
+        ],
+        "pool_address": "0x04D549bAfE83B8BdCCC8dF38F15b90199D20f1eE",
+        "investing_address": "0x04D549bAfE83B8BdCCC8dF38F15b90199D20f1eE",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "USDT yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x3B27F92C0e212C671EA351827EDF93DB27cc0c65",
+        "investing_address": "0x3B27F92C0e212C671EA351827EDF93DB27cc0c65",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve FRAX Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xd632f22692fac7611d2aa1c0d552930d43caed3b"
+        ],
+        "pool_address": "0xb37094c1B5614Bd6EcE40AFb295C26F4377069d3",
+        "investing_address": "0xb37094c1B5614Bd6EcE40AFb295C26F4377069d3",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve multiBTC Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2863a328a0b7fc6040f11614fa0728587db8e353"
+        ],
+        "pool_address": "0x133cb5cF617a33F5D02cFFfF579435776ef29FB0",
+        "investing_address": "0x133cb5cF617a33F5D02cFFfF579435776ef29FB0",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "USDC yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE",
+        "investing_address": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "DAI yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f"
+        ],
+        "pool_address": "0xdA816459F1AB5631232FE5e97a05BBBb94970c95",
+        "investing_address": "0xdA816459F1AB5631232FE5e97a05BBBb94970c95",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "LUSD yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5f98805a4e8be255a32880fdec7f6728c6568ba0"
+        ],
+        "pool_address": "0x378cb52b00F9D0921cb46dFc099CFf73b42419dC",
+        "investing_address": "0x378cb52b00F9D0921cb46dFc099CFf73b42419dC",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve DUSD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3a664ab939fd8482048609f652f9a0b0677337b9"
+        ],
+        "pool_address": "0x30FCf7c6cDfC46eC237783D94Fc78553E79d4E9C",
+        "investing_address": "0x30FCf7c6cDfC46eC237783D94Fc78553E79d4E9C",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve LUSD Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xed279fdd11ca84beef15af5d39bb4d4bee23f0ca"
+        ],
+        "pool_address": "0xAd86Df2e8F989c828B25A7Da5EB1Ec363283fA3F",
+        "investing_address": "0xAd86Df2e8F989c828B25A7Da5EB1Ec363283fA3F",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3175df0976dfa876431c2e9ee6bc45b65d3473cc"
+        ],
+        "pool_address": "0x1A5ebfF0E881Aec34837845e4D0EB430a1B4b737",
+        "investing_address": "0x1A5ebfF0E881Aec34837845e4D0EB430a1B4b737",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "WETH yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa258C4606Ca8206D8aA700cE2143D7db854D168c",
+        "investing_address": "0xa258C4606Ca8206D8aA700cE2143D7db854D168c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve mUSD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1aef73d49dedc4b1778d0706583995958dc862e6"
+        ],
+        "pool_address": "0x8cc94ccd0f3841a468184aCA3Cc478D2148E1757",
+        "investing_address": "0x8cc94ccd0f3841a468184aCA3Cc478D2148E1757",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve TRYb Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6e0e681441be6cb1d8405752462488bd4d691e3a"
+        ],
+        "pool_address": "0xe1747F4D30479D7a2DCFEa5af69fb86B8f71cCeC",
+        "investing_address": "0xe1747F4D30479D7a2DCFEa5af69fb86B8f71cCeC",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve HBTC Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb19059ebb43466c323583928285a49f558e572fd"
+        ],
+        "pool_address": "0x625b7DF2fa8aBe21B0A976736CDa4775523aeD1E",
+        "investing_address": "0x625b7DF2fa8aBe21B0A976736CDa4775523aeD1E",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "SUSHI yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
+        ],
+        "pool_address": "0x6d765CbE5bC922694afE112C140b8878b9FB0390",
+        "investing_address": "0x6d765CbE5bC922694afE112C140b8878b9FB0390",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve Paxos Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc270b3b858c335b6ba5d5b10e2da8a09976005ad"
+        ],
+        "pool_address": "0xc97511a1dDB162C8742D39FF320CfDCd13fBcf7e",
+        "investing_address": "0xc97511a1dDB162C8742D39FF320CfDCd13fBcf7e",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ankrETH Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xaa17a236f2badc98ddc0cf999abb47d47fc0a6cf"
+        ],
+        "pool_address": "0x132d8D2C76Db3812403431fAcB00F3453Fc42125",
+        "investing_address": "0x132d8D2C76Db3812403431fAcB00F3453Fc42125",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve GUSD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xd2967f45c4f384deea880f807be904762a3dea07"
+        ],
+        "pool_address": "0x2a38B9B0201Ca39B17B460eD2f11e4929559071E",
+        "investing_address": "0x2a38B9B0201Ca39B17B460eD2f11e4929559071E",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "AAVE yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
+        ],
+        "pool_address": "0xd9788f3931Ede4D5018184E198699dC6d66C1915",
+        "investing_address": "0xd9788f3931Ede4D5018184E198699dC6d66C1915",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve rETH Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x53a901d48795c58f485cbb38df08fa96a24669d5"
+        ],
+        "pool_address": "0xBfedbcbe27171C418CDabC2477042554b1904857",
+        "investing_address": "0xBfedbcbe27171C418CDabC2477042554b1904857",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve Compound Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x845838df265dcd2c412a1dc9e959c7d08537f8a2"
+        ],
+        "pool_address": "0xD6Ea40597Be05c201845c0bFd2e96A60bACde267",
+        "investing_address": "0xD6Ea40597Be05c201845c0bFd2e96A60bACde267",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve apeUSD-FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x04b727c7e246ca70d496ecf52e6b6280f3c8077d"
+        ],
+        "pool_address": "0xC8cA30Aa2E486846f7304D3B9334f96d32000F8d",
+        "investing_address": "0xC8cA30Aa2E486846f7304D3B9334f96d32000F8d",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "LINK yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x514910771af9ca656af840dff83e8264ecf986ca"
+        ],
+        "pool_address": "0x671a912C10bba0CFA74Cfc2d6Fba9BA1ed9530B2",
+        "investing_address": "0x671a912C10bba0CFA74Cfc2d6Fba9BA1ed9530B2",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "WBTC yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+        ],
+        "pool_address": "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E",
+        "investing_address": "0xA696a63cc78DfFa1a63E9E50587C197387FF6C7E",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve sAave Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x02d341ccb60faaf662bc0554d13778015d1b285c"
+        ],
+        "pool_address": "0xb4D1Be44BfF40ad6e506edf43156577a3f8672eC",
+        "investing_address": "0xb4D1Be44BfF40ad6e506edf43156577a3f8672eC",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "YFI yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e"
+        ],
+        "pool_address": "0xdb25cA703181E7484a155DD612b06f57E12Be5F0",
+        "investing_address": "0xdb25cA703181E7484a155DD612b06f57E12Be5F0",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve Aave Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xfd2a8fa60abd58efe3eee34dd494cd491dc14900"
+        ],
+        "pool_address": "0x39CAF13a104FF567f71fd2A4c68C026FDB6E740B",
+        "investing_address": "0x39CAF13a104FF567f71fd2A4c68C026FDB6E740B",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve USDP Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7eb40e450b9655f4b3cc4259bcc731c63ff55ae6"
+        ],
+        "pool_address": "0xC4dAf3b5e2A9e93861c3FBDd25f1e943B8D87417",
+        "investing_address": "0xC4dAf3b5e2A9e93861c3FBDd25f1e943B8D87417",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve EURS-USDC Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3d229e1b4faab62f621ef2f6a610961f7bd7b23b"
+        ],
+        "pool_address": "0x801Ab06154Bf539dea4385a39f5fa8534fB53073",
+        "investing_address": "0x801Ab06154Bf539dea4385a39f5fa8534fB53073",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Yearn Compounding veCRV yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc5bddf9843308380375a611c18b50fb9341f502a"
+        ],
+        "pool_address": "0x9d409a0A012CFbA9B15F6D4B36Ac57A46966Ab9a",
+        "investing_address": "0x9d409a0A012CFbA9B15F6D4B36Ac57A46966Ab9a",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve OUSD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x87650d7bbfc3a9f10587d7778206671719d9910d"
+        ],
+        "pool_address": "0xF59D66c1d593Fb10e2f8c2a6fD2C958792434B9c",
+        "investing_address": "0xF59D66c1d593Fb10e2f8c2a6fD2C958792434B9c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve LINK Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xcee60cfa923170e4f8204ae08b4fa6a3f5656f3a"
+        ],
+        "pool_address": "0xf2db9a7c0ACd427A680D640F02d90f6186E71725",
+        "investing_address": "0xf2db9a7c0ACd427A680D640F02d90f6186E71725",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve EURS Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x194ebd173f6cdace046c53eacce9b953f28411d1"
+        ],
+        "pool_address": "0x25212Df29073FfFA7A67399AcEfC2dd75a831A1A",
+        "investing_address": "0x25212Df29073FfFA7A67399AcEfC2dd75a831A1A",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibAUD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3f1b0278a9ee595635b61817630cc19de792f506"
+        ],
+        "pool_address": "0x1b905331F7dE2748F4D6a0678e1521E20347643F",
+        "investing_address": "0x1b905331F7dE2748F4D6a0678e1521E20347643F",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve 3pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6c3f90f043a72fa612cbac8115ee7e52bde6e490"
+        ],
+        "pool_address": "0x84E13785B5a27879921D6F685f041421C7F482dA",
+        "investing_address": "0x84E13785B5a27879921D6F685f041421C7F482dA",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve DOLA Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xaa5a67c256e27a5d80712c51971408db3370927d"
+        ],
+        "pool_address": "0xd88dBBA3f9c4391Ee46f5FF548f289054db6E51C",
+        "investing_address": "0xd88dBBA3f9c4391Ee46f5FF548f289054db6E51C",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve STG-FRAXBP Factory yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9de1c3d446237ab9baff74127eb4f303802a2683"
+        ],
+        "pool_address": "0x98fA691998a9e6f410702dEA8BC08a9d500AaAFe",
+        "investing_address": "0x98fA691998a9e6f410702dEA8BC08a9d500AaAFe",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve ibJPY Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8818a9bb44fbf33502be7c15c500d0c783b73067"
+        ],
+        "pool_address": "0x59518884EeBFb03e90a18ADBAAAB770d4666471e",
+        "investing_address": "0x59518884EeBFb03e90a18ADBAAAB770d4666471e",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "TUSD yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0000000000085d4780b73119b644ae5ecd22b376"
+        ],
+        "pool_address": "0xFD0877d9095789cAF24c98F7CCe092fa8E120775",
+        "investing_address": "0xFD0877d9095789cAF24c98F7CCe092fa8E120775",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "wstETH yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+        ],
+        "pool_address": "0xC1f3C276Bf73396C020E8354bcA581846171649d",
+        "investing_address": "0xC1f3C276Bf73396C020E8354bcA581846171649d",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve yBUSD Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3b3ac5386837dc563660fb6a0937dfaa5924333b"
+        ],
+        "pool_address": "0x8ee57c05741aA9DB947A744E713C15d4d19D8822",
+        "investing_address": "0x8ee57c05741aA9DB947A744E713C15d4d19D8822",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve rETH-wstETH Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x447ddd4960d9fdbf6af9a790560d0af76795cb08"
+        ],
+        "pool_address": "0x5c0A86A32c129538D62C106Eb8115a8b02358d57",
+        "investing_address": "0x5c0A86A32c129538D62C106Eb8115a8b02358d57",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve Y Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xdf5e0e81dff6faf3a7e52ba697820c5e32d806a8"
+        ],
+        "pool_address": "0x4B5BfD52124784745c1071dcB244C6688d2533d3",
+        "investing_address": "0x4B5BfD52124784745c1071dcB244C6688d2533d3",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "RAI yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919"
+        ],
+        "pool_address": "0x873fB544277FD7b977B196a826459a69E27eA4ea",
+        "investing_address": "0x873fB544277FD7b977B196a826459a69E27eA4ea",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    },
+    {
+        "name": "Curve RAI Pool yVault",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6ba5b4e438fa0aaf7c1bd179285af65d13bd3d90"
+        ],
+        "pool_address": "0x2D5D4869381C4Fce34789BC1D38aCCe747E295AE",
+        "investing_address": "0x2D5D4869381C4Fce34789BC1D38aCCe747E295AE",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [
+            "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde"
+        ],
+        "metadata": {}
+    }
+]

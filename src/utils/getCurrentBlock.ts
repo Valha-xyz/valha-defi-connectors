@@ -9,6 +9,6 @@ export async function getCurrentBlock(): Promise<any> {
   } catch (err) {
     console.log('ERROR -------------------------');
     console.log(err.response.data);
-    return { data: null, err: err };
+    return { data: null, err };
   }
 }

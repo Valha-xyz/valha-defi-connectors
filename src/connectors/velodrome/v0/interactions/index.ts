@@ -99,10 +99,10 @@ async function deposit(
 
   return {
     txInfo: {
-      abi: abi, //abi array
-      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
       position_token: pool.underlying_tokens, // token needed to approve
@@ -153,10 +153,10 @@ async function redeem(
 
   return {
     txInfo: {
-      abi: abi, //abi array
-      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
@@ -181,10 +181,10 @@ async function claimInterests(
 
   return {
     txInfo: {
-      abi: abi, //abi array
-      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
   };
@@ -210,10 +210,10 @@ async function stake(
 
   return {
     txInfo: {
-      abi: abi, //abi array
-      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
@@ -243,10 +243,10 @@ async function unstake(
 
   return {
     txInfo: {
-      abi: abi, //abi array
-      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: null,
   };
@@ -269,10 +269,10 @@ async function claimRewards(
 
   return {
     txInfo: {
-      abi: abi, //abi array
-      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
@@ -283,7 +283,7 @@ async function claimRewards(
 }
 
 const interactions: Interactions = {
-  deposit: deposit,
+  deposit,
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,
