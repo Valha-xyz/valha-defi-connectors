@@ -30,7 +30,7 @@ async function deposit(
     pool.chain,
     position_token
   );
-  const args = [amountBN, addresses.userAddress, poolManager];
+  const args = [position_token, amountBN, addresses.userAddress];
 
   return {
     txInfo: {
@@ -56,17 +56,19 @@ async function redeem(
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
   const method_name = 'unstakeAndRedeemGlp';
+  const position_token = pool.pool_address;
+  const underlying = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     position_token
   );
-  const args = [
-    amountBN,
-    addresses.receiverAddress,
-    addresses.userAddress,
-    poolManager11,
-  ];
+  const minAmountOut = await toBnERC20Decimals(
+    amount.amountsMinimum[0],
+    pool.chain,
+    position_token
+  );
+  const args = [underlying, amountBN, minAmountOut, addresses.receiverAddress];
 
   return {
     txInfo: {
@@ -111,7 +113,7 @@ const interactions: Interactions = {
   deposit_and_stake: null,
   deposit_all: null,
   unlock: null,
-  redeem: null,
+  redeem: redeem,
   unstake_and_redeem: null,
   stake: null,
   unstake: null,
