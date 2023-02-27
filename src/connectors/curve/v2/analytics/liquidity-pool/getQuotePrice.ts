@@ -4,7 +4,7 @@ import { getNodeProvider } from "../../../../../utils/getNodeProvider";
 import pools from "../../pools/pools.js";
 
 import RouterABI from "./../../abi/router.json";
-import { type Pool } from "src/utils/types/connector-types";
+import { type Pool } from "../../../../../utils/types/connector-types";
 
 export async function findPoolContract(
   tokenIn: string,

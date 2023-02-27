@@ -2,7 +2,7 @@ import { BigNumber, Contract } from "ethers";
 import { getNodeProvider } from "../../../../../utils/getNodeProvider";
 
 import RouterABI from "./../../abi/router.json";
-import { type Pool } from "src/utils/types/connector-types";
+import { type Pool } from "../../../../../utils/types/connector-types";
 import { findTokenPosition } from "./getQuotePrice";
 
 export const getMinimumDeposit = async (

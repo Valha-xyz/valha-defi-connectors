@@ -2,8 +2,6 @@ import { BigNumber, type BigNumberish } from "ethers";
 import axios from "axios";
 import { getChainId } from "../../../../../utils/getChainId";
 import { type GetQuotePriceFunction } from "../../../../../utils/types/quotePrice";
-import { type Pool } from "src/utils/types/connector-types";
-
 // DOC is located here : https://docs.1inch.io/docs/aggregation-protocol/api/swagger
 
 const oneInchAPI = axios.create({
