@@ -25,7 +25,7 @@ async function depositAndStake (
   const method_name = 'deposit(uint256,uint256)'
   const positionToken = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )
@@ -58,7 +58,7 @@ async function unstakeAndRedeem (
   const method_name = 'withdrawTo(uint256,uint256,address)'
   const positionToken = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )

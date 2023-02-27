@@ -10,7 +10,7 @@
     "install-foundry": "curl -L https://foundry.paradigm.xyz | bash && foundryup",
     "create-connector": "node scripts/createConnectorFile $npm_package_config_connector",
     "create-connector-erc4626": "node scripts/createConnectorERC4626File $npm_package_config_connector",
-    "format": "npx eslint --fix \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "lint": "eslint --fix \"src/**/*.ts\" \"tests/**/*.ts\"",
     "test": "jest --forceExit",
     "test-repository": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/repository.spec.ts",
     "test-analytics": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/analytics.spec.ts",

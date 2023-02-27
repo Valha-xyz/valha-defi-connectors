@@ -1,6 +1,3 @@
-export interface Amount {
-  humanValue: string
-}
 
 export interface AssetInfo {
   position_token: string | string[] | null // token needed to approve

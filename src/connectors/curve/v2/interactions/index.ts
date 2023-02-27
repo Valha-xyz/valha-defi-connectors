@@ -130,7 +130,7 @@ async function stake (
   const method_name = 'deposit(uint256,address)'
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -162,7 +162,7 @@ async function unstake (
   const method_name = 'withdraw(uint256,bool)'
   const position_token = pool.staking_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )

@@ -1,5 +1,5 @@
 import { type Chain } from './networks'
-import { type Amount, type AssetInfo, type TxInfo } from './utils'
+import { type AssetInfo, type TxInfo } from './utils'
 
 export interface Pool {
   name: string
@@ -15,9 +15,9 @@ export interface Pool {
 }
 
 export interface AmountInput {
-  amount: Amount
-  amountsDesired?: Amount[]
-  amountsMinimum?: Amount[]
+  amount: string
+  amountsDesired?: string[]
+  amountsMinimum?: string[]
 }
 
 export interface AddressesInput {

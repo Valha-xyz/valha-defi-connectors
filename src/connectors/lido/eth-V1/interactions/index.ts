@@ -22,7 +22,7 @@ async function deposit (
   const method_name = 'submit'
   const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )

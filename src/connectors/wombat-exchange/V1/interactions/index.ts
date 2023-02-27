@@ -28,7 +28,7 @@ async function deposit (
   const currentTimestamp = currentBlockData.data.timestamp
   const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -69,7 +69,7 @@ async function redeem (
   const currentTimestamp = currentBlockData.data.timestamp
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -113,7 +113,7 @@ async function stake (
   const poolId = await getWombatPid(pool.pool_address)
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -146,7 +146,7 @@ async function unstake (
   const id = await getWombatPid(pool.pool_address)
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )

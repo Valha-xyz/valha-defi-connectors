@@ -41,7 +41,7 @@ async function deposit (
   if (!poolManager) throw new Error('Angle pool manager was not found')
   const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -75,7 +75,7 @@ async function redeem (
   if (!poolManager11) throw new Error('Angle pool manager was not found')
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -115,7 +115,7 @@ async function stake (
   let amountBN = ''
   if (pool.staking_address) {
     amountBN = await toBnERC20Decimals(
-      amount.amount.humanValue,
+      amount.amount,
       pool.chain,
       position_token
     )
@@ -153,7 +153,7 @@ async function unstake (
   let amountBN = ''
   if (pool.staking_address) {
     amountBN = await toBnERC20Decimals(
-      amount.amount.humanValue,
+      amount.amount,
       pool.chain,
       position_token
     )

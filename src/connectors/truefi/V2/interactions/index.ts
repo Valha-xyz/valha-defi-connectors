@@ -23,7 +23,7 @@ async function deposit (
   const method_name = 'join'
   const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -60,7 +60,7 @@ async function redeem (
   const method_name = 'liquidExit'
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -92,7 +92,7 @@ async function stake (
   const method_name = 'stake'
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   )
@@ -123,7 +123,7 @@ async function unstake (
   const abi = MultiFarmABI
   const method_name = 'unstake'
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.pool_address
   )

@@ -25,7 +25,7 @@ async function deposit (
   const method_name = 'deposit(uint256,uint256,bool)'
   const positionToken = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )
@@ -59,7 +59,7 @@ async function depositAndStake (
   const method_name = 'deposit(uint256,uint256,bool)'
   const positionToken = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )
@@ -93,7 +93,7 @@ async function redeem (
   const method_name = 'withdraw(uint256,uint256)'
   const positionToken = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )
@@ -126,7 +126,7 @@ async function unstakeAndRedeem (
   const method_name = 'withdraw(uint256,uint256)'
   const positionToken = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )
@@ -159,7 +159,7 @@ async function stake (
   const method_name = 'stake(uint256)'
   const positionToken = pool.pool_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     positionToken
   )
@@ -191,7 +191,7 @@ async function unstake (
   const abi = StakeABI
   const method_name = 'withdraw(uint256,bool)'
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.pool_address // the staking address does not have a decimals functions /!\
   )

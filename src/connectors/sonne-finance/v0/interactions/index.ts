@@ -21,7 +21,7 @@ async function deposit (
   const abi = PoolABI
   const method_name = 'mint(uint256)'
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.underlying_tokens[0]
   )
@@ -54,7 +54,7 @@ async function redeem (
   const abi = PoolABI
   const method_name = 'redeem(uint256)'
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.pool_address
   )

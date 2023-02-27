@@ -29,12 +29,12 @@ async function deposit (
   let method_name = ''
   let args = []
   const amountADesired = await toBnERC20Decimals(
-    amount.amountsDesired[0].humanValue,
+    amount.amountsDesired[0],
     pool.chain,
     pool.underlying_tokens[0]
   )
   const amountBDesired = await toBnERC20Decimals(
-    amount.amountsDesired[1].humanValue,
+    amount.amountsDesired[1],
     pool.chain,
     pool.underlying_tokens[1]
   )
@@ -55,12 +55,12 @@ async function deposit (
       amountDesired = amountBDesired
     }
     const amountMin = await toBnERC20Decimals(
-      amount.amountsMinimum[tokenPosition].humanValue,
+      amount.amountsMinimum[tokenPosition],
       pool.chain,
       pool.underlying_tokens[tokenPosition]
     )
     const amountNativeMin = await toBnERC20Decimals(
-      amount.amountsMinimum[nativePosition].humanValue,
+      amount.amountsMinimum[nativePosition],
       pool.chain,
       pool.underlying_tokens[nativePosition]
     )
@@ -75,12 +75,12 @@ async function deposit (
   } else {
     method_name = 'addLiquidity'
     const amountAMinimum = await toBnERC20Decimals(
-      amount.amountsMinimum[0].humanValue,
+      amount.amountsMinimum[0],
       pool.chain,
       pool.underlying_tokens[0]
     )
     const amountBMinimum = await toBnERC20Decimals(
-      amount.amountsMinimum[1].humanValue,
+      amount.amountsMinimum[1],
       pool.chain,
       pool.underlying_tokens[1]
     )
@@ -126,17 +126,17 @@ async function redeem (
   const tokenB = pool.underlying_tokens[1]
   const interaction_address = pool.investing_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.pool_address
   )
   const amountAMinimum = await toBnERC20Decimals(
-    amount.amountsMinimum[0].humanValue,
+    amount.amountsMinimum[0],
     pool.chain,
     pool.underlying_tokens[0]
   )
   const amountBMinimum = await toBnERC20Decimals(
-    amount.amountsMinimum[1].humanValue,
+    amount.amountsMinimum[1],
     pool.chain,
     pool.underlying_tokens[1]
   )
@@ -200,7 +200,7 @@ async function stake (
   const pid = PID[pool.pool_address.toLowerCase()]
   const interaction_address = pool.staking_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.pool_address
   )
@@ -233,7 +233,7 @@ async function unstake (
   const pid = PID[pool.pool_address.toLowerCase()]
   const interaction_address = pool.staking_address
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     pool.pool_address
   )
