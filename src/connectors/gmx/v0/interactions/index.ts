@@ -23,9 +23,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
-  const method_name = 'deposit';
-  const poolManager = await getSanPoolManager(pool.pool_address);
-  if (!poolManager) throw new Error('Angle pool manager was not found');
+  const method_name = 'mintAndStakeGlp';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -57,10 +55,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StableABI;
-  const method_name = 'withdraw';
-  const poolManager11 = await getSanPoolManager(pool.pool_address);
-  if (!poolManager11) throw new Error('Angle pool manager was not found');
-  const position_token = pool.pool_address;
+  const method_name = 'unstakeAndRedeemGlp';
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
@@ -96,13 +91,14 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = 'claim_rewards';
-  const args = [addresses.userAddress];
+  const interaction_address = pool.investing_address;
+  const method_name = 'claim';
+  const args = [];
 
   return {
     txInfo: {
       abi: abi, //abi array
-      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
       method_name: method_name, //method to interact with the pool
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
