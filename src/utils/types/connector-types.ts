@@ -66,7 +66,6 @@ export enum InteractionFunctionNames {
   deposit_all = 'deposit_all',
   unlock = 'unlock',
   redeem = 'redeem',
-  redeem_all = 'redeem_all',
   unstake_and_redeem = 'unstake_and_redeem',
   stake = 'stake',
   unstake = 'unstake',
