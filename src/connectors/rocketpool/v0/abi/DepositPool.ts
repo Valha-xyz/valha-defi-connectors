@@ -2,182 +2,182 @@ export const POOLABI = [
   {
     inputs: [
       {
-        internalType: "contract RocketStorageInterface",
-        name: "_rocketStorageAddress",
-        type: "address",
-      },
+        internalType: 'contract RocketStorageInterface',
+        name: '_rocketStorageAddress',
+        type: 'address'
+      }
     ],
-    stateMutability: "nonpayable",
-    type: "constructor",
+    stateMutability: 'nonpayable',
+    type: 'constructor'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "address",
-        name: "minipool",
-        type: "address",
+        internalType: 'address',
+        name: 'minipool',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "time",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'time',
+        type: 'uint256'
+      }
     ],
-    name: "DepositAssigned",
-    type: "event",
+    name: 'DepositAssigned',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
+        internalType: 'address',
+        name: 'from',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "time",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'time',
+        type: 'uint256'
+      }
     ],
-    name: "DepositReceived",
-    type: "event",
+    name: 'DepositReceived',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
+        internalType: 'address',
+        name: 'from',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "time",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'time',
+        type: 'uint256'
+      }
     ],
-    name: "DepositRecycled",
-    type: "event",
+    name: 'DepositRecycled',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
+        internalType: 'address',
+        name: 'to',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'amount',
+        type: 'uint256'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "time",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'time',
+        type: 'uint256'
+      }
     ],
-    name: "ExcessWithdrawn",
-    type: "event",
+    name: 'ExcessWithdrawn',
+    type: 'event'
   },
   {
     inputs: [],
-    name: "assignDeposits",
+    name: 'assignDeposits',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "deposit",
+    name: 'deposit',
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "getBalance",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'getBalance',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "getExcessBalance",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'getExcessBalance',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "receiveVaultWithdrawalETH",
+    name: 'receiveVaultWithdrawalETH',
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "recycleDissolvedDeposit",
+    name: 'recycleDissolvedDeposit',
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "recycleExcessCollateral",
+    name: 'recycleExcessCollateral',
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "recycleLiquidatedStake",
+    name: 'recycleLiquidatedStake',
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "version",
-    outputs: [{ internalType: "uint8", name: "", type: "uint8" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'version',
+    outputs: [{ internalType: 'uint8', name: '', type: 'uint8' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
-    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
-    name: "withdrawExcessBalance",
+    inputs: [{ internalType: 'uint256', name: '_amount', type: 'uint256' }],
+    name: 'withdrawExcessBalance',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-];
+    stateMutability: 'nonpayable',
+    type: 'function'
+  }
+]

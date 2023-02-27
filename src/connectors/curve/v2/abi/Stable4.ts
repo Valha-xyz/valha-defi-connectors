@@ -1,449 +1,449 @@
 export const StableABI4 = [
   {
-    name: "TokenExchange",
+    name: 'TokenExchange',
     inputs: [
-      { type: "address", name: "buyer", indexed: true },
-      { type: "int128", name: "sold_id", indexed: false },
-      { type: "uint256", name: "tokens_sold", indexed: false },
-      { type: "int128", name: "bought_id", indexed: false },
-      { type: "uint256", name: "tokens_bought", indexed: false },
+      { type: 'address', name: 'buyer', indexed: true },
+      { type: 'int128', name: 'sold_id', indexed: false },
+      { type: 'uint256', name: 'tokens_sold', indexed: false },
+      { type: 'int128', name: 'bought_id', indexed: false },
+      { type: 'uint256', name: 'tokens_bought', indexed: false }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "TokenExchangeUnderlying",
+    name: 'TokenExchangeUnderlying',
     inputs: [
-      { type: "address", name: "buyer", indexed: true },
-      { type: "int128", name: "sold_id", indexed: false },
-      { type: "uint256", name: "tokens_sold", indexed: false },
-      { type: "int128", name: "bought_id", indexed: false },
-      { type: "uint256", name: "tokens_bought", indexed: false },
+      { type: 'address', name: 'buyer', indexed: true },
+      { type: 'int128', name: 'sold_id', indexed: false },
+      { type: 'uint256', name: 'tokens_sold', indexed: false },
+      { type: 'int128', name: 'bought_id', indexed: false },
+      { type: 'uint256', name: 'tokens_bought', indexed: false }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "AddLiquidity",
+    name: 'AddLiquidity',
     inputs: [
-      { type: "address", name: "provider", indexed: true },
-      { type: "uint256[4]", name: "token_amounts", indexed: false },
-      { type: "uint256[4]", name: "fees", indexed: false },
-      { type: "uint256", name: "invariant", indexed: false },
-      { type: "uint256", name: "token_supply", indexed: false },
+      { type: 'address', name: 'provider', indexed: true },
+      { type: 'uint256[4]', name: 'token_amounts', indexed: false },
+      { type: 'uint256[4]', name: 'fees', indexed: false },
+      { type: 'uint256', name: 'invariant', indexed: false },
+      { type: 'uint256', name: 'token_supply', indexed: false }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "RemoveLiquidity",
+    name: 'RemoveLiquidity',
     inputs: [
-      { type: "address", name: "provider", indexed: true },
-      { type: "uint256[4]", name: "token_amounts", indexed: false },
-      { type: "uint256[4]", name: "fees", indexed: false },
-      { type: "uint256", name: "token_supply", indexed: false },
+      { type: 'address', name: 'provider', indexed: true },
+      { type: 'uint256[4]', name: 'token_amounts', indexed: false },
+      { type: 'uint256[4]', name: 'fees', indexed: false },
+      { type: 'uint256', name: 'token_supply', indexed: false }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "RemoveLiquidityImbalance",
+    name: 'RemoveLiquidityImbalance',
     inputs: [
-      { type: "address", name: "provider", indexed: true },
-      { type: "uint256[4]", name: "token_amounts", indexed: false },
-      { type: "uint256[4]", name: "fees", indexed: false },
-      { type: "uint256", name: "invariant", indexed: false },
-      { type: "uint256", name: "token_supply", indexed: false },
+      { type: 'address', name: 'provider', indexed: true },
+      { type: 'uint256[4]', name: 'token_amounts', indexed: false },
+      { type: 'uint256[4]', name: 'fees', indexed: false },
+      { type: 'uint256', name: 'invariant', indexed: false },
+      { type: 'uint256', name: 'token_supply', indexed: false }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "CommitNewAdmin",
+    name: 'CommitNewAdmin',
     inputs: [
-      { type: "uint256", name: "deadline", indexed: true, unit: "sec" },
-      { type: "address", name: "admin", indexed: true },
+      { type: 'uint256', name: 'deadline', indexed: true, unit: 'sec' },
+      { type: 'address', name: 'admin', indexed: true }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "NewAdmin",
-    inputs: [{ type: "address", name: "admin", indexed: true }],
+    name: 'NewAdmin',
+    inputs: [{ type: 'address', name: 'admin', indexed: true }],
     anonymous: false,
-    type: "event",
+    type: 'event'
   },
   {
-    name: "CommitNewParameters",
+    name: 'CommitNewParameters',
     inputs: [
-      { type: "uint256", name: "deadline", indexed: true, unit: "sec" },
-      { type: "uint256", name: "A", indexed: false },
-      { type: "uint256", name: "fee", indexed: false },
-      { type: "uint256", name: "admin_fee", indexed: false },
-    ],
-    anonymous: false,
-    type: "event",
-  },
-  {
-    name: "NewParameters",
-    inputs: [
-      { type: "uint256", name: "A", indexed: false },
-      { type: "uint256", name: "fee", indexed: false },
-      { type: "uint256", name: "admin_fee", indexed: false },
+      { type: 'uint256', name: 'deadline', indexed: true, unit: 'sec' },
+      { type: 'uint256', name: 'A', indexed: false },
+      { type: 'uint256', name: 'fee', indexed: false },
+      { type: 'uint256', name: 'admin_fee', indexed: false }
     ],
     anonymous: false,
-    type: "event",
+    type: 'event'
+  },
+  {
+    name: 'NewParameters',
+    inputs: [
+      { type: 'uint256', name: 'A', indexed: false },
+      { type: 'uint256', name: 'fee', indexed: false },
+      { type: 'uint256', name: 'admin_fee', indexed: false }
+    ],
+    anonymous: false,
+    type: 'event'
   },
   {
     outputs: [],
     inputs: [
-      { type: "address[4]", name: "_coins" },
-      { type: "address[4]", name: "_underlying_coins" },
-      { type: "address", name: "_pool_token" },
-      { type: "uint256", name: "_A" },
-      { type: "uint256", name: "_fee" },
+      { type: 'address[4]', name: '_coins' },
+      { type: 'address[4]', name: '_underlying_coins' },
+      { type: 'address', name: '_pool_token' },
+      { type: 'uint256', name: '_A' },
+      { type: 'uint256', name: '_fee' }
     ],
     constant: false,
     payable: false,
-    type: "constructor",
+    type: 'constructor'
   },
   {
-    name: "get_virtual_price",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'get_virtual_price',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 1535185,
+    type: 'function',
+    gas: 1535185
   },
   {
-    name: "calc_token_amount",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'calc_token_amount',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [
-      { type: "uint256[4]", name: "amounts" },
-      { type: "bool", name: "deposit" },
+      { type: 'uint256[4]', name: 'amounts' },
+      { type: 'bool', name: 'deposit' }
     ],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 6067881,
+    type: 'function',
+    gas: 6067881
   },
   {
-    name: "add_liquidity",
-    outputs: [],
-    inputs: [
-      { type: "uint256[4]", name: "amounts" },
-      { type: "uint256", name: "min_mint_amount" },
-    ],
-    constant: false,
-    payable: false,
-    type: "function",
-    gas: 9327083,
-  },
-  {
-    name: "get_dy",
-    outputs: [{ type: "uint256", name: "out" }],
-    inputs: [
-      { type: "int128", name: "i" },
-      { type: "int128", name: "j" },
-      { type: "uint256", name: "dx" },
-    ],
-    constant: true,
-    payable: false,
-    type: "function",
-    gas: 3454227,
-  },
-  {
-    name: "get_dx",
-    outputs: [{ type: "uint256", name: "out" }],
-    inputs: [
-      { type: "int128", name: "i" },
-      { type: "int128", name: "j" },
-      { type: "uint256", name: "dy" },
-    ],
-    constant: true,
-    payable: false,
-    type: "function",
-    gas: 3454232,
-  },
-  {
-    name: "get_dy_underlying",
-    outputs: [{ type: "uint256", name: "out" }],
-    inputs: [
-      { type: "int128", name: "i" },
-      { type: "int128", name: "j" },
-      { type: "uint256", name: "dx" },
-    ],
-    constant: true,
-    payable: false,
-    type: "function",
-    gas: 3454087,
-  },
-  {
-    name: "get_dx_underlying",
-    outputs: [{ type: "uint256", name: "out" }],
-    inputs: [
-      { type: "int128", name: "i" },
-      { type: "int128", name: "j" },
-      { type: "uint256", name: "dy" },
-    ],
-    constant: true,
-    payable: false,
-    type: "function",
-    gas: 3454093,
-  },
-  {
-    name: "exchange",
+    name: 'add_liquidity',
     outputs: [],
     inputs: [
-      { type: "int128", name: "i" },
-      { type: "int128", name: "j" },
-      { type: "uint256", name: "dx" },
-      { type: "uint256", name: "min_dy" },
+      { type: 'uint256[4]', name: 'amounts' },
+      { type: 'uint256', name: 'min_mint_amount' }
     ],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 7030208,
+    type: 'function',
+    gas: 9327083
   },
   {
-    name: "exchange_underlying",
+    name: 'get_dy',
+    outputs: [{ type: 'uint256', name: 'out' }],
+    inputs: [
+      { type: 'int128', name: 'i' },
+      { type: 'int128', name: 'j' },
+      { type: 'uint256', name: 'dx' }
+    ],
+    constant: true,
+    payable: false,
+    type: 'function',
+    gas: 3454227
+  },
+  {
+    name: 'get_dx',
+    outputs: [{ type: 'uint256', name: 'out' }],
+    inputs: [
+      { type: 'int128', name: 'i' },
+      { type: 'int128', name: 'j' },
+      { type: 'uint256', name: 'dy' }
+    ],
+    constant: true,
+    payable: false,
+    type: 'function',
+    gas: 3454232
+  },
+  {
+    name: 'get_dy_underlying',
+    outputs: [{ type: 'uint256', name: 'out' }],
+    inputs: [
+      { type: 'int128', name: 'i' },
+      { type: 'int128', name: 'j' },
+      { type: 'uint256', name: 'dx' }
+    ],
+    constant: true,
+    payable: false,
+    type: 'function',
+    gas: 3454087
+  },
+  {
+    name: 'get_dx_underlying',
+    outputs: [{ type: 'uint256', name: 'out' }],
+    inputs: [
+      { type: 'int128', name: 'i' },
+      { type: 'int128', name: 'j' },
+      { type: 'uint256', name: 'dy' }
+    ],
+    constant: true,
+    payable: false,
+    type: 'function',
+    gas: 3454093
+  },
+  {
+    name: 'exchange',
     outputs: [],
     inputs: [
-      { type: "int128", name: "i" },
-      { type: "int128", name: "j" },
-      { type: "uint256", name: "dx" },
-      { type: "uint256", name: "min_dy" },
+      { type: 'int128', name: 'i' },
+      { type: 'int128', name: 'j' },
+      { type: 'uint256', name: 'dx' },
+      { type: 'uint256', name: 'min_dy' }
     ],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 7050194,
+    type: 'function',
+    gas: 7030208
   },
   {
-    name: "remove_liquidity",
+    name: 'exchange_underlying',
     outputs: [],
     inputs: [
-      { type: "uint256", name: "_amount" },
-      { type: "uint256[4]", name: "min_amounts" },
+      { type: 'int128', name: 'i' },
+      { type: 'int128', name: 'j' },
+      { type: 'uint256', name: 'dx' },
+      { type: 'uint256', name: 'min_dy' }
     ],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 240409,
+    type: 'function',
+    gas: 7050194
   },
   {
-    name: "remove_liquidity_imbalance",
+    name: 'remove_liquidity',
     outputs: [],
     inputs: [
-      { type: "uint256[4]", name: "amounts" },
-      { type: "uint256", name: "max_burn_amount" },
+      { type: 'uint256', name: '_amount' },
+      { type: 'uint256[4]', name: 'min_amounts' }
     ],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 9326310,
+    type: 'function',
+    gas: 240409
   },
   {
-    name: "commit_new_parameters",
+    name: 'remove_liquidity_imbalance',
     outputs: [],
     inputs: [
-      { type: "uint256", name: "amplification" },
-      { type: "uint256", name: "new_fee" },
-      { type: "uint256", name: "new_admin_fee" },
+      { type: 'uint256[4]', name: 'amounts' },
+      { type: 'uint256', name: 'max_burn_amount' }
     ],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 145867,
+    type: 'function',
+    gas: 9326310
   },
   {
-    name: "apply_new_parameters",
+    name: 'commit_new_parameters',
+    outputs: [],
+    inputs: [
+      { type: 'uint256', name: 'amplification' },
+      { type: 'uint256', name: 'new_fee' },
+      { type: 'uint256', name: 'new_admin_fee' }
+    ],
+    constant: false,
+    payable: false,
+    type: 'function',
+    gas: 145867
+  },
+  {
+    name: 'apply_new_parameters',
     outputs: [],
     inputs: [],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 133482,
+    type: 'function',
+    gas: 133482
   },
   {
-    name: "revert_new_parameters",
+    name: 'revert_new_parameters',
     outputs: [],
     inputs: [],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 21805,
+    type: 'function',
+    gas: 21805
   },
   {
-    name: "commit_transfer_ownership",
+    name: 'commit_transfer_ownership',
     outputs: [],
-    inputs: [{ type: "address", name: "_owner" }],
+    inputs: [{ type: 'address', name: '_owner' }],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 74482,
+    type: 'function',
+    gas: 74482
   },
   {
-    name: "apply_transfer_ownership",
-    outputs: [],
-    inputs: [],
-    constant: false,
-    payable: false,
-    type: "function",
-    gas: 60538,
-  },
-  {
-    name: "revert_transfer_ownership",
+    name: 'apply_transfer_ownership',
     outputs: [],
     inputs: [],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 21895,
+    type: 'function',
+    gas: 60538
   },
   {
-    name: "withdraw_admin_fees",
+    name: 'revert_transfer_ownership',
     outputs: [],
     inputs: [],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 22667,
+    type: 'function',
+    gas: 21895
   },
   {
-    name: "kill_me",
+    name: 'withdraw_admin_fees',
     outputs: [],
     inputs: [],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 37848,
+    type: 'function',
+    gas: 22667
   },
   {
-    name: "unkill_me",
+    name: 'kill_me',
     outputs: [],
     inputs: [],
     constant: false,
     payable: false,
-    type: "function",
-    gas: 21985,
+    type: 'function',
+    gas: 37848
   },
   {
-    name: "coins",
-    outputs: [{ type: "address", name: "out" }],
-    inputs: [{ type: "int128", name: "arg0" }],
+    name: 'unkill_me',
+    outputs: [],
+    inputs: [],
+    constant: false,
+    payable: false,
+    type: 'function',
+    gas: 21985
+  },
+  {
+    name: 'coins',
+    outputs: [{ type: 'address', name: 'out' }],
+    inputs: [{ type: 'int128', name: 'arg0' }],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2160,
+    type: 'function',
+    gas: 2160
   },
   {
-    name: "underlying_coins",
-    outputs: [{ type: "address", name: "out" }],
-    inputs: [{ type: "int128", name: "arg0" }],
+    name: 'underlying_coins',
+    outputs: [{ type: 'address', name: 'out' }],
+    inputs: [{ type: 'int128', name: 'arg0' }],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2190,
+    type: 'function',
+    gas: 2190
   },
   {
-    name: "balances",
-    outputs: [{ type: "uint256", name: "out" }],
-    inputs: [{ type: "int128", name: "arg0" }],
+    name: 'balances',
+    outputs: [{ type: 'uint256', name: 'out' }],
+    inputs: [{ type: 'int128', name: 'arg0' }],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2220,
+    type: 'function',
+    gas: 2220
   },
   {
-    name: "A",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'A',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2051,
+    type: 'function',
+    gas: 2051
   },
   {
-    name: "fee",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'fee',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2081,
+    type: 'function',
+    gas: 2081
   },
   {
-    name: "admin_fee",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'admin_fee',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2111,
+    type: 'function',
+    gas: 2111
   },
   {
-    name: "owner",
-    outputs: [{ type: "address", name: "out" }],
+    name: 'owner',
+    outputs: [{ type: 'address', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2141,
+    type: 'function',
+    gas: 2141
   },
   {
-    name: "admin_actions_deadline",
-    outputs: [{ type: "uint256", unit: "sec", name: "out" }],
+    name: 'admin_actions_deadline',
+    outputs: [{ type: 'uint256', unit: 'sec', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2171,
+    type: 'function',
+    gas: 2171
   },
   {
-    name: "transfer_ownership_deadline",
-    outputs: [{ type: "uint256", unit: "sec", name: "out" }],
+    name: 'transfer_ownership_deadline',
+    outputs: [{ type: 'uint256', unit: 'sec', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2201,
+    type: 'function',
+    gas: 2201
   },
   {
-    name: "future_A",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'future_A',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2231,
+    type: 'function',
+    gas: 2231
   },
   {
-    name: "future_fee",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'future_fee',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2261,
+    type: 'function',
+    gas: 2261
   },
   {
-    name: "future_admin_fee",
-    outputs: [{ type: "uint256", name: "out" }],
+    name: 'future_admin_fee',
+    outputs: [{ type: 'uint256', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2291,
+    type: 'function',
+    gas: 2291
   },
   {
-    name: "future_owner",
-    outputs: [{ type: "address", name: "out" }],
+    name: 'future_owner',
+    outputs: [{ type: 'address', name: 'out' }],
     inputs: [],
     constant: true,
     payable: false,
-    type: "function",
-    gas: 2321,
-  },
-];
+    type: 'function',
+    gas: 2321
+  }
+]
