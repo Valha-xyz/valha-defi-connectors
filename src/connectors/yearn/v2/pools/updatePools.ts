@@ -1,15 +1,12 @@
-import { fetchVaults } from "../analytics/external/yearn.api";
-import fs from "fs";
-import { type Pool } from "../../../../utils/types/connector-types";
-import { Chain } from "../../../../utils/types/networks";
-import { getChainById } from "../../../../utils/getChainId";
-const path = require("path");
-const _ = require("lodash");
+/* eslint-disable @typescript-eslint/no-var-requires */
+import { fetchVaults } from '../analytics/external/yearn.api';
+import fs from 'fs';
+import { Pool } from '../../../../utils/types/connector-types';
+import { Chain } from '../../../../utils/types/networks';
+const path = require('path');
 
 async function generatePools(): Promise<Pool | Record<never, never>> {
   const pools = await fetchVaults();
-
-  console.log(_.uniq(pools.map((pool) => pool.chainID)));
 
   if (!pools || pools.length === 0) {
     return {};
@@ -25,7 +22,7 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
     .map((elem): Pool => {
       return {
         name: elem.name,
-        chain: getChainById(elem.chainID),
+        chain: Chain.ethereum,
         underlying_tokens: [elem.token.address],
         pool_address: elem.address,
         investing_address: elem.address,
@@ -42,7 +39,7 @@ async function generatePools(): Promise<Pool | Record<never, never>> {
 async function updatePools() {
   const pools = await generatePools();
   const strPools = JSON.stringify(pools, null, 4);
-  const relativePath = path.join(__dirname, "/generatedPools.json");
+  const relativePath = path.join(__dirname, '/generatedPools.json');
   fs.writeFileSync(relativePath, strPools);
 }
 

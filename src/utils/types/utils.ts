@@ -3,11 +3,11 @@ export interface Amount {
 }
 
 export interface AssetInfo {
-  position_token: string | string[]; // token needed to approve
-  position_token_type: "ERC-20" | "ERC-721" | "CUSTOM"; // token type to approve
+  position_token: string | string[] | null; // token needed to approve
+  position_token_type: 'ERC-20' | 'ERC-721' | 'CUSTOM' | null; // token type to approve
   // amount that will be use in the ERC20 approve tx of the position token if it is an ERC20
   // Or that will be passed as msg.value if the position_token is 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
-  amount?: string | string[];
+  amount?: string | string[] | null;
 }
 
 export interface TxInfo {

@@ -1,18 +1,18 @@
 import {
-  type Analytics,
-  type AnalyticsExport,
-} from "../../../../utils/types/connector-types";
-import pools from "../pools/pools";
-import checkAaveV3TVL from "./functions/tvl";
-import checkAaveV3Liquidity from "./functions/liquidity";
-import checkAaveV3APYs from "./functions/apys";
+  Analytics,
+  AnalyticsExport,
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-const _ = require("lodash");
+const _ = require('lodash');
+import pools from '../pools/pools';
+import checkAaveV3TVL from './functions/tvl';
+import checkAaveV3Liquidity from './functions/liquidity';
+import checkAaveV3APYs from './functions/apys';
 
 async function analytics(
   chain,
-  poolAddress
+  poolAddress,
 ): Promise<Analytics | Record<never, never>> {
   try {
     const POOLS = await pools();
@@ -55,6 +55,6 @@ async function analytics(
 
 const analyticsExport: AnalyticsExport = {
   main: analytics,
-  url: "https://app.aave.com/",
+  url: 'https://app.aave.com/',
 };
 export default analyticsExport;

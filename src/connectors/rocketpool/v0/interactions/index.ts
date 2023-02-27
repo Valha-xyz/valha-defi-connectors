@@ -7,9 +7,9 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from "../../../../utils/types/connector-types";
-const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
-const PoolABI = require("../abi/DepositPool.json");
+} from '../../../../utils/types/connector-types';
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { POOLABI } = require('../abi/DepositPool');
 
 /// invest
 async function deposit(
@@ -18,8 +18,8 @@ async function deposit(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const method_name = "deposit";
+  const abi = POOLABI;
+  const method_name = 'deposit';
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -31,20 +31,20 @@ async function deposit(
 
   return {
     txInfo: {
-      abi, // abi array
-      interaction_address, // contract to interact with to interact with poolAddress
-      method_name, // method to interact with the pool
-      args, // args to pass to the smart contracts to trigger 'method_name'
+      abi: abi, //abi array
+      interaction_address: interaction_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
-      position_token_type: "ERC-20", // token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
 }
 
-/// / NOT A REAL "REDEEM" function, it enables to get the balance that was not staked yet but send to RocketPool
+//// NOT A REAL "REDEEM" function, it enables to get the balance that was not staked yet but send to RocketPool
 // /// redeem
 // async function redeem(
 //   pool_name,
@@ -67,7 +67,7 @@ async function deposit(
 //   lockupTimestamp,
 //   deadline
 // ) {
-//   const abi = PoolABI;
+//   const abi = POOLABI;
 //   const method_name = 'withdrawExcessBalance';
 //   const position_token = pool_address;
 //   const amountBN = await toBnERC20Decimals(amountNotBN, chain, position_token);
@@ -182,10 +182,11 @@ async function deposit(
 // }
 
 const interactions: Interactions = {
-  deposit,
+  deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
   redeem: null,
+  unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,
