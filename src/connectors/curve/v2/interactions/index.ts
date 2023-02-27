@@ -6,21 +6,21 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
-const ethers = require('ethers');
-const { getNodeProvider } = require('../../../../utils/getNodeProvider');
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-import { StableABI2 } from './../abi/Stable2';
-import { StableABI3 } from './../abi/Stable3';
-import { StableABI4 } from './../abi/Stable4';
-import { GaugeABI } from '../abi/Gauge';
+} from "../../../../utils/types/connector-types";
+const ethers = require("ethers");
+const { getNodeProvider } = require("../../../../utils/getNodeProvider");
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
+import { StableABI2 } from "./../abi/Stable2";
+import { StableABI3 } from "./../abi/Stable3";
+import { StableABI4 } from "./../abi/Stable4";
+import { GaugeABI } from "../abi/Gauge";
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
@@ -31,7 +31,7 @@ async function deposit(
   } else if (size === 4) {
     abi = StableABI4;
   } else {
-    throw new Error('Error: pool size is not handle.');
+    throw new Error("Error: pool size is not handle.");
   }
   const method_name = `add_liquidity(uint256[${size}], uint256)`;
   const position_token = pool.underlying_tokens;
@@ -40,14 +40,14 @@ async function deposit(
     const amountBN = await toBnERC20Decimals(
       amount.amountsDesired[i],
       pool.chain,
-      pool.underlying_tokens[i],
+      pool.underlying_tokens[i]
     );
     amountsBN.push(amountBN);
   }
   const amountMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
-    pool.pool_address,
+    pool.pool_address
   );
   const args = [amountsBN, amountMinimum];
 
@@ -60,7 +60,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountsBN,
     },
   };
@@ -71,7 +71,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
@@ -82,7 +82,7 @@ async function redeem(
   } else if (size === 4) {
     abi = StableABI4;
   } else {
-    throw new Error('Error: pool size is not handle.');
+    throw new Error("Error: pool size is not handle.");
   }
   const method_name = `remove_liquidity(uint256, uint256[${size}])`;
   const position_token = pool.pool_address;
@@ -92,14 +92,14 @@ async function redeem(
     const amountBN = await toBnERC20Decimals(
       amount.amountsMinimum[i],
       pool.chain,
-      pool.underlying_tokens[i],
+      pool.underlying_tokens[i]
     );
     amountsBN.push(amountBN);
   }
   const amountDesired = await toBnERC20Decimals(
     amount.amountsDesired[0],
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountDesired, amountsBN];
   console.log(args);
@@ -113,7 +113,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: [position_token], // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: [amountDesired],
     },
   };
@@ -124,15 +124,15 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
-  const method_name = 'deposit(uint256,address)';
+  const method_name = "deposit(uint256,address)";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountBN, addresses.userAddress];
 
@@ -145,7 +145,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -156,15 +156,15 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
-  const method_name = 'withdraw(uint256,bool)';
+  const method_name = "withdraw(uint256,bool)";
   const position_token = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountBN, true];
 
@@ -177,7 +177,7 @@ async function unstake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -188,10 +188,10 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
-  const method_name = 'claim_rewards(address)';
+  const method_name = "claim_rewards(address)";
   const args = [addresses.userAddress];
 
   return {

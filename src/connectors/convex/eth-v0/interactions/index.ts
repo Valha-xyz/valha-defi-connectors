@@ -6,28 +6,28 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
+} from "../../../../utils/types/connector-types";
 
-import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
-import { InvestABI } from '../abi/Invest';
-import { StakeABI } from '../abi/Stake';
-import INVEST_PID from './INVESTPID';
+import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
+import { InvestABI } from "../abi/Invest";
+import { StakeABI } from "../abi/Stake";
+import INVEST_PID from "./INVESTPID";
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = InvestABI;
   const PID = INVEST_PID[pool.pool_address.toLowerCase()];
-  const method_name = 'deposit(uint256,uint256,bool)';
+  const method_name = "deposit(uint256,uint256,bool)";
   const positionToken = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken,
+    positionToken
   );
   const args = [PID, amountBN, false];
   const interaction_address = pool.investing_address;
@@ -41,7 +41,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: positionToken, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -52,16 +52,16 @@ async function depositAndStake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = InvestABI;
   const PID = INVEST_PID[pool.pool_address.toLowerCase()];
-  const method_name = 'deposit(uint256,uint256,bool)';
+  const method_name = "deposit(uint256,uint256,bool)";
   const positionToken = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken,
+    positionToken
   );
   const args = [PID, amountBN, true];
   const interaction_address = pool.investing_address;
@@ -75,7 +75,7 @@ async function depositAndStake(
     },
     assetInfo: {
       position_token: positionToken, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -86,16 +86,16 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = InvestABI;
   const PID = INVEST_PID[pool.pool_address.toLowerCase()];
-  const method_name = 'withdraw(uint256,uint256)';
+  const method_name = "withdraw(uint256,uint256)";
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken,
+    positionToken
   );
   const args = [PID, amountBN];
   const interaction_address = pool.investing_address;
@@ -109,7 +109,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: positionToken, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -119,16 +119,16 @@ async function unstakeAndRedeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = InvestABI;
   const PID = INVEST_PID[pool.pool_address.toLowerCase()];
-  const method_name = 'withdraw(uint256,uint256)';
+  const method_name = "withdraw(uint256,uint256)";
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken,
+    positionToken
   );
   const args = [PID, amountBN];
   const interaction_address = pool.investing_address;
@@ -142,7 +142,7 @@ async function unstakeAndRedeem(
     },
     assetInfo: {
       position_token: positionToken, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -153,15 +153,15 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
-  const method_name = 'stake(uint256)';
+  const method_name = "stake(uint256)";
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    positionToken,
+    positionToken
   );
   const args = [amountBN];
   const interaction_address = pool.staking_address;
@@ -175,7 +175,7 @@ async function stake(
     },
     assetInfo: {
       position_token: positionToken, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -186,14 +186,14 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
-  const method_name = 'withdraw(uint256,bool)';
+  const method_name = "withdraw(uint256,bool)";
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
-    pool.pool_address, // the staking address does not have a decimals functions /!\
+    pool.pool_address // the staking address does not have a decimals functions /!\
   );
   const args = [amountBN, true];
   const interaction_address = pool.staking_address;
@@ -207,7 +207,7 @@ async function unstake(
     },
     assetInfo: {
       position_token: null, // token needed to approve
-      position_token_type: 'CUSTOM', //token type to approve
+      position_token_type: "CUSTOM", //token type to approve
       amount: amountBN,
     },
   };
@@ -217,10 +217,10 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakeABI;
-  const method_name = 'getReward()';
+  const method_name = "getReward()";
   const args = [];
   const interaction_address = pool.staking_address;
 
@@ -234,7 +234,7 @@ async function claimRewards(
     assetInfo: {
       position_token: null, // token needed to approve
       position_token_type: null, //token type to approve
-      amount: '0',
+      amount: "0",
     },
   };
 }

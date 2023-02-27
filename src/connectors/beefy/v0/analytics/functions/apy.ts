@@ -1,4 +1,4 @@
-import { fetchAPY } from '../external/beefy.api';
+import { fetchAPY } from "../external/beefy.api";
 
 export async function checkBeefyAPY(chain, poolId) {
   try {

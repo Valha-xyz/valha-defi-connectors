@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { getNodeProvider } from '../../../../../utils/getNodeProvider';
-import { ethers } from 'ethers';
-import { ATokenABI } from '../../abi/AToken';
-import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice';
+import { getNodeProvider } from "../../../../../utils/getNodeProvider";
+import { ethers } from "ethers";
+import { ATokenABI } from "../../abi/AToken";
+import { getGeckoTokenPrice } from "../../../../../utils/prices/getGeckoTokenPrice";
 
 async function checkAaveV3Status(chain, poolAddress) {
   try {
     const provider = await getNodeProvider(chain);
-    if (!provider) throw new Error('No provider was found.');
+    if (!provider) throw new Error("No provider was found.");
     const AToken = new ethers.Contract(poolAddress, ATokenABI, provider);
     const underlyingTokenAddress = await AToken.UNDERLYING_ASSET_ADDRESS();
     const { data, err } = await getGeckoTokenPrice(
       chain,
-      underlyingTokenAddress,
+      underlyingTokenAddress
     );
     if (err) throw new Error(err.message);
     const tokenPrice = data;

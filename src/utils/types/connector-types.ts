@@ -1,5 +1,5 @@
-import { Chain } from './networks';
-import { Amount, AssetInfo, TxInfo } from './utils';
+import { Chain } from "./networks";
+import { Amount, AssetInfo, TxInfo } from "./utils";
 
 export interface Pool {
   name: string;
@@ -60,17 +60,17 @@ export interface InteractionsReturnObject {
 }
 
 export enum InteractionFunctionNames {
-  deposit = 'deposit',
-  deposit_and_stake = 'deposit_and_stake',
-  unlock = 'unlock',
-  redeem = 'redeem',
-  unstake_and_redeem = 'unstake_and_redeem',
-  stake = 'stake',
-  unstake = 'unstake',
-  boost = 'boost',
-  unboost = 'unboost',
-  claim_rewards = 'claim_rewards',
-  claim_interests = 'claim_interests',
+  deposit = "deposit",
+  deposit_and_stake = "deposit_and_stake",
+  unlock = "unlock",
+  redeem = "redeem",
+  unstake_and_redeem = "unstake_and_redeem",
+  stake = "stake",
+  unstake = "unstake",
+  boost = "boost",
+  unboost = "unboost",
+  claim_rewards = "claim_rewards",
+  claim_interests = "claim_interests",
 }
 
 export type InteractionFunction =

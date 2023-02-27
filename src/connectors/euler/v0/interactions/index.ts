@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 import {
   AdditionalOptions,
   AddressesInput,
@@ -8,12 +8,12 @@ import {
   Interactions,
   InteractionsReturnObject,
   Pool,
-} from '../../../../utils/types/connector-types';
+} from "../../../../utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { eTokenABI } from '../abi/euler_etoken';
-import { stakeABI } from '../abi/euler_staking';
+import { eTokenABI } from "../abi/euler_etoken";
+import { stakeABI } from "../abi/euler_staking";
 
 /// invest
 async function deposit(
@@ -23,7 +23,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = eTokenABI;
-  const method_name = 'deposit';
+  const method_name = "deposit";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -41,7 +41,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -55,7 +55,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = eTokenABI;
-  const method_name = 'withdraw';
+  const method_name = "withdraw";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -74,7 +74,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -88,7 +88,7 @@ async function stake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
-  const method_name = 'stake';
+  const method_name = "stake";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -107,7 +107,7 @@ async function stake(
     },
     assetInfo: {
       position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
+      position_token_type: "ERC-20", //token type to approve
       amount: amountBN,
     },
   };
@@ -121,7 +121,7 @@ async function unstake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
-  const method_name = 'withdraw';
+  const method_name = "withdraw";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -150,7 +150,7 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
-  const method_name = 'getReward';
+  const method_name = "getReward";
   const args = [];
   const interaction_address = pool.investing_address;
 
