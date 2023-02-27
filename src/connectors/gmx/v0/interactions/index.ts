@@ -15,19 +15,6 @@ const ethers = require('ethers');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
-async function getSanPoolManager(poolAddress) {
-  try {
-    const provider = await getNodeProvider('ethereum');
-    if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, SanPoolABI, provider);
-    const poolManagerAddress = await POOL.poolManager();
-    return poolManagerAddress;
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
-}
-
 /// invest
 async function deposit(
   pool: Pool,
@@ -101,82 +88,6 @@ async function redeem(
   };
 }
 
-/// stake
-async function stake(
-  pool: Pool,
-  amount: AmountInput,
-  addresses: AddressesInput,
-  options?: AdditionalOptions
-): Promise<InteractionsReturnObject> {
-  const abi = StakingABI;
-  const method_name = 'deposit';
-  const position_token = pool.pool_address;
-  let args = [];
-  let amountBN = '';
-  if (pool.staking_address) {
-    amountBN = await toBnERC20Decimals(
-      amount.amount.humanValue,
-      pool.chain,
-      position_token
-    );
-    args = [amountBN, addresses.userAddress];
-  } else {
-    args = ['0', addresses.userAddress];
-  }
-
-  return {
-    txInfo: {
-      abi: abi, //abi array
-      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
-    },
-    assetInfo: {
-      position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
-      amount: amountBN,
-    },
-  };
-}
-
-/// unstake
-async function unstake(
-  pool: Pool,
-  amount: AmountInput,
-  addresses: AddressesInput,
-  options?: AdditionalOptions
-): Promise<InteractionsReturnObject> {
-  const abi = StakingABI;
-  const method_name = 'withdraw';
-  const position_token = pool.staking_address;
-  let args = [];
-  let amountBN = '';
-  if (pool.staking_address) {
-    amountBN = await toBnERC20Decimals(
-      amount.amount.humanValue,
-      pool.chain,
-      position_token
-    );
-    args = [amountBN];
-  } else {
-    args = ['0'];
-  }
-
-  return {
-    txInfo: {
-      abi: abi, //abi array
-      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
-      method_name: method_name, //method to interact with the pool
-      args: args, //args to pass to the smart contracts to trigger 'method_name'
-    },
-    assetInfo: {
-      position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
-      amount: amountBN,
-    },
-  };
-}
-
 /// claim
 async function claimRewards(
   pool: Pool,
@@ -203,10 +114,10 @@ const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
   unlock: null,
-  redeem: redeem,
+  redeem: null,
   unstake_and_redeem: null,
-  stake: stake,
-  unstake: unstake,
+  stake: null,
+  unstake: null,
   boost: null,
   unboost: null,
   claim_rewards: claimRewards,
