@@ -1,11 +1,11 @@
-import { BigNumber, type BigNumberish } from 'ethers';
-import axios from 'axios';
-import { getChainId } from '../../../../../utils/getChainId';
-import { GetSwapCalldataFunction } from '../../../../../utils/types/liquidityProviders';
+import { BigNumber, type BigNumberish } from "ethers";
+import axios from "axios";
+import { getChainId } from "../../../../../utils/getChainId";
+import { GetSwapCalldataFunction } from "../../../../../utils/types/liquidityProviders";
 // DOC is located here : https://docs.1inch.io/docs/aggregation-protocol/api/swagger
 
 const oneInchAPI = axios.create({
-  baseURL: 'https://api.1inch.io/v5.0/',
+  baseURL: "https://api.1inch.io/v5.0/",
 });
 
 const ONE_INCH_SLIPPAGE = 10;
@@ -15,12 +15,12 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
-  swapperAddress: string,
+  swapperAddress: string
 ) => {
   const chainId = getChainId(chain);
   if (!chainId) {
     throw new Error(
-      `Swap not supported for this protocol yet, protocol was: ${chain}`,
+      `Swap not supported for this protocol yet, protocol was: ${chain}`
     );
   }
 
@@ -43,7 +43,7 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
 
   if (!swapData?.data) {
     throw new Error(
-      'There was an error while trying to generate the swap tx data for 1inch.',
+      "There was an error while trying to generate the swap tx data for 1inch."
     );
   }
   return {

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-  type AdditionalOptions,
-  type AddressesInput,
-  type AmountInput,
-  type Interactions,
-  type InteractionsReturnObject,
-  type Pool,
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  Interactions,
+  InteractionsReturnObject,
+  Pool,
 } from "../../../../utils/types/connector-types";
 const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 const PoolABI = require("../abi/DepositPool.json");

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 import {
   type AdditionalOptions,
   type AddressesInput,
@@ -70,7 +70,11 @@ async function redeem(
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
     },
-    assetInfo: null,
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: "ERC-20", //token type to approve
+      amount: amountBN,
+    },
   };
 }
 

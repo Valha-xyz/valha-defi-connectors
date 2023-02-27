@@ -9,7 +9,7 @@ export async function checkBeefyVaultPrice(chain, poolInfo) {
     let allPrices;
     if (poolInfo.oracle == "lps") {
       allPrices = await fetchLps();
-    } else if (poolInfo.oracle == "lps") {
+    } else if (poolInfo.oracle == "tokens") {
       allPrices = await fetchTokenPrices();
     } else {
       allPrices = [];

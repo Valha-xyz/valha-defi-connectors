@@ -43,7 +43,7 @@ export type GetSwapCalldataFunction = (
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
-  swapperAddress: string,
+  swapperAddress: string
 ) => Promise<{
   calldata: string;
 }>;

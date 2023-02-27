@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+
+const _ = require("lodash");
+
 import { fetchVaults, getVaultExtendedApiAddr } from "./external/yearn.api";
 import { checkYearnLiquidity } from "./functions/liquidity";
 import { checkYearnMaxDeposit } from "./functions/maxDeposit";
 import { checkYearnOutstandingLoans } from "./functions/outloans";
 import { checkYearnSharePrice } from "./functions/sharePrice";
 
-const _ = require("lodash");
-
 async function analytics(chain, poolAddress) {
   const allPoolInfo = await fetchVaults();
 
   // We get the current pool inside this big array
   const currentPoolInfo = allPoolInfo.find(
-    (pool) => pool.address == poolAddress
+    (pool) => pool.address.toLowerCase() == poolAddress.toLowerCase()
   );
 
   const tvl = currentPoolInfo?.tvl?.tvl;

@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-
-import { toBnERC20Decimals } from "../../../../utils/toBNTokenDecimals";
+const { toBnERC20Decimals } = require("../../../../utils/toBNTokenDecimals");
 import {
-  type AdditionalOptions,
-  type AddressesInput,
-  type AmountInput,
-  type Interactions,
-  type InteractionsReturnObject,
-  type Pool,
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  Interactions,
+  InteractionsReturnObject,
+  Pool,
 } from "../../../../utils/types/connector-types";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -22,7 +21,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultAbi;
-  const method_name = "deposit";
+  const method_name = "deposit(uint256)";
   const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -54,7 +53,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultAbi;
-  const method_name = "withdraw";
+  const method_name = "withdraw(uint256)";
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -70,7 +69,11 @@ async function redeem(
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
     },
-    assetInfo: null,
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: "ERC-20", //token type to approve
+      amount: amountBN,
+    },
   };
 }
 
