@@ -25,7 +25,7 @@ async function deposit(
     pool.chain,
     position_token
   );
-  const args = [position_token, amountBN, '0'];
+  const args = [position_token, amountBN, '0', '0'];
 
   return {
     txInfo: {
