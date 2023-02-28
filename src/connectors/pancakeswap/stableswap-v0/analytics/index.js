@@ -15,6 +15,7 @@ async function loadExternal() {
 
 async function analytics(chain, poolAddress) {
   const externalInformation = await loadExternal();
+  console.log(externalInformation);
   if (!externalInformation) return {};
   const externalInfo = _.find(externalInformation, (elem) => {
     return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
@@ -49,3 +50,5 @@ module.exports = {
   main: analytics,
   url: external.url,
 };
+
+analytics('bsc', '0xee1bcc9F1692E81A281b3a302a4b67890BA4be76');
