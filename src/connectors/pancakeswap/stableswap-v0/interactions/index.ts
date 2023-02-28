@@ -10,10 +10,7 @@ import {
 const ethers = require('ethers');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
-import { StableABI2 } from '../abi/Stable2';
-import { StableABI3 } from '../abi/Stable3';
-import { StableABI4 } from '../abi/Stable4';
-import { GaugeABI } from '../abi/Gauge';
+import { SwapABI } from '../abi/Swap';
 
 /// invest
 async function deposit(
@@ -25,11 +22,7 @@ async function deposit(
   const size = pool.underlying_tokens.length;
   let abi: any;
   if (size === 2) {
-    abi = StableABI2;
-  } else if (size === 3) {
-    abi = StableABI3;
-  } else if (size === 4) {
-    abi = StableABI4;
+    abi = SwapABI;
   } else {
     throw new Error('Error: pool size is not handle.');
   }
@@ -76,11 +69,7 @@ async function redeem(
   const size = pool.underlying_tokens.length;
   let abi: any;
   if (size === 2) {
-    abi = StableABI2;
-  } else if (size === 3) {
-    abi = StableABI3;
-  } else if (size === 4) {
-    abi = StableABI4;
+    abi = SwapABI;
   } else {
     throw new Error('Error: pool size is not handle.');
   }
