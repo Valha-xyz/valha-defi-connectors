@@ -11,6 +11,7 @@ const ethers = require('ethers');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 import { SwapABI } from '../abi/Swap';
+import { MasterABI } from '../abi/Master';
 
 /// invest
 async function deposit(
@@ -115,7 +116,8 @@ async function stake(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = GaugeABI;
+  const poolId = CAKE_PID[pool.pool_address.toLowerCase()];
+  const abi = MasterABI;
   const method_name = 'deposit';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
@@ -123,7 +125,7 @@ async function stake(
     pool.chain,
     position_token
   );
-  const args = [amountBN, addresses.userAddress];
+  const args = [poolId, amountBN];
 
   return {
     txInfo: {
@@ -147,15 +149,16 @@ async function unstake(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = GaugeABI;
+  const poolId = CAKE_PID[pool.chain];
+  const abi = MasterABI;
   const method_name = 'withdraw';
-  const position_token = pool.staking_address;
+  const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
     pool.chain,
     position_token
   );
-  const args = [amountBN, true];
+  const args = [poolId, amountBN];
 
   return {
     txInfo: {
@@ -164,11 +167,7 @@ async function unstake(
       method_name: method_name, //method to interact with the pool
       args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
-    assetInfo: {
-      position_token: position_token, // token needed to approve
-      position_token_type: 'ERC-20', //token type to approve
-      amount: amountBN,
-    },
+    assetInfo: null,
   };
 }
 
@@ -179,9 +178,10 @@ async function claimRewards(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = GaugeABI;
-  const method_name = 'settlePendingCake';
-  const args = [addresses.userAddress];
+  const poolId = CAKE_PID[pool.chain];
+  const abi = MasterABI;
+  const method_name = 'deposit';
+  const args = [poolId, '0'];
 
   return {
     txInfo: {
