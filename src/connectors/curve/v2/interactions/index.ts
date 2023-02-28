@@ -56,7 +56,9 @@ async function deposit (
       abi, // abi array
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: Array.from({ length: size }, () => 0),
+      hasAmountsArray: true
     },
     assetInfo: {
       position_token, // token needed to approve
@@ -109,7 +111,9 @@ async function redeem (
       abi, // abi array
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: Array.from({ length: size }, () => 1),
+      hasAmountsArray: true
     },
     assetInfo: {
       position_token: [position_token], // token needed to approve
@@ -141,7 +145,8 @@ async function stake (
       abi, // abi array
       interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: {
       position_token, // token needed to approve
@@ -173,7 +178,8 @@ async function unstake (
       abi, // abi array
       interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: {
       position_token, // token needed to approve

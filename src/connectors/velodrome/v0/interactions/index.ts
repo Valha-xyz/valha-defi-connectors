@@ -27,7 +27,7 @@ async function deposit (
   const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase())
   const interaction_address = pool.investing_address
   let method_name = ''
-  let args = []
+  let args: string[] = []
   const amountADesired = await toBnERC20Decimals(
     amount.amountsDesired[0],
     pool.chain,
@@ -102,7 +102,8 @@ async function deposit (
       abi, // abi array
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [3, 4]
     },
     assetInfo: {
       position_token: pool.underlying_tokens, // token needed to approve
@@ -156,7 +157,8 @@ async function redeem (
       abi, // abi array
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [3]
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
@@ -213,7 +215,8 @@ async function stake (
       abi, // abi array
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
@@ -246,7 +249,8 @@ async function unstake (
       abi, // abi array
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args // args to pass to the smart contracts to trigger 'method_name'
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: null
   }

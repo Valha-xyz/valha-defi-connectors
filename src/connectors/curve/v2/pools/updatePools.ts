@@ -18,7 +18,9 @@ async function getDataChain (chain: string): Promise<Pool[] | null> {
   for (const type of types) {
     const URL = `https://api.curve.fi/api/getPools/${chain}/${type}`
     const res = await axios.get(URL)
-    if (!res.data.success) { throw new Error('Error while getting data from Curve API') }
+    if (!res.data.success) {
+      throw new Error('Error while getting data from Curve API')
+    }
     const info = res.data.data.poolData
     result = [...result, ...info]
   }
