@@ -56,9 +56,7 @@ async function analytics(chain, poolAddress) {
   return result;
 }
 
-analytics('arbitrum', '0x1addd80e6039594ee970e5872d247bf0414c8903');
-
-// module.exports = {
-//   main: analytics,
-//   url: external.url,
-// };
+module.exports = {
+  main: analytics,
+  url: external.url,
+};

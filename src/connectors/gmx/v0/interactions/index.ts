@@ -25,7 +25,12 @@ async function deposit(
   const ShareInfo = await checkGMXV0Share(pool.chain, pool.pool_address);
   if (ShareInfo.err) throw new Error(ShareInfo.err);
   const SharePrice = ShareInfo.data;
-  const minAmountGLP = SharePrice * parseFloat(amount.amount) * 0.997;
+  if (SharePrice === 0) {
+    throw new Error(
+      'Error: wrong share price to get the minimum amount of GLP to mint.'
+    );
+  }
+  const minAmountGLP = (1 / SharePrice) * parseFloat(amount.amount) * 0.997;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
