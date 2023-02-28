@@ -15,7 +15,7 @@ async function loadExternal() {
 
 async function analytics(chain, poolAddress) {
   const externalInformation = await loadExternal();
-  console.log(externalInformation);
+  console.log(externalInformation.length);
   if (!externalInformation) return {};
   const externalInfo = _.find(externalInformation, (elem) => {
     return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
