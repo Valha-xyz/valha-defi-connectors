@@ -1,18 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
-const { ManagerABI } = require('../../abi/Manager');
+const { GLPABI } = require('../../abi/GLP');
+const checkGMXV0TVL = require('./tvl');
 
 async function checkGMXV0Share(chain, poolAddress) {
   try {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, ManagerABI, provider);
-    const SUPPLY = '';
-    const TVLBN = await POOL.getAumInUsdg(false);
-    const SupplyBN = await SUPPLY.totalSupply();
-    const sharePrice =
-      TVLBN.toString() / 10 ** 18 / (SupplyBN.toString() / 10 ** 18);
+    const TVLInfo = await checkGMXV0TVL(chain, poolAddress);
+    if (TVLInfo.err) throw new Error(TVLInfo.err);
+    const TVL = TVLInfo.data;
+    const GLP_DECIMALS = 18;
+    const GLP = new ethers.Contract(poolAddress, GLPABI, provider);
+    const SupplyBN = GLP.totalSupply();
+    const sharePrice = TVL / (SupplyBN.toString() / 10 ** GLP_DECIMALS);
     return { data: sharePrice, err: null };
   } catch (err) {
     console.log(err);
