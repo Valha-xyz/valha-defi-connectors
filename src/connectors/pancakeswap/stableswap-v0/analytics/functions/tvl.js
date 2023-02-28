@@ -2,9 +2,10 @@
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 const ethers = require('ethers');
-const { PoolTokenABI } = require('../../abi/SanToken');
 const { SwapABI } = require('../../abi/Swap');
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
+const {
+  getGeckoTokenPrice,
+} = require('../../../../../utils/prices/getGeckoTokenPrice');
 
 async function getPancakeTVL(
   chain,
@@ -30,8 +31,8 @@ async function getPancakeTVL(
     if (priceAInfo.err) throw new Error(priceAInfo.err);
     const priceBInfo = await getGeckoTokenPrice('bsc', tokenBAddress);
     if (priceBInfo.err) throw new Error(priceBInfo.err);
-    const balanceA = reserveA * priceAInfo;
-    const balanceB = reserveB * priceBInfo;
+    const balanceA = reserveA * priceAInfo.data;
+    const balanceB = reserveB * priceBInfo.data;
     // Sum and return USD
     const TVL = balanceA + balanceB;
     return { data: TVL, err: null };

@@ -1,4 +1,4 @@
-const CAKE_PID = {
+export const CAKE_PID = {
   '0xa104dafde23cb7d40e5af89ef39b74713e2d566c': 0,
   '0x886566e408efbd557b031ef6733e8265a848279c': 1,
   '0x0ed7e52944161450477ee417de9cd3a859b14fd0': 2,

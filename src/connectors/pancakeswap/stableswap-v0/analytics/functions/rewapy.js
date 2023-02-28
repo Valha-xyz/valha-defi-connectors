@@ -2,7 +2,10 @@
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const { MasterABI } = require('../../abi/Master');
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
+const {
+  getGeckoTokenPrice,
+} = require('../../../../../utils/prices/getGeckoTokenPrice');
+const { CAKE_PID } = require('../../pools/CAKEPID');
 
 const CAKE = '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82';
 
@@ -10,7 +13,7 @@ async function getPancakeRewardAPY(chain, poolAddress, stakingAddress, TVL) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const PID = CAKE_PID[poolAddress];
+    const PID = CAKE_PID[poolAddress.toLowerCase()];
     if (!PID) throw new Error('Pool not found.');
     const MASTER = new ethers.Contract(stakingAddress, MasterABI, provider);
     // Get CakePrice
@@ -20,8 +23,8 @@ async function getPancakeRewardAPY(chain, poolAddress, stakingAddress, TVL) {
     // GET POOL INFO
     const poolInfo = await MASTER.poolInfo(PID);
     // Calculate cakePerYear and poolWeight
-    const cakePerBlock = await cakePerBlock(poolInfo.isRegular);
-    const cakePerYear = (60 / 3) * 60 * 24 * 365 * cakePerBlock;
+    const cakePerBlock = await MASTER.cakePerBlock(poolInfo.isRegular);
+    const cakePerYear = (60 / 3) * 60 * 24 * 365 * (cakePerBlock / 10 ** 18);
     let totalAllocPoint = 0;
     if (poolInfo.isRegular) {
       totalAllocPoint = await MASTER.totalRegularAllocPoint();

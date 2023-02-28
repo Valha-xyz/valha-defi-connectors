@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
-const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 const ethers = require('ethers');
-const { PoolTokenABI } = require('../../abi/SanToken');
 const { LpABI } = require('../../abi/LP');
-const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 
 async function getPancakeShareprice(chain, poolAddress, TVL) {
   try {

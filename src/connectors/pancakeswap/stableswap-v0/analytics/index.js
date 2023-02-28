@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const external = require('./external/DefiLlama/index');
 const pools = require('../pools/pools');
 const getPancakeTVL = require('./functions/tvl');
 const getPancakeShareprice = require('./functions/shareprice');
@@ -55,12 +54,15 @@ async function analytics(chain, poolAddress) {
     minimum_deposit: null,
     maximum_deposit: null,
   };
+
+  console.log(result);
+
   return result;
 }
 
 module.exports = {
   main: analytics,
-  url: external.url,
+  url: 'https://pancakeswap.finance/farms',
 };
 
 analytics('bsc', '0xee1bcc9F1692E81A281b3a302a4b67890BA4be76');

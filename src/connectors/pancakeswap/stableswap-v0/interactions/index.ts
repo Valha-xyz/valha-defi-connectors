@@ -12,6 +12,7 @@ const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 import { SwapABI } from '../abi/Swap';
 import { MasterABI } from '../abi/Master';
+import { CAKE_PID } from '../pools/CAKEPID';
 
 /// invest
 async function deposit(
