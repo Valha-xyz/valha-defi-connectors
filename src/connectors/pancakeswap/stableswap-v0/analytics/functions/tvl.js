@@ -6,7 +6,7 @@ const { PoolTokenABI } = require('../../abi/SanToken');
 const { SwapABI } = require('../../abi/Swap');
 const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 
-async function checkPancakeTVL(
+async function getPancakeTVL(
   chain,
   investing_address,
   tokenAAddress,
@@ -30,10 +30,10 @@ async function checkPancakeTVL(
     if (priceAInfo.err) throw new Error(priceAInfo.err);
     const priceBInfo = await getGeckoTokenPrice('bsc', tokenBAddress);
     if (priceBInfo.err) throw new Error(priceBInfo.err);
-    const balance0 = reserveA * priceAInfo;
-    const balance1 = reserveB * priceBInfo;
+    const balanceA = reserveA * priceAInfo;
+    const balanceB = reserveB * priceBInfo;
     // Sum and return USD
-    const TVL = balance0 + balance1;
+    const TVL = balanceA + balanceB;
     return { data: TVL, err: null };
   } catch (err) {
     console.log(err);
