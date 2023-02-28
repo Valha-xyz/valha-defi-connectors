@@ -18,4 +18,4 @@ async function getInstadappv2SharePrice(chain, poolAddress) {
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = getInstadappv2SharePrice;

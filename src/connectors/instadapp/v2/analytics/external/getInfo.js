@@ -27,7 +27,7 @@ async function getInstadappInfo(chain, poolAddress) {
     const Liquidity = liquidityETH * ETHPrice.data;
     return {
       data: {
-        activity_apy: info['apy']['apyWithoutFee'],
+        activity_apy: parseFloat(info['apy']['apyWithoutFee']),
         tvl: TVL,
         liquidity: Liquidity,
       },
