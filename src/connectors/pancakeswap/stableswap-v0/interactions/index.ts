@@ -33,7 +33,7 @@ async function deposit(
   } else {
     throw new Error('Error: pool size is not handle.');
   }
-  const method_name = `add_liquidity(uint256[${size}], uint256)`;
+  const method_name = `add_liquidity`;
   const position_token = pool.underlying_tokens;
   const amountsBN = [];
   for (const i in pool.underlying_tokens) {
@@ -84,7 +84,7 @@ async function redeem(
   } else {
     throw new Error('Error: pool size is not handle.');
   }
-  const method_name = `remove_liquidity(uint256, uint256[${size}])`;
+  const method_name = `remove_liquidity`;
   const position_token = pool.pool_address;
   const amountsBN = [];
   for (const i in pool.underlying_tokens) {
@@ -127,7 +127,7 @@ async function stake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
-  const method_name = 'deposit(uint256,address)';
+  const method_name = 'deposit';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -159,7 +159,7 @@ async function unstake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
-  const method_name = 'withdraw(uint256,bool)';
+  const method_name = 'withdraw';
   const position_token = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount.humanValue,
@@ -191,7 +191,7 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI;
-  const method_name = 'claim_rewards(address)';
+  const method_name = 'settlePendingCake';
   const args = [addresses.userAddress];
 
   return {
@@ -208,10 +208,8 @@ async function claimRewards(
 const interactions: Interactions = {
   deposit: deposit,
   deposit_and_stake: null,
-  deposit_all: null,
   unlock: null,
   redeem: redeem,
-  redeem_all: null,
   unstake_and_redeem: null,
   stake: stake,
   unstake: unstake,
