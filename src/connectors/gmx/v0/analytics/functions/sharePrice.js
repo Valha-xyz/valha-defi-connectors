@@ -13,8 +13,9 @@ async function checkGMXV0Share(chain, poolAddress) {
     const TVL = TVLInfo.data;
     const GLP_DECIMALS = 18;
     const GLP = new ethers.Contract(poolAddress, GLPABI, provider);
-    const SupplyBN = GLP.totalSupply();
-    const sharePrice = TVL / (SupplyBN.toString() / 10 ** GLP_DECIMALS);
+    const SupplyBN = await GLP.totalSupply();
+    const Supply = SupplyBN.toString() / 10 ** GLP_DECIMALS;
+    const sharePrice = parseFloat(TVL) / parseFloat(Supply);
     return { data: sharePrice, err: null };
   } catch (err) {
     console.log(err);
