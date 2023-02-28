@@ -41,4 +41,4 @@ async function getPancakeTVL(
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = getPancakeTVL;

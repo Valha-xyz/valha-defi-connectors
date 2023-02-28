@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const axios = require('axios');
 
-async function checkAngleV1APYTVL(chain, poolAddress) {
+async function getPancakeActAPY(chain, poolAddress) {
   try {
     const { data } = await axios.get(
       'https://raw.githubusercontent.com/pancakeswap/pancake-frontend/develop/apps/web/src/config/constants/lpAprs/56.json'
@@ -20,4 +20,4 @@ async function checkAngleV1APYTVL(chain, poolAddress) {
   }
 }
 
-module.exports = checkAngleV1APYTVL;
+module.exports = getPancakeActAPY;

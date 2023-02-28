@@ -6,7 +6,7 @@ const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 
 const CAKE = '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82';
 
-async function checkPancakeRewardAPY(chain, poolAddress, stakingAddress, TVL) {
+async function getPancakeRewardAPY(chain, poolAddress, stakingAddress, TVL) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
@@ -38,4 +38,4 @@ async function checkPancakeRewardAPY(chain, poolAddress, stakingAddress, TVL) {
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = getPancakeRewardAPY;

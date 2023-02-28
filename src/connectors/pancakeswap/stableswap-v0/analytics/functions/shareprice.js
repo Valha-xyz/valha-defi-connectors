@@ -24,4 +24,4 @@ async function getPancakeShareprice(chain, poolAddress, TVL) {
   }
 }
 
-module.exports = checkAngleV1Share;
+module.exports = getPancakeShareprice;
