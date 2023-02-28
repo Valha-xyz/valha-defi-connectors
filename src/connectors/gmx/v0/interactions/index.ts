@@ -7,6 +7,8 @@ import {
   InteractionsReturnObject,
   Pool,
 } from '../../../../utils/types/connector-types';
+import { RouterABI } from '../abi/Router';
+import checkGMXV0Share from '../analytics/functions/sharePrice';
 const ethers = require('ethers');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
@@ -17,15 +19,24 @@ async function deposit(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = StableABI;
+  const abi = RouterABI;
   const method_name = 'mintAndStakeGlp';
   const position_token = pool.underlying_tokens[0];
+  const ShareInfo = await checkGMXV0Share(pool.chain, pool.pool_address);
+  if (ShareInfo.err) throw new Error(ShareInfo.err);
+  const SharePrice = ShareInfo.data;
+  const minAmountGLP = SharePrice * parseFloat(amount.amount) * 0.997;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     position_token
   );
-  const args = [position_token, amountBN, '0', '0'];
+  const minAmountBN = await toBnERC20Decimals(
+    String(minAmountGLP),
+    pool.chain,
+    position_token
+  );
+  const args = [position_token, amountBN, '0', minAmountBN];
 
   return {
     txInfo: {
@@ -49,7 +60,7 @@ async function redeem(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = StableABI;
+  const abi = RouterABI;
   const method_name = 'unstakeAndRedeemGlp';
   const position_token = pool.pool_address;
   const underlying = pool.underlying_tokens[0];
@@ -87,7 +98,7 @@ async function claimRewards(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = StakingABI;
+  const abi = RouterABI;
   const interaction_address = pool.investing_address;
   const method_name = 'claim';
   const args = [];
