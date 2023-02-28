@@ -8,14 +8,14 @@ const { getGeckoTokenPrice } = require('src/utils/prices/getGeckoTokenPrice');
 
 async function getPancakeTVL(
   chain,
-  investing_address,
+  investingAddress,
   tokenAAddress,
   tokenBAddress
 ) {
   try {
     const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, SwapABI, provider);
+    const POOL = new ethers.Contract(investingAddress, SwapABI, provider);
     // Get Reserve in Token A and B with the right number of decimals
     const reserveABN = await POOL.balances(0);
     const reserveBBN = await POOL.balances(1);
