@@ -1,6 +1,6 @@
 const POOLS = [
   {
-    name: 'GMX Earn',
+    name: 'GLP Pool',
     chain: 'arbitrum',
     underlying_tokens: ['0xff970a61a04b1ca14834a43f5de4533ebddb5cc8'],
     pool_address: '0x1addd80e6039594ee970e5872d247bf0414c8903',
