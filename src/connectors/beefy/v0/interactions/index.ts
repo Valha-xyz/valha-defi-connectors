@@ -1,14 +1,17 @@
+import { getNodeProvider } from '../../../../utils/getNodeProvider';
+import { erc20BalanceOf } from 'src/helpers/contracts/ERC20BalanceOf';
+import { erc20BalanceOfBN } from '../../../../../helpers/contracts/ERC20BalanceOfBN';
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import {
-  type AdditionalOptions,
-  type AddressesInput,
-  type AmountInput,
-  type Interactions,
-  type InteractionsReturnObject,
-  type Pool,
-} from '../../../../utils/types/connector-types';
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  Interactions,
+  InteractionsReturnObject,
+  Pool,
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { VaultABI } = require('../abi/beefy_vault');
@@ -18,7 +21,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
   const method_name = 'deposit';
@@ -26,21 +29,49 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
   return {
     txInfo: {
-      abi, // abi array
+      abi: abi, //abi array
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
-      method_name, // method to interact with the pool
-      args, // args to pass to the smart contracts to trigger 'method_name'
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
-      position_token, // token needed to approve
-      position_token_type: 'ERC-20', // token type to approve
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
+    },
+  };
+}
+
+async function depositAll(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions,
+): Promise<InteractionsReturnObject> {
+  const abi = VaultABI;
+  const method_name = 'depositAll';
+  const position_token = pool.underlying_tokens[0];
+  const provider = await getNodeProvider(pool.chain);
+  const args = [];
+  const amountToApprove = '1000000000000000000000000000';
+
+  return {
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
+      amount: amountToApprove, //userBalance.toString(),
     },
   };
 }
@@ -50,7 +81,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
   const method_name = 'withdraw';
@@ -58,35 +89,63 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN];
 
   return {
     txInfo: {
-      abi, // abi array
+      abi: abi, //abi array
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
-      method_name, // method to interact with the pool
-      args, // args to pass to the smart contracts to trigger 'method_name'
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
-      position_token, // token needed to approve
-      position_token_type: 'ERC-20', // token type to approve
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
 }
 
+async function redeemAll(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions,
+): Promise<InteractionsReturnObject> {
+  const abi = VaultABI;
+  const method_name = 'withdrawAll';
+  const position_token = pool.pool_address;
+  const provider = await getNodeProvider(pool.chain);
+  const amountToApprove = '1000000000000000000000000000';
+  const args = [];
+
+  return {
+    txInfo: {
+      abi: abi, //abi array
+      interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
+      method_name: method_name, //method to interact with the pool
+      args: args, //args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: position_token, // token needed to approve
+      position_token_type: 'ERC-20', //token type to approve
+      amount: amountToApprove,
+    },
+  };
+}
+
 const interactions: Interactions = {
-  deposit,
-  deposit_all: null,
+  deposit: deposit,
+  deposit_all: depositAll,
   deposit_and_stake: null,
   unlock: null,
-  redeem,
-  redeem_all: null,
-  unstake_and_redeem: null,
+  redeem: redeem,
+  redeem_all: redeemAll,
   stake: null,
   unstake: null,
+  unstake_and_redeem: null,
   boost: null,
   unboost: null,
   claim_rewards: null,

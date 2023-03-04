@@ -8,16 +8,19 @@ import {
   Pool,
 } from '../../../../utils/types/connector-types';
 import { RouterABI } from '../abi/Router';
+import { GLPABI } from '../abi/GLP';
 import checkGMXV0Share from '../analytics/functions/sharePrice';
 const ethers = require('ethers');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+
+const GLP_MANAGER = '0x3963FfC9dff443c2A94f21b129D429891E32ec18';
 
 /// invest
 async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RouterABI;
   const method_name = 'mintAndStakeGlp';
@@ -25,21 +28,21 @@ async function deposit(
   const ShareInfo = await checkGMXV0Share(pool.chain, pool.pool_address);
   if (ShareInfo.err) throw new Error(ShareInfo.err);
   const SharePrice = ShareInfo.data;
-  if (SharePrice === 0) {
+  if (SharePrice === 0 || !SharePrice) {
     throw new Error(
-      'Error: wrong share price to get the minimum amount of GLP to mint.'
+      'Error: wrong share price to get the minimum amount of GLP to mint.',
     );
   }
   const minAmountGLP = (1 / SharePrice) * parseFloat(amount.amount) * 0.997;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const minAmountBN = await toBnERC20Decimals(
     String(minAmountGLP),
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [position_token, amountBN, '0', minAmountBN];
 
@@ -54,6 +57,7 @@ async function deposit(
       position_token: position_token, // token needed to approve
       position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
+      approval_address: GLP_MANAGER,
     },
   };
 }
@@ -63,7 +67,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RouterABI;
   const method_name = 'unstakeAndRedeemGlp';
@@ -72,14 +76,31 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
-  const minAmountOut = await toBnERC20Decimals(
-    amount.amountsMinimum[0],
+
+  const ShareInfo = await checkGMXV0Share(pool.chain, pool.pool_address);
+  if (ShareInfo.err) throw new Error(ShareInfo.err);
+  const SharePrice = ShareInfo.data;
+  if (SharePrice === 0 || !SharePrice) {
+    throw new Error(
+      'Error: wrong share price to get the minimum amount of GLP to mint.',
+    );
+  }
+  const minAmountOut = SharePrice * parseFloat(amount.amount) * 0.995;
+  const tokenToReceive = pool.underlying_tokens[0];
+  const minAmountOutBN = await toBnERC20Decimals(
+    minAmountOut,
     pool.chain,
-    position_token
+    tokenToReceive,
   );
-  const args = [underlying, amountBN, minAmountOut, addresses.receiverAddress];
+
+  const args = [
+    underlying,
+    amountBN,
+    minAmountOutBN,
+    addresses.receiverAddress,
+  ];
 
   return {
     txInfo: {
@@ -92,6 +113,7 @@ async function redeem(
       position_token: position_token, // token needed to approve
       position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
+      approval_address: GLP_MANAGER,
     },
   };
 }
@@ -101,12 +123,12 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const abi = RouterABI;
-  const interaction_address = pool.investing_address;
+  const abi = GLPABI;
+  const interaction_address = pool.pool_address;
   const method_name = 'claim';
-  const args = [];
+  const args = [addresses.receiverAddress];
 
   return {
     txInfo: {

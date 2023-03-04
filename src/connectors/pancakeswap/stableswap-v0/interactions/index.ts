@@ -19,7 +19,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
@@ -35,14 +35,14 @@ async function deposit(
     const amountBN = await toBnERC20Decimals(
       amount.amountsDesired[i],
       pool.chain,
-      pool.underlying_tokens[i]
+      pool.underlying_tokens[i],
     );
     amountsBN.push(amountBN);
   }
   const amountMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const args = [amountsBN, amountMinimum];
 
@@ -66,7 +66,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
@@ -83,15 +83,17 @@ async function redeem(
     const amountBN = await toBnERC20Decimals(
       amount.amountsMinimum[i],
       pool.chain,
-      pool.underlying_tokens[i]
+      pool.underlying_tokens[i],
     );
     amountsBN.push(amountBN);
   }
+  console.log(amount.amount);
   const amountDesired = await toBnERC20Decimals(
-    amount.amountsDesired[0],
+    amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
+  console.log(amountDesired);
   const args = [amountDesired, amountsBN];
   console.log(args);
 
@@ -115,16 +117,16 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const poolId = CAKE_PID[pool.pool_address.toLowerCase()];
   const abi = MasterABI;
   const method_name = 'deposit';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [poolId, amountBN];
 
@@ -148,16 +150,16 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const poolId = CAKE_PID[pool.chain];
+  const poolId = CAKE_PID[pool.pool_address.toLowerCase()];
   const abi = MasterABI;
   const method_name = 'withdraw';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [poolId, amountBN];
 
@@ -177,11 +179,11 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const poolId = CAKE_PID[pool.chain];
+  const poolId = CAKE_PID[pool.pool_address.toLowerCase()];
   const abi = MasterABI;
-  const method_name = 'deposit';
+  const method_name = 'withdraw';
   const args = [poolId, '0'];
 
   return {

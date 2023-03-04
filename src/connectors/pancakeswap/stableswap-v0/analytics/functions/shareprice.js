@@ -5,7 +5,7 @@ const { LpABI } = require('../../abi/LP');
 
 async function getPancakeShareprice(chain, poolAddress, TVL) {
   try {
-    const provider = getNodeProvider(chain);
+    const provider = await getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     // Get Total Supply
     const LP = new ethers.Contract(poolAddress, LpABI, provider);
