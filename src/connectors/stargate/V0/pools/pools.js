@@ -9,7 +9,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'USDC Bridge',
@@ -21,7 +21,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'USDC Bridge',
@@ -33,7 +33,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'DAI Bridge',
@@ -45,7 +45,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'FRAX Bridge',
@@ -57,7 +57,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'sUSD Bridge',
@@ -69,7 +69,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'LUSD Bridge',
@@ -81,7 +81,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'MAI Bridge',
@@ -93,7 +93,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   // {
   //   name: 'USDC Bridge',
@@ -117,20 +117,20 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
-  // {
-  //   name: 'USDT Bridge',
-  //   chain: 'polygon',
-  //   underlying_tokens: ['0xc2132d05d31c914a87c6611c10748aeb04b58e8f'],
-  //   pool_address: '0x29e38769f23701a2e4a8ef0492e19da4604be62c',
-  //   investing_address: '0x45a01e4e04f14f7a4a6702c74187c5f6222033cd',
-  //   staking_address: '0x8731d54e9d02c286767d56ac03e8037c07e01e98',
-  //   boosting_address: null,
-  //   distributor_address: null,
-  //   rewards_tokens: null,
-  //   metadata: {},
-  // },
+  {
+    name: 'USDT Bridge',
+    chain: 'polygon',
+    underlying_tokens: ['0xc2132d05d31c914a87c6611c10748aeb04b58e8f'],
+    pool_address: '0x29e38769f23701a2e4a8ef0492e19da4604be62c',
+    investing_address: '0x45a01e4e04f14f7a4a6702c74187c5f6222033cd',
+    staking_address: '0x8731d54e9d02c286767d56ac03e8037c07e01e98',
+    boosting_address: null,
+    distributor_address: null,
+    rewards_tokens: null,
+    metadata: {},
+  },
   // {
   //   name: 'USDC Bridge',
   //   chain: 'avalanche',
@@ -165,7 +165,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'USDT Bridge',
@@ -177,7 +177,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'BUSD Bridge',
@@ -189,7 +189,7 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
+    metadata: {},
   },
   {
     name: 'USDT Bridge',
@@ -201,13 +201,13 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: null,
-    metadata: {}
-  }
-]
+    metadata: {},
+  },
+];
 
 /// pools
-async function pools () {
-  return POOLS
+async function pools() {
+  return POOLS;
 }
 
-module.exports = pools
+module.exports = pools;
