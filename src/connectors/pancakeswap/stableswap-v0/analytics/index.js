@@ -8,7 +8,6 @@ const getPancakeRewardAPY = require('./functions/rewapy');
 
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
-  console.log(POOLS);
   if (!POOLS || POOLS.length === 0) return {};
   const poolInfo = _.find(POOLS, (elem) => {
     return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
@@ -20,7 +19,7 @@ async function analytics(chain, poolAddress) {
     chain,
     investingAddress,
     poolInfo.underlying_tokens[0],
-    poolInfo.underlying_tokens[1],
+    poolInfo.underlying_tokens[1]
   );
   if (TVLInfo.err) throw new Error(TVLInfo.err);
   const TVL = TVLInfo.data;
@@ -34,7 +33,7 @@ async function analytics(chain, poolAddress) {
     chain,
     poolAddress,
     stakingAddress,
-    TVL,
+    TVL
   );
   if (RewAPYInfo.err) throw new Error(RewAPYInfo.err);
   const RewAPY = RewAPYInfo.data;

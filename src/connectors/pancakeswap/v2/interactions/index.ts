@@ -22,8 +22,6 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
-  console.log(amount);
-  console.log(pool);
   const tokenA = pool.underlying_tokens[0];
   const tokenB = pool.underlying_tokens[1];
   const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase());

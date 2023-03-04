@@ -142,7 +142,7 @@ const getPrices = async (chain, addresses) => {
       ...acc,
       [address.split(':')[1].toLowerCase()]: price.price,
     }),
-    {},
+    {}
   );
 
   return pricesObj;
@@ -166,7 +166,7 @@ function calcApy(
   totalAllocPoint,
   reward,
   rewardPrice,
-  reserve,
+  reserve
 ) {
   // pool rewards per year in usd
   // blocks per year * reward * wieght * price
@@ -212,7 +212,7 @@ const getApy = async (chain) => {
         target: CONFIG[chain].LP_STAKING,
         chain,
       })
-    ).output,
+    ).output
   );
   const rewardPrice = (await getPrices(chain, [CONFIG[chain].REWARD_TOKEN]))[
     CONFIG[chain].REWARD_TOKEN.toLowerCase()
@@ -224,7 +224,7 @@ const getApy = async (chain) => {
       chain,
       pool.lpTokenSymbol,
       pool.underlyingLpToken,
-      pool.reserve,
+      pool.reserve
     );
     const apy = calcApy(
       chain,
@@ -232,7 +232,7 @@ const getApy = async (chain) => {
       pool.totalAllocPoint,
       pool.rewardPerBlock,
       rewardPrice,
-      reserveUSD,
+      reserveUSD
     );
 
     poolsApy.push({
@@ -246,7 +246,7 @@ const getApy = async (chain) => {
       rewardTokens: [`${CONFIG[chain].REWARD_TOKEN}`],
       url: `https://stargate.finance/pool/${pool.lpTokenSymbol.replace(
         'S*',
-        '',
+        ''
       )}-${CHAIN_MAP[chain]}/add`,
     });
   }
@@ -270,7 +270,7 @@ const main = async () => {
     bsc,
     polygon,
     arbi,
-    op,
+    op
     // fantom, avax
   );
   const exportData = poolsData.flat().filter((p) => utils.keepFinite(p));

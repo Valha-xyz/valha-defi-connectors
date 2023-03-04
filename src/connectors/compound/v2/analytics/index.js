@@ -57,8 +57,6 @@ async function analytics(chain, poolAddress) {
 
   // Find information on Compound API.
   const info = await checkCompoundv2Data(chain, poolAddress);
-  console.log(info);
-  console.log(info.supply_rate);
   const ActAPY = info['supply_rate'] ? info['supply_rate'].value * 100 : 0;
   const RewAPY = info['comp_supply_apy']
     ? parseFloat(info['comp_supply_apy'].value)
