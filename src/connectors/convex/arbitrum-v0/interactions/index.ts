@@ -22,7 +22,7 @@ async function depositAndStake(
 ): Promise<InteractionsReturnObject> {
   const abi = InvestABI;
   const PID = INVEST_PID[pool.chain][pool.pool_address.toLowerCase()];
-  const method_name = 'deposit(uint256,uint256)';
+  const method_name = 'deposit';
   const positionToken = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -55,7 +55,7 @@ async function unstakeAndRedeem(
 ): Promise<InteractionsReturnObject> {
   const abi = InvestABI;
   const PID = INVEST_PID[pool.chain][pool.pool_address.toLowerCase()];
-  const method_name = 'withdrawTo(uint256,uint256,address)';
+  const method_name = 'withdrawTo';
   const positionToken = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -87,7 +87,7 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'getReward(address)';
+  const method_name = 'getReward';
   const args = [addresses.userAddress];
   const interaction_address = pool.staking_address;
 
