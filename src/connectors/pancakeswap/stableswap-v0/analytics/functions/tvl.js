@@ -14,7 +14,7 @@ async function getPancakeTVL(
   tokenBAddress
 ) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(investingAddress, SwapABI, provider);
     // Get Reserve in Token A and B with the right number of decimals

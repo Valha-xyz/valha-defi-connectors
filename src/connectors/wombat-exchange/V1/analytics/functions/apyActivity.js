@@ -5,7 +5,7 @@ const { LPTokenABI } = require('../../abi/LP');
 
 async function checkWombatV1APY(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     // const SupplyRate = await POOL.getSupplyRate();
     // const apy = (SupplyRate / 1e18) * 365.25 * 24 * 3600 * 100;

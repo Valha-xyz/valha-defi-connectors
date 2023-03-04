@@ -9,11 +9,11 @@ async function checkSonneV0RewardsAPY(
   underlyingDecimals,
   usdPrice,
   totalSupplyUSD,
-  poolAddress,
+  poolAddress
 ) {
   try {
     const BLOCKS = 86400;
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(rewardAddress, RewardsABI, provider);
     const DistributionBN = await POOL.compSupplySpeeds(poolAddress);
