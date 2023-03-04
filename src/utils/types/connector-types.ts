@@ -61,9 +61,11 @@ export interface InteractionsReturnObject {
 
 export enum InteractionFunctionNames {
   deposit = 'deposit',
+  deposit_all = 'deposit_all',
   deposit_and_stake = 'deposit_and_stake',
   unlock = 'unlock',
   redeem = 'redeem',
+  redeem_all = 'redeem_all',
   unstake_and_redeem = 'unstake_and_redeem',
   stake = 'stake',
   unstake = 'unstake',
