@@ -6,7 +6,7 @@ const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
 async function checkClearpoolV1TVL(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolTokenABI, provider);
     const TvlBN = await POOL.poolSize();

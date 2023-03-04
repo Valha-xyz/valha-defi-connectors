@@ -15,7 +15,7 @@ const maxSupply = 100000000; // * 1e18; //100 mil max supply
 async function checkCvxAPY(chain, poolAddress) {
   try {
     if (!poolAddress) return { data: 0, err: null };
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const rewardRate = await POOL.rewardRate();
@@ -43,7 +43,7 @@ async function checkCvxAPY(chain, poolAddress) {
       const cvxInfo = await getGeckoTokenPrice(chain, CVX_ADDRESS);
       if (cvxInfo.err) {
         throw new Error(
-          `Data from Curve V2 indexer not ok for CVX token price for ${poolAddress}`,
+          `Data from Curve V2 indexer not ok for CVX token price for ${poolAddress}`
         );
       }
       const cvxPrice = cvxInfo.data;

@@ -20,7 +20,7 @@ async function analytics(chain, poolAddress) {
   const info = resultInfo.data;
 
   //Get Main Pool Info
-  const provider = await getNodeProvider(chain);
+  const provider = getNodeProvider(chain);
   const decimals = await erc20Decimals(provider, poolInfo.pool_address);
 
   const TVL = info.usdTotal;

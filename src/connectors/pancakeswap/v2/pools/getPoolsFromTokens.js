@@ -13,7 +13,7 @@ async function getPoolsFromTokens(chain, tokens, fee) {
     const tokenA = tokens[0];
     const tokenB = tokens[1];
     const address = FACTORY[chain];
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(address, FACTORYABI, provider);
     const poolAddress = await POOL.getPair(tokenA, tokenB);

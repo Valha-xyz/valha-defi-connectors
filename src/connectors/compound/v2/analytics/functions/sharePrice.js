@@ -7,7 +7,7 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 async function checkCompoundV2Share(chain, poolAddress, underlyingDecimals) {
   try {
     const COMPPrecision = 18;
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const ExchangeRateBN = await POOL.exchangeRateStored();

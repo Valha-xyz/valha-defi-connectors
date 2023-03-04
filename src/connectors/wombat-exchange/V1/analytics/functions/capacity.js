@@ -6,7 +6,7 @@ const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 
 async function checkWombatV1Capacity(chain, poolAddress, tokenAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, LPTokenABI, provider);
     const liquidityCap = await POOL.maxSupply();

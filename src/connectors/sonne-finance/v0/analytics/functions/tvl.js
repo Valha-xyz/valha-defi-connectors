@@ -5,7 +5,7 @@ import { getNodeProvider } from '../../../../../utils/getNodeProvider';
 
 async function checkCompoundV2TVL(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const TvlBN = await POOL.totalSupply();

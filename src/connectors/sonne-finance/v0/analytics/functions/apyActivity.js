@@ -7,7 +7,7 @@ async function checkSonneV0ActivityAPY(chain, poolAddress) {
   try {
     const BLOCKS = 86400;
     const days = 365;
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const SupplyBN = await POOL.supplyRatePerBlock();

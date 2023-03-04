@@ -5,7 +5,7 @@ const { POOLABI } = require('../../abi/DepositPool');
 
 async function checkRocketV0Liquidity(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, POOLABI, provider);
     const liquidityBN = await POOL.getExcessBalance();
