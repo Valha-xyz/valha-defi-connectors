@@ -1,42 +1,42 @@
-import { POOLS } from "./config/testPools";
-import _ from "lodash";
-import checkParam from "./config/checkParam";
-import { type Interactions } from "../../src/utils/types/connector-types";
+import { POOLS } from './config/testPools'
+import _ from 'lodash'
+import checkParam from './config/checkParam'
+import { type Interactions } from '../../src/utils/types/connector-types'
 
 const interactions = [
-  "deposit",
+  'deposit',
   // 'deposit_and_stake',
   // 'unlock',
-  "redeem",
-  "stake",
-  "unstake",
+  'redeem',
+  'stake',
+  'unstake',
   // 'boost',
   // // 'unboost',
-  "claim_rewards",
+  'claim_rewards'
   // 'claim_interests',
-];
+]
 
-function isEVMAddress(address: string) {
+function isEVMAddress (address: string) {
   if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
     // check if it has the basic requirements of an address
-    return false;
+    return false
   } else if (
     /^(0x)?[0-9a-f]{40}$/.test(address) ||
     /^(0x)?[0-9A-F]{40}$/.test(address)
   ) {
     // If it's all small caps or all all caps, return true
-    return true;
+    return true
   }
-  return false;
+  return false
 }
 
-async function checkFnExists(name: string, path: string) {
-  const { default: fn } = await import(path);
-  const result = fn[name];
-  expect(result).toBeDefined();
+async function checkFnExists (name: string, path: string) {
+  const { default: fn } = await import(path)
+  const result = fn[name]
+  expect(result).toBeDefined()
 }
 
-async function checkFnCallableReturn(
+async function checkFnCallableReturn (
   POOL: any,
   name: string,
   path: string,
@@ -51,410 +51,410 @@ async function checkFnCallableReturn(
   deadline: number
 ) {
   try {
-    const { default: fn }: { default: Interactions } = await import(path);
+    const { default: fn }: { default: Interactions } = await import(path)
     if (fn[name]) {
       const result = await fn[name](
         POOL,
         {
           amount: {
-            humanValue: amountBN,
+            humanValue: amountBN
           },
           amountsDesired: amountsDesiredNotBN.map((amount) => ({
-            humanValue: amount,
+            humanValue: amount
           })),
           amountsMinimum: amountsMinimumNotBN.map((amount) => ({
-            humanValue: amount,
-          })),
+            humanValue: amount
+          }))
         },
         {
           userAddress,
-          receiverAddress,
+          receiverAddress
         },
         {
           ranges,
           rangeToken,
           lockupTimestamp,
-          deadline,
+          deadline
         }
-      );
-      return result;
+      )
+      return result
     }
-    return null;
+    return null
   } catch (err) {
-    console.log(err);
+    console.log(err)
   }
 }
 
-function checkArgType(arg: string, type: string): boolean {
+function checkArgType (arg: string, type: string): boolean {
   try {
-    if (!type) return false;
-    if (type.includes("uint")) {
-      const num = parseInt(arg);
+    if (!type) return false
+    if (type.includes('uint')) {
+      const num = parseInt(arg)
       if ((num !== 0 && !num) || num < 0) {
         throw new Error(
           `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
-        );
+        )
       }
-    } else if (type.includes("address")) {
-      const isEVM = isEVMAddress(arg.toLowerCase());
+    } else if (type.includes('address')) {
+      const isEVM = isEVMAddress(arg.toLowerCase())
       if (!isEVM) {
         throw new Error(
           `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
-        );
+        )
       }
-    } else if (type.includes("string")) {
-      const check = typeof arg;
-      if (check !== "string") {
+    } else if (type.includes('string')) {
+      const check = typeof arg
+      if (check !== 'string') {
         throw new Error(
           `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
-        );
+        )
       }
-    } else if (type.includes("bytes")) {
+    } else if (type.includes('bytes')) {
       console.log(
-        "\x1b[33m%s\x1b[0m",
+        '\x1b[33m%s\x1b[0m',
         'WARNING: we are not checking if "Bytes" args are valid for the time being. Please be aware of this.'
-      );
-    } else if (type.includes("bool")) {
-      const check = typeof arg;
-      if (check !== "boolean") {
+      )
+    } else if (type.includes('bool')) {
+      const check = typeof arg
+      if (check !== 'boolean') {
         throw new Error(
           `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
-        );
+        )
       }
     } else {
       throw new Error(
         `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`
-      );
+      )
     }
-    return true;
+    return true
   } catch (err) {
-    console.log("\x1b[31m", err.message);
-    return false;
+    console.log('\x1b[31m', err.message)
+    return false
   }
 }
 
-function doesArgTypeMatch(args: string[], ABIInputs: any[]): boolean {
+function doesArgTypeMatch (args: string[], ABIInputs: any[]): boolean {
   for (const i in ABIInputs) {
-    let check = false;
-    if (ABIInputs[i].type.includes("[]")) {
-      const type = ABIInputs[i].type.slice(0, ABIInputs[i].type.length - 2);
+    let check = false
+    if (ABIInputs[i].type.includes('[]')) {
+      const type = ABIInputs[i].type.slice(0, ABIInputs[i].type.length - 2)
       for (const arg of args[i]) {
-        check = checkArgType(arg, type);
+        check = checkArgType(arg, type)
       }
     } else {
-      check = checkArgType(args[i], ABIInputs[i].type);
+      check = checkArgType(args[i], ABIInputs[i].type)
     }
-    if (!check) return false;
+    if (!check) return false
   }
-  return true;
+  return true
 }
 
-describe("CONNECTOR - INTERACTIONS", () => {
-  let connector: string;
-  let interactionPATH: string;
+describe('CONNECTOR - INTERACTIONS', () => {
+  let connector: string
+  let interactionPATH: string
 
   beforeAll(async () => {
     const connectorParam = checkParam(
       process.env.npm_lifecycle_script,
-      "connector"
-    );
-    if (connectorParam.err) throw new Error(connectorParam.err.message);
-    connector = connectorParam.arg;
+      'connector'
+    )
+    if (connectorParam.err) throw new Error(connectorParam.err.message)
+    connector = connectorParam.arg
     if (!connector) {
       throw new Error(
         `
         ⚠️⚠️⚠️ You did not specify any name for your connector. Run "npm run "test_name" -- --connector="name_of_your_connector"" ⚠️⚠️⚠️
         `
-      );
+      )
     }
-    interactionPATH = `src/connectors/${connector}/interactions/index`;
-  });
+    interactionPATH = `src/connectors/${connector}/interactions/index`
+  })
 
   /// / LOOP THROUGH ALL THE SPECIFIED POOLS
   for (const POOL of POOLS) {
-    describe(`#### POOL ${POOL.name ? POOL.name : "NULL"} - ${
-      POOL.chain ? POOL.chain : "NULL"
-    } - ${POOL.pool_address ? POOL.pool_address : "NULL"} ####`, () => {
-      describe("-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS", () => {
+    describe(`#### POOL ${POOL.name ? POOL.name : 'NULL'} - ${
+      POOL.chain ? POOL.chain : 'NULL'
+    } - ${POOL.pool_address ? POOL.pool_address : 'NULL'} ####`, () => {
+      describe('-> INTERACTIONS/INDEX.JS RESPECT ALL THE NEEDED FUNCTIONS', () => {
         for (const interaction of interactions) {
           it(`Should have the ${interaction.toUpperCase()} function`, async () => {
-            await checkFnExists(interaction, interactionPATH);
-          });
+            await checkFnExists(interaction, interactionPATH)
+          })
         }
-      });
+      })
 
-      describe("-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE", () => {
+      describe('-> REQUESTED INFORMATION FROM INDEX.JS AVAILABLE', () => {
         for (const interaction of interactions) {
           it(`${interaction.toUpperCase()} should be callable and return the expected information`, async () => {
-            const userAddress = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+            const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
 
             if (result) {
-              expect(result).toBeDefined();
-              expect(result.txInfo.abi).toBeDefined();
-              expect(result.txInfo.method_name).toBeDefined();
-              expect(result.assetInfo).toBeDefined();
-              expect(result.txInfo.interaction_address).toBeDefined();
-              expect(result.txInfo.args).toBeDefined();
+              expect(result).toBeDefined()
+              expect(result.txInfo.abi).toBeDefined()
+              expect(result.txInfo.method_name).toBeDefined()
+              expect(result.assetInfo).toBeDefined()
+              expect(result.txInfo.interaction_address).toBeDefined()
+              expect(result.txInfo.args).toBeDefined()
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return a "valid" ABI`, async () => {
-            const userAddress = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+            const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result) {
-              const ABI = result.txInfo.abi;
+              const ABI = result.txInfo.abi
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (
                   elem &&
                   elem.name &&
-                  elem.type === "function" &&
+                  elem.type === 'function' &&
                   elem.inputs.length === result.txInfo.args.length
                 ) {
-                  return elem.name === result.txInfo.method_name;
+                  return elem.name === result.txInfo.method_name
                 }
-              });
-              expect(ABIinteractionDefinition.name).toBeDefined();
-              expect(ABIinteractionDefinition.type).toBeDefined();
-              expect(ABIinteractionDefinition.stateMutability).toBeDefined();
-              expect(ABIinteractionDefinition.inputs).toBeDefined();
-              expect(ABIinteractionDefinition.outputs).toBeDefined();
+              })
+              expect(ABIinteractionDefinition.name).toBeDefined()
+              expect(ABIinteractionDefinition.type).toBeDefined()
+              expect(ABIinteractionDefinition.stateMutability).toBeDefined()
+              expect(ABIinteractionDefinition.inputs).toBeDefined()
+              expect(ABIinteractionDefinition.outputs).toBeDefined()
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
-            const userAddress = "0x796052Bf2A527Df9B5465Eec243c39A07751E46F";
+            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result) {
               const methodInAbi = result.txInfo.abi.find((elem) => {
                 return (
                   elem.name == result.txInfo.method_name &&
-                  elem.type == "function"
-                );
-              });
-              expect(methodInAbi).toBeTruthy();
-              expect(typeof result.txInfo.method_name).toBe("string");
+                  elem.type == 'function'
+                )
+              })
+              expect(methodInAbi).toBeTruthy()
+              expect(typeof result.txInfo.method_name).toBe('string')
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return POSITION_TOKEN_TYPE in a valid format: 'ERC-20' or 'ERC-721'`, async () => {
-            const userAddress = "0x796052Bf2A527Df9B5465Eec243c39A07751E46F";
+            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result && result.position_token_type) {
-              expect(["ERC-20", "ERC-721"]).toContain(
+              expect(['ERC-20', 'ERC-721']).toContain(
                 result.position_token_type
-              );
+              )
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return ARGS as an array`, async () => {
-            const userAddress = "0x796052Bf2A527Df9B5465Eec243c39A07751E46F";
+            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result.txInfo) {
-              expect(Array.isArray(result.txInfo.abi)).toBeTruthy();
+              expect(Array.isArray(result.txInfo.abi)).toBeTruthy()
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return ARGS with the same length than in the ABI`, async () => {
-            const userAddress = "0x796052Bf2A527Df9B5465Eec243c39A07751E46F";
+            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result) {
-              const ABI = result.txInfo.abi;
+              const ABI = result.txInfo.abi
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (
                   elem &&
                   elem.name &&
-                  elem.type === "function" &&
+                  elem.type === 'function' &&
                   elem.inputs.length === result.txInfo.args.length
                 ) {
                   return (
                     elem.name.includes(result.txInfo.method_name) &&
                     elem.inputs.length === result.txInfo.args.length
-                  );
+                  )
                 }
-              });
+              })
               expect(ABIinteractionDefinition.inputs.length).toBe(
                 result.txInfo.args.length
-              );
+              )
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return ARGS with the same type than in the ABI`, async () => {
-            const userAddress = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+            const userAddress = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result.txInfo) {
-              const ABI = result.txInfo.abi;
+              const ABI = result.txInfo.abi
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (
                   elem &&
                   elem.name &&
-                  elem.type === "function" &&
+                  elem.type === 'function' &&
                   elem.inputs.length === result.txInfo.args.length
                 ) {
                   return (
                     elem.name.includes(result.txInfo.method_name) &&
                     elem.inputs.length === result.txInfo.args.length
-                  );
+                  )
                 }
-              });
-              let check: boolean;
+              })
+              let check: boolean
               if (!ABIinteractionDefinition) {
-                check = false;
+                check = false
               } else {
                 check = doesArgTypeMatch(
                   result.txInfo.args,
                   ABIinteractionDefinition.inputs
-                );
+                )
               }
-              expect(check).toBeTruthy();
+              expect(check).toBeTruthy()
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return INTERACTION_ADDRESS as a valid EVM address`, async () => {
-            const userAddress = "0x796052Bf2A527Df9B5465Eec243c39A07751E46F";
+            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
             if (result && result.interaction_address) {
               expect(
                 isEVMAddress(result.interaction_address.toLowerCase())
-              ).toBeTruthy();
+              ).toBeTruthy()
             }
-          });
+          })
 
           it(`${interaction.toUpperCase()} should return POSITION_TOKEN as a valid EVM address`, async () => {
-            const userAddress = "0x796052Bf2A527Df9B5465Eec243c39A07751E46F";
+            const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F'
             const result = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
-              "10000",
-              ["10000", "10000", "10000", "10000"],
-              ["8000", "8000", "8000", "8000"],
-              ["7500", "10000"],
-              "0x0000000000000000000000000000000000000000",
+              '10000',
+              ['10000', '10000', '10000', '10000'],
+              ['8000', '8000', '8000', '8000'],
+              ['7500', '10000'],
+              '0x0000000000000000000000000000000000000000',
               userAddress,
               userAddress,
-              "",
+              '',
               0
-            );
+            )
 
             if (result && result.position_token) {
               if (Array.isArray(result.position_token)) {
                 for (const elem of result.position_token) {
-                  expect(isEVMAddress(elem.toLowerCase())).toBeTruthy();
+                  expect(isEVMAddress(elem.toLowerCase())).toBeTruthy()
                 }
               } else {
                 expect(
                   isEVMAddress(result.position_token.toLowerCase())
-                ).toBeTruthy();
+                ).toBeTruthy()
               }
             }
-          });
+          })
         }
-      });
-    });
+      })
+    })
   }
-});
+})

@@ -4,310 +4,310 @@ export const MultiFarmABI = [
     inputs: [
       {
         indexed: true,
-        internalType: "contract IERC20",
-        name: "token",
-        type: "address",
+        internalType: 'contract IERC20',
+        name: 'token',
+        type: 'address'
       },
       {
         indexed: true,
-        internalType: "address",
-        name: "who",
-        type: "address",
+        internalType: 'address',
+        name: 'who',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amountClaimed",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'amountClaimed',
+        type: 'uint256'
+      }
     ],
-    name: "Claim",
-    type: "event",
+    name: 'Claim',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
+        internalType: 'address',
+        name: 'previousOwner',
+        type: 'address'
       },
       {
         indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        internalType: 'address',
+        name: 'newOwner',
+        type: 'address'
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    name: 'OwnershipTransferred',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "contract IERC20",
-        name: "token",
-        type: "address",
+        internalType: 'contract IERC20',
+        name: 'token',
+        type: 'address'
       },
       {
         indexed: true,
-        internalType: "address",
-        name: "who",
-        type: "address",
+        internalType: 'address',
+        name: 'who',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amountStaked",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'amountStaked',
+        type: 'uint256'
+      }
     ],
-    name: "Stake",
-    type: "event",
+    name: 'Stake',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "contract IERC20",
-        name: "token",
-        type: "address",
+        internalType: 'contract IERC20',
+        name: 'token',
+        type: 'address'
       },
       {
         indexed: true,
-        internalType: "address",
-        name: "who",
-        type: "address",
+        internalType: 'address',
+        name: 'who',
+        type: 'address'
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "amountUnstaked",
-        type: "uint256",
-      },
+        internalType: 'uint256',
+        name: 'amountUnstaked',
+        type: 'uint256'
+      }
     ],
-    name: "Unstake",
-    type: "event",
+    name: 'Unstake',
+    type: 'event'
   },
   {
     inputs: [
       {
-        internalType: "contract IERC20[]",
-        name: "tokens",
-        type: "address[]",
-      },
+        internalType: 'contract IERC20[]',
+        name: 'tokens',
+        type: 'address[]'
+      }
     ],
-    name: "claim",
+    name: 'claim',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "claimOwnership",
+    name: 'claimOwnership',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "address", name: "account", type: "address" },
+      { internalType: 'contract IERC20', name: 'token', type: 'address' },
+      { internalType: 'address', name: 'account', type: 'address' }
     ],
-    name: "claimable",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'claimable',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [
       {
-        internalType: "contract IERC20[]",
-        name: "tokens",
-        type: "address[]",
-      },
+        internalType: 'contract IERC20[]',
+        name: 'tokens',
+        type: 'address[]'
+      }
     ],
-    name: "exit",
+    name: 'exit',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "farmRewards",
+    name: 'farmRewards',
     outputs: [
       {
-        internalType: "uint256",
-        name: "cumulativeRewardPerToken",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'cumulativeRewardPerToken',
+        type: 'uint256'
       },
       {
-        internalType: "uint256",
-        name: "totalClaimedRewards",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'totalClaimedRewards',
+        type: 'uint256'
       },
-      { internalType: "uint256", name: "totalRewards", type: "uint256" },
+      { internalType: 'uint256', name: 'totalRewards', type: 'uint256' }
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
+      { internalType: 'contract IERC20', name: 'token', type: 'address' }
     ],
-    name: "getShare",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'getShare',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [
       {
-        internalType: "contract ITrueDistributor",
-        name: "_trueDistributor",
-        type: "address",
-      },
+        internalType: 'contract ITrueDistributor',
+        name: '_trueDistributor',
+        type: 'address'
+      }
     ],
-    name: "initialize",
+    name: 'initialize',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "isInitialized",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'isInitialized',
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "owner",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'owner',
+    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "pendingOwner",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'pendingOwner',
+    outputs: [{ internalType: 'address', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "rewardToken",
-    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'rewardToken',
+    outputs: [{ internalType: 'contract IERC20', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [
       {
-        internalType: "contract IERC20[]",
-        name: "tokens",
-        type: "address[]",
+        internalType: 'contract IERC20[]',
+        name: 'tokens',
+        type: 'address[]'
       },
       {
-        internalType: "uint256[]",
-        name: "updatedShares",
-        type: "uint256[]",
-      },
+        internalType: 'uint256[]',
+        name: 'updatedShares',
+        type: 'uint256[]'
+      }
     ],
-    name: "setShares",
+    name: 'setShares',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [],
-    name: "shares",
+    name: 'shares',
     outputs: [
-      { internalType: "uint256", name: "totalStaked", type: "uint256" },
+      { internalType: 'uint256', name: 'totalStaked', type: 'uint256' }
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "uint256", name: "amount", type: "uint256" },
+      { internalType: 'contract IERC20', name: 'token', type: 'address' },
+      { internalType: 'uint256', name: 'amount', type: 'uint256' }
     ],
-    name: "stake",
+    name: 'stake',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "address", name: "staker", type: "address" },
+      { internalType: 'contract IERC20', name: 'token', type: 'address' },
+      { internalType: 'address', name: 'staker', type: 'address' }
     ],
-    name: "staked",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
+    name: 'staked',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
-    inputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
-    name: "stakerRewards",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "cumulativeRewardPerToken",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "totalClaimedRewards",
-        type: "uint256",
-      },
-      { internalType: "uint256", name: "totalRewards", type: "uint256" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
-    name: "stakes",
-    outputs: [
-      { internalType: "uint256", name: "totalStaked", type: "uint256" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "trueDistributor",
+    inputs: [{ internalType: 'contract IERC20', name: '', type: 'address' }],
+    name: 'stakerRewards',
     outputs: [
       {
-        internalType: "contract ITrueDistributor",
-        name: "",
-        type: "address",
+        internalType: 'uint256',
+        name: 'cumulativeRewardPerToken',
+        type: 'uint256'
       },
+      {
+        internalType: 'uint256',
+        name: 'totalClaimedRewards',
+        type: 'uint256'
+      },
+      { internalType: 'uint256', name: 'totalRewards', type: 'uint256' }
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [{ internalType: 'contract IERC20', name: '', type: 'address' }],
+    name: 'stakes',
+    outputs: [
+      { internalType: 'uint256', name: 'totalStaked', type: 'uint256' }
+    ],
+    stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'newOwner', type: 'address' }],
+    name: 'transferOwnership',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [],
+    name: 'trueDistributor',
+    outputs: [
+      {
+        internalType: 'contract ITrueDistributor',
+        name: '',
+        type: 'address'
+      }
+    ],
+    stateMutability: 'view',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "uint256", name: "amount", type: "uint256" },
+      { internalType: 'contract IERC20', name: 'token', type: 'address' },
+      { internalType: 'uint256', name: 'amount', type: 'uint256' }
     ],
-    name: "unstake",
+    name: 'unstake',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-];
+    stateMutability: 'nonpayable',
+    type: 'function'
+  }
+]
