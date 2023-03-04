@@ -8,7 +8,7 @@ const POOLS = [
     staking_address: '0xea8dfee1898a7e0a59f7527f076106d7e44c2176',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x6694340fc020c5e6b96567843da2df01b2ce1eb6'],
     metadata: {},
   },
   {
@@ -20,7 +20,7 @@ const POOLS = [
     staking_address: '0xea8dfee1898a7e0a59f7527f076106d7e44c2176',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x6694340fc020c5e6b96567843da2df01b2ce1eb6'],
     metadata: {},
   },
   {
@@ -32,7 +32,7 @@ const POOLS = [
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
     metadata: {},
   },
   {
@@ -44,7 +44,7 @@ const POOLS = [
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
     metadata: {},
   },
   {
@@ -56,7 +56,7 @@ const POOLS = [
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
     metadata: {},
   },
   {
@@ -68,7 +68,7 @@ const POOLS = [
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
     metadata: {},
   },
   {
@@ -80,7 +80,7 @@ const POOLS = [
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
     metadata: {},
   },
   {
@@ -92,7 +92,7 @@ const POOLS = [
     staking_address: '0x4dea9e918c6289a52cd469cac652727b7b412cd2',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
     metadata: {},
   },
   // {
@@ -116,7 +116,7 @@ const POOLS = [
     staking_address: '0x8731d54e9d02c286767d56ac03e8037c07e01e98',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590'],
     metadata: {},
   },
   {
@@ -128,7 +128,7 @@ const POOLS = [
     staking_address: '0x8731d54e9d02c286767d56ac03e8037c07e01e98',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590'],
     metadata: {},
   },
   // {
@@ -140,7 +140,7 @@ const POOLS = [
   //   staking_address: null,
   //   boosting_address: null,
   //   distributor_address: null,
-  //   rewards_tokens: null,
+  //   rewards_tokens: ['0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590'],
   //   metadata: {},
   // },
   // {
@@ -152,7 +152,7 @@ const POOLS = [
   //   staking_address: null,
   //   boosting_address: null,
   //   distributor_address: null,
-  //   rewards_tokens: null,
+  //   rewards_tokens: ['0x2f6f07cdcf3588944bf4c42ac74ff24bf56e7590'],
   //   metadata: {},
   // },
   {
@@ -164,7 +164,7 @@ const POOLS = [
     staking_address: '0xb0d502e938ed5f4df2e681fe6e419ff29631d62b',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6'],
     metadata: {},
   },
   {
@@ -176,7 +176,7 @@ const POOLS = [
     staking_address: '0xb0d502e938ed5f4df2e681fe6e419ff29631d62b',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6'],
     metadata: {},
   },
   {
@@ -188,7 +188,7 @@ const POOLS = [
     staking_address: '0x3052a0f6ab15b4ae1df39962d5ddefaca86dab47',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0xb0d502e938ed5f4df2e681fe6e419ff29631d62b'],
     metadata: {},
   },
   {
@@ -200,7 +200,7 @@ const POOLS = [
     staking_address: '0x3052a0f6ab15b4ae1df39962d5ddefaca86dab47',
     boosting_address: null,
     distributor_address: null,
-    rewards_tokens: null,
+    rewards_tokens: ['0xb0d502e938ed5f4df2e681fe6e419ff29631d62b'],
     metadata: {},
   },
 ];
