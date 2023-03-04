@@ -21,7 +21,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
   const method_name = 'deposit';
@@ -29,7 +29,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountBN];
 
@@ -52,12 +52,12 @@ async function depositAll(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
   const method_name = 'depositAll';
   const position_token = pool.underlying_tokens[0];
-  const provider = await getNodeProvider(pool.chain);
+  const provider = getNodeProvider(pool.chain);
   const args = [];
   const amountToApprove = '1000000000000000000000000000';
 
@@ -81,7 +81,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
   const method_name = 'withdraw';
@@ -89,7 +89,7 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token,
+    position_token
   );
   const args = [amountBN];
 
@@ -112,12 +112,12 @@ async function redeemAll(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI;
   const method_name = 'withdrawAll';
   const position_token = pool.pool_address;
-  const provider = await getNodeProvider(pool.chain);
+  const provider = getNodeProvider(pool.chain);
   const amountToApprove = '1000000000000000000000000000';
   const args = [];
 

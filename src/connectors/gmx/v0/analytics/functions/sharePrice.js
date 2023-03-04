@@ -6,7 +6,7 @@ const checkGMXV0TVL = require('./tvl');
 
 async function checkGMXV0Share(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const TVLInfo = await checkGMXV0TVL(chain, poolAddress);
     if (TVLInfo.err) throw new Error(TVLInfo.err);

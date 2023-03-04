@@ -13,15 +13,15 @@ async function checkStargateV0RewardsAPY(
   poolAddress,
   stakingAddress,
   rewardAddress,
-  tvl,
+  tvl
 ) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const StakingPOOL = new ethers.Contract(
       stakingAddress,
       LPSTAKINGOP,
-      provider,
+      provider
     );
     const PID = STAKING_PID[chain][poolAddress.toLowerCase()];
     const poolInfo = await StakingPOOL.poolInfo(PID);
