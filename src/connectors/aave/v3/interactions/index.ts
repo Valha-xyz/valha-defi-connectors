@@ -20,7 +20,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'supply(address,uint256,address,uint16)';
+  const method_name = 'supply';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -52,7 +52,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'withdraw(address,uint256,address)';
+  const method_name = 'withdraw';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,

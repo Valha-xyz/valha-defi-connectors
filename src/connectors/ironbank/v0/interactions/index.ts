@@ -20,7 +20,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'mint(uint256)';
+  const method_name = 'mint';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -53,7 +53,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'redeem(uint256)';
+  const method_name = 'redeem';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -85,7 +85,7 @@ async function stake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = 'stake(uint256)';
+  const method_name = 'stake';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -117,7 +117,7 @@ async function unstake(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI;
-  const method_name = 'withdraw(uint256)';
+  const method_name = 'withdraw';
   const position_token = pool.pool_address ? pool.pool_address : '';
   const amountBN = await toBnERC20Decimals(
     amount.amount,

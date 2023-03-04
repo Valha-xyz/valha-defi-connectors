@@ -19,7 +19,7 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'mint(uint256)';
+  const method_name = 'mint';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -52,7 +52,7 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'redeem(uint256)';
+  const method_name = 'redeem';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -85,7 +85,7 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
-  const method_name = 'claimComp(address)';
+  const method_name = 'claimComp';
   const args = [addresses.userAddress];
   const interaction_address = pool.distributor_address
     ? pool.distributor_address
