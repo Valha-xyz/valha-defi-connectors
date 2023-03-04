@@ -119,7 +119,6 @@ async function unstake(
   const abi = StakingABI;
   const method_name = 'withdraw(uint256)';
   const position_token = pool.pool_address ? pool.pool_address : '';
-  console.log(position_token);
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,

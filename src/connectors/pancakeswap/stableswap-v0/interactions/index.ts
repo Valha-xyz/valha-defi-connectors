@@ -88,12 +88,11 @@ async function redeem(
     amountsBN.push(amountBN);
   }
   const amountDesired = await toBnERC20Decimals(
-    amount.amountsDesired[0],
+    amount.amount,
     pool.chain,
     position_token
   );
   const args = [amountDesired, amountsBN];
-  console.log(args);
 
   return {
     txInfo: {
@@ -122,7 +121,7 @@ async function stake(
   const method_name = 'deposit';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   );
@@ -150,12 +149,12 @@ async function unstake(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const poolId = CAKE_PID[pool.chain];
+  const poolId = CAKE_PID[pool.pool_address.toLowerCase()];
   const abi = MasterABI;
   const method_name = 'withdraw';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
-    amount.amount.humanValue,
+    amount.amount,
     pool.chain,
     position_token
   );
@@ -179,9 +178,9 @@ async function claimRewards(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const poolId = CAKE_PID[pool.chain];
+  const poolId = CAKE_PID[pool.pool_address.toLowerCase()];
   const abi = MasterABI;
-  const method_name = 'deposit';
+  const method_name = 'withdraw';
   const args = [poolId, '0'];
 
   return {
