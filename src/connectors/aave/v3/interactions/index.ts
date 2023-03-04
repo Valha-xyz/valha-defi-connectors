@@ -106,7 +106,6 @@ const interactions: Interactions = {
   unlock: null,
   redeem,
   redeem_all: null,
-  redeem_all: null,
   unstake_and_redeem: null,
   stake: null,
   unstake: null,
