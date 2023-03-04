@@ -259,11 +259,13 @@ async function claimRewards(
 
 const interactions: Interactions = {
   deposit,
+  deposit_all: null,
   deposit_and_stake: null,
   unlock: null,
   redeem,
   stake,
   unstake,
+  redeem_all: null,
   unstake_and_redeem: null,
   boost: null,
   unboost: null,
