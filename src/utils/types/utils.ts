@@ -4,7 +4,7 @@ export interface AssetInfo {
   // amount that will be use in the ERC20 approve tx of the position token if it is an ERC20
   // Or that will be passed as msg.value if the position_token is 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
   amount?: string | string[] | null;
-  approval_address: string | string[] | null; // address to approve to execute the interaction
+  approval_address?: string | string[] | null; // address to approve to execute the interaction
 }
 
 export interface TxInfo {
