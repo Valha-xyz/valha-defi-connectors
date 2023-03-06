@@ -4,14 +4,14 @@ export const MasterABI = [
       {
         internalType: 'contract IMasterChef',
         name: '_MASTER_CHEF',
-        type: 'address',
+        type: 'address'
       },
       { internalType: 'contract IBEP20', name: '_CAKE', type: 'address' },
       { internalType: 'uint256', name: '_MASTER_PID', type: 'uint256' },
-      { internalType: 'address', name: '_burnAdmin', type: 'address' },
+      { internalType: 'address', name: '_burnAdmin', type: 'address' }
     ],
     stateMutability: 'nonpayable',
-    type: 'constructor',
+    type: 'constructor'
   },
   {
     anonymous: false,
@@ -21,18 +21,18 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'allocPoint',
-        type: 'uint256',
+        type: 'uint256'
       },
       {
         indexed: true,
         internalType: 'contract IBEP20',
         name: 'lpToken',
-        type: 'address',
+        type: 'address'
       },
-      { indexed: false, internalType: 'bool', name: 'isRegular', type: 'bool' },
+      { indexed: false, internalType: 'bool', name: 'isRegular', type: 'bool' }
     ],
     name: 'AddPool',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -43,11 +43,11 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'amount',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'Deposit',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -58,11 +58,11 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'amount',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'EmergencyWithdraw',
-    type: 'event',
+    type: 'event'
   },
   { anonymous: false, inputs: [], name: 'Init', type: 'event' },
   {
@@ -72,17 +72,17 @@ export const MasterABI = [
         indexed: true,
         internalType: 'address',
         name: 'previousOwner',
-        type: 'address',
+        type: 'address'
       },
       {
         indexed: true,
         internalType: 'address',
         name: 'newOwner',
-        type: 'address',
-      },
+        type: 'address'
+      }
     ],
     name: 'OwnershipTransferred',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -92,11 +92,11 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'allocPoint',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'SetPool',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -105,11 +105,11 @@ export const MasterABI = [
         indexed: true,
         internalType: 'address',
         name: 'boostContract',
-        type: 'address',
-      },
+        type: 'address'
+      }
     ],
     name: 'UpdateBoostContract',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -120,17 +120,17 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'oldMultiplier',
-        type: 'uint256',
+        type: 'uint256'
       },
       {
         indexed: false,
         internalType: 'uint256',
         name: 'newMultiplier',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'UpdateBoostMultiplier',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -139,17 +139,17 @@ export const MasterABI = [
         indexed: true,
         internalType: 'address',
         name: 'oldAdmin',
-        type: 'address',
+        type: 'address'
       },
       {
         indexed: true,
         internalType: 'address',
         name: 'newAdmin',
-        type: 'address',
-      },
+        type: 'address'
+      }
     ],
     name: 'UpdateBurnAdmin',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -158,23 +158,23 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'burnRate',
-        type: 'uint256',
+        type: 'uint256'
       },
       {
         indexed: false,
         internalType: 'uint256',
         name: 'regularFarmRate',
-        type: 'uint256',
+        type: 'uint256'
       },
       {
         indexed: false,
         internalType: 'uint256',
         name: 'specialFarmRate',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'UpdateCakeRate',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -184,32 +184,32 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'lastRewardBlock',
-        type: 'uint256',
+        type: 'uint256'
       },
       {
         indexed: false,
         internalType: 'uint256',
         name: 'lpSupply',
-        type: 'uint256',
+        type: 'uint256'
       },
       {
         indexed: false,
         internalType: 'uint256',
         name: 'accCakePerShare',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'UpdatePool',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
     inputs: [
       { indexed: true, internalType: 'address', name: 'user', type: 'address' },
-      { indexed: false, internalType: 'bool', name: 'isValid', type: 'bool' },
+      { indexed: false, internalType: 'bool', name: 'isValid', type: 'bool' }
     ],
     name: 'UpdateWhiteList',
-    type: 'event',
+    type: 'event'
   },
   {
     anonymous: false,
@@ -220,218 +220,218 @@ export const MasterABI = [
         indexed: false,
         internalType: 'uint256',
         name: 'amount',
-        type: 'uint256',
-      },
+        type: 'uint256'
+      }
     ],
     name: 'Withdraw',
-    type: 'event',
+    type: 'event'
   },
   {
     inputs: [],
     name: 'ACC_CAKE_PRECISION',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'BOOST_PRECISION',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'CAKE',
     outputs: [{ internalType: 'contract IBEP20', name: '', type: 'address' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'CAKE_RATE_TOTAL_PRECISION',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'MASTERCHEF_CAKE_PER_BLOCK',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'MASTER_CHEF',
     outputs: [
-      { internalType: 'contract IMasterChef', name: '', type: 'address' },
+      { internalType: 'contract IMasterChef', name: '', type: 'address' }
     ],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'MASTER_PID',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'MAX_BOOST_PRECISION',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '_allocPoint', type: 'uint256' },
       { internalType: 'contract IBEP20', name: '_lpToken', type: 'address' },
       { internalType: 'bool', name: '_isRegular', type: 'bool' },
-      { internalType: 'bool', name: '_withUpdate', type: 'bool' },
+      { internalType: 'bool', name: '_withUpdate', type: 'bool' }
     ],
     name: 'add',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'boostContract',
     outputs: [{ internalType: 'address', name: '', type: 'address' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'burnAdmin',
     outputs: [{ internalType: 'address', name: '', type: 'address' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'bool', name: '_withUpdate', type: 'bool' }],
     name: 'burnCake',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'bool', name: '_isRegular', type: 'bool' }],
     name: 'cakePerBlock',
     outputs: [{ internalType: 'uint256', name: 'amount', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'cakePerBlockToBurn',
     outputs: [{ internalType: 'uint256', name: 'amount', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'cakeRateToBurn',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'cakeRateToRegularFarm',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'cakeRateToSpecialFarm',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '_pid', type: 'uint256' },
-      { internalType: 'uint256', name: '_amount', type: 'uint256' },
+      { internalType: 'uint256', name: '_amount', type: 'uint256' }
     ],
     name: 'deposit',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'uint256', name: '_pid', type: 'uint256' }],
     name: 'emergencyWithdraw',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'address', name: '_user', type: 'address' },
-      { internalType: 'uint256', name: '_pid', type: 'uint256' },
+      { internalType: 'uint256', name: '_pid', type: 'uint256' }
     ],
     name: 'getBoostMultiplier',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'harvestFromMasterChef',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: 'contract IBEP20', name: 'dummyToken', type: 'address' },
+      { internalType: 'contract IBEP20', name: 'dummyToken', type: 'address' }
     ],
     name: 'init',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'lastBurnedBlock',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     name: 'lpToken',
     outputs: [{ internalType: 'contract IBEP20', name: '', type: 'address' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'massUpdatePools',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'owner',
     outputs: [{ internalType: 'address', name: '', type: 'address' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '_pid', type: 'uint256' },
-      { internalType: 'address', name: '_user', type: 'address' },
+      { internalType: 'address', name: '_user', type: 'address' }
     ],
     name: 'pendingCake',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
@@ -441,95 +441,95 @@ export const MasterABI = [
       { internalType: 'uint256', name: 'lastRewardBlock', type: 'uint256' },
       { internalType: 'uint256', name: 'allocPoint', type: 'uint256' },
       { internalType: 'uint256', name: 'totalBoostedShare', type: 'uint256' },
-      { internalType: 'bool', name: 'isRegular', type: 'bool' },
+      { internalType: 'bool', name: 'isRegular', type: 'bool' }
     ],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'poolLength',
     outputs: [{ internalType: 'uint256', name: 'pools', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'renounceOwnership',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '_pid', type: 'uint256' },
       { internalType: 'uint256', name: '_allocPoint', type: 'uint256' },
-      { internalType: 'bool', name: '_withUpdate', type: 'bool' },
+      { internalType: 'bool', name: '_withUpdate', type: 'bool' }
     ],
     name: 'set',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'totalRegularAllocPoint',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [],
     name: 'totalSpecialAllocPoint',
     outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'address', name: 'newOwner', type: 'address' }],
     name: 'transferOwnership',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
-      { internalType: 'address', name: '_newBoostContract', type: 'address' },
+      { internalType: 'address', name: '_newBoostContract', type: 'address' }
     ],
     name: 'updateBoostContract',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'address', name: '_user', type: 'address' },
       { internalType: 'uint256', name: '_pid', type: 'uint256' },
-      { internalType: 'uint256', name: '_newMultiplier', type: 'uint256' },
+      { internalType: 'uint256', name: '_newMultiplier', type: 'uint256' }
     ],
     name: 'updateBoostMultiplier',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'address', name: '_newAdmin', type: 'address' }],
     name: 'updateBurnAdmin',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '_burnRate', type: 'uint256' },
       { internalType: 'uint256', name: '_regularFarmRate', type: 'uint256' },
       { internalType: 'uint256', name: '_specialFarmRate', type: 'uint256' },
-      { internalType: 'bool', name: '_withUpdate', type: 'bool' },
+      { internalType: 'bool', name: '_withUpdate', type: 'bool' }
     ],
     name: 'updateCakeRate',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'uint256', name: '_pid', type: 'uint256' }],
@@ -543,57 +543,57 @@ export const MasterABI = [
           {
             internalType: 'uint256',
             name: 'totalBoostedShare',
-            type: 'uint256',
+            type: 'uint256'
           },
-          { internalType: 'bool', name: 'isRegular', type: 'bool' },
+          { internalType: 'bool', name: 'isRegular', type: 'bool' }
         ],
         internalType: 'struct MasterChefV2.PoolInfo',
         name: 'pool',
-        type: 'tuple',
-      },
+        type: 'tuple'
+      }
     ],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'address', name: '_user', type: 'address' },
-      { internalType: 'bool', name: '_isValid', type: 'bool' },
+      { internalType: 'bool', name: '_isValid', type: 'bool' }
     ],
     name: 'updateWhiteList',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '', type: 'uint256' },
-      { internalType: 'address', name: '', type: 'address' },
+      { internalType: 'address', name: '', type: 'address' }
     ],
     name: 'userInfo',
     outputs: [
       { internalType: 'uint256', name: 'amount', type: 'uint256' },
       { internalType: 'uint256', name: 'rewardDebt', type: 'uint256' },
-      { internalType: 'uint256', name: 'boostMultiplier', type: 'uint256' },
+      { internalType: 'uint256', name: 'boostMultiplier', type: 'uint256' }
     ],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [{ internalType: 'address', name: '', type: 'address' }],
     name: 'whiteList',
     outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
     stateMutability: 'view',
-    type: 'function',
+    type: 'function'
   },
   {
     inputs: [
       { internalType: 'uint256', name: '_pid', type: 'uint256' },
-      { internalType: 'uint256', name: '_amount', type: 'uint256' },
+      { internalType: 'uint256', name: '_amount', type: 'uint256' }
     ],
     name: 'withdraw',
     outputs: [],
     stateMutability: 'nonpayable',
-    type: 'function',
-  },
-];
+    type: 'function'
+  }
+]

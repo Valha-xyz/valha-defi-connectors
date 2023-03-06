@@ -1,5 +1,5 @@
-import { config } from 'dotenv';
-config();
+import { config } from 'dotenv'
+config()
 
 export const RPC_PROVIDERS = {
   ethereum: process.env.rpc_ethereum || 'https://rpc.flashbots.net/',
@@ -11,5 +11,5 @@ export const RPC_PROVIDERS = {
     'https://endpoints.omniatech.io/v1/op/mainnet/public',
   celo: process.env.rpc_celo || 'https://forno.celo.org/',
   avalanche:
-    process.env.rpc_avalanche || 'https://api.avax.network/ext/bc/C/rpc',
-};
+    process.env.rpc_avalanche || 'https://api.avax.network/ext/bc/C/rpc'
+}
