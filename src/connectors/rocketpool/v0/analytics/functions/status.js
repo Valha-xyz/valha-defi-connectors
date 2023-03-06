@@ -5,7 +5,7 @@ const { SETTINGABI } = require('../../abi/DepositSettings');
 
 async function checkRocketV0Status(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const SETTINGS = new ethers.Contract(poolAddress, SETTINGABI, provider);
     const status = await SETTINGS.getDepositEnabled();

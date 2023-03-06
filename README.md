@@ -33,7 +33,7 @@
 <br />
 </div>
 
-![Test Status](https://github.com/Valha-xyz/valha-defi-connectors/actions/workflows/test.yml/badge.svg)
+<!-- ![Test Status](https://github.com/Valha-xyz/valha-defi-connectors/actions/workflows/test.yml/badge.svg) -->
 
 <!-- ![Build Status](https://github.com/Valha-xyz/valha-defi-connectors/actions/workflows/file_check.yml/badge.svg) -->
 
@@ -367,7 +367,7 @@ async function getSharePrice(POOL) {
 }
 
 async function analytics(chain, poolAddress) {
-  const provider = await getNodeProvider(chain);
+  const provider = getNodeProvider(chain);
   if (!provider) throw new Error('No provider was found.');
   const POOL = new ethers.Contract(poolAddress, ERC4626ABI, provider);
   const TVL = await getTotalAssets(POOL);

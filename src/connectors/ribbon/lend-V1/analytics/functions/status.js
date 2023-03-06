@@ -5,7 +5,7 @@ const { PoolTokenABI } = require('../../abi/Pool');
 
 async function checkRibbonV1Status(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolTokenABI, provider);
     const Status = await POOL.state();

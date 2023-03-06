@@ -7,10 +7,10 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 async function checkCompoundV2Liquidity(
   chain,
   poolAddress,
-  underlyingDecimals,
+  underlyingDecimals
 ) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
     const CashBN = await POOL.getCash();

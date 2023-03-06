@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import { AdditionalOptions, AddressesInput, AmountInput, InteractionsReturnObject, Pool } from "../../../src/utils/types/connector-types";
+import {
+  AdditionalOptions,
+  AddressesInput,
+  AmountInput,
+  InteractionsReturnObject,
+  Pool,
+} from '../../../src/utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const PoolABI = require('');
@@ -27,7 +33,7 @@ async function deposit(
     },
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -55,7 +61,7 @@ async function redeem(
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -83,7 +89,7 @@ async function stake(
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
-      position_token_type: "ERC-20", //token type to approve
+      position_token_type: 'ERC-20', //token type to approve
       amount: amountBN,
     },
   };
@@ -139,6 +145,7 @@ async function claimRewards(
 
 module.exports = {
   deposit: deposit,
+  deposit_all: null,
   deposit_and_stake: null,
   unlock: null,
   redeem: redeem,

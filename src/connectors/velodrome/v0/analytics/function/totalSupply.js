@@ -5,7 +5,7 @@ const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 
 async function checkVelodromeV0Supply(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const Token = new ethers.Contract(poolAddress, ERC20ABI, provider);
     const decimals = await Token.decimals();

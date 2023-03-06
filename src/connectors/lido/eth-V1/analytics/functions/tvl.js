@@ -7,7 +7,7 @@ const { getUSDETH } = require('src/dispatcher/analytics/prices/getUSDETH');
 
 async function checkLidoV0TVL(poolAddress) {
   try {
-    const provider = await getNodeProvider('ethereum');
+    const provider = getNodeProvider('ethereum');
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, STETHABI, provider);
     const TvlBN = await POOL.totalSupply();

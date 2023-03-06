@@ -23,7 +23,7 @@ async function analytics(chain, poolAddress) {
   const underlyingToken = poolInfo.underlying_tokens[0];
   if (!underlyingToken)
     throw new Error('Error: no underlying found for Compound');
-  const provider = await getNodeProvider(chain);
+  const provider = getNodeProvider(chain);
   const underlyingDecimals = await erc20Decimals(provider, underlyingToken);
   if (underlyingDecimals === 0)
     throw new Error('Error: Compound underlying decimals null.');
@@ -37,7 +37,7 @@ async function analytics(chain, poolAddress) {
   const sharePriceResult = await checkCompoundV2Share(
     chain,
     poolAddress,
-    underlyingDecimals,
+    underlyingDecimals
   );
   const sharePrice = sharePriceResult.data;
   const TVLNative = await checkCompoundV2TVL(chain, poolAddress);
@@ -45,20 +45,18 @@ async function analytics(chain, poolAddress) {
   const OutloansNative = await checkCompoundV2Outloans(
     chain,
     poolAddress,
-    underlyingDecimals,
+    underlyingDecimals
   );
   const Outloans = OutloansNative.data * tokenPrice;
   const LiquidityNative = await checkCompoundV2Liquidity(
     chain,
     poolAddress,
-    underlyingDecimals,
+    underlyingDecimals
   );
   const Liquidity = LiquidityNative.data * tokenPrice;
 
   // Find information on Compound API.
   const info = await checkCompoundv2Data(chain, poolAddress);
-  console.log(info);
-  console.log(info.supply_rate);
   const ActAPY = info['supply_rate'] ? info['supply_rate'].value * 100 : 0;
   const RewAPY = info['comp_supply_apy']
     ? parseFloat(info['comp_supply_apy'].value)

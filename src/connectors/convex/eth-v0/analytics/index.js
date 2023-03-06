@@ -34,7 +34,7 @@ async function analytics(chain, poolAddress) {
       : null;
   if (!underlyingLPAddress) {
     throw new Error(
-      `Error: impossible to find the LP pool on Cvx for ${poolAddress}`,
+      `Error: impossible to find the LP pool on Cvx for ${poolAddress}`
     );
   }
   const supplyCvxInfo = await checkPoolSupply(chain, poolAddress);
@@ -46,7 +46,7 @@ async function analytics(chain, poolAddress) {
   const CrvInfo = await getCurvePoolTVL(
     chain,
     poolInfo.underlying_tokens[0],
-    curveID,
+    curveID
   );
   if (CrvInfo.err) throw new Error(CrvInfo.err.message);
   const tvlUSDCrv = CrvInfo.data;
@@ -59,7 +59,7 @@ async function analytics(chain, poolAddress) {
   const convexAPYInfo = await checkConvexData(
     chain,
     poolInfo.underlying_tokens[0],
-    curveID,
+    curveID
   );
   if (convexAPYInfo.err) throw new Error(info.err.message);
   // Take baseAPY and crvApr from Convex API
@@ -68,19 +68,11 @@ async function analytics(chain, poolAddress) {
   // Calculate rewards from on-chain data
   const cvxAPYInfo = await checkCvxAPY(
     chain,
-    poolInfo.staking_address ? poolInfo.staking_address : '',
+    poolInfo.staking_address ? poolInfo.staking_address : ''
   );
   if (cvxAPYInfo.err) throw new Error(cvxAPYInfo.err.message);
-  console.log('-------');
-  console.log(crvAPY);
-  console.log(cvxAPYInfo);
-  console.log('-------');
   const cvxAPY = cvxAPYInfo.data / TVL;
   const RewAPY = crvAPY + cvxAPY;
-  console.log('-------');
-  console.log(ActAPY);
-  console.log(RewAPY);
-  console.log('-------');
   const totalAPY = ActAPY + RewAPY;
 
   const result = {

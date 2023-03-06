@@ -5,7 +5,7 @@ const { RPLABI } = require('../../abi/ERC20RPL');
 
 async function checkRocketV0SharePrice(chain, poolAddress) {
   try {
-    const provider = await getNodeProvider(chain);
+    const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const RPL = new ethers.Contract(poolAddress, RPLABI, provider);
     const exchangeRateBN = await RPL.getExchangeRate();
