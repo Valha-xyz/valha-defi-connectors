@@ -5,30 +5,30 @@ import {
   type AmountInput,
   type Interactions,
   type InteractionsReturnObject,
-  type Pool,
-} from '../../../../utils/types/connector-types';
+  type Pool
+} from '../../../../utils/types/connector-types'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const PoolABI = require('../abi/PoolToken.json');
-const RewardsABI = require('../abi/MplRewards.json');
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const PoolABI = require('../abi/PoolToken.json')
+const RewardsABI = require('../abi/MplRewards.json')
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals')
 
 /// invest
-async function deposit(
+async function deposit (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const method_name = 'deposit';
-  const position_token = pool.underlying_tokens[0];
+  const abi = PoolABI
+  const method_name = 'deposit'
+  const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     position_token
-  );
-  const args = [amountBN];
+  )
+  const args = [amountBN]
 
   return {
     txInfo: {
@@ -36,53 +36,54 @@ async function deposit(
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: {
       position_token, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN,
-    },
-  };
+      amount: amountBN
+    }
+  }
 }
 
 /// unlock
-async function unlock(
+async function unlock (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const method_name = 'intendToWithdraw';
-  const args = [];
+  const abi = PoolABI
+  const method_name = 'intendToWithdraw'
+  const args = []
 
   return {
     txInfo: {
       abi, // abi array
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args, // args to pass to the smart contracts to trigger 'method_name'
+      args // args to pass to the smart contracts to trigger 'method_name'
     },
-    assetInfo: null,
-  };
+    assetInfo: null
+  }
 }
 
 /// redeem
-async function redeem(
+async function redeem (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
-  const method_name = 'withdraw';
-  const position_token = pool.pool_address;
+  const abi = PoolABI
+  const method_name = 'withdraw'
+  const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     position_token
-  );
-  const args = [amountBN];
+  )
+  const args = [amountBN]
 
   return {
     txInfo: {
@@ -90,32 +91,33 @@ async function redeem(
       interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: {
       position_token, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN,
-    },
-  };
+      amount: amountBN
+    }
+  }
 }
 
 /// stake
 // TBD
-async function stake(
+async function stake (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = RewardsABI;
-  const method_name = 'stake';
-  const position_token = pool.pool_address;
+  const abi = RewardsABI
+  const method_name = 'stake'
+  const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     position_token
-  );
-  const args = [amountBN];
+  )
+  const args = [amountBN]
 
   return {
     txInfo: {
@@ -123,32 +125,33 @@ async function stake(
       interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
     assetInfo: {
       position_token, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN,
-    },
-  };
+      amount: amountBN
+    }
+  }
 }
 
 /// unstake
 // TBD
-async function unstake(
+async function unstake (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = RewardsABI;
-  const method_name = 'withdraw';
-  const position_token = pool.pool_address;
+  const abi = RewardsABI
+  const method_name = 'withdraw'
+  const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     position_token
-  );
-  const args = [amountBN];
+  )
+  const args = [amountBN]
 
   return {
     txInfo: {
@@ -156,46 +159,45 @@ async function unstake(
       interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0]
     },
-    assetInfo: null,
-  };
+    assetInfo: null
+  }
 }
 
 /// claim
-async function claimRewards(
+async function claimRewards (
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = RewardsABI;
-  const method_name = 'getReward';
-  const args = [];
+  const abi = RewardsABI
+  const method_name = 'getReward'
+  const args = []
 
   return {
     txInfo: {
       abi, // abi array
       interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
-      args, // args to pass to the smart contracts to trigger 'method_name'
+      args // args to pass to the smart contracts to trigger 'method_name'
     },
-    assetInfo: null,
-  };
+    assetInfo: null
+  }
 }
 
 const interactions: Interactions = {
   deposit,
-  deposit_all: null,
   deposit_and_stake: null,
   unlock,
   redeem,
-  redeem_all: null,
   unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,
   unboost: null,
   claim_rewards: claimRewards,
-  claim_interests: null,
-};
-export default interactions;
+  claim_interests: null
+}
+export default interactions

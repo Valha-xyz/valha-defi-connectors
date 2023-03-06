@@ -260,6 +260,63 @@ interface InteractionsReturnObject {
 
 <br />
 
+<h3> Swap protocol functions </h3>
+
+In order to integrate swap protocols, you need to add a `<protocol>/analytics/liquidity-pool/getQuotePrice.ts` file (e.g. [src/connectors/0x/v0/analytics.liquidity-pool.getQuotePrice.ts](src/connectors/0x/v0/analytics.liquidity-pool.getQuotePrice.ts)).
+
+This file should have one export : a `getQuotePrice` function. Its parameters are : 
+```typescript
+  tokenIn: string, // The address of the token the user wishes to swap from 
+  amount: BigNumberish, // The amount of tokens (in base units, e.g. 1000000000000000000 for 1 Eth)
+  tokenOut: string, // The token the user wishes to swap to
+  chain: string // The chain on which the swap should take place (e.g. ethereum or optimism)
+```
+It should return the amount (in base units) of tokenOut a user should expect in the swap operation with the protocol.
+
+
+<h3> Liquidity pools entry related functions</h3>
+
+There are 2 ways of integrating a liquidity pool related protocol.
+1. This solution should be used if a user should enter the pool with equalty weighted tokens. For instance, in order to enter a uniswap v2 pool, a user should deposit token0 and token1 with a 50/50 ratio. This choice should only be made if the minimumAmounts computed are in token units (e.g. uniswap) and not LP units (this integration doesn't suit curve for instance)
+
+  In order to do that, a protocol, needs to add a `<protocol>/analytics/liquidity-pool/getPoolExchangeRate.ts` file (e.g. [src/connectors/uniswap/v2/analytics/liquidity-pool/getPoolExchangeRate.ts](src/connectors/uniswap/v2/analytics/liquidity-pool/getPoolExchangeRate.ts)).
+
+    This file should have one export : a `getExchangeRate`functions with the following parameters : 
+
+    ```typescript
+    amount1: BigNumber, // an amount int token1 base units
+    token1: string, 
+    token2: string,
+    pool: Pool // The pool object as defined in src/utils/types/connector-types
+    ```
+
+    This function should return the amount of token2 in base units that is equivalent to amount1 of token1 according to the pool.
+    In the case of a pool with only 2 base assets, one call to this function allows one to know how much token2 should be deposited along amount1 of token1.
+    In the general case of a pool with n base assets, (n-1) calls are needed to know how to enter the pool efficiently.
+
+
+2. If the protocol doesn't require to enter with equal amounts of tokens, they also can implement a `getMinimumDeposit` function (e.g. [src/connectors/curve/v2/analytics/liquidity-pool/getMinimumDeposit.ts](src/connectors/curve/v2/analytics/liquidity-pool/getMinimumDeposit.ts)).
+
+  This function has the following parameters
+  ```typescript
+  amount1: BigNumber, // amount of tokens you want to enter the pool with
+  token1: string, // Token OF THE POOL that you will actually enter with
+  pool: Pool // The pool object as defined in src/utils/types/connector-types
+  ```
+
+  This function should return the minimum amount of LPs one can get by entering the pool with amount1 token1. 
+  In the background, in order to get the best entry into the pool, the result of this function will be maximised with respect to token1.
+
+<h3> Liquidity pools exit related functions</h3>
+
+In order for users to know how much they can get from exiting the liquidity pool, protocols should implement the [src/connectors/uniswap/v2/analytics/liquidity-pool/getMinimumRedeem.ts](src/connectors/uniswap/v2/analytics/liquidity-pool/getMinimumRedeem.ts) function.
+```typescript
+  amount: BigNumberish,
+  pool: Pool
+```
+This function should return the amount of tokens expected when exiting the liquidity pool with amount LP tokens (in the LP token base units). It returns a list ordered the same way as the underlying tokens in the pool object
+
+
 ## ERC4626 Example
 
 Let's consider that we are creating the connector for the v5 of the Valha protocol that call "valha/v5", we would run the following script to create the repositories:
