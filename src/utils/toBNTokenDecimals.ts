@@ -1,4 +1,5 @@
 import BN from 'bn.js'
+import { BigNumber, ethers } from 'ethers'
 import { erc20Decimals } from './ERC20Decimals'
 import { getNodeProvider } from './getNodeProvider'
 
@@ -37,3 +38,22 @@ export async function toBnERC20Decimals (
     return null
   }
 }
+
+export async function fromBnERC20Decimals (
+  amount: BigNumber,
+  chain: string,
+  tokenAddress: string
+): Promise<string> {
+  let decimals = 18
+  if (
+    tokenAddress.toLowerCase() !==
+    '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'.toLowerCase()
+  ) {
+    const provider = getNodeProvider(chain)
+    if (provider == null) throw new Error('No provider was found.')
+    decimals = await erc20Decimals(provider, tokenAddress.toLowerCase())
+  }
+
+  return ethers.utils.formatUnits(amount, decimals)
+}
+
