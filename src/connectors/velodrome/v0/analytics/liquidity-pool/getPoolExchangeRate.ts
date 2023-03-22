@@ -29,13 +29,13 @@ export const getExchangeRate: GetExchangeRateFunction = async (
 
   // First we get the reserves
   const [reserve1, reserve2] = await liquidityProvidingContract.getReserves(
-    token1, 
-    token2, 
+    token1,
+    token2,
     pool.metadata.stable
   )
 
   // Then we return the equivalent amount of the other token (quoteLiquidity of the contract)
-  if(reserve1 == 0 || reserve2 == 0){
+  if (reserve1 == 0 || reserve2 == 0) {
     throw 'Router: INSUFFICIENT_LIQUIDITY'
   }
   return amount1.mul(reserve2).div(reserve1)
