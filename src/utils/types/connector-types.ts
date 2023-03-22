@@ -84,7 +84,7 @@ export type InteractionFunction =
   ) => Promise<InteractionsReturnObject>)
   | null
 
-export type Interactions = Record<
+export type Interactions = Partial<Record<
 InteractionFunctionNames,
 InteractionFunction | null
->
+>>
