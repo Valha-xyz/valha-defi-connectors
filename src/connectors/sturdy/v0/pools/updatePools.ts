@@ -11,7 +11,7 @@ const pMap = require('p-map')
 
 const chains = ['ethereum']
 
-export async function getVaults(chain) {
+export async function getVaults (chain) {
   const vaults = await axios.get('https://us-central1-stu-dashboard-a0ba2.cloudfunctions.net/getVaultMonitoring', {
     params: {
       chain

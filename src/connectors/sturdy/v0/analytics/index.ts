@@ -12,15 +12,15 @@ async function analytics (
   poolAddress
 ): Promise<Analytics | Record<never, never>> {
   try {
-    const POOLS = await getVaults(chain);
-    const currentPool = POOLS.find((pool)=> pool.address == poolAddress);
+    const POOLS = await getVaults(chain)
+    const currentPool = POOLS.find((pool) => pool.address == poolAddress)
 
     if (!POOLS || POOLS.length === 0) return {}
 
-    const tvl = currentPool.tvl;
+    const tvl = currentPool.tvl
     const outloans = currentPool.totalBorrowUsd
-    const liquidity = tvl - outloans;
-    const apy = currentPool.base;
+    const liquidity = tvl - outloans
+    const apy = currentPool.base
 
     const result = {
       status: currentPool.active,
@@ -29,7 +29,7 @@ async function analytics (
       outloans,
       losses: null,
       capacity: liquidity,
-      apy: apy,
+      apy,
       activity_apy: apy,
       rewards_apy: 0, // No rewards on deposit pools
       boosting_apy: 0,
