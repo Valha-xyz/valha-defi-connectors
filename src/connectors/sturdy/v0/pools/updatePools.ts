@@ -3,7 +3,7 @@ import fs from 'fs'
 import { type Pool } from '../../../../utils/types/connector-types'
 import { Chain } from '../../../../utils/types/networks'
 import { ethers } from 'ethers'
-import PoolABI from '../abi/Pool.json'
+import { POOLABI } from '../abi/Pool'
 import { getNodeProvider } from '../../../../utils/getNodeProvider'
 import axios from 'axios'
 const path = require('path')
@@ -30,7 +30,7 @@ async function generatePools (): Promise<Pool | Record<never, never>> {
 		  (pool) => pool.active
       ), // Some pools are hidden by the interface
     async (elem): Promise<Pool> => {
-      const pool = new ethers.Contract(elem.address, PoolABI, provider)
+      const pool = new ethers.Contract(elem.address, POOLABI, provider)
 		  return {
 		    name: `Sturdy Yeal Bearing ${elem.tokens}`,
 		    chain,

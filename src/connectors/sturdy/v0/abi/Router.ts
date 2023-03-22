@@ -1,4 +1,4 @@
-[
+export const ROUTERABI = [
   {
     "anonymous":false,
     "inputs":[
@@ -1072,4 +1072,4 @@
     "stateMutability":"nonpayable",
     "type":"function"
   }
-]
+] as const

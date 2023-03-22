@@ -9,7 +9,7 @@ import {
 } from '../../../../utils/types/connector-types'
 
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals'
-import ROUTERABI from '../abi/Router.json'
+import { ROUTERABI} from '../abi/Router'
 
 /// invest
 async function deposit (

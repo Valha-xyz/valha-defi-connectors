@@ -1,4 +1,4 @@
-[
+export const POOLABI = [
   {
     "anonymous":false,
     "inputs":[
@@ -782,4 +782,4 @@
     "stateMutability":"payable",
     "type":"function"
   }
-]
+] as const;
