@@ -56,15 +56,9 @@ async function checkFnCallableReturn (
       const result = await fn[name](
         POOL,
         {
-          amount: {
-            humanValue: amountBN
-          },
-          amountsDesired: amountsDesiredNotBN.map((amount) => ({
-            humanValue: amount
-          })),
-          amountsMinimum: amountsMinimumNotBN.map((amount) => ({
-            humanValue: amount
-          }))
+          amount: amountBN,
+          amountsDesired: amountsDesiredNotBN,
+          amountsMinimum: amountsMinimumNotBN
         },
         {
           userAddress,
@@ -315,7 +309,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '',
               0
             )
-            if (result.txInfo) {
+            if (result?.txInfo) {
               expect(Array.isArray(result.txInfo.abi)).toBeTruthy()
             }
           })
@@ -373,7 +367,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
               '',
               0
             )
-            if (result.txInfo) {
+            if (result?.txInfo) {
               const ABI = result.txInfo.abi
               const ABIinteractionDefinition = _.find(ABI, (elem) => {
                 if (

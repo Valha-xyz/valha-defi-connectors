@@ -8,10 +8,8 @@ import {
   type Pool
 } from '../../../../utils/types/connector-types'
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { VaultABI } from '../abi/vault'
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals')
+import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals'
+import { ROUTERABI} from '../abi/Router'
 
 /// invest
 async function deposit (
@@ -20,26 +18,26 @@ async function deposit (
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = VaultABI
+  const abi = ROUTERABI
   const method_name = 'deposit'
-  const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    pool.underlying_tokens[0]
   )
-  const args = [amountBN]
+  const args = [pool.underlying_tokens[0], amountBN, addresses.userAddress, 0]
+  const interaction_address = pool.investing_address
 
   return {
     txInfo: {
-      abi, // json file name
-      interaction_address: pool.pool_address, // contract to interact with to interact with poolAddress
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [0]
+      amountPositions: [1]
     },
     assetInfo: {
-      position_token, // token needed to approve
+      position_token: pool.underlying_tokens[0], // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
       amount: amountBN
     }
@@ -53,33 +51,33 @@ async function redeem (
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = VaultABI
+  const abi = ROUTERABI
   const method_name = 'withdraw'
-  const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    pool.pool_address
   )
-  const args = [amountBN]
+  const args = [pool.underlying_tokens[0], amountBN, addresses.receiverAddress]
+  const interaction_address = pool.investing_address
 
   return {
     txInfo: {
-      abi, // json file name
-      interaction_address: pool.pool_address, // contract to interact with to interact with poolAddress
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [0]
+      amountPositions: [1]
     },
     assetInfo: {
-      position_token, // token needed to approve
+      position_token: pool.pool_address, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
       amount: amountBN
     }
   }
 }
 
-const contractInteractions: Interactions = {
+const interactions: Interactions = {
   deposit,
   deposit_and_stake: null,
   unlock: null,
@@ -93,4 +91,4 @@ const contractInteractions: Interactions = {
   claim_interests: null
 }
 
-export default contractInteractions
+export default interactions

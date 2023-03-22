@@ -1,16 +1,4 @@
+
 import { type Pool } from '../../../src/utils/types/connector-types'
 
-export const POOLS: Pool[] = [
-  {
-    name: 'Fei Pool',
-    chain: 'ethereum',
-    underlying_tokens: ['0x956F47F50A910163D8BF957Cf5846D573E7f87CA'],
-    pool_address: '0x5d8D3Ac6D21C016f9C935030480B7057B21EC804',
-    investing_address: '0x5adDc89785D75C86aB939E9e15bfBBb7Fc086A87',
-    staking_address: '0x7c0fF11bfbFA3cC2134Ce62034329a4505408924',
-    boosting_address: null,
-    distributor_address: '0x7F82ff050128e29Fd89D85d01b93246F744E62A0',
-    rewards_tokens: ['0x31429d1856ad1377a8a0079410b297e1a9e214c2'],
-    metadata: {}
-  }
-]
+export const POOLS: Pool[] = [{ name: 'Sturdy Yeal Bearing DAI', chain: 'ethereum', underlying_tokens: ['0x6B175474E89094C44Da98b954EedeAC495271d0F'], pool_address: '0xe408768fc65116143e1f65ff9356cd0de6868fcc', investing_address: '0xA422CA380bd70EeF876292839222159E41AAEe17', staking_address: null, boosting_address: null, distributor_address: null, rewards_tokens: [], metadata: {} }, { name: 'Sturdy Yeal Bearing USDC', chain: 'ethereum', underlying_tokens: ['0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'], pool_address: '0x51d5c5d784334a4b52a07ac13d9db79cbefa1642', investing_address: '0xA422CA380bd70EeF876292839222159E41AAEe17', staking_address: null, boosting_address: null, distributor_address: null, rewards_tokens: [], metadata: {} }, { name: 'Sturdy Yeal Bearing USDT', chain: 'ethereum', underlying_tokens: ['0xdAC17F958D2ee523a2206206994597C13D831ec7'], pool_address: '0x6bf4f9c7bf935a5742324dc4bfe32f5c68b86028', investing_address: '0xA422CA380bd70EeF876292839222159E41AAEe17', staking_address: null, boosting_address: null, distributor_address: null, rewards_tokens: [], metadata: {} }, { name: 'Sturdy Yeal Bearing WETH', chain: 'ethereum', underlying_tokens: ['0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'], pool_address: '0xb1ebf8f77ae002d487e7bde22c6180be0af6a3d4', investing_address: '0x9f72DC67ceC672bB99e3d02CbEA0a21536a2b657', staking_address: null, boosting_address: null, distributor_address: null, rewards_tokens: [], metadata: {} }]
