@@ -9,7 +9,7 @@ export interface AssetInfo {
 
 export interface TxInfo {
   abi: any // JSON file that represent a contract ABI
-  interaction_address: string | string[] // contract to interact with to interact with poolAddress
+  interaction_address: string // contract to interact with to interact with poolAddress
   method_name: string // method to interact with the pool
   args: any[] // arguments to pass to the smart contracts to trigger 'method_name',
   amountPositions?: number[]
