@@ -14,3 +14,8 @@ export interface TxInfo {
   args: any[] // arguments to pass to the smart contracts to trigger 'method_name',
   amountPositions?: number[]
 }
+
+export interface DataNumberResponse {
+  data: number | null
+  err: Error | null
+}

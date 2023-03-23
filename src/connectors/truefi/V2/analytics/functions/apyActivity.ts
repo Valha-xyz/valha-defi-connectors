@@ -1,11 +1,11 @@
 import { erc20Decimals } from '../../../../../utils/ERC20Decimals'
 import { PoolTokenABI } from '../../abi/PoolToken'
-import ERC20ABI from 'src/helpers/abi/ERC20.json'
+import ERC20ABI from 'src/utils/abi/ERC20.json'
 import { ethers } from 'ethers'
-import { type DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface'
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
 import { BigNumber } from 'bignumber.js'
 import { gql, request } from 'graphql-request'
+import { getNodeProvider } from 'src/utils/getNodeProvider'
+import { DataNumberResponse } from 'src/utils/types/utils'
 
 const YEAR_IN_DAYS = 365
 const SECOND_IN_MS = 1000

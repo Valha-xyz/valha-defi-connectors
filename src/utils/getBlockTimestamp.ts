@@ -1,6 +1,6 @@
 import { config } from 'dotenv'
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
-import { type DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface'
+import { getNodeProvider } from './getNodeProvider'
+import { DataNumberResponse } from './types/utils'
 config()
 
 export async function getBlockTimestamp (
