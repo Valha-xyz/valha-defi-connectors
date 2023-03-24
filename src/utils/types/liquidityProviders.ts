@@ -11,11 +11,31 @@ export interface TokenPrice {
   price: FixedNumber
 }
 
+export interface TokenPriceHuman {
+  tokenIn: string
+  tokenOut: string
+  amountIn: string
+  amountOut: string
+  price: FixedNumber
+}
+
 export interface ExchangeRate {
   price: FixedNumber
   exchangeRate: FixedNumber
   referenceToken: string
   tokenOut: string
+}
+
+
+export type GetQuotePriceFunction = (
+  tokenIn: string,
+  amount: BigNumberish,
+  tokenOut: string,
+  chain: string,
+) => Promise<BigNumber>
+
+export interface GetQuoteTypeExport {
+  getQuotePrice: GetQuotePriceFunction
 }
 
 export type GetExchangeRateFunction = (
@@ -27,6 +47,16 @@ export type GetExchangeRateFunction = (
 
 export interface GetExchangeRateExport {
   getExchangeRate: GetExchangeRateFunction
+}
+
+export type GetPoolEnterLPQuoteFunction = (
+  tokens: string[],
+  amounts: BigNumberish[],
+  pool: Pool
+) => Promise<BigNumber>
+
+export interface GetPoolEnterLPQuoteExport {
+  getPoolEnterLPQuote: GetPoolEnterLPQuoteFunction
 }
 
 export type GetMinimumRedeemFunction = (
