@@ -8,7 +8,7 @@ const CHAIN_ID = {
   avalanche: 43114
 }
 
-export async function getChainId (chain: string): Promise<number> {
+export function getChainId (chain: string): Promise<number> {
   try {
     const id = CHAIN_ID[chain]
     if (!id) throw new Error(`Not found CHAIN_ID for ${chain}`)
