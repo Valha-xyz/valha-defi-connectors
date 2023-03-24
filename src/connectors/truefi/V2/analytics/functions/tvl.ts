@@ -1,8 +1,8 @@
 import { erc20Decimals } from '../../../../../utils/ERC20Decimals'
 import { PoolTokenABI } from '../../abi/PoolToken'
 import { ethers } from 'ethers'
-import { getNodeProvider } from 'src/utils/getNodeProvider'
-import { DataNumberResponse } from 'src/utils/types/utils'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
+import { DataNumberResponse } from '../../../../../utils/types/utils'
 
 export async function checkTruefiV2TVL (
   chain: string,
