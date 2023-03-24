@@ -2,7 +2,7 @@ import { erc20Decimals } from '../../../../../utils/ERC20Decimals'
 import { PoolTokenABI } from '../../abi/PoolToken'
 import { ethers } from 'ethers'
 // import { DataNumberResponse } from 'src/interfaces/response/Internal/DataNumberInterface';
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 
 export async function checkTruefiV2Outloans (
   chain: string,

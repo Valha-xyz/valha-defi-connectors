@@ -1,7 +1,7 @@
 import { PoolTokenABI } from '../../abi/PoolToken'
 import { ethers } from 'ethers'
 // import { DataBoolResponse } from 'src/interfaces/response/Internal/DataBoolInterface';
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 
 export async function checkTruefiV2Status (
   chain: string,

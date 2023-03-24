@@ -1,6 +1,6 @@
 import { PoolTokenABI } from '../../abi/PoolToken'
 import { ethers } from 'ethers'
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 
 export async function checkTruefiV2Share (
   chain: string,

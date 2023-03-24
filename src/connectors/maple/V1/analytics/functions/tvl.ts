@@ -2,7 +2,7 @@ import PoolTokenABI from '../../abi/PoolToken.json'
 import { ethers } from 'ethers'
 import { DIGITAL_USD } from '../../../../../utils/CONST/DIGITAL_USD'
 import { getUSDETH } from '../../../../../utils/prices/getUSDETH'
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 
 export async function checkMapleV3TVL (
   chain: string,

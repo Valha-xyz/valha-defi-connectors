@@ -1,6 +1,6 @@
 import PoolTokenABI from '../../abi/Globals.json'
 import { ethers } from 'ethers'
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 
 const globalAddress = '0xC234c62c8C09687DFf0d9047e40042cd166F3600'
 
