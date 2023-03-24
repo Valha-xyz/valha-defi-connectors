@@ -11,5 +11,7 @@ export const RPC_PROVIDERS = {
     'https://endpoints.omniatech.io/v1/op/mainnet/public',
   celo: process.env.rpc_celo || 'https://forno.celo.org/',
   avalanche:
-    process.env.rpc_avalanche || 'https://api.avax.network/ext/bc/C/rpc'
+    process.env.rpc_avalanche || 'https://api.avax.network/ext/bc/C/rpc',
+    "bsc-testnet": 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+    "arbitrum-testnet": 'https://goerli-rollup.arbitrum.io/rpc'
 }
