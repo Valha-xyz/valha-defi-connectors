@@ -16,8 +16,11 @@
     "test-analytics": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/analytics.spec.ts",
     "test-interactions": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/interactions.spec.ts",
     "test-execution": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/execution.spec.ts",
-    "full-test": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/repository.spec.ts && jest --forceExit tests/connectors/analytics.spec.ts && jest --forceExit tests/connectors/interactions.spec.ts"
+    "full-test": "node tests/connectors/config/prepareTestPools && jest --forceExit tests/connectors/repository.spec.ts && jest --forceExit tests/connectors/analytics.spec.ts && jest --forceExit tests/connectors/interactions.spec.ts",
+    "build:dev": "tsc --build -w",
+    "build": "tsc --build"
   },
+  "pre-commit":["build"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Valha-xyz/Valha-connectors.git"
@@ -39,6 +42,7 @@
     "graphql-request": "^5.0.0",
     "lodash": "^4.17.21",
     "p-map": "^4.0.0",
+    "pre-commit": "^1.2.2",
     "superagent": "^8.0.3",
     "superagent-cache": "^3.1.1",
     "web3": "^1.8.1"
