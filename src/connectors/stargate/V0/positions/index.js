@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { STAKEABI } = require('../abi/LPStaking');
+const { LPSTAKING } = require('../abi/LPStaking');
 const STAKING_PID = require('../interactions/STAKINGPID');
 
 /// stakePosition
@@ -16,9 +16,9 @@ async function stakePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress,
+  receiverAddress
 ) {
-  const abi = STAKEABI;
+  const abi = LPSTAKING;
   const pid = STAKING_PID[chain][pool_address.toLowerCase()];
   const method_name = 'userInfo';
   const args = [pid, userAddress];
