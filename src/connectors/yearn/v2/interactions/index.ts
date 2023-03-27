@@ -21,7 +21,11 @@ async function deposit (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI
+<<<<<<< HEAD
   const method_name = 'deposit'
+=======
+  const method_name = 'deposit(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.underlying_tokens[0]
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -54,7 +58,11 @@ async function redeem (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = VaultABI
+<<<<<<< HEAD
   const method_name = 'withdraw'
+=======
+  const method_name = 'withdraw(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
