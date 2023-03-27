@@ -10,6 +10,7 @@ import {
 
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
 import { PoolABI } from '../abi/Pool';
+import { RewardsABI } from '../abi/Staking';
 
 /// invest
 async function deposit(
@@ -86,7 +87,7 @@ async function claimRewards(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = PoolABI;
+  const abi = RewardsABI;
   const method_name = 'claimComp(address)';
   const args = [addresses.userAddress];
   const interaction_address = pool.distributor_address
