@@ -7,7 +7,7 @@ const POOLS = [
     investing_address: '0x40293380F5292Bb13905608b35a936c332f07f94',
     staking_address: '0xeC037423A61B634BFc490dcc215236349999ca3d',
     boosting_address: null,
-    distributor_address: '0x3af45d43896ed333f4b7098af90e838ef74bc98f',
+    distributor_address: '0x968e4fc45856b4ec1a48b1c471afe21ea04e8e45',
     rewards_tokens: [
       '0x9aE380F0272E2162340a5bB646c354271c0F5cFC',
       '0xD533a949740bb3306d119CC777fa900bA034cd52',
@@ -23,7 +23,7 @@ const POOLS = [
     investing_address: '0x07b577f10d4e00f3018542d08a87f255a49175a5',
     staking_address: '0xeC037423A61B634BFc490dcc215236349999ca3d',
     boosting_address: null,
-    distributor_address: '0x3af45d43896ed333f4b7098af90e838ef74bc98f',
+    distributor_address: '0xe976f643d4dc08aa3ced55b0ca391b1d11328347',
     rewards_tokens: [
       '0x9aE380F0272E2162340a5bB646c354271c0F5cFC',
       '0xD533a949740bb3306d119CC777fa900bA034cd52',
