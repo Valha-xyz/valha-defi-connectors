@@ -20,7 +20,11 @@ async function deposit (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI
+<<<<<<< HEAD
   const method_name = 'mint'
+=======
+  const method_name = 'mint(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -54,7 +58,11 @@ async function redeem (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI
+<<<<<<< HEAD
   const method_name = 'redeem'
+=======
+  const method_name = 'redeem(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -87,7 +95,11 @@ async function stake (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI
+<<<<<<< HEAD
   const method_name = 'stake'
+=======
+  const method_name = 'stake(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -120,7 +132,11 @@ async function unstake (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = StakingABI
+<<<<<<< HEAD
   const method_name = 'withdraw'
+=======
+  const method_name = 'withdraw(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.pool_address ? pool.pool_address : ''
   console.log(position_token)
   const amountBN = await toBnERC20Decimals(

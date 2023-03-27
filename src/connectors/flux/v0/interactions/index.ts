@@ -19,7 +19,11 @@ async function deposit (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI
+<<<<<<< HEAD
   const method_name = 'mint'
+=======
+  const method_name = 'mint(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
@@ -52,7 +56,11 @@ async function redeem (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI
+<<<<<<< HEAD
   const method_name = 'redeem'
+=======
+  const method_name = 'redeem(uint256)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,

@@ -33,7 +33,11 @@ async function deposit (
   } else {
     throw new Error('Error: pool size is not handle.')
   }
+<<<<<<< HEAD
   const method_name = 'add_liquidity'
+=======
+  const method_name = `add_liquidity(uint256[${size}], uint256)`
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.underlying_tokens
   const amountsBN = []
   for (const i in pool.underlying_tokens) {
@@ -85,7 +89,11 @@ async function redeem (
   } else {
     throw new Error('Error: pool size is not handle.')
   }
+<<<<<<< HEAD
   const method_name = 'remove_liquidity'
+=======
+  const method_name = `remove_liquidity(uint256, uint256[${size}])`
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.pool_address
   const amountsBN = []
   for (const i in pool.underlying_tokens) {
@@ -129,7 +137,11 @@ async function stake (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI
+<<<<<<< HEAD
   const method_name = 'deposit'
+=======
+  const method_name = 'deposit(uint256,address)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.pool_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -162,7 +174,11 @@ async function unstake (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI
+<<<<<<< HEAD
   const method_name = 'withdraw'
+=======
+  const method_name = 'withdraw(uint256,bool)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const position_token = pool.staking_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -195,7 +211,11 @@ async function claimRewards (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = GaugeABI
+<<<<<<< HEAD
   const method_name = 'claim_rewards'
+=======
+  const method_name = 'claim_rewards(address)'
+>>>>>>> parent of 20cdc2c6 (automatic push)
   const args = [addresses.userAddress]
 
   return {
