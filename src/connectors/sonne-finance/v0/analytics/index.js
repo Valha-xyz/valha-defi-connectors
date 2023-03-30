@@ -6,7 +6,6 @@ const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const {
   getGeckoTokenPrice,
 } = require('../../../../utils/prices/getGeckoTokenPrice');
-const { erc20TotalSupply } = require('../../../../utils/ERC20TotalSupply');
 const checkCompoundV2TVL = require('./functions/tvl');
 const checkCompoundV2Liquidity = require('./functions/liquidity');
 const checkCompoundV2Outloans = require('./functions/outloans');

@@ -20,7 +20,9 @@
     "build:dev": "tsc --build -w",
     "build": "tsc --build"
   },
-  "pre-commit":["build"],
+  "pre-commit": [
+    "build"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Valha-xyz/Valha-connectors.git"
@@ -41,8 +43,10 @@
     "ethers": "^5.7.2",
     "graphql-request": "^5.0.0",
     "lodash": "^4.17.21",
+    "node-cache-redis": "^6.4.2",
     "p-map": "^4.0.0",
     "pre-commit": "^1.2.2",
+    "redis": "^4.6.5",
     "superagent": "^8.0.3",
     "superagent-cache": "^3.1.1",
     "web3": "^1.8.1"
