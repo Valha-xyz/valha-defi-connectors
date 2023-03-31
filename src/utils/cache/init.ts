@@ -3,7 +3,7 @@ init({
     redisOptions: {
 
     },
-    defaultTtlInS: parseInt(process.env.CACHE_TIME_IN_SECONDS ?? "0")
+    defaultTtlInS: parseInt(process.env.CACHE_TIME_IN_SECONDS ?? "1")
 });
 
 export function useCache<T>(getKey: ((T)=> string)){
