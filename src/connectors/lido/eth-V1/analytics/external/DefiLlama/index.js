@@ -1,28 +1,29 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const utils = require('../../../../../../utils/external/utils')
+const utils = require('../../../../../../utils/external/utils');
 
 const topLvl = async (chainString, url, token, address) => {
-  let dataTvl
-  let dataApy
-  let data
-  let apy
+  let dataTvl;
+  let dataApy;
+  let data;
+  let apy;
 
   if (chainString === 'ethereum') {
-    dataTvl = await utils.getData(`${url}/short-lido-stats`)
-    dataApy = await utils.getData(`${url}/steth-apr`)
-    dataTvl.apr = dataApy
-    data = { ...dataTvl }
+    dataTvl = await utils.getData(`${url}/short-lido-stats`);
+    dataApy = await utils.getData(`${url}/steth-apr`);
+    dataTvl.apr = dataApy;
+    data = { ...dataTvl };
   } else {
-    data = await utils.getData(url)
+    data = await utils.getData(url);
   }
-  data.token = token
-  data.address = address
+  data.token = token;
+  data.address = address;
 
   // apy values from https://solana.lido.fi/api/stats for solana are incorrect
   // using other endpoint instead. for more details see https://github.com/DefiLlama/yield-server/issues/6
   if (chainString === 'solana') {
-    apy = await utils.getData('https://solana.lido.fi/api/apy/apy?days=14')
-    data.apr = apy.annual_percentage_yield
+    // apy = await utils.getData('https://solana.lido.fi/api/apy/apy?days=14')
+    // data.apr = apy.annual_percentage_yield
+    return {};
   }
 
   return {
@@ -31,9 +32,9 @@ const topLvl = async (chainString, url, token, address) => {
     project: 'lido',
     symbol: utils.formatSymbol(data.token),
     tvlUsd: chainString === 'ethereum' ? data.marketCap : data.totalStaked.usd,
-    apyBase: Number(data.apr)
-  }
-}
+    apyBase: Number(data.apr),
+  };
+};
 
 const main = async () => {
   const data = await Promise.all([
@@ -66,14 +67,14 @@ const main = async () => {
       'https://polkadot.lido.fi/api/stats',
       'stDOT',
       '0xFA36Fe1dA08C89eC72Ea1F0143a35bFd5DAea108'
-    )
-  ])
+    ),
+  ]);
 
-  return data.flat()
-}
+  return data.flat();
+};
 
 module.exports = {
   timetravel: false,
   apy: main,
-  url: 'https://lido.fi/#networks'
-}
+  url: 'https://lido.fi/#networks',
+};
