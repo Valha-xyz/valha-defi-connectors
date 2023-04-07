@@ -2,7 +2,6 @@
 const _ = require('lodash');
 const pools = require('../pools/pools');
 const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
-const { erc20TotalSupply } = require('../../../../utils/ERC20TotalSupply');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const {
   getGeckoTokenPrice,
