@@ -64,5 +64,3 @@ module.exports = {
   main: analytics,
   url: 'https://pancakeswap.finance/farms',
 };
-
-analytics('bsc', '0xee1bcc9F1692E81A281b3a302a4b67890BA4be76');
