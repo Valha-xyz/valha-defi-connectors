@@ -83,7 +83,6 @@ async function redeem(
   const outTokenAmount = data.buyTokenAmount;
   const minAmountInt = outTokenAmount * (1 - parseFloat(data.slippage));
   const minAmountIntBN = BigNumber.from(String(minAmountInt));
-  console.log(minAmountIntBN.toString());
   const args = [
     amountBN,
     swapCalldata,
