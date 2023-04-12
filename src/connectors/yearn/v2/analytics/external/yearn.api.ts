@@ -1,4 +1,4 @@
-import { getChainId } from 'src/utils/getChainId';
+import { getChainId } from '../../../../../utils/getChainId';
 import { getData } from '../../../../../utils/external/utils';
 
 export const VAULT_EXTENDED_API_ADDR =
