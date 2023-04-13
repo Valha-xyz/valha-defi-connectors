@@ -9,7 +9,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: [''],
-    metadata: {},
+    metadata: {
+      cToken: '0xccf4429db6322d5c611ee964527d42e5d685dd6a',
+    },
   },
   ,
   {
@@ -22,7 +24,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: [''],
-    metadata: {},
+    metadata: {
+      cToken: '0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5',
+    },
   },
   ,
   {
@@ -35,7 +39,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: ['0xc00e94cb662c3520282e6f5717214004a7f26888'],
-    metadata: {},
+    metadata: {
+      cToken: '0x5d3a536e4d6dbd6114cc1ead35777bab948e3643',
+    },
   },
   ,
   {
@@ -48,7 +54,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: ['0xc00e94cb662c3520282e6f5717214004a7f26888'],
-    metadata: {},
+    metadata: {
+      cToken: '0x39aa39c021dfbae8fac545936693ac917d5e7563',
+    },
   },
   ,
   {
@@ -61,7 +69,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: ['0xc00e94cb662c3520282e6f5717214004a7f26888'],
-    metadata: {},
+    metadata: {
+      cToken: '0xf650c3d88d12db855b8bf7d11be6c55a4e07dcc9',
+    },
   },
   ,
   {
@@ -74,7 +84,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: [''],
-    metadata: {},
+    metadata: {
+      cToken: '0x70e36f6bf80a52b3b46b3af8e106cc0ed743e8e4',
+    },
   },
   ,
   {
@@ -87,7 +99,9 @@ const POOLS = [
     boosting_address: null,
     distributor_address: '0x8888882f8f843896699869179fb6e4f7e3b58888',
     rewards_tokens: [''],
-    metadata: {},
+    metadata: {
+      cToken: '0x35a18000230da775cac24873d00ff85bccded550',
+    },
   },
 ];
 
