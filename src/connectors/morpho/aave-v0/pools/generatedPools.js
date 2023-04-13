@@ -11,7 +11,6 @@ const POOLS = [
     rewards_tokens: [],
     metadata: {},
   },
-  ,
   {
     name: 'Pool maWETH',
     chain: 'ethereum',
@@ -24,7 +23,6 @@ const POOLS = [
     rewards_tokens: [],
     metadata: {},
   },
-  ,
   {
     name: 'Pool maDAI',
     chain: 'ethereum',
@@ -37,7 +35,6 @@ const POOLS = [
     rewards_tokens: [],
     metadata: {},
   },
-  ,
   {
     name: 'Pool maUSDC',
     chain: 'ethereum',
@@ -50,7 +47,6 @@ const POOLS = [
     rewards_tokens: [],
     metadata: {},
   },
-  ,
   {
     name: 'Pool maUSDT',
     chain: 'ethereum',
@@ -63,7 +59,6 @@ const POOLS = [
     rewards_tokens: [],
     metadata: {},
   },
-  ,
   {
     name: 'Pool maCRV',
     chain: 'ethereum',

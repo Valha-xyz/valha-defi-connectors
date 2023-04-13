@@ -13,7 +13,6 @@ const POOLS = [
       cToken: '0xccf4429db6322d5c611ee964527d42e5d685dd6a',
     },
   },
-  ,
   {
     name: 'Pool mcWETH',
     chain: 'ethereum',
@@ -28,7 +27,6 @@ const POOLS = [
       cToken: '0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5',
     },
   },
-  ,
   {
     name: 'Pool mcDAI',
     chain: 'ethereum',
@@ -43,7 +41,6 @@ const POOLS = [
       cToken: '0x5d3a536e4d6dbd6114cc1ead35777bab948e3643',
     },
   },
-  ,
   {
     name: 'Pool mcUSDC',
     chain: 'ethereum',
@@ -58,7 +55,6 @@ const POOLS = [
       cToken: '0x39aa39c021dfbae8fac545936693ac917d5e7563',
     },
   },
-  ,
   {
     name: 'Pool mcUSDT',
     chain: 'ethereum',
@@ -73,7 +69,6 @@ const POOLS = [
       cToken: '0xf650c3d88d12db855b8bf7d11be6c55a4e07dcc9',
     },
   },
-  ,
   {
     name: 'Pool mcCOMP',
     chain: 'ethereum',
@@ -88,7 +83,6 @@ const POOLS = [
       cToken: '0x70e36f6bf80a52b3b46b3af8e106cc0ed743e8e4',
     },
   },
-  ,
   {
     name: 'Pool mcUNI',
     chain: 'ethereum',

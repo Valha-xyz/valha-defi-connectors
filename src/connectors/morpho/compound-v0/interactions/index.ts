@@ -87,7 +87,7 @@ async function claimRewards(
 ): Promise<InteractionsReturnObject> {
   const abi = MorphoABI;
   const method_name = 'claimRewards';
-  const cToken = pool.metadata.cTokenAddress;
+  const cToken = pool.metadata.cToken;
   const args = [[cToken], true];
   const interaction_address = pool.distributor_address;
 
