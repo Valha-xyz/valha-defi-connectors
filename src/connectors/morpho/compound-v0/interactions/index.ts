@@ -17,14 +17,14 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'deposit';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.underlying_tokens[0]
+    pool.underlying_tokens[0],
   );
   const args = [amountBN, addresses.receiverAddress];
   const interaction_address = pool.investing_address;
@@ -50,14 +50,14 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = PoolABI;
   const method_name = 'redeem';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   const args = [amountBN, addresses.receiverAddress, addresses.userAddress];
   const interaction_address = pool.investing_address;
@@ -83,11 +83,11 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = MorphoABI;
   const method_name = 'claimRewards';
-  const cToken = pool.metadata.cToken;
+  const cToken = pool.metadata.protocolToken;
   const args = [[cToken], true];
   const interaction_address = pool.distributor_address;
 
