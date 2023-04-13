@@ -12,13 +12,13 @@ async function analytics(chain, poolAddress) {
 
   const result = {
     status: null,
-    tvl: info.data['tvl'],
-    liquidity: info.data['liquidity'],
+    tvl: info.data.tvl,
+    liquidity: info.data.liquidity,
     outloans: null,
     losses: null,
     capacity: Number.MAX_SAFE_INTEGER,
-    apy: info.data['activity_apy'],
-    activity_apy: info.data['activity_apy'],
+    apy: info.data.activity_apy,
+    activity_apy: info.data.activity_apy,
     rewards_apy: 0,
     boosting_apy: 0,
     share_price: sharePrice,
