@@ -82,19 +82,12 @@ async function redeem(
     pool.chain,
     '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84'
   );
-  console.log('-------------');
-  console.log(amountBN.toString());
-  console.log('EXCHANGE');
-  console.log(amountMinusFeeBN.toString());
-  console.log('-------------');
   const INSTADAPP_WRAPPER_API = `https://api.instadapp.io/defi/mainnet/1inch/v5/swap?buyToken=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&sellToken=0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84&sellAmount=${amountMinusFeeBN.toString()}&dsaAddress=0x0000000000000000000000000000000000000000`;
   const { data } = await axios.get(INSTADAPP_WRAPPER_API);
   const swapCalldata = data.calldata;
   const outTokenAmount = data.buyTokenAmount;
   const minAmountInt = outTokenAmount * 0.9999;
   const minAmountIntBN = BigNumber.from(String(minAmountInt));
-  console.log(minAmountIntBN.toString());
-  console.log(addresses.receiverAddress);
   const args = [
     amountBN,
     swapCalldata,
