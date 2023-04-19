@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import fs from 'fs';
-import checkParam from './config/checkParam';
+import { checkParam } from "./config/checkParam";
 import { prepareTestPools } from './config/prepareTestPools';
 config();
 
@@ -9,7 +9,7 @@ describe('CONNECTOR - REPOSITORY', () => {
 
   beforeAll(async () => {
     console.log(process.argv)
-    const connectorParam = checkParam();
+    const connectorParam = checkParam("connector");
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
     if (!connector) {

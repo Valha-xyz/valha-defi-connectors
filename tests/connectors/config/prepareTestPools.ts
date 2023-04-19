@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const _ = require('lodash');
-const checkParam = require('./checkParam');
-
+import { checkParam } from "./checkParam";
 function formatError(message) {
   console.log(
     '\x1b[31m',
@@ -26,18 +25,20 @@ function formatError(message) {
   );
 }
 
-export async function prepareTestPools(connector: string) {
+export async function prepareTestPools(_) {
   try {
-    if (!connector) {
+    const connectorParam = checkParam('connector');
+    if (!connectorParam || connectorParam.err || !connectorParam.arg) {
       throw new Error(
         `You did not specify any name for your connector. 
          Run "npm run "test_name" -- --connector=name_of_your_connector"`
       );
     }
-    const poolParam = checkParam(process.env.npm_lifecycle_script, 'pool');
+    const connector = connectorParam.arg;
+    const poolParam = checkParam('pool');
     if (poolParam.err) throw new Error(poolParam.err.message);
     const pool = poolParam.arg;
-    const chainParam = checkParam(process.env.npm_lifecycle_script, 'chain');
+    const chainParam = checkParam('chain');
     if (chainParam.err) throw new Error(chainParam.err.message);
     const chain = chainParam.arg;
 
@@ -53,15 +54,15 @@ export async function prepareTestPools(connector: string) {
     const pathImport = `../../../src/connectors/${connector}/pools`;
     const { default: pools } = await import(`${pathImport}/${file}`);
     const result = await pools();
-    let poolsToWrite;
+    let poolsToWrite = result;
     if (pool) {
-      poolsToWrite = _.find(result, (elem) => {
+      poolsToWrite = poolsToWrite.find( (elem) => {
         return elem.pool_address.toLowerCase() === pool.toLowerCase();
       });
       poolsToWrite = poolsToWrite ? [poolsToWrite] : null;
     }
     if (chain) {
-      poolsToWrite = _.find(result, (elem) => {
+      poolsToWrite = poolsToWrite.find((elem) => {
         return elem.chain.toLowerCase() === chain.toLowerCase();
       });
       poolsToWrite = poolsToWrite ? [poolsToWrite] : null;
