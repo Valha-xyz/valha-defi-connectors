@@ -2,6 +2,7 @@ import { POOLS } from './config/testPools';
 import _ from 'lodash';
 import checkParam from './config/checkParam';
 import { type Interactions } from '../../src/utils/types/connector-types';
+import { prepareTestPools } from './config/prepareTestPools';
 
 const interactions = [
   'deposit',
@@ -148,10 +149,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
   let interactionPATH: string;
 
   beforeAll(async () => {
-    const connectorParam = checkParam(
-      process.env.npm_lifecycle_script,
-      'connector'
-    );
+    const connectorParam = checkParam();
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
     if (!connector) {
@@ -162,6 +160,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
       );
     }
     interactionPATH = `src/connectors/${connector}/interactions/index`;
+    // Then we prepare the test pools
+    await prepareTestPools(connector);
   });
 
   /// / LOOP THROUGH ALL THE SPECIFIED POOLS

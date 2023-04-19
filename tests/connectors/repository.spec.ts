@@ -1,16 +1,15 @@
 import { config } from 'dotenv';
 import fs from 'fs';
 import checkParam from './config/checkParam';
+import { prepareTestPools } from './config/prepareTestPools';
 config();
 
 describe('CONNECTOR - REPOSITORY', () => {
   let connector: string;
 
   beforeAll(async () => {
-    const connectorParam = checkParam(
-      process.env.npm_lifecycle_script,
-      'connector'
-    );
+    console.log(process.argv)
+    const connectorParam = checkParam();
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
     if (!connector) {
@@ -20,6 +19,9 @@ describe('CONNECTOR - REPOSITORY', () => {
         `
       );
     }
+
+    // Then we prepare the test pools
+    await prepareTestPools(connector);
   });
 
   it('The connector must exist in the connector repository', async () => {

@@ -26,14 +26,8 @@ function formatError(message) {
   );
 }
 
-async function prepareTestPools() {
+export async function prepareTestPools(connector: string) {
   try {
-    const connectorParam = checkParam(
-      process.env.npm_lifecycle_script,
-      'connector'
-    );
-    if (connectorParam.err) throw new Error(connectorParam.err.message);
-    const connector = connectorParam.arg;
     if (!connector) {
       throw new Error(
         `You did not specify any name for your connector. 
@@ -90,5 +84,3 @@ async function prepareTestPools() {
     formatError(err.message);
   }
 }
-
-prepareTestPools();

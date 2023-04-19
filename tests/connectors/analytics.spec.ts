@@ -1,6 +1,7 @@
 import checkParam from './config/checkParam'
 import { POOLS } from './config/testPools'
 import fs from 'fs'
+import { prepareTestPools } from './config/prepareTestPools'
 
 const chains = ['ethereum', 'bsc', 'polygon', 'arbitrum', 'optimism']
 
@@ -22,10 +23,7 @@ describe('CONNECTOR - ANALYTICS', () => {
   let analyticsPATH: string
 
   beforeAll(async () => {
-    const connectorParam = checkParam(
-      process.env.npm_lifecycle_script,
-      'connector'
-    )
+    const connectorParam = checkParam()
     if (connectorParam.err) throw new Error(connectorParam.err.message)
     connector = connectorParam.arg
     if (!connector) {
@@ -35,7 +33,9 @@ describe('CONNECTOR - ANALYTICS', () => {
         `
       )
     }
-    analyticsPATH = `src/connectors/${connector}/analytics/index`
+    analyticsPATH = `src/connectors/${connector}/analytics/index`;
+    // Then we prepare the test pools
+    await prepareTestPools(connector);
   })
 
   /// / LOOP THROUGH ALL THE SPECIFIED POOLS
