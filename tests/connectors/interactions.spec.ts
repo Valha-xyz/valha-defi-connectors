@@ -1,7 +1,10 @@
 import { POOLS } from './config/testPools';
 import _ from 'lodash';
-import checkParam from './config/checkParam';
+import { checkParam } from "./config/checkParam";
 import { type Interactions } from '../../src/utils/types/connector-types';
+import { prepareTestPools } from './config/prepareTestPools';
+import { Interface } from 'ethers/lib/utils';
+import { getFunctionInterface } from './config/getFunctionInterface';
 
 const interactions = [
   'deposit',
@@ -148,10 +151,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
   let interactionPATH: string;
 
   beforeAll(async () => {
-    const connectorParam = checkParam(
-      process.env.npm_lifecycle_script,
-      'connector'
-    );
+    const connectorParam = checkParam("connector");
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
     if (!connector) {
@@ -162,6 +162,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
       );
     }
     interactionPATH = `src/connectors/${connector}/interactions/index`;
+    // Then we prepare the test pools
+    await prepareTestPools(connector);
   });
 
   /// / LOOP THROUGH ALL THE SPECIFIED POOLS
@@ -223,22 +225,16 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const ABI = result.txInfo.abi;
-              const ABIinteractionDefinition = _.find(ABI, (elem) => {
-                if (
-                  elem &&
-                  elem.name &&
-                  elem.type === 'function' &&
-                  elem.inputs.length === result.txInfo.args.length
-                ) {
-                  return elem.name === result.txInfo.method_name;
-                }
-              });
-              expect(ABIinteractionDefinition.name).toBeDefined();
-              expect(ABIinteractionDefinition.type).toBeDefined();
-              expect(ABIinteractionDefinition.stateMutability).toBeDefined();
-              expect(ABIinteractionDefinition.inputs).toBeDefined();
-              expect(ABIinteractionDefinition.outputs).toBeDefined();
+
+              // We try to find the request via the ethers interface
+              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+              expect(functionInterface).toBeDefined();
+              
+              expect(functionInterface.name).toBeDefined();
+              expect(functionInterface.type).toBeDefined();
+              expect(functionInterface.stateMutability).toBeDefined();
+              expect(functionInterface.inputs).toBeDefined();
+              expect(functionInterface.outputs).toBeDefined();
             }
           });
 
@@ -259,13 +255,9 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const methodInAbi = result.txInfo.abi.find((elem) => {
-                return (
-                  elem.name == result.txInfo.method_name &&
-                  elem.type == 'function'
-                );
-              });
-              expect(methodInAbi).toBeTruthy();
+              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+
+              expect(functionInterface).toBeTruthy();
               expect(typeof result.txInfo.method_name).toBe('string');
             }
           });
@@ -331,21 +323,8 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const ABI = result.txInfo.abi;
-              const ABIinteractionDefinition = _.find(ABI, (elem) => {
-                if (
-                  elem &&
-                  elem.name &&
-                  elem.type === 'function' &&
-                  elem.inputs.length === result.txInfo.args.length
-                ) {
-                  return (
-                    elem.name.includes(result.txInfo.method_name) &&
-                    elem.inputs.length === result.txInfo.args.length
-                  );
-                }
-              });
-              expect(ABIinteractionDefinition.inputs.length).toBe(
+              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+              expect(functionInterface.inputs.length).toBe(
                 result.txInfo.args.length
               );
             }
@@ -368,30 +347,14 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result?.txInfo) {
-              const ABI = result.txInfo.abi;
-              const ABIinteractionDefinition = _.find(ABI, (elem) => {
-                if (
-                  elem &&
-                  elem.name &&
-                  elem.type === 'function' &&
-                  elem.inputs.length === result.txInfo.args.length
-                ) {
-                  return (
-                    elem.name.includes(result.txInfo.method_name) &&
-                    elem.inputs.length === result.txInfo.args.length
-                  );
-                }
-              });
-              let check: boolean;
-              if (!ABIinteractionDefinition) {
-                check = false;
-              } else {
-                check = doesArgTypeMatch(
-                  result.txInfo.args,
-                  ABIinteractionDefinition.inputs
-                );
-              }
-              expect(check).toBeTruthy();
+              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+
+              expect(functionInterface).toBeTruthy();
+              expect(doesArgTypeMatch(
+                result.txInfo.args,
+                functionInterface.inputs
+              )).toBeTruthy();
+
             }
           });
 
