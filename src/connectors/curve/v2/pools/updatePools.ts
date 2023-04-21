@@ -3,11 +3,7 @@ import fs from 'fs'
 import { type Pool } from '../../../../utils/types/connector-types'
 import axios from 'axios'
 const path = require('path')
-import PQueue from 'p-queue'; // For getting the ABIs
-import pMap from 'p-map'; // For getting the ABIs
-
-require('dotenv').config();
-
+import pMap from "p-map";
 
 const CRV_TOKEN = {
   ethereum: '0xd533a949740bb3306d119cc777fa900ba034cd52',
@@ -38,6 +34,7 @@ async function getDataChain (chain: string): Promise<Pool[] | null> {
   const modifiedPools: Pool[] = result
     .filter((pool) => pool.usdTotal > 1_000_000) // Some pools are hidden by the interface
     .map((elem): Pool => {
+      console.log(elem)
       if (elem) {
         return {
           name: elem.name ? elem.name : 'Curve.fi Pool',
@@ -62,39 +59,8 @@ async function getDataChain (chain: string): Promise<Pool[] | null> {
       }
     })
 
-  // Now we will look for their respective ABI (for all pools, this might take long)
-    console.log("Pools fetched, now the ABI")
-    console.log("Now the ABI")
 
-  const queue = new PQueue({intervalCap: 5, interval: 1500, carryoverConcurrencyCount: true}); // We limit to 5 calls per 1 seconds for the etherscan API
-  const poolWithABI = await pMap(modifiedPools, async (pool)=>{
-    if(pool.chain == "ethereum"){
-      // We look for the abi in that case
-      const abi = await queue.add(() => axios.get(`https://api.etherscan.io/api`, {params: {
-        module:"contract",
-        action:"getabi",
-        address: pool.pool_address,
-        apikey:process.env.ETHERSCAN_API_KEY
-      }}));
-      if(abi.data && abi.data.status == "1"){
-        console.log(queue.size, " abi calls left")
-        return {
-          ...pool,
-          metadata: {
-            ...pool.metadata,
-            abi: abi.data.result
-          }
-        }
-      }else{
-        console.log("Error for ", pool.pool_address, abi.data)
-        return pool
-      }
-    }else{
-      return pool
-    }
-  })
-
-  return poolWithABI
+  return modifiedPools
 }
 
 async function generatePools (): Promise<Pool | Record<never, never>> {

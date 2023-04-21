@@ -16,9 +16,7 @@ export const getMinimumRedeem = async (
   const provider = getNodeProvider(pool.chain)
   const size = pool.underlying_tokens.length;
   let abi;
-  if(pool.metadata.abi){
-    abi = JSON.parse(pool.metadata.abi)
-  }else if (size === 2) {
+  if (size === 2) {
     abi = RouterABI2;
   } else if (size === 3) {
     abi = RouterABI3;
