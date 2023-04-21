@@ -6,10 +6,10 @@ require("dotenv").config();
 
 export function getNodeProvider (
   chain: string
-): ethers.providers.BaseProvider | null {
+): ethers.providers.JsonRpcProvider | null {
   try {
-    let provider: ethers.providers.BaseProvider =
-      {} as ethers.providers.BaseProvider
+    let provider: ethers.providers.JsonRpcProvider =
+      {} as ethers.providers.JsonRpcProvider
     const URL = RPC_PROVIDERS[chain]
     if (!URL) throw new Error(`Provider URL not found for ${chain}`)
 
