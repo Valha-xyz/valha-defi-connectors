@@ -6,15 +6,15 @@ init({
     defaultTtlInS: parseInt(process.env.CACHE_TIME_IN_SECONDS ?? "1")
 });
 
-export function useCache<T>(getKey: ((T)=> string)){
+export function useCache<T>(getKey: ((T) => string)){
     return {
-        getCache: async (t:T)=> {
-            if(process.env.USE_CACHE){
+        getCache: async (t:T) => {
+            if(process.env.USE_CACHE || process.env.USE_DECIMALS_CACHE){
                 return get(getKey(t))
             }
         },
         setCache: async (t:T, v: string)=> {
-            if(process.env.USE_CACHE){
+            if(process.env.USE_CACHE || process.env.USE_DECIMALS_CACHE){
                 return set(getKey(t), v)
             }
         }

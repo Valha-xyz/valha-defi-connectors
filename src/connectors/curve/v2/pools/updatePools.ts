@@ -3,6 +3,7 @@ import fs from 'fs'
 import { type Pool } from '../../../../utils/types/connector-types'
 import axios from 'axios'
 const path = require('path')
+import pMap from "p-map";
 
 const CRV_TOKEN = {
   ethereum: '0xd533a949740bb3306d119cc777fa900ba034cd52',
@@ -57,6 +58,7 @@ async function getDataChain (chain: string): Promise<Pool[] | null> {
         }
       }
     })
+
 
   return modifiedPools
 }

@@ -46,6 +46,7 @@
     "minimist": "^1.2.8",
     "node-cache-redis": "^6.4.2",
     "p-map": "^4.0.0",
+    "p-queue": "^6.6.2",
     "pre-commit": "^1.2.2",
     "redis": "^4.6.5",
     "superagent": "^8.0.3",

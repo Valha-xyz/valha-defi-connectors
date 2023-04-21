@@ -14,7 +14,7 @@ interface PriceCacheKey{
 const {
     getCache,
     setCache
-} = useCache(
+} = useCache<PriceCacheKey>(
     ({platform, chain, tokenAddress }: PriceCacheKey) => `price_cache_${platform}_${chain}_${tokenAddress}`
 )
 
