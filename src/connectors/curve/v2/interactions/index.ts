@@ -11,8 +11,6 @@ import { StableABI2 } from './../abi/Stable2';
 import { StableABI3 } from './../abi/Stable3';
 import { StableABI4 } from './../abi/Stable4';
 import { GaugeABI } from '../abi/Gauge';
-const ethers = require('ethers');
-const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 
 /// invest
@@ -23,8 +21,11 @@ async function deposit(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
+
   let abi: any;
-  if (size === 2) {
+  if(pool.metadata.abi){
+    abi = JSON.parse(pool.metadata.abi)
+  }else if (size === 2) {
     abi = StableABI2;
   } else if (size === 3) {
     abi = StableABI3;
@@ -76,7 +77,9 @@ async function redeem(
 ): Promise<InteractionsReturnObject> {
   const size = pool.underlying_tokens.length;
   let abi: any;
-  if (size === 2) {
+  if(pool.metadata.abi){
+    abi = JSON.parse(pool.metadata.abi)
+  }else if (size === 2) {
     abi = StableABI2;
   } else if (size === 3) {
     abi = StableABI3;
