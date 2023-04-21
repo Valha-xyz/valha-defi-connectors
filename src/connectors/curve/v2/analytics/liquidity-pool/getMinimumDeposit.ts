@@ -1,8 +1,8 @@
 import { BigNumber, Contract } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 
-import RouterABI2 from './../../abi/router2.json'
-import RouterABI3 from './../../abi/router3.json'
+import {RouterABI2} from './../../abi/router2'
+import {RouterABI3} from './../../abi/router3'
 import { type Pool } from '../../../../../utils/types/connector-types'
 import { findTokenPosition } from './getQuotePrice'
 

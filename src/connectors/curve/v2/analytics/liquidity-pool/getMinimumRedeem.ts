@@ -2,8 +2,8 @@
 import { type BigNumber, type BigNumberish, Contract, ethers } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import { type Pool } from '../../../../../utils/types/connector-types'
-import RouterABI2 from './../../abi/router2.json'
-import RouterABI3 from './../../abi/router3.json'
+import {RouterABI2} from './../../abi/router2'
+import {RouterABI3} from './../../abi/router3'
 import ERC20ABI from "../../../../../utils/abi/ERC20.json";
 const pMap = require('p-map')
 

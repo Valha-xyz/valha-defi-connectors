@@ -3,8 +3,8 @@ import { type GetQuotePriceFunction } from '../../../../../utils/types/quotePric
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import pools from '../../pools/pools.js'
 
-import RouterABI2 from './../../abi/router2.json'
-import RouterABI3 from './../../abi/router3.json'
+import {RouterABI2} from './../../abi/router2'
+import {RouterABI3} from './../../abi/router3'
 import { type Pool } from '../../../../../utils/types/connector-types'
 
 export async function findPoolContract (
