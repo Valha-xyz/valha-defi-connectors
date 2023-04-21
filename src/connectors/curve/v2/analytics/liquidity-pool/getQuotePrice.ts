@@ -3,7 +3,8 @@ import { type GetQuotePriceFunction } from '../../../../../utils/types/quotePric
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import pools from '../../pools/pools.js'
 
-import RouterABI from './../../abi/router.json'
+import RouterABI2 from './../../abi/router2.json'
+import RouterABI3 from './../../abi/router3.json'
 import { type Pool } from '../../../../../utils/types/connector-types'
 
 export async function findPoolContract (
@@ -30,9 +31,10 @@ export async function findTokenPosition (
   pool: Pool,
   poolContract: Contract
 ) {
+
   const index = pool.underlying_tokens.indexOf(token)
   // We check onchain that the index is the right one
-  const onChainAddress = await poolContract.coins(index, { gasLimit: 100000 })
+  const onChainAddress = await poolContract.coins(index, { gasLimit: 1000000 })
   if (onChainAddress != token) {
     throw "Swap configuration is bad for curve/v2, the asset index doesn't match the on-chain index"
   }
@@ -47,12 +49,20 @@ export const getQuotePrice: GetQuotePriceFunction = async (
 ): Promise<BigNumber> => {
   const provider = getNodeProvider(chain)
   const pool = await findPoolContract(tokenIn, tokenOut, chain)
+  const size = pool.underlying_tokens.length;
+  let abi;
+  if(pool.metadata.abi){
+    abi = JSON.parse(pool.metadata.abi)
+  }else if (size === 2) {
+    abi = RouterABI2;
+  } else if (size === 3) {
+    abi = RouterABI3;
+  } else {
+    throw new Error('Error: pool size is not handle.');
+  }
   const poolContract = new Contract(
     pool.investing_address,
-    RouterABI.map((el) => ({
-      ...el,
-      gas: el.gas?.toString()
-    })),
+    abi,
     provider
   )
 

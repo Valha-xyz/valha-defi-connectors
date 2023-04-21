@@ -34,7 +34,7 @@ async function deposit(
   } else {
     throw new Error('Error: pool size is not handle.');
   }
-  const method_name = `add_liquidity(uint256[${size}], uint256)`;
+  const method_name = `add_liquidity(uint256[${size}],uint256)`;
   const position_token = pool.underlying_tokens;
   const amountsBN = [];
   for (const i in pool.underlying_tokens) {
@@ -88,7 +88,7 @@ async function redeem(
   } else {
     throw new Error('Error: pool size is not handle.');
   }
-  const method_name = `remove_liquidity(uint256, uint256[${size}])`;
+  const method_name = `remove_liquidity(uint256,uint256[${size}])`;
   const position_token = pool.pool_address;
   const amountsBN = [];
   for (const i in pool.underlying_tokens) {
