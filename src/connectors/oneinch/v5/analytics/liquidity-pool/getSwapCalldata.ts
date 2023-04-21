@@ -15,7 +15,8 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
-  swapperAddress: string
+  swapperAddress: string,
+  options: SwapOptions
 ) => {
   const chainId = getChainId(chain)
   if (!chainId) {
@@ -30,8 +31,8 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
         toTokenAddress: tokenOut,
         amount: amount.toString(),
         fromAddress: swapperAddress,
-        slippage: ONE_INCH_SLIPPAGE,
-        disableEstimate: true
+        slippage: options.slippage ?? ONE_INCH_SLIPPAGE,
+        disableEstimate: true,
       }
     })
     .catch((error) => {

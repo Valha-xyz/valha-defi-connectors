@@ -68,12 +68,17 @@ export interface GetMinimumRedeemExport {
   getMinimumRedeem: GetMinimumRedeemFunction
 }
 
+export interface SwapOptions {
+  slippage?: number,
+  referrer?: string
+}
 export type GetSwapCalldataFunction = (
   chain: string,
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
-  swapperAddress: string
+  swapperAddress: string,
+  options?: SwapOptions
 ) => Promise<{
   calldata: string
 }>
