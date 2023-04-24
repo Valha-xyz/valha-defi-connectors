@@ -46,6 +46,6 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
     )
   }
   return {
-    calldata: swapData?.data.tx.data
+    data: swapData?.data.tx.data
   }
 }
