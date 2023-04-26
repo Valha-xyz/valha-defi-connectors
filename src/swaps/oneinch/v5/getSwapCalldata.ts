@@ -8,7 +8,7 @@ const oneInchAPI = axios.create({
   baseURL: 'https://api.1inch.io/v5.0/'
 })
 
-const ONE_INCH_SLIPPAGE = 10
+export const ONE_INCH_SLIPPAGE = 10
 
 export const getSwapCalldata: GetSwapCalldataFunction = async (
   chain: string,

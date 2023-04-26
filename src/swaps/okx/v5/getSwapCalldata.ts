@@ -2,13 +2,14 @@ import { BigNumber, type BigNumberish } from 'ethers'
 import axios from 'axios'
 import { getChainId } from '../../../utils/getChainId'
 import { SwapOptions, type GetSwapCalldataFunction } from '../../../utils/types/liquidityProviders'
+import { ONE_INCH_SLIPPAGE } from 'src/swaps/oneinch/v5/getSwapCalldata'
 // DOC is located here : https://www.okx.com/id/web3-docs/dex/dex_api
 
 const  okxInchAPI = axios.create({
   baseURL: 'https://www.okx.com/api/v5/dex/aggregator'
 })
 
-const OKX_SLIPPAGE = 0.1 // 10%
+const OKX_SLIPPAGE_FACTOR = 100
 
 export const getSwapCalldata: GetSwapCalldataFunction = async (
   chain: string,
@@ -32,7 +33,7 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
         fromTokenAddress: tokenIn,
         toTokenAddress: tokenOut,
         userWalletAddress: swapperAddress,
-        slippage: options?.slippage ?? OKX_SLIPPAGE,
+        slippage: (options?.slippage ?? ONE_INCH_SLIPPAGE)/OKX_SLIPPAGE_FACTOR,
       }
     })
     .catch((error) => {
