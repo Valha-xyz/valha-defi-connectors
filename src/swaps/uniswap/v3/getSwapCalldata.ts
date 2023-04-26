@@ -1,5 +1,5 @@
 import { BigNumber, ethers, type BigNumberish } from 'ethers'
-import { SwapOptions, type GetSwapCalldataFunction } from '../../../../../utils/types/liquidityProviders'
+import { SwapOptions, type GetSwapCalldataFunction } from '../../../utils/types/liquidityProviders'
 import { FEE_AMOUNTS, QUOTER_CONTRACT_ADDRESS } from './getQuotePrice'
 import { getNodeProvider } from 'src/utils/getNodeProvider'
 import Quoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'

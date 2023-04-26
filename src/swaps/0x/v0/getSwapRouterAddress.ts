@@ -1,4 +1,4 @@
-import { GetSwapRouterAddressFunction } from '../../../../../utils/types/liquidityProviders'
+import { GetSwapRouterAddressFunction } from '../../../utils/types/liquidityProviders'
 
 const ROUTER_ADDRESS = "0xDef1C0ded9bec7F1a1670819833240f027b25EfF";
 
