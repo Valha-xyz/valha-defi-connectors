@@ -1,8 +1,8 @@
 import { type BigNumber, BigNumberish, Contract } from 'ethers'
-import { getNodeProvider } from '../../../utils/getNodeProvider'
-import UniswapV2RouterAbi from './abi/uniswapv2-router.json'
-import { type Pool } from '../../../utils/types/connector-types'
-import { type GetExchangeRateFunction } from '../../../utils/types/liquidityProviders'
+import { getNodeProvider } from '../../../../../utils/getNodeProvider'
+import UniswapV2RouterAbi from './../../abi/uniswapv2-router.json'
+import { type Pool } from '../../../../../utils/types/connector-types'
+import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders'
 
 const ROUTER_CONTRACT = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
