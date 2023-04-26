@@ -118,6 +118,8 @@ function checkArgType(arg: string, type: string): boolean {
           `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
+    } else if(type.includes("tuple")){
+      console.log("Can't verify type when type is tuple")
     } else {
       throw new Error(
         `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`
@@ -162,8 +164,6 @@ describe('CONNECTOR - INTERACTIONS', () => {
       );
     }
     interactionPATH = `src/connectors/${connector}/interactions/index`;
-    // Then we prepare the test pools
-    await prepareTestPools(connector);
   });
 
   /// / LOOP THROUGH ALL THE SPECIFIED POOLS

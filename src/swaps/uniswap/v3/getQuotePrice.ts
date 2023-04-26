@@ -2,15 +2,9 @@ import { BigNumber, type BigNumberish, Contract, ethers } from 'ethers'
 import { type GetQuotePriceFunction } from '../../../utils/types/quotePrice'
 import { getNodeProvider } from '../../../utils/getNodeProvider'
 import Quoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
+import { FEE_AMOUNTS } from './const'
 
 export const QUOTER_CONTRACT_ADDRESS = '0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6'
-
-export const FEE_AMOUNTS = [
-  100,
-  500,
-  3000,
-  10000
-]
 
 export const getQuotePrice: GetQuotePriceFunction = async (
   tokenIn: string,

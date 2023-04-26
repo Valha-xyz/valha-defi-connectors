@@ -1,4 +1,4 @@
-[
+export const UNISWAP_ROUTER_V2_ABI = [
     {
         "inputs":
         [
@@ -1019,4 +1019,4 @@
         "stateMutability": "payable",
         "type": "receive"
     }
-]
+] as const

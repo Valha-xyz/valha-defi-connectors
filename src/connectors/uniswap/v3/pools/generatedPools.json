@@ -1,0 +1,19 @@
+[
+    {
+        "name": "None",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xbef81556ef066ec840a540595c8d12f516b6378f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x0001fcbba8eb491c3ccfeddc5a5caba1a98c4c28",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    }
+]
