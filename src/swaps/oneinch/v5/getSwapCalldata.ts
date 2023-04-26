@@ -1,7 +1,7 @@
 import { BigNumber, type BigNumberish } from 'ethers'
 import axios from 'axios'
-import { getChainId } from '../../../../../utils/getChainId'
-import { SwapOptions, type GetSwapCalldataFunction } from '../../../../../utils/types/liquidityProviders'
+import { getChainId } from '../../../utils/getChainId'
+import { SwapOptions, type GetSwapCalldataFunction } from '../../../utils/types/liquidityProviders'
 // DOC is located here : https://docs.1inch.io/docs/aggregation-protocol/api/swagger
 
 const oneInchAPI = axios.create({

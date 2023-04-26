@@ -1,6 +1,6 @@
 import { BigNumber, type BigNumberish } from 'ethers'
 import axios from 'axios'
-import { type GetQuotePriceFunction } from '../../../../../utils/types/quotePrice'
+import { type GetQuotePriceFunction } from '../../../utils/types/quotePrice'
 
 // DOC is located here : https://docs.0x.org/0x-api-swap/api-references/get-swap-v1-quote
 export const getQuotePrice: GetQuotePriceFunction = async (
