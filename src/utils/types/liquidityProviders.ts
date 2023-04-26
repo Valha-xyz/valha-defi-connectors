@@ -80,7 +80,7 @@ export type GetSwapCalldataFunction = (
   swapperAddress: string,
   options?: SwapOptions
 ) => Promise<{
-  calldata: string
+  data: string
 }>
 
 export interface GetSwapCalldataExport {
