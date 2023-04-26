@@ -86,3 +86,11 @@ export type GetSwapCalldataFunction = (
 export interface GetSwapCalldataExport {
   getSwapCalldata: GetSwapCalldataFunction
 }
+
+export type GetSwapRouterAddressFunction = (
+  chain: string,
+) => Promise<string>
+
+export interface GetSwapRouterAddressExport {
+  getSwapRouterAddress: GetSwapRouterAddressFunction
+}
