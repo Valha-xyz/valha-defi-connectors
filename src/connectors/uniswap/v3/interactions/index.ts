@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ethers } from 'ethers'
-import { getNodeProvider } from '../../../../utils/getNodeProvider'
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals'
 import {
   type AdditionalOptions,
@@ -11,7 +10,6 @@ import {
   type InteractionsReturnObject,
   type Pool
 } from '../../../../utils/types/connector-types'
-import { FACTORY_ABI } from '../abi/factory'
 import { NFT_POSITION_MANAGER_ABI } from '../abi/nft-position-manager'
 
 // https://github.com/Uniswap/v3-core/blob/d8b1c635c275d2a9450bd6a78f3fa2484fef73eb/contracts/libraries/TickMath.sol#L7
@@ -29,12 +27,10 @@ async function initialize (
 ): Promise<InteractionsReturnObject> {
 
   const abi = NFT_POSITION_MANAGER_ABI;
-  const provider = getNodeProvider(pool.chain);
   // Mint a new position
 
   // We need to know where to deposit the liquidity. We do so in the pool with the highest liquidity (for safety)
 
-  // The mint function accepts a single argument, mintParams. For positions, this is going to be weird
   const amount0Desired = await toBnERC20Decimals(
     amount.amountsDesired[0],
     pool.chain,
@@ -60,14 +56,14 @@ async function initialize (
       token0: pool.underlying_tokens[0],
       token1: pool.underlying_tokens[1],
       fee: pool.metadata.fee,
-      tickLower: options.rangeToken ?? MIN_TICK,
-      tickUpper:options.rangeToken ?? MAX_TICK,
+      tickLower: options?.rangeToken ?? MIN_TICK,
+      tickUpper:options?.rangeToken ?? MAX_TICK,
       amount0Desired,
       amount1Desired,
       amount0Min,
       amount1Min,
       recipient: addresses.receiverAddress,
-      deadline: options.deadline,
+      deadline: options?.deadline,
   };
 
   const method_name = "mint";
@@ -79,7 +75,7 @@ async function initialize (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args: [mintParams], // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [5, 6] // To check with the weird param passing
+      amountPositions: [5, 6] 
     },
     assetInfo: {
       position_token: pool.underlying_tokens, // token needed to approve
@@ -99,7 +95,6 @@ async function deposit (
 
   const abi = NFT_POSITION_MANAGER_ABI;
 
-  // The increaseLiquidity function accepts a single argument, mintParams. For positions, this is going to be weird
   const amount0Desired = await toBnERC20Decimals(
     amount.amountsDesired[0],
     pool.chain,
@@ -121,17 +116,17 @@ async function deposit (
     pool.underlying_tokens[1]
   )
 
-  if(!options.rangeToken){
+  if(!options?.rangeToken){
     throw "Can't deposit without the tokenId for Uniswap"
   }
 
   const increaseParams = {
-      tokenId: options.rangeToken,
+      tokenId: options?.rangeToken,
       amount0Desired,
       amount1Desired,
       amount0Min,
       amount1Min,
-      deadline: options.deadline,
+      deadline: options?.deadline,
   };
 
   const method_name = "increaseLiquidity";
@@ -143,7 +138,7 @@ async function deposit (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args: [increaseParams], // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [1, 2] // To check with the weird param passing
+      amountPositions: [1, 2]
     },
     assetInfo: {
       position_token: pool.underlying_tokens, // token needed to approve
@@ -163,12 +158,12 @@ async function redeem (
 ): Promise<InteractionsReturnObject> {
   const abi = NFT_POSITION_MANAGER_ABI;
 
-  // The increaseLiquidity function accepts a single argument, mintParams. For positions, this is going to be weird
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     pool.pool_address[0]
   )
+  console.log(pool.pool_address[0])
   const amount0Min = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
@@ -180,16 +175,16 @@ async function redeem (
     pool.underlying_tokens[1]
   )
 
-  if(!options.rangeToken){
+  if(!options?.rangeToken){
     throw "Can't deposit without the tokenId for Uniswap"
   }
 
   const decreaseParams = {
-      tokenId: options.rangeToken,
+      tokenId: options?.rangeToken,
       liquidity: amountBN,
       amount0Min,
       amount1Min,
-      deadline: options.deadline,
+      deadline: options?.deadline,
   };
 
   const method_name = "decreaseLiquidity";
@@ -201,7 +196,7 @@ async function redeem (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args: [decreaseParams], // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [1] // To check with the weird param passing
+      amountPositions: [1] 
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
@@ -222,15 +217,17 @@ async function claimRewards (
 
   const abi = NFT_POSITION_MANAGER_ABI;
 
-  if(!options.rangeToken){
+  if(!options?.rangeToken){
     throw "Can't claim without the tokenId for Uniswap"
   }
 
+  const maxUint128 = "340282366920938463463374607431768211455"
+
   const collectParams = {
-      tokenId: options.rangeToken,
+      tokenId: options?.rangeToken,
       recipient: addresses.receiverAddress,
-      amount0Max: ethers.constants.MaxUint256,
-      amount1Max: ethers.constants.MaxUint256,
+      amount0Max: maxUint128,
+      amount1Max: maxUint128,
   };
 
   const method_name = "collect";
@@ -242,7 +239,7 @@ async function claimRewards (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args: [collectParams], // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [] // To check with the weird param passing
+      amountPositions: []
     },
     assetInfo: {
       position_token: [], // token needed to approve
@@ -251,7 +248,6 @@ async function claimRewards (
     }
   }
 }
-
 
 const interactions: Interactions = {
   initialize,
