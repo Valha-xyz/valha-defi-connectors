@@ -1,10 +1,6 @@
-import { type BigNumber, BigNumberish, Contract } from 'ethers'
-import { getNodeProvider } from '../../../../../utils/getNodeProvider'
+import { type BigNumber } from 'ethers'
 import { type Pool } from '../../../../../utils/types/connector-types'
 import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders'
-import { UNISWAP_ROUTER_V2_ABI } from '../../abi/uniswap-router2'
-
-const ROUTER_CONTRACT = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
 // We only want to know the exchange rate between two assets.
 // The method used in the UNISWAP V2 case is not optimal, because it relies on the amount1 parameter
@@ -16,17 +12,5 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   token2: string,
   pool: Pool
 ): Promise<BigNumber> => {
-  const provider = getNodeProvider(pool.chain)
-  const liquidityProvidingContract = new Contract(
-    ROUTER_CONTRACT,
-    UNISWAP_ROUTER_V2_ABI,
-    provider
-  )
-  if (token1 == token2) {
-    return amount1
-  }
-
-  return liquidityProvidingContract
-    .getAmountsOut(amount1, [token1, token2])
-    .then((response) => response[1])
+  throw "Not Implemented"
 }
