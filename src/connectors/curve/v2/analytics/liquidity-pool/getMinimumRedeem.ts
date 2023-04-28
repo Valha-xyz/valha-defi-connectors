@@ -32,27 +32,12 @@ export const getMinimumRedeem = async (
   )
 
   // This two cases is there to be able to deal with curve pools with and without one coin withdrawal
-  let canWithdrawOneCoin = true;
-
   const allAmounts = await pMap(pool.underlying_tokens, async (v, i) =>{
-    try{
-      return await investingContract.calc_withdraw_one_coin(amount1, i, { gasLimit: 100000 })
-    }catch(err){
-      canWithdrawOneCoin = false;
-      // If there is an error, we compute the withdraw on our own using the raw contract algo (https://etherscan.io/address/0xA2B47E3D5c44877cca798226B7B8118F9BFb7A56#code)
-      const poolContract = new ethers.Contract(pool.pool_address, ERC20ABI, provider);
-      const totalSupply = await poolContract.totalSupply();
-      const balance = await investingContract.balances(i, { gasLimit: 100000 });
-      return balance.mul(amount1).div(totalSupply)
-    }
-  }
-  );
+    const poolContract = new ethers.Contract(pool.pool_address, ERC20ABI, provider);
+    const totalSupply = await poolContract.totalSupply();
+    const balance = await investingContract.balances(i, { gasLimit: 100000 });
+    return balance.mul(amount1).div(totalSupply)
+  });
 
-
-  // TODO , for now, but we have to change that
-  if(canWithdrawOneCoin){
-    return [allAmounts[0]]
-  }else{
-    return allAmounts;
-  }
+  return allAmounts
 }
