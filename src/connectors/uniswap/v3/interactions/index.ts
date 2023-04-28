@@ -163,7 +163,6 @@ async function redeem (
     pool.chain,
     pool.pool_address[0]
   )
-  console.log(pool.pool_address[0])
   const amount0Min = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
