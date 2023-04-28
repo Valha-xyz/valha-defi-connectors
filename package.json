@@ -73,7 +73,8 @@
     ],
     "testTimeout": 200000,
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "globalSetup": "./tests/connectors/config/prepareTestPools.ts"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.1",

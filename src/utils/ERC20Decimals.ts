@@ -35,7 +35,6 @@ export async function erc20Decimals (
     await setCache(cacheKey, decimals);
     return decimals
   } catch (err) {
-    console.log(err)
     return 0
   }
 }

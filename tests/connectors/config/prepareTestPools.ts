@@ -71,6 +71,7 @@ export async function prepareTestPools(_) {
     if (!pool || !poolsToWrite) {
       poolsToWrite = result;
     }
+    console.log("writing sync")
 
     fs.writeFileSync(
       'tests/connectors/config/testPools.ts',
@@ -85,3 +86,5 @@ export async function prepareTestPools(_) {
     formatError(err.message);
   }
 }
+
+module.exports = prepareTestPools;

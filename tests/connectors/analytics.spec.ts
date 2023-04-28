@@ -35,8 +35,6 @@ describe('CONNECTOR - ANALYTICS', () => {
       )
     }
     analyticsPATH = `src/connectors/${connector}/analytics/index`;
-    // Then we prepare the test pools
-    await prepareTestPools(connector);
   })
 
   /// / LOOP THROUGH ALL THE SPECIFIED POOLS

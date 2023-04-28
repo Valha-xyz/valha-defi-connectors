@@ -19,9 +19,6 @@ describe('CONNECTOR - REPOSITORY', () => {
         `
       );
     }
-
-    // Then we prepare the test pools
-    await prepareTestPools(connector);
   });
 
   it('The connector must exist in the connector repository', async () => {

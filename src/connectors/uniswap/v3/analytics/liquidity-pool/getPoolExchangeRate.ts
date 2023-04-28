@@ -1,8 +1,8 @@
 import { type BigNumber, BigNumberish, Contract } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
-import UniswapV2RouterAbi from './../../abi/uniswapv2-router.json'
 import { type Pool } from '../../../../../utils/types/connector-types'
 import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders'
+import { UNISWAP_ROUTER_V2_ABI } from '../../abi/uniswap-router2'
 
 const ROUTER_CONTRACT = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
@@ -19,7 +19,7 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   const provider = getNodeProvider(pool.chain)
   const liquidityProvidingContract = new Contract(
     ROUTER_CONTRACT,
-    UniswapV2RouterAbi,
+    UNISWAP_ROUTER_V2_ABI,
     provider
   )
   if (token1 == token2) {

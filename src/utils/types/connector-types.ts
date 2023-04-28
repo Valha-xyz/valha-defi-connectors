@@ -60,6 +60,7 @@ export interface InteractionsReturnObject {
 }
 
 export enum InteractionFunctionNames {
+  initialize = "initialize",
   deposit = 'deposit',
   deposit_all = 'deposit_all',
   deposit_and_stake = 'deposit_and_stake',
