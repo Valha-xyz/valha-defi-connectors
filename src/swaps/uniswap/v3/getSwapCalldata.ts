@@ -1,9 +1,11 @@
 import { BigNumber, ethers, type BigNumberish } from 'ethers'
 import { SwapOptions, type GetSwapCalldataFunction } from '../../../utils/types/liquidityProviders'
 import { QUOTER_CONTRACT_ADDRESS } from './getQuotePrice'
-import { getNodeProvider } from 'src/utils/getNodeProvider'
+import { getNodeProvider } from '../../../utils/getNodeProvider'
 import Quoter from '@uniswap/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
+import Router from '@uniswap/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json'
 import { FEE_AMOUNTS } from './const'
+import { ROUTER_CONTRACT } from './getSwapRouterAddress'
 
 // This function aims at providing the arguments necessary to do a swap on uniswap v3 (the fee level), and not the calldata per se
 export const getSwapCalldata: GetSwapCalldataFunction = async (
@@ -48,24 +50,38 @@ export const getUniswapCalldata = async (
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
+  minOutAmount: BigNumberish,
   fee: string | number,
+  fee_recipient: string,
   swapperAddress: string,
 ) => {
   const provider = getNodeProvider(chain)
   const quoterContract = new ethers.Contract(
-    QUOTER_CONTRACT_ADDRESS,
-    Quoter.abi,
+    ROUTER_CONTRACT,
+    Router.abi,
     provider
   )
 
   // We need to find the fee amount that suits the swap best
- 
-    const tx = await quoterContract.populateTransaction.quoteExactInputSingle(
-      tokenIn,
-      tokenOut,
-      fee,
-      amount,
-      0
- )
-    return tx;
+  console.log(chain,
+  tokenIn,
+  amount,
+  tokenOut,
+  minOutAmount,
+  fee,
+  fee_recipient,
+  swapperAddress)
+
+    const tx = await quoterContract.populateTransaction.exactInputSingle({
+        tokenIn,
+        tokenOut,
+        fee,
+        recipient: fee_recipient,
+        deadline: 1000000000000000,
+        amountIn: amount,
+        amountOutMinimum: minOutAmount,
+        sqrtPriceLimitX96: 0
+      }
+   )
+    return tx.data;
 }
