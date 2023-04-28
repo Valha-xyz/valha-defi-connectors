@@ -20,9 +20,11 @@ const poolsQuery = gql`
       
       token0{
         id
+        name
       }
       token1{
         id
+        name
       }
       feeTier
     }
@@ -40,7 +42,7 @@ async function getPools (chain) {
     // We create the pools object
     const formattedPools = pools.pools.map((pool) : Pool => {
       return {
-        "name": "None",
+        "name": `${pool.token0.name} - ${pool.token1.name} LP`,
         "chain": chain,
         "underlying_tokens": [pool.token0.id, pool.token1.id],
         "pool_address": pool.id,

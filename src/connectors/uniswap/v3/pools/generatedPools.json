@@ -1,6 +1,6 @@
 [
     {
-        "name": "None",
+        "name": "BinanceCZ - Wrapped Ether LP",
         "chain": "ethereum",
         "underlying_tokens": [
             "0xbef81556ef066ec840a540595c8d12f516b6378f",
