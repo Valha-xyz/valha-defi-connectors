@@ -1,14 +1,20 @@
-import { BigNumber, type BigNumberish } from 'ethers'
+import { type BigNumberish } from 'ethers'
 import axios from 'axios'
-import { type GetQuotePriceFunction } from '../../../utils/types/quotePrice'
+import { GetSwapCalldataFunction, SwapOptions } from 'src/utils/types/liquidityProviders'
+import { REF_SLIPPAGE } from 'src/utils/CONST/SWAP'
+
+
+const ZERO_X_SLIPPAGE_FACTOR = 100;
 
 // DOC is located here : https://docs.0x.org/0x-api-swap/api-references/get-swap-v1-quote
-export const getQuotePrice: GetQuotePriceFunction = async (
+export const getSwapCalldata: GetSwapCalldataFunction = async (
+  chain: string,
   tokenIn: string,
   amount: BigNumberish,
   tokenOut: string,
-  chain: string
-): Promise<BigNumber> => {
+  swapperAddress: string,
+  options: SwapOptions
+) => {
   const zeroXChain = chain == 'ethereum' ? '' : `${chain}.`
 
   const zeroXAPI = axios.create({
@@ -18,7 +24,10 @@ export const getQuotePrice: GetQuotePriceFunction = async (
     params: {
       sellToken: tokenIn,
       buyToken: tokenOut,
-      sellAmount: amount.toString()
+      sellAmount: amount.toString(),
+      takerAddress: swapperAddress,
+      slippagePercentage: (options.slippage ?? REF_SLIPPAGE)/ZERO_X_SLIPPAGE_FACTOR,
+      skipValidation: true
     }
   })
 
