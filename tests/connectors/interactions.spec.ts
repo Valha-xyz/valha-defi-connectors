@@ -1,10 +1,12 @@
 import { POOLS } from './config/testPools';
 import _ from 'lodash';
 import { checkParam } from "./config/checkParam";
-import { type Interactions } from '../../src/utils/types/connector-types';
+import { InteractionsReturnObject, type Interactions } from '../../src/utils/types/connector-types';
 import { prepareTestPools } from './config/prepareTestPools';
 import { Interface } from 'ethers/lib/utils';
 import { getFunctionInterface } from './config/getFunctionInterface';
+import { ethers } from 'ethers';
+import { getNodeProvider } from 'src/utils/getNodeProvider';
 
 const interactions = [
   'deposit',
@@ -240,7 +242,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
           it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
-            const result = await checkFnCallableReturn(
+            const result: InteractionsReturnObject = await checkFnCallableReturn(
               POOL,
               interaction,
               interactionPATH,
@@ -256,9 +258,13 @@ describe('CONNECTOR - INTERACTIONS', () => {
             );
             if (result) {
               const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
-
               expect(functionInterface).toBeTruthy();
               expect(typeof result.txInfo.method_name).toBe('string');
+
+
+              // We check we can populate the transaction
+              const contract = new ethers.Contract(result.txInfo.interaction_address, result.txInfo.abi, getNodeProvider(POOL.chain));
+              await contract.populateTransaction[result.txInfo.method_name](...result.txInfo.args);
             }
           });
 
