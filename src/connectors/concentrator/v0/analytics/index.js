@@ -3,6 +3,7 @@ const checkSharePrice = require('./functions/sharePrice');
 const checkConcentatorTVL = require('./functions/tvl');
 const _ = require('lodash');
 const pools = require('../pools/pools');
+const checkConcentatorWithdrawLocktime = require('./functions/withdrawLocktime');
 
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
@@ -17,6 +18,11 @@ async function analytics(chain, poolAddress) {
     poolAddress,
     sharePrice,
     poolInfo.metadata.initial_tokens[0]
+  );
+
+  const withdrawLocktimeInfo = await checkConcentatorWithdrawLocktime(
+    chain,
+    poolAddress
   );
 
   const ActAPY = null;
@@ -38,6 +44,7 @@ async function analytics(chain, poolAddress) {
     share_price: sharePrice,
     minimum_deposit: null,
     maximum_deposit: null,
+    withdraw_locktime: withdrawLocktimeInfo.data,
   };
 
   return result;
