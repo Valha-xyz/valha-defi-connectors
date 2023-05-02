@@ -21,6 +21,7 @@ async function lockPositions(
   const method_name = 'getUserLocks';
   const args = [userAddress];
   const interaction_address = pool_address;
+  const locked_tokens = underlying_tokens;
 
   return {
     abi, // json file name
@@ -28,6 +29,7 @@ async function lockPositions(
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
     position: null, // position of the information if return is a tupple or an array
+    locked_tokens,
   };
 }
 
