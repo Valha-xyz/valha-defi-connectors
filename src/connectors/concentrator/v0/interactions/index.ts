@@ -8,7 +8,7 @@ import {
   type Pool,
 } from '../../../../utils/types/connector-types';
 
-import {POOLABI} from "../abi/pool";
+import { POOLABI } from '../abi/pool';
 import { toBnERC20Decimals } from '../../../..//utils/toBNTokenDecimals';
 
 /// invest
@@ -16,26 +16,23 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
   const method_name = 'depositWithCRV';
-  const position_token = pool.underlying_tokens[0];
+  const position_token = pool.metadata.initial_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token,
+    position_token
   );
   const minAmount =
-    amount.amountsMinimum?.[0] ?? (parseFloat(amount.amount) * 0.995).toString();
+    amount.amountsMinimum?.[0] ??
+    (parseFloat(amount.amount) * 0.995).toString();
 
   const poolToken = pool.pool_address;
-  const amountMin = await toBnERC20Decimals(
-    minAmount,
-    pool.chain,
-    poolToken,
-  );
-  const args = [amountBN, addresses.receiverAddress , amountMin];
+  const amountMin = await toBnERC20Decimals(minAmount, pool.chain, poolToken);
+  const args = [amountBN, addresses.receiverAddress, amountMin];
 
   return {
     txInfo: {
@@ -58,7 +55,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions,
+  options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
   const method_name = 'withdraw';
@@ -66,9 +63,9 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token,
+    position_token
   );
-  
+
   const args = [amountBN, addresses.receiverAddress, addresses.userAddress];
 
   return {
