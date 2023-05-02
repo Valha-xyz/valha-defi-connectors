@@ -40,8 +40,6 @@ async function analytics(chain, poolAddress) {
     maximum_deposit: null,
   };
 
-  console.log(result);
-
   return result;
 }
 
@@ -49,5 +47,3 @@ module.exports = {
   main: analytics,
   url: 'https://concentrator.aladdin.club/#/vaults',
 };
-
-analytics('ethereum', '0x43e54c2e7b3e294de3a155785f52ab49d87b9922');
