@@ -10,8 +10,8 @@ async function checkConcentatorShare(chain, poolAddress) {
     const POOL = new ethers.Contract(poolAddress, POOLABI, provider);
     const TotalAssetsBN = await POOL.totalAssets();
     const TotalSupplyBN = await POOL.totalSupply();
-    const sharePrice = TotalAssetsBN.div(TotalSupplyBN);
-    return { data: parseFloat(sharePrice), err: null };
+    const sharePrice = TotalAssetsBN / TotalSupplyBN;
+    return { data: sharePrice, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err };
