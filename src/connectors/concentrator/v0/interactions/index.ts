@@ -27,8 +27,7 @@ async function deposit(
     position_token
   );
   const minAmount =
-    amount.amountsMinimum?.[0] ??
-    (parseFloat(amount.amount) * 0.995).toString();
+    amount.amountsMinimum?.[0] ?? (parseFloat(amount.amount) * 0.97).toString();
 
   const poolToken = pool.pool_address;
   const amountMin = await toBnERC20Decimals(minAmount, pool.chain, poolToken);
@@ -50,15 +49,15 @@ async function deposit(
   };
 }
 
-/// redeem
-async function redeem(
+/// unlock
+async function unlock(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
-  const method_name = 'withdraw';
+  const method_name = 'redeem';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
@@ -84,12 +83,35 @@ async function redeem(
   };
 }
 
+/// redeem
+async function redeem(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = POOLABI;
+  const method_name = 'withdrawExpired';
+  const args = [addresses.userAddress, addresses.receiverAddress];
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address: pool.investing_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: null,
+    },
+    assetInfo: null,
+  };
+}
+
 const interactions: Interactions = {
   deposit,
   deposit_all: null,
   redeem_all: null,
   deposit_and_stake: null,
-  unlock: null,
+  unlock,
   redeem,
   unstake_and_redeem: null,
   stake: null,
