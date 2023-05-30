@@ -4,7 +4,7 @@ import { POOLS } from './config/testPools'
 import fs from 'fs'
 import { prepareTestPools } from './config/prepareTestPools'
 
-const chains = ['ethereum', 'bsc', 'polygon', 'arbitrum', 'optimism']
+const chains = ['ethereum', 'bsc', 'polygon', 'arbitrum', 'optimism', 'avalanche']
 
 function isEVMAddress (address: string) {
   if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
