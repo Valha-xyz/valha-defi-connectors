@@ -4,24 +4,29 @@ const pools = require('../pools/pools');
 const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { getGeckoTokenPrice,} = require('../../../../utils/prices/getGeckoTokenPrice');
-const checkBenqiLendingData = require('./functions/getData');
-const checkBenqiLendingTVL = require('./functions/tvl');
-const checkBenqiLendingLiquidity = require('./functions/liquidity');
-const checkBenqiLendingOutloans = require('./functions/outloans');
-const checkBenqiLendingShare = require('./functions/sharePrice');
+const checkVenusLendingData = require('./functions/getData');
+const checkVenusRewardData = require('./functions/getReward');
+const checkVenusLendingTVL = require('./functions/tvl');
+const checkVenusLendingLiquidity = require('./functions/liquidity');
+const checkVenusLendingOutloans = require('./functions/outloans');
+const checkVenusLendingShare = require('./functions/sharePrice');
 
 const SECONDS_PER_DAY = 86400;
-const AVAX = {
+const XVS = {
   decimals: 18,
-  symbol: 'AVAX',
-  address: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7'],
-};
-const QI = {
-  decimals: 18,
-  symbol: 'QI',
-  address: ['0x8729438eb15e2c8b576fcc6aecda6a148776c0f5'],
+  symbol: 'XVS',
+  address: ['0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63'],
 };
 
+
+
+function calculateApy(rate, price=1, tvl=1) {
+  // supply rate per block * number of blocks per year
+  const BLOCK_TIME = 3;
+  const YEARLY_BLOCKS = (365 * 24 * 60 * 60) / BLOCK_TIME;
+  const apy = ((rate * YEARLY_BLOCKS * price) / tvl) * 100;
+  return apy;
+}
 
 
 async function analytics(chain, poolAddress) {
@@ -33,11 +38,11 @@ async function analytics(chain, poolAddress) {
   });
   const underlyingToken = poolInfo.underlying_tokens[0];
   if (!underlyingToken)
-    throw new Error('Error: no underlying found for Benqi');
+    throw new Error('Error: no underlying found for Venus');
   const provider = getNodeProvider(chain);
   const underlyingDecimals = await erc20Decimals(provider, underlyingToken);
   if (underlyingDecimals === 0)
-    throw new Error('Error: Benqi underlying decimals null.');
+    throw new Error('Error: Venus underlying decimals null.');
 
   // Find information about token price
   const { data, err } = await getGeckoTokenPrice(chain, underlyingToken);
@@ -45,21 +50,21 @@ async function analytics(chain, poolAddress) {
   const tokenPrice = data;
 
   // Find information on Pool contract.
-  const sharePriceResult = await checkBenqiLendingShare(
+  const sharePriceResult = await checkVenusLendingShare(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const sharePrice = sharePriceResult.data;
-  const TVLNative = await checkBenqiLendingTVL(chain, poolAddress);
+  const TVLNative = await checkVenusLendingTVL(chain, poolAddress);
   const TVL = TVLNative.data * sharePrice * tokenPrice;
-  const OutloansNative = await checkBenqiLendingOutloans(
+  const OutloansNative = await checkVenusLendingOutloans(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const Outloans = OutloansNative.data * tokenPrice;
-  const LiquidityNative = await checkBenqiLendingLiquidity(
+  const LiquidityNative = await checkVenusLendingLiquidity(
     chain,
     poolAddress,
     underlyingDecimals
@@ -67,23 +72,19 @@ async function analytics(chain, poolAddress) {
   const Liquidity = LiquidityNative.data * tokenPrice;
 
  
-  const info = await checkBenqiLendingData(chain, poolAddress);
-  const ActAPY = info.data.apyBase ? info.data.apyBase : 0;
+  const info = await checkVenusLendingData(chain, poolAddress);
+  const ActAPY = info.data.apyBase ? calculateApy(info.data.apyBase) : 0;
 
-   // Find information about QI and AVAX Price
-   const { price2, err2 } = await getGeckoTokenPrice(chain, QI.address[0]);
-   if (err2) throw new Error(err.message);
-   const QI_PRICE = price2;
-
+   // Find information about VXS Price
+  const { price2, err2 } = await getGeckoTokenPrice(chain, XVS.address[0]);
+  if (err2) throw new Error(err.message);
+  const XVS_PRICE = price2 ? price2 : 4; // Hardwrite asset price
  
-   const { price3, err3 } = await getGeckoTokenPrice(chain, AVAX.address[0]);
-   if (err3) throw new Error(err.message);
-   const AVAX_PRICE = price3;
 
-  const qiApy = (((info.data.qiRewards / 10 ** QI.decimals) * SECONDS_PER_DAY * 365 * QI_PRICE) / TVL);
-  const avaxApy = (((info.data.avaxRewards / 10 ** AVAX.decimals) * SECONDS_PER_DAY * 365 * AVAX_PRICE) / TVL);
 
-  const RewAPY = qiApy + avaxApy;
+  const reward = await checkVenusRewardData(chain, poolAddress);
+  console.log(calculateApy(reward.data.apyRewards, XVS_PRICE, TVL));
+  const RewAPY = reward.data.apyRewards ? calculateApy(reward.data.apyRewards, XVS_PRICE, TVL) : 0;
   const totalAPY = ActAPY + RewAPY;
 
   
@@ -111,5 +112,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://app.benqi.fi/markets',
+  url: 'https://app.Venus.fi/markets',
 };

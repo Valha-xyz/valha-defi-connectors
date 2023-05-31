@@ -3,26 +3,28 @@ const _ = require('lodash');
 const pools = require('../pools/pools');
 const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
-const { getGeckoTokenPrice,} = require('../../../../utils/prices/getGeckoTokenPrice');
-const checkBenqiLendingData = require('./functions/getData');
-const checkBenqiLendingTVL = require('./functions/tvl');
-const checkBenqiLendingLiquidity = require('./functions/liquidity');
-const checkBenqiLendingOutloans = require('./functions/outloans');
-const checkBenqiLendingShare = require('./functions/sharePrice');
+const {getGeckoTokenPrice,} = require('../../../../utils/prices/getGeckoTokenPrice');
+const checkApeswapData = require('./functions/getData');
+const checkApeswapRewardsData = require('./functions/getReward');
+const checkApeswapTVL = require('./functions/tvl');
+const checkApeswapLiquidity = require('./functions/liquidity');
+const checkApeswapOutloans = require('./functions/outloans');
+const checkApeswapShare = require('./functions/sharePrice');
 
-const SECONDS_PER_DAY = 86400;
-const AVAX = {
+const BANANA = {
   decimals: 18,
-  symbol: 'AVAX',
-  address: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7'],
-};
-const QI = {
-  decimals: 18,
-  symbol: 'QI',
-  address: ['0x8729438eb15e2c8b576fcc6aecda6a148776c0f5'],
+  symbol: 'BANANA',
+  address: ['0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95'],
 };
 
 
+function calculateApy(rate, price = 1, tvl =1) {
+  // supply rate per block * number of blocks per year
+  const BLOCK_TIME = 3;
+  const YEARLY_BLOCKS = (365 * 24 * 60 * 60) / BLOCK_TIME;
+  const apy = ((rate * YEARLY_BLOCKS * price) / tvl) * 100;
+  return apy;
+}
 
 async function analytics(chain, poolAddress) {
   // Find information about underlying token.
@@ -33,11 +35,11 @@ async function analytics(chain, poolAddress) {
   });
   const underlyingToken = poolInfo.underlying_tokens[0];
   if (!underlyingToken)
-    throw new Error('Error: no underlying found for Benqi');
+    throw new Error('Error: no underlying found for Compound');
   const provider = getNodeProvider(chain);
   const underlyingDecimals = await erc20Decimals(provider, underlyingToken);
   if (underlyingDecimals === 0)
-    throw new Error('Error: Benqi underlying decimals null.');
+    throw new Error('Error: Compound underlying decimals null.');
 
   // Find information about token price
   const { data, err } = await getGeckoTokenPrice(chain, underlyingToken);
@@ -45,48 +47,41 @@ async function analytics(chain, poolAddress) {
   const tokenPrice = data;
 
   // Find information on Pool contract.
-  const sharePriceResult = await checkBenqiLendingShare(
+  const sharePriceResult = await checkApeswapShare(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const sharePrice = sharePriceResult.data;
-  const TVLNative = await checkBenqiLendingTVL(chain, poolAddress);
+  const TVLNative = await checkApeswapTVL(chain, poolAddress);
   const TVL = TVLNative.data * sharePrice * tokenPrice;
-  const OutloansNative = await checkBenqiLendingOutloans(
+  const OutloansNative = await checkApeswapOutloans(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const Outloans = OutloansNative.data * tokenPrice;
-  const LiquidityNative = await checkBenqiLendingLiquidity(
+  const LiquidityNative = await checkApeswapLiquidity(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const Liquidity = LiquidityNative.data * tokenPrice;
 
- 
-  const info = await checkBenqiLendingData(chain, poolAddress);
-  const ActAPY = info.data.apyBase ? info.data.apyBase : 0;
+  // Find information on Apeswap contracts for APY.
+  const info = await checkApeswapData(chain, poolAddress);
+  const ActAPY = info.data.apyBase ? calculateApy(info.data.apyBase) : 0;
 
-   // Find information about QI and AVAX Price
-   const { price2, err2 } = await getGeckoTokenPrice(chain, QI.address[0]);
-   if (err2) throw new Error(err.message);
-   const QI_PRICE = price2;
+   // Find information about VXS Price
+  const { price2, err2 } = await getGeckoTokenPrice(chain, BANANA.address[0]);
+  if (err2) throw new Error(err.message);
+  const BANANA_PRICE = price2 ? price2 : 0.03; // Hardwrite asset price
 
- 
-   const { price3, err3 } = await getGeckoTokenPrice(chain, AVAX.address[0]);
-   if (err3) throw new Error(err.message);
-   const AVAX_PRICE = price3;
+  const reward = await checkApeswapRewardsData(chain, poolAddress);
 
-  const qiApy = (((info.data.qiRewards / 10 ** QI.decimals) * SECONDS_PER_DAY * 365 * QI_PRICE) / TVL);
-  const avaxApy = (((info.data.avaxRewards / 10 ** AVAX.decimals) * SECONDS_PER_DAY * 365 * AVAX_PRICE) / TVL);
-
-  const RewAPY = qiApy + avaxApy;
+  const RewAPY = reward.data.apyRewards ? calculateApy(reward.data.apyRewards, BANANA_PRICE, TVL) : 0;
   const totalAPY = ActAPY + RewAPY;
 
-  
 
   const result = {
     status: null,
@@ -111,5 +106,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://app.benqi.fi/markets',
+  url: 'https://lending.apeswap.finance/markets',
 };
