@@ -58,6 +58,11 @@ const CHAIN_MAP = {
 
 const pools = async (poolIndex, chain) => {
   // info for tvl / apy calculations
+
+  if (chain === 'avalanche') {
+    chain = 'avax';
+  }
+
   const poolInfo = (
     await sdk.api.abi.call({
       abi: abi.poolInfo,
@@ -262,7 +267,7 @@ const main = async () => {
   const polygon = await getApy('polygon', CONFIG.polygon.LP_STAKING);
   const arbi = await getApy('arbitrum', CONFIG.arbitrum.LP_STAKING);
   const op = await getApy('optimism', CONFIG.optimism.LP_STAKING);
-  // const avax = await getApy('avax', CONFIG.avax.LP_STAKING);
+  const avax = await getApy('avax', CONFIG.avax.LP_STAKING);
   // const fantom = await getApy('fantom', CONFIG.fantom.LP_STAKING);
 
   poolsData.push(
@@ -270,8 +275,9 @@ const main = async () => {
     bsc,
     polygon,
     arbi,
-    op
-    // fantom, avax
+    op,
+    avax
+    // fantom
   );
   const exportData = poolsData.flat().filter((p) => utils.keepFinite(p));
 
@@ -281,7 +287,7 @@ const main = async () => {
 const mainChain = async (chain) => {
   const poolsData = [];
 
-  const info = await getApy(chain, CONFIG.ethereum.LP_STAKING);
+  const info = await getApy(chain);
   // const avax = await getApy('avax', CONFIG.avax.LP_STAKING);
   // const op = await getApy('optimism', CONFIG.optimism.LP_STAKING);
   // const fantom = await getApy('fantom', CONFIG.fantom.LP_STAKING);
