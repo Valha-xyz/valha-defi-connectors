@@ -1,6 +1,6 @@
 const POOLS = [
   {
-    name: 'oBTCB',
+    name: 'Pool BTCB',
     chain: 'bsc',
     underlying_tokens: ['0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c'],
     pool_address: '0x5fce5D208DC325ff602c77497dC18F8EAdac8ADA',
@@ -10,10 +10,9 @@ const POOLS = [
     distributor_address: '0x5CB93C0AdE6B7F2760Ec4389833B0cCcb5e4efDa',
     rewards_tokens: ['0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95'],
     metadata: {},
-  }
-  ,
+  },
   {
-    name: 'oETH',
+    name: 'Pool ETH',
     chain: 'bsc',
     underlying_tokens: ['0x2170ed0880ac9a755fd29b2688956bd959f933f8 '],
     pool_address: '0xaA1b1E1f251610aE10E4D553b05C662e60992EEd',
@@ -25,7 +24,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oBUSD',
+    name: 'Pool BUSD',
     chain: 'bsc',
     underlying_tokens: ['0xe9e7cea3dedca5984780bafc599bd69add087d56'],
     pool_address: '0x0096b6b49d13b347033438c4a699df3afd9d2f96',
@@ -37,7 +36,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oUSDC',
+    name: 'Pool USDC',
     chain: 'bsc',
     underlying_tokens: ['0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d'],
     pool_address: '0x91b66a9ef4f4cad7f8af942855c37dd53520f151',
@@ -49,7 +48,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oUSDT',
+    name: 'Pool USDT',
     chain: 'ethereum',
     underlying_tokens: ['0x55d398326f99059ff775485246999027b3197955'],
     pool_address: '0xdBFd516D42743CA3f1C555311F7846095D85F6Fd',
@@ -61,7 +60,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oCAKE',
+    name: 'Pool CAKE',
     chain: 'bsc',
     underlying_tokens: ['0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82 '],
     pool_address: '0x3353f5bcfD7E4b146F2eD8F1e8D875733Cd754a7',
@@ -73,7 +72,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oDOT',
+    name: 'Pool DOT',
     chain: 'bsc',
     underlying_tokens: ['0x7083609fce4d1d8dc0c979aab8c869ea2c873402'],
     pool_address: '0x92D106c39aC068EB113B3Ecb3273B23Cd19e6e26',
@@ -85,7 +84,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oBNB',
+    name: 'Pool BNB',
     chain: 'bsc',
     underlying_tokens: ['0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'],
     pool_address: '0x34878f6a484005aa90e7188a546ea9e52b538f6f',
@@ -97,7 +96,7 @@ const POOLS = [
     metadata: {},
   },
   {
-    name: 'oBANANA',
+    name: 'Pool BANANA',
     chain: 'bsc',
     underlying_tokens: ['0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95'],
     pool_address: '0xc2e840bdd02b4a1d970c87a912d8576a7e61d314',
@@ -107,7 +106,7 @@ const POOLS = [
     distributor_address: '0x5CB93C0AdE6B7F2760Ec4389833B0cCcb5e4efDa',
     rewards_tokens: ['0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95'],
     metadata: {},
-  }
+  },
 ];
 
 /// pools
