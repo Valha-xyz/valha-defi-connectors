@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"Flux USDC","chain":"ethereum","underlying_tokens":["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"],"pool_address":"0x465a5a630482f3abd6d3b84b39b29b07214d19e5","investing_address":"0x465a5a630482f3abd6d3b84b39b29b07214d19e5","staking_address":"","boosting_address":null,"distributor_address":"","rewards_tokens":[""],"metadata":{}},{"name":"Flux DAI","chain":"ethereum","underlying_tokens":["0x6b175474e89094c44da98b954eedeac495271d0f"],"pool_address":"0xe2ba8693ce7474900a045757fe0efca900f6530b","investing_address":"0xe2ba8693ce7474900a045757fe0efca900f6530b","staking_address":"","boosting_address":null,"distributor_address":"","rewards_tokens":[""],"metadata":{}}]
+        export const POOLS: Pool[] = [{"name":"BNB Staking Pool","chain":"bsc","underlying_tokens":["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"],"pool_address":"0x52f24a5e03aee338da5fd9df68d2b6fae1178827","investing_address":"0x9e347af362059bf2e55839002c699f7a5bafe86e","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":[],"metadata":{}}]
 
       

@@ -10,12 +10,26 @@ async function checkAnkrAPY(chain, poolAddress) {
       fantom: 'ftm'
     }
 
-    const res = await axios.get('https://api.staking.ankr.com/v1alpha/metrics');
+    const result = await axios.get(
+      'https://api.staking.ankr.com/v1alpha/metrics',
+    );
+    if (!result.data.services.length) {
+      throw new Error(
+        `Ankr V0: issue while checking info for ${poolAddress}`,
+      );
+    }
+    const poolsInfo = result.data.services.filter(
+      elem => elem.serviceName === allchains[chain],
+    );
+    if (poolsInfo.length !== 1) {
+      throw new Error(
+        `Ankr V0: issue while filtering info for ${poolAddress}`,
+      );
+    }
 
-    console.log(allchains[chain]);
-    const data = await res.services.filter((elem) => elem.serviceName === allchains[chain]).apy;
-    console.log(data);
-    return {  data , err: null};
+    const apy = Number(poolsInfo[0].apy);
+
+    return {  data: apy , err: null};
   } catch (err) {
     console.log(err);
     return { data: null, err };

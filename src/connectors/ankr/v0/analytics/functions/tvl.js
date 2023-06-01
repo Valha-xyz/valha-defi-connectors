@@ -12,9 +12,28 @@ async function checkAnkrTVL(chain, poolAddress) {
       avalanche: 'avax'
     }
 
-    const res = await axios.get('https://api.staking.ankr.com/v1alpha/metrics');
-    const data = await res.services.filter((elem) => elem.serviceName === allchains[chain]).totalStakedUsd
-    return { data, err: null };
+    const result = await axios.get(
+      'https://api.staking.ankr.com/v1alpha/metrics',
+    );
+    // console.log(result.data.services.length);
+    if (!result.data.services.length) {
+      throw new Error(
+        `Ankr V0: issue while checking info for ${poolAddress}`,
+      );
+    }
+
+    const poolsInfo = result.data.services.filter(
+      elem => elem.serviceName === allchains[chain],
+    );
+    if (poolsInfo.length !== 1) {
+      throw new Error(
+        `Ankr V0: issue while filtering info for ${poolAddress}`,
+      );
+    }
+
+    const tvl = Number(poolsInfo[0].totalStakedUsd);
+
+    return { data: tvl, err: null };
   }
   catch (err) {
     console.log(err);
