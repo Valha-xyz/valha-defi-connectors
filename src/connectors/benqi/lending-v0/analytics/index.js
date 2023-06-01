@@ -4,22 +4,25 @@ const pools = require('../pools/pools');
 const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { getGeckoTokenPrice,} = require('../../../../utils/prices/getGeckoTokenPrice');
-const checkFluxLendingData = require('./functions/getData');
-const checkFluxRewardData = require('./functions/getReward');
-const checkFluxLendingTVL = require('./functions/tvl');
-const checkFluxLendingLiquidity = require('./functions/liquidity');
-const checkFluxLendingOutloans = require('./functions/outloans');
-const checkFluxLendingShare = require('./functions/sharePrice');
+const checkBenqiLendingData = require('./functions/getData');
+const checkBenqiLendingTVL = require('./functions/tvl');
+const checkBenqiLendingLiquidity = require('./functions/liquidity');
+const checkBenqiLendingOutloans = require('./functions/outloans');
+const checkBenqiLendingShare = require('./functions/sharePrice');
 
-const BLOCKS_PER_DAY = 86400 / 12;
-
-const calculateApy = (ratePerTimestamps) => {
-  const blocksPerDay = BLOCKS_PER_DAY;
-  const daysPerYear = 365;
-  return (
-    (Math.pow(ratePerTimestamps * blocksPerDay + 1, daysPerYear) - 1) * 100
-  );
+const SECONDS_PER_DAY = 86400;
+const AVAX = {
+  decimals: 18,
+  symbol: 'AVAX',
+  address: ['0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7'],
 };
+const QI = {
+  decimals: 18,
+  symbol: 'QI',
+  address: ['0x8729438eb15e2c8b576fcc6aecda6a148776c0f5'],
+};
+
+
 
 async function analytics(chain, poolAddress) {
   // Find information about underlying token.
@@ -30,11 +33,11 @@ async function analytics(chain, poolAddress) {
   });
   const underlyingToken = poolInfo.underlying_tokens[0];
   if (!underlyingToken)
-    throw new Error('Error: no underlying found for Flux');
+    throw new Error('Error: no underlying found for Benqi');
   const provider = getNodeProvider(chain);
   const underlyingDecimals = await erc20Decimals(provider, underlyingToken);
   if (underlyingDecimals === 0)
-    throw new Error('Error: Flux underlying decimals null.');
+    throw new Error('Error: Benqi underlying decimals null.');
 
   // Find information about token price
   const { data, err } = await getGeckoTokenPrice(chain, underlyingToken);
@@ -42,21 +45,21 @@ async function analytics(chain, poolAddress) {
   const tokenPrice = data;
 
   // Find information on Pool contract.
-  const sharePriceResult = await checkFluxLendingShare(
+  const sharePriceResult = await checkBenqiLendingShare(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const sharePrice = sharePriceResult.data;
-  const TVLNative = await checkFluxLendingTVL(chain, poolAddress);
+  const TVLNative = await checkBenqiLendingTVL(chain, poolAddress);
   const TVL = TVLNative.data * sharePrice * tokenPrice;
-  const OutloansNative = await checkFluxLendingOutloans(
+  const OutloansNative = await checkBenqiLendingOutloans(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const Outloans = OutloansNative.data * tokenPrice;
-  const LiquidityNative = await checkFluxLendingLiquidity(
+  const LiquidityNative = await checkBenqiLendingLiquidity(
     chain,
     poolAddress,
     underlyingDecimals
@@ -64,11 +67,23 @@ async function analytics(chain, poolAddress) {
   const Liquidity = LiquidityNative.data * tokenPrice;
 
  
-  const info = await checkFluxLendingData(chain, poolAddress);
-  const ActAPY = info.data.apyBase ? calculateApy(info.data.apyBase) : 0;
+  const info = await checkBenqiLendingData(chain, poolAddress);
+  const ActAPY = info.data.apyBase ? info.data.apyBase : 0;
 
-  const reward = await checkFluxRewardData(chain, poolAddress);
-  const RewAPY = reward.data.apyRewards ? reward.data.apyRewards : 0;
+   // Find information about QI and AVAX Price
+   const { price2, err2 } = await getGeckoTokenPrice(chain, QI.address[0]);
+   if (err2) throw new Error(err.message);
+   const QI_PRICE = price2;
+
+ 
+   const { price3, err3 } = await getGeckoTokenPrice(chain, AVAX.address[0]);
+   if (err3) throw new Error(err.message);
+   const AVAX_PRICE = price3;
+
+  const qiApy = (((info.data.qiRewards / 10 ** QI.decimals) * SECONDS_PER_DAY * 365 * QI_PRICE) / TVL);
+  const avaxApy = (((info.data.avaxRewards / 10 ** AVAX.decimals) * SECONDS_PER_DAY * 365 * AVAX_PRICE) / TVL);
+
+  const RewAPY = qiApy + avaxApy;
   const totalAPY = ActAPY + RewAPY;
 
   
@@ -96,5 +111,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://fluxfinance.com/',
+  url: 'https://app.benqi.fi/markets',
 };

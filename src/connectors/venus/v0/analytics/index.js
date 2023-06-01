@@ -4,22 +4,30 @@ const pools = require('../pools/pools');
 const { erc20Decimals } = require('../../../../utils/ERC20Decimals');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { getGeckoTokenPrice,} = require('../../../../utils/prices/getGeckoTokenPrice');
-const checkFluxLendingData = require('./functions/getData');
-const checkFluxRewardData = require('./functions/getReward');
-const checkFluxLendingTVL = require('./functions/tvl');
-const checkFluxLendingLiquidity = require('./functions/liquidity');
-const checkFluxLendingOutloans = require('./functions/outloans');
-const checkFluxLendingShare = require('./functions/sharePrice');
+const checkVenusLendingData = require('./functions/getData');
+const checkVenusRewardData = require('./functions/getReward');
+const checkVenusLendingTVL = require('./functions/tvl');
+const checkVenusLendingLiquidity = require('./functions/liquidity');
+const checkVenusLendingOutloans = require('./functions/outloans');
+const checkVenusLendingShare = require('./functions/sharePrice');
 
-const BLOCKS_PER_DAY = 86400 / 12;
-
-const calculateApy = (ratePerTimestamps) => {
-  const blocksPerDay = BLOCKS_PER_DAY;
-  const daysPerYear = 365;
-  return (
-    (Math.pow(ratePerTimestamps * blocksPerDay + 1, daysPerYear) - 1) * 100
-  );
+const SECONDS_PER_DAY = 86400;
+const XVS = {
+  decimals: 18,
+  symbol: 'XVS',
+  address: ['0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63'],
 };
+
+
+
+function calculateApy(rate, price=1, tvl=1) {
+  // supply rate per block * number of blocks per year
+  const BLOCK_TIME = 3;
+  const YEARLY_BLOCKS = (365 * 24 * 60 * 60) / BLOCK_TIME;
+  const apy = ((rate * YEARLY_BLOCKS * price) / tvl) * 100;
+  return apy;
+}
+
 
 async function analytics(chain, poolAddress) {
   // Find information about underlying token.
@@ -30,11 +38,11 @@ async function analytics(chain, poolAddress) {
   });
   const underlyingToken = poolInfo.underlying_tokens[0];
   if (!underlyingToken)
-    throw new Error('Error: no underlying found for Flux');
+    throw new Error('Error: no underlying found for Venus');
   const provider = getNodeProvider(chain);
   const underlyingDecimals = await erc20Decimals(provider, underlyingToken);
   if (underlyingDecimals === 0)
-    throw new Error('Error: Flux underlying decimals null.');
+    throw new Error('Error: Venus underlying decimals null.');
 
   // Find information about token price
   const { data, err } = await getGeckoTokenPrice(chain, underlyingToken);
@@ -42,21 +50,21 @@ async function analytics(chain, poolAddress) {
   const tokenPrice = data;
 
   // Find information on Pool contract.
-  const sharePriceResult = await checkFluxLendingShare(
+  const sharePriceResult = await checkVenusLendingShare(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const sharePrice = sharePriceResult.data;
-  const TVLNative = await checkFluxLendingTVL(chain, poolAddress);
+  const TVLNative = await checkVenusLendingTVL(chain, poolAddress);
   const TVL = TVLNative.data * sharePrice * tokenPrice;
-  const OutloansNative = await checkFluxLendingOutloans(
+  const OutloansNative = await checkVenusLendingOutloans(
     chain,
     poolAddress,
     underlyingDecimals
   );
   const Outloans = OutloansNative.data * tokenPrice;
-  const LiquidityNative = await checkFluxLendingLiquidity(
+  const LiquidityNative = await checkVenusLendingLiquidity(
     chain,
     poolAddress,
     underlyingDecimals
@@ -64,11 +72,19 @@ async function analytics(chain, poolAddress) {
   const Liquidity = LiquidityNative.data * tokenPrice;
 
  
-  const info = await checkFluxLendingData(chain, poolAddress);
+  const info = await checkVenusLendingData(chain, poolAddress);
   const ActAPY = info.data.apyBase ? calculateApy(info.data.apyBase) : 0;
 
-  const reward = await checkFluxRewardData(chain, poolAddress);
-  const RewAPY = reward.data.apyRewards ? reward.data.apyRewards : 0;
+   // Find information about VXS Price
+  const { price2, err2 } = await getGeckoTokenPrice(chain, XVS.address[0]);
+  if (err2) throw new Error(err.message);
+  const XVS_PRICE = price2 ? price2 : 4; // Hardwrite asset price
+ 
+
+
+  const reward = await checkVenusRewardData(chain, poolAddress);
+  console.log(calculateApy(reward.data.apyRewards, XVS_PRICE, TVL));
+  const RewAPY = reward.data.apyRewards ? calculateApy(reward.data.apyRewards, XVS_PRICE, TVL) : 0;
   const totalAPY = ActAPY + RewAPY;
 
   
@@ -96,5 +112,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://fluxfinance.com/',
+  url: 'https://app.Venus.fi/markets',
 };

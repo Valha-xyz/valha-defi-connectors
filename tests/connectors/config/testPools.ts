@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"Pool UNISWAP/USDC","chain":"ethereum","underlying_tokens":["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48","0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"],"investing_address":"0xC36442b4a4522E871399CD717aBDD847Ab11FE88","pool_address":"0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":[],"metadata":{}}]
+        export const POOLS: Pool[] = [{"name":"Pool USDT","chain":"arbitrum","underlying_tokens":["0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"],"pool_address":"0xd69D402D1bDB9A2b8c3d88D98b9CEaf9e4Cd72d9","investing_address":"0xf4b1486dd74d07706052a33d31d7c0aafd0659e1","staking_address":null,"boosting_address":null,"distributor_address":"0xebC85d44cefb1293707b11f707bd3CEc34B4D5fA","rewards_tokens":["0x3082cc23568ea640225c2467653db90e9250aaa0"],"metadata":{}}]
 
       

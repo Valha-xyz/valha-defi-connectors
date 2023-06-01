@@ -4,5 +4,6 @@ export const GECKO_PLATFORMS = {
   bsc: 'binance-smart-chain',
   celo: 'celo',
   arbitrum: 'arbitrum-one',
-  optimism: 'optimistic-ethereum'
+  optimism: 'optimistic-ethereum',
+  avalanche: 'avalanche'
 }
