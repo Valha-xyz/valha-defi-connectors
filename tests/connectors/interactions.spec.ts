@@ -16,11 +16,11 @@ const interactions = [
   // 'deposit_and_stake',
   // 'unlock',
   'redeem',
-  'stake',
-  'unstake',
+  // 'stake',
+  // 'unstake',
   // 'boost',
   // // 'unboost',
-  'claim_rewards',
+  // 'claim_rewards',
   // 'claim_interests',
 ];
 
