@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { PoolABI } from '../../abi/Pool';
+import { RewardABI } from '../../abi/Rewards';
 import { ethers } from 'ethers';
 import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 
-async function checkFluxLendingData(chain, poolAddress) {
+
+
+async function checkApeswapData(chain, poolAddress) {
   try {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
@@ -18,5 +21,5 @@ async function checkFluxLendingData(chain, poolAddress) {
   }
 }
 
-module.exports = checkFluxLendingData;
 
+module.exports = checkApeswapData;
