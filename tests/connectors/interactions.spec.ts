@@ -1,7 +1,10 @@
 import { POOLS } from './config/testPools';
 import _ from 'lodash';
-import { checkParam } from "./config/checkParam";
-import { InteractionsReturnObject, type Interactions } from '../../src/utils/types/connector-types';
+import { checkParam } from './config/checkParam';
+import {
+  type InteractionsReturnObject,
+  type Interactions,
+} from '../../src/utils/types/connector-types';
 import { prepareTestPools } from './config/prepareTestPools';
 import { Interface } from 'ethers/lib/utils';
 import { getFunctionInterface } from './config/getFunctionInterface';
@@ -120,8 +123,8 @@ function checkArgType(arg: string, type: string): boolean {
           `ERROR: We found a mismatch between the type of arg ${arg} and the type expected by the ABI ${type}. Please correct it.`
         );
       }
-    } else if(type.includes("tuple")){
-      console.log("Can't verify type when type is tuple")
+    } else if (type.includes('tuple')) {
+      console.log("Can't verify type when type is tuple");
     } else {
       throw new Error(
         `ERROR: we did not identify the type ${type} for the following arg: ${arg}. If the error persists, please contact us in the DISCORD!`
@@ -155,7 +158,7 @@ describe('CONNECTOR - INTERACTIONS', () => {
   let interactionPATH: string;
 
   beforeAll(async () => {
-    const connectorParam = checkParam("connector");
+    const connectorParam = checkParam('connector');
     if (connectorParam.err) throw new Error(connectorParam.err.message);
     connector = connectorParam.arg;
     if (!connector) {
@@ -227,11 +230,13 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-
               // We try to find the request via the ethers interface
-              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+              const functionInterface = getFunctionInterface(
+                result.txInfo.abi,
+                result.txInfo.method_name
+              );
               expect(functionInterface).toBeDefined();
-              
+
               expect(functionInterface.name).toBeDefined();
               expect(functionInterface.type).toBeDefined();
               expect(functionInterface.stateMutability).toBeDefined();
@@ -242,29 +247,39 @@ describe('CONNECTOR - INTERACTIONS', () => {
 
           it(`${interaction.toUpperCase()} should return a METHOD_NAME avalaible in the ABI provided`, async () => {
             const userAddress = '0x796052Bf2A527Df9B5465Eec243c39A07751E46F';
-            const result: InteractionsReturnObject = await checkFnCallableReturn(
-              POOL,
-              interaction,
-              interactionPATH,
-              '10000',
-              ['10000', '10000', '10000', '10000'],
-              ['8000', '8000', '8000', '8000'],
-              ['7500', '10000'],
-              '0x0000000000000000000000000000000000000000',
-              userAddress,
-              userAddress,
-              '',
-              0
-            );
+            const result: InteractionsReturnObject =
+              await checkFnCallableReturn(
+                POOL,
+                interaction,
+                interactionPATH,
+                '10000',
+                ['10000', '10000', '10000', '10000'],
+                ['8000', '8000', '8000', '8000'],
+                ['7500', '10000'],
+                '0x0000000000000000000000000000000000000000',
+                userAddress,
+                userAddress,
+                '',
+                0
+              );
             if (result) {
-              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+              const functionInterface = getFunctionInterface(
+                result.txInfo.abi,
+                result.txInfo.method_name
+              );
               expect(functionInterface).toBeTruthy();
               expect(typeof result.txInfo.method_name).toBe('string');
 
-
               // We check we can populate the transaction
-              const contract = new ethers.Contract(result.txInfo.interaction_address, result.txInfo.abi, getNodeProvider(POOL.chain));
-              await contract.populateTransaction[result.txInfo.method_name](...result.txInfo.args);
+              const contract = new ethers.Contract(
+                result.txInfo.interaction_address,
+                result.txInfo.abi,
+                getNodeProvider(POOL.chain)
+              );
+
+              await contract.populateTransaction[result.txInfo.method_name](
+                ...result.txInfo.args
+              );
             }
           });
 
@@ -329,7 +344,10 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result) {
-              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+              const functionInterface = getFunctionInterface(
+                result.txInfo.abi,
+                result.txInfo.method_name
+              );
               expect(functionInterface.inputs.length).toBe(
                 result.txInfo.args.length
               );
@@ -353,14 +371,15 @@ describe('CONNECTOR - INTERACTIONS', () => {
               0
             );
             if (result?.txInfo) {
-              const functionInterface = getFunctionInterface(result.txInfo.abi,result.txInfo.method_name);
+              const functionInterface = getFunctionInterface(
+                result.txInfo.abi,
+                result.txInfo.method_name
+              );
 
               expect(functionInterface).toBeTruthy();
-              expect(doesArgTypeMatch(
-                result.txInfo.args,
-                functionInterface.inputs
-              )).toBeTruthy();
-
+              expect(
+                doesArgTypeMatch(result.txInfo.args, functionInterface.inputs)
+              ).toBeTruthy();
             }
           });
 

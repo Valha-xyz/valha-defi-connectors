@@ -88,8 +88,8 @@ async function claimRewards(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = RewardsABI;
-  const method_name = 'claimReward(uint8,address payable)';
-  const args = [options.rangeToken,addresses.userAddress]; // range is 0 to claim Qi, 1 to claim AVAX
+  const method_name = 'claimReward(uint8,address)';
+  const args = [options.rangeToken, addresses.userAddress]; // range is 0 to claim Qi, 1 to claim AVAX
   const interaction_address = pool.distributor_address
     ? pool.distributor_address
     : '';
