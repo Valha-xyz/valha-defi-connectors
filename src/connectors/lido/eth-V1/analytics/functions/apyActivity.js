@@ -3,7 +3,7 @@ const axios = require('axios');
 
 async function checkLidoV0APY() {
   try {
-    const { data } = await axios.get('https://stake.lido.fi/api/steth-apr');
+    const { data } = await axios.get('https://stake.lido.fi/api/sma-steth-apr');
     const result = parseFloat(data);
     if (result && result > 0) {
       return { data: result, err: null };

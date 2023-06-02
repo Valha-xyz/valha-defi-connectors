@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   type AdditionalOptions,
   type AddressesInput,
@@ -7,10 +8,8 @@ import {
   type InteractionsReturnObject,
   type Pool,
 } from '../../../../utils/types/connector-types';
-
-import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
-import { InvestingABI } from '../abi/Investing';
-import { RewardsABI } from '../abi/Rewards';
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const { POOLABI } = require('../abi/DepositPool');
 
 /// invest
 async function deposit(
@@ -19,15 +18,15 @@ async function deposit(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = InvestingABI;
-  const method_name = 'deposit(address,uint256,address,uint16)';
+  const abi = POOLABI;
+  const method_name = 'stakeAndClaimCerts';
+  const position_token = pool.underlying_tokens[0];
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.underlying_tokens[0]
+    position_token
   );
-  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
-  const args = [pool.underlying_tokens[0], amountBN, addresses.userAddress, 0];
+  const args = [];
   const interaction_address = pool.investing_address;
 
   return {
@@ -36,7 +35,6 @@ async function deposit(
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [0],
     },
     assetInfo: {
       position_token: pool.underlying_tokens[0], // token needed to approve
@@ -53,15 +51,15 @@ async function redeem(
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const abi = InvestingABI;
-  const method_name = 'withdraw(address,uint256,address)';
+  const abi = POOLABI;
+  const method_name = 'claimCerts';
+  const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.pool_address
+    position_token
   );
-  if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
-  const args = [pool.underlying_tokens[0], amountBN, addresses.userAddress];
+  const args = [amountBN];
   const interaction_address = pool.investing_address;
 
   return {
@@ -70,56 +68,28 @@ async function redeem(
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [0],
     },
     assetInfo: {
-      position_token: pool.pool_address, // token needed to approve
+      position_token, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
       amount: amountBN,
     },
   };
 }
 
-// claim
-async function claimRewards(
-  pool: Pool,
-  amount: AmountInput,
-  addresses: AddressesInput,
-  options?: AdditionalOptions
-): Promise<InteractionsReturnObject> {
-  const abi = RewardsABI;
-  const method_name = 'claimAll(address)';
-  const args = [addresses.userAddress]; // range is 0 to claim Qi, 1 to claim AVAX
-  const interaction_address = pool.distributor_address
-    ? pool.distributor_address
-    : '';
-
-  return {
-    txInfo: {
-      abi, // abi array
-      interaction_address, // contract to interact with to interact with poolAddress
-      method_name, // method to interact with the pool
-      args, // args to pass to the smart contracts to trigger 'method_name'
-    },
-    assetInfo: {
-      position_token: null, // token needed to approve
-      position_token_type: 'ERC-20', // token type to approve
-      amount: '0',
-    },
-  };
-}
-
 const interactions: Interactions = {
   deposit,
+  deposit_all: null,
   deposit_and_stake: null,
   unlock: null,
   redeem,
+  redeem_all: null,
   unstake_and_redeem: null,
   stake: null,
   unstake: null,
   boost: null,
   unboost: null,
-  claim_rewards: claimRewards,
+  claim_rewards: null,
   claim_interests: null,
 };
 
