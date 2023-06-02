@@ -9,7 +9,7 @@ import {
 } from '../../../../utils/types/connector-types';
 
 import { toBnERC20Decimals } from '../../../../utils/toBNTokenDecimals';
-import { InvestingABI } from '../abi/investing';
+import { InvestingABI } from '../abi/Investing';
 import { RewardsABI } from '../abi/Rewards';
 
 /// invest
