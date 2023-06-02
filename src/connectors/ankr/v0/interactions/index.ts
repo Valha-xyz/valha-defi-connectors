@@ -52,14 +52,14 @@ async function redeem(
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
-  const method_name = 'unstakeCerts';
+  const method_name = 'swapEth';
   const position_token = pool.pool_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     position_token
   );
-  const args = [amountBN];
+  const args = [amountBN, addresses.receiverAddress];
   const interaction_address = pool.investing_address;
 
   return {
