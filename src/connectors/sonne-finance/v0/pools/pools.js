@@ -20,7 +20,7 @@ const POOLS = [
     staking_address: '',
     boosting_address: null,
     distributor_address: '0x60cf091cd3f50420d50fd7f707414d0df4751c58',
-    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f1'],
+    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f0'],
     metadata: {},
   },
   {
@@ -32,7 +32,7 @@ const POOLS = [
     staking_address: '',
     boosting_address: null,
     distributor_address: '0x60cf091cd3f50420d50fd7f707414d0df4751c58',
-    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f2'],
+    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f0'],
     metadata: {},
   },
   {
@@ -44,7 +44,7 @@ const POOLS = [
     staking_address: '',
     boosting_address: null,
     distributor_address: '0x60cf091cd3f50420d50fd7f707414d0df4751c58',
-    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f3'],
+    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f0'],
     metadata: {},
   },
   {
@@ -56,7 +56,7 @@ const POOLS = [
     staking_address: '',
     boosting_address: null,
     distributor_address: '0x60cf091cd3f50420d50fd7f707414d0df4751c58',
-    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f4'],
+    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f0'],
     metadata: {},
   },
   {
@@ -68,7 +68,7 @@ const POOLS = [
     staking_address: '',
     boosting_address: null,
     distributor_address: '0x60cf091cd3f50420d50fd7f707414d0df4751c58',
-    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f5'],
+    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f0'],
     metadata: {},
   },
   {
@@ -80,7 +80,7 @@ const POOLS = [
     staking_address: '',
     boosting_address: null,
     distributor_address: '0x60cf091cd3f50420d50fd7f707414d0df4751c58',
-    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f6'],
+    rewards_tokens: ['0x1db2466d9f5e10d7090e7152b68d62703a2245f0'],
     metadata: {},
   },
 ];
