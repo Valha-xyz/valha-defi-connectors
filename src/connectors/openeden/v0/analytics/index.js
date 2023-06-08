@@ -6,7 +6,7 @@ const axios = require('axios');
 async function getAPY(chain, pool_address) {
   const res = await axios.get('https://api.openeden.com/vault/positions');
   try {
-    const activity_apy = res.data.portfolioYTM;
+    const activity_apy = res.data.portfolioYTM * 100;
     return { activity_apy };
   } catch (err) {
     console.log(err);
