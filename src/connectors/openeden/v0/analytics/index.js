@@ -50,7 +50,6 @@ async function analytics(chain, poolAddress) {
     maximum_deposit: null,
   };
 
-  console.log(result);
   return result;
 } catch (err) {
   console.log(err);
