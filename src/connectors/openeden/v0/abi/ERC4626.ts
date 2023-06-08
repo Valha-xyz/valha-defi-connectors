@@ -1,4 +1,4 @@
-export const ERC4626 = [
+export const ERC4626ABI = [
   {
     "inputs": [],
     "name": "Empty",
