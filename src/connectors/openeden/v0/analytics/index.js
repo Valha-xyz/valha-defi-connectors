@@ -3,10 +3,6 @@ const { getNodeProvider } = require('src/utils/getNodeProvider');
 const ethers = require('ethers');
 const axios = require('axios');
 
-async function getStatus(POOL) {
-  return true;
-}
-
 async function getAPY(chain, pool_address) {
   const res = await axios.get("https://api.openeden.com/vault/positions")
   try {
@@ -35,12 +31,11 @@ async function analytics(chain, poolAddress) {
   const data = await getTotalAssets(POOL);
   const TVL = data.TVL;
   const sharePrice = data.SharePrice;
-  const status = await getStatus(POOL);
   const activity_apy = await getAPY(chain, poolAddress);
   
 
   const result = {
-    status: status,
+    status: null,
     tvl: TVL,
     liquidity: TVL,
     outloans: null,
