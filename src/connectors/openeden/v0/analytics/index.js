@@ -1,5 +1,5 @@
-const { ERC4626 } = require('../abi/ERC4626');
-const { getNodeProvider } = require('src/utils/getNodeProvider');
+const { ERC4626ABI } = require('../abi/ERC4626');
+const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const axios = require('axios');
 
@@ -29,7 +29,7 @@ async function analytics(chain, poolAddress) {
   try {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const POOL = new ethers.Contract(poolAddress, ERC4626, provider);
+    const POOL = new ethers.Contract(poolAddress, ERC4626ABI, provider);
     const data = await getTotalAssets(POOL);
     const TVL = data.TVL;
     const sharePrice = data.SharePrice;
