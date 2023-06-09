@@ -16,15 +16,15 @@ async function getAPY(chain, pool_address) {
 }
 
 async function getMinMax(POOL, chain) {
-  const decimals =  await POOL.decimals();
+  const decimals = await POOL.decimals();
   // const TotalAssets = await POOL.totalAssets();
   const vault = await POOL._baseVault();
   const provider = getNodeProvider(chain);
   const MINMAX = new ethers.Contract(vault, VaultABI, provider);
-  const total = await MINMAX.getMinMaxDeposit() ;
-  const min = total[0].toNumber()/ (10 ** decimals);
+  const total = await MINMAX.getMinMaxDeposit();
+  const min = total[0].toNumber() / 10 ** decimals;
   return {
-    minimum: min
+    minimum: min,
   };
 }
 
