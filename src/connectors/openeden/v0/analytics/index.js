@@ -1,4 +1,5 @@
 const { ERC4626ABI } = require('../abi/ERC4626');
+const { VaultABI } = require('../abi/Vault');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const axios = require('axios');
@@ -12,6 +13,19 @@ async function getAPY(chain, pool_address) {
     console.log(err);
     return { data: null, err };
   }
+}
+
+async function getMinMax(POOL, chain) {
+  const decimals = await POOL.decimals();
+  // const TotalAssets = await POOL.totalAssets();
+  const vault = await POOL._baseVault();
+  const provider = getNodeProvider(chain);
+  const MINMAX = new ethers.Contract(vault, VaultABI, provider);
+  const total = await MINMAX.getMinMaxDeposit();
+  const min = total[0].toNumber() / 10 ** decimals;
+  return {
+    minimum: min,
+  };
 }
 
 async function getTotalAssets(POOL) {
@@ -34,6 +48,7 @@ async function analytics(chain, poolAddress) {
     const TVL = data.TVL;
     const sharePrice = data.SharePrice;
     const activity_apy = await getAPY(chain, poolAddress);
+    const minmax = await getMinMax(POOL, chain);
 
     const result = {
       status: null,
@@ -47,10 +62,9 @@ async function analytics(chain, poolAddress) {
       rewards_apy: 0,
       boosting_apy: 0,
       share_price: sharePrice,
-      minimum_deposit: null,
+      minimum_deposit: minmax.minimum,
       maximum_deposit: null,
     };
-
     return result;
   } catch (err) {
     console.log(err);
