@@ -30,7 +30,7 @@ async function deposit(
     pool.chain,
     position_token
   );
-  const args = [poolId, amountBN, addresses.userAddress];
+  const args = [poolId, amountBN, addresses.receiverAddress];
 
   return {
     txInfo: {
@@ -69,7 +69,7 @@ async function redeem(
     pool.chain,
     position_token
   );
-  const args = [poolId, amountBN, addresses.userAddress];
+  const args = [poolId, amountBN, addresses.receiverAddress];
 
   return {
     txInfo: {
@@ -180,7 +180,7 @@ async function claimRewards(
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
-  const method_name = 'deposit';
+  const method_name = 'withdraw';
   const args = [poolId, '0'];
 
   return {
