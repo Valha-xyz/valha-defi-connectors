@@ -52,7 +52,7 @@ const POOLS = [
     chain: 'optimism',
     underlying_tokens: ['0x4200000000000000000000000000000000000042'],
     pool_address: '0x4645e0952678E9566FB529D9313f5730E4e1C412',
-    investing_address: '0x4645e0952678E9566FB529D9313f5730E4e1C413',
+    investing_address: '0x4645e0952678E9566FB529D9313f5730E4e1C412',
     staking_address: '0x553D42D966bF57a50f2D3a48A999845295309FbF',
     boosting_address: null,
     distributor_address: '0x970d6b8c1479ec2bfe5a82dc69cafe4003099bc0',
