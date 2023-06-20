@@ -23,6 +23,30 @@ const POOLS = [
     rewards_tokens: [''],
     metadata: {},
   },
+  {
+    name: 'Flux FRAX',
+    chain: 'ethereum',
+    underlying_tokens: ['0x853d955acef822db058eb8505911ed77f175b99e'],
+    pool_address: '0x1C9A2d6b33B4826757273D47ebEe0e2DddcD978B',
+    investing_address: '0x1C9A2d6b33B4826757273D47ebEe0e2DddcD978B',
+    staking_address: '',
+    boosting_address: null,
+    distributor_address: '',
+    rewards_tokens: [''],
+    metadata: {},
+  },
+  {
+    name: 'Flux USDT',
+    chain: 'ethereum',
+    underlying_tokens: ['0xdac17f958d2ee523a2206206994597c13d831ec7'],
+    pool_address: '0x81994b9607e06ab3d5cF3AffF9a67374f05F27d7',
+    investing_address: '0x81994b9607e06ab3d5cF3AffF9a67374f05F27d7',
+    staking_address: '',
+    boosting_address: null,
+    distributor_address: '',
+    rewards_tokens: [''],
+    metadata: {},
+  },
 ];
 
 /// pools
