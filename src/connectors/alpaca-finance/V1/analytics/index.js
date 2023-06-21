@@ -6,6 +6,7 @@ const checkSharePrice = require('./functions/sharePrice');
 const checkApyActivity = require('./functions/apyActivity');
 const checkApyRewards = require('./functions/apyRewards');
 const checkV1Liquidity = require('./functions/liquidity');
+const checkAlpacaV1TVL = require('./functions/tvl');
 const checkV1Outloans = require('./functions/outloans');
 
 /// APY
@@ -27,7 +28,7 @@ async function analytics(chain, poolAddress) {
     return elem.pool.includes(poolAddress.toLowerCase());
   });
 
-  const tvl = externalInfo.tvlUsd;
+  const tvl = await checkAlpacaV1TVL(chain, poolAddress);
   const sharePrice = await checkSharePrice(chain, poolAddress);
   const activity_apy = await checkApyActivity(chain, poolAddress);
   const rewards_apy = await checkApyRewards(chain, poolAddress);
@@ -40,7 +41,7 @@ async function analytics(chain, poolAddress) {
 
   const result = {
     status: null,
-    tvl,
+    tvl: tvl.data,
     liquidity: liquidity.data,
     outloans: outloans.data,
     losses: null,
@@ -53,7 +54,7 @@ async function analytics(chain, poolAddress) {
     minimum_deposit: null,
     maximum_deposit: null,
   };
-
+  console.log(result);
   return result;
 }
 
