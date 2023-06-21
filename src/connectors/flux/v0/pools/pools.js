@@ -23,7 +23,6 @@ const POOLS = [
     rewards_tokens: [''],
     metadata: {},
   },
-    {
     name: 'Flux FRAX',
     chain: 'ethereum',
     underlying_tokens: ['0x853d955acef822db058eb8505911ed77f175b99e'],
