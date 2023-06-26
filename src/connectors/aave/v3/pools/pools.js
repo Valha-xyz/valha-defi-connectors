@@ -72,6 +72,18 @@ const POOLS = [
     metadata: {},
   },
   {
+    name: 'Pool wstETH',
+    chain: 'optimism',
+    underlying_tokens: ['0x1f32b1c2345538c0c6f582fcb022739c4a194ebb'],
+    pool_address: '0xc45a479877e1e9dfe9fcd4056c699575a1045daa',
+    investing_address: '0x794a61358D6845594F94dc1DB02A252b5b4814aD',
+    staking_address: '0x0000000000000000000000000000000000000000',
+    boosting_address: null,
+    distributor_address: '0x929EC64c34a17401F460460D4B9390518E5B473e',
+    rewards_tokens: ['0x4200000000000000000000000000000000000042'],
+    metadata: {},
+  },
+  {
     name: 'Pool DAI',
     chain: 'avalanche',
     underlying_tokens: ['0xd586e7f844cea2f87f50152665bcbc2c279d8d70'],
