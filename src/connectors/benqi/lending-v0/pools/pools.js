@@ -107,7 +107,7 @@ const POOLS = [
   {
     name: 'qiUSDTn',
     chain: 'avalanche',
-    underlying_tokens: ['0x6b3595068778dd592e39a122f4f5a5cf09c90fe2'],
+    underlying_tokens: ['0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7'],
     pool_address: '0xd8fcda6ec4bdc547c0827b8804e89acd817d56ef',
     investing_address: '0xd8fcda6ec4bdc547c0827b8804e89acd817d56ef',
     staking_address: null,
