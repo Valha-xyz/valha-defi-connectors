@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { PoolABI } from '../../abi/Pool';
-import { RewardABI } from '../../abi/Rewards';
+import { RewardsABI } from '../../abi/Rewards';
 import { ethers } from 'ethers';
-import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
-
-
 
 const calculateApy = (ratePerTimestamps) => {
   const secondsPerDay = 86400; // seconds per day
@@ -34,11 +31,20 @@ async function checkBenqiLendingData(chain, poolAddress) {
     const apyBase = calculateApy(apyBaseBN);
 
     /* APY rewards */
-    // const DISTRIBUTOR = new ethers.Contract(COMPTROLLER_ADDRESS, RewardABI, provider);
+    const DISTRIBUTOR = new ethers.Contract(
+      COMPTROLLER_ADDRESS,
+      RewardsABI,
+      provider
+    );
 
-    const qiRewards = 0 // await DISTRIBUTOR.supplyRewardSpeeds(REWARD_TYPES.QI, poolAddress);
-    const avaxRewards = 0 // await DISTRIBUTOR.supplyRewardSpeeds(REWARD_TYPES.AVAX, poolAddress);
-
+    const qiRewards = await DISTRIBUTOR.supplyRewardSpeeds(
+      REWARD_TYPES.QI,
+      poolAddress
+    );
+    const avaxRewards = await DISTRIBUTOR.supplyRewardSpeeds(
+      REWARD_TYPES.AVAX,
+      poolAddress
+    );
 
     return { data: { apyBase, qiRewards, avaxRewards }, err: null };
   } catch (err) {
