@@ -3,14 +3,14 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const { POOLABI } = require('../../abi/DepositPool');
 
-async function checkstaderSharePrice(chain, poolAddress, investing_address) {
+async function checkSwellSharePrice(chain, poolAddress) {
   try {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const depositPool = new ethers.Contract(investing_address, POOLABI, provider);
+    const depositPool = new ethers.Contract(poolAddress, POOLABI, provider);
 
     
-    const sharePrice = await depositPool.getExchangeRate() / 10 ** 18;
+    const sharePrice = await depositPool.getRate() / 10 ** 18;
     return { data: sharePrice, err: null };
   } catch (err) {
     console.log(err);
@@ -18,4 +18,4 @@ async function checkstaderSharePrice(chain, poolAddress, investing_address) {
   }
 }
 
-module.exports = checkstaderSharePrice;
+module.exports = checkSwellSharePrice;

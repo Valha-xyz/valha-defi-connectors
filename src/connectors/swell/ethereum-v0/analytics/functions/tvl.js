@@ -4,17 +4,18 @@ const ethers = require('ethers');
 const { POOLABI } = require('../../abi/DepositPool');
 const { getUSDETH } = require('../../../../../utils/prices/getUSDETH');
 
-async function checkStaderTVL(chain, poolAddress, investing_address) {
+async function checkSwellTVL(chain, poolAddress) {
   try {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    const depositPool = new ethers.Contract(investing_address, POOLABI, provider);
-    const TVLBN = await depositPool.totalAssets() / 10 ** 18;
+    const depositPool = new ethers.Contract(poolAddress, POOLABI, provider);
+    const TVLBN = await depositPool.totalETHDeposited() / 10 ** 18;
 
     const { data, err } = await getUSDETH();
     if (err) throw new Error(err.message);
+    const exchangePrice = data;
     
-    const TVL = data * TVLBN;
+    const TVL = exchangePrice * TVLBN
 
     return { data: TVL, err: null };
   } catch (err) {
@@ -23,4 +24,4 @@ async function checkStaderTVL(chain, poolAddress, investing_address) {
   }
 }
 
-module.exports = checkStaderTVL;
+module.exports = checkSwellTVL;
