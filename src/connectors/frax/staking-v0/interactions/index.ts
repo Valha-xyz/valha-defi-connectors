@@ -127,6 +127,7 @@ async function stake(
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0],
     },
     assetInfo: {
       position_token, // token needed to approve
@@ -160,6 +161,7 @@ async function unstake(
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0],
     },
     assetInfo: {
       position_token, // token needed to approve
