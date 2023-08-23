@@ -10,6 +10,9 @@ import {
 } from '../../../../utils/types/connector-types';
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 const { POOLABI } = require('../abi/DepositPool');
+const { getNodeProvider } = require ('../../../../../utils/getNodeProvider');
+const { ethers } = require ('ethers');
+
 
 /// invest
 async function deposit(
@@ -44,41 +47,51 @@ async function deposit(
   };
 }
 
-/// redeem (after unstaking and waiting for 2-3 days)
-// async function redeem(
-//   pool: Pool,
-//   amount: AmountInput,
-//   addresses: AddressesInput,
-//   options?: AdditionalOptions
-// ): Promise<InteractionsReturnObject> {
-//   const abi = POOLABI;
-//   const method_name = 'claimWithdraw(uint256)';
-//   const position_token = pool.pool_address;
-//   const amountBN = await toBnERC20Decimals(
-//     amount.amount,
-//     pool.chain,
-//     position_token
-//   );
-//   const args = [];
-//   const interaction_address = pool.investing_address;
+async function redeem(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = POOLABI;
+  const method_name = 'claimWithdraw(uint256)';
+  const position_token = pool.pool_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount,
+    pool.chain,
+    position_token
+  );
 
-//   return {
-//     txInfo: {
-//       abi, // abi array
-//       interaction_address, // contract to interact with to interact with poolAddress
-//       method_name, // method to interact with the pool
-//       args, // args to pass to the smart contracts to trigger 'method_name'
-//     },
-//     assetInfo: {
-//       position_token: pool.underlying_tokens[0], // token needed to approve
-//       position_token_type: 'ERC-20', // token type to approve
-//       amount: amountBN,
-//     },
-//   };
-// }
+  const chain = pool.chain;
 
-/// unstake (before redeeming)
-async function unstake(
+  // retrieve idx, the argument used to call the function, we take the last request an user made.
+  const provider = getNodeProvider(chain);
+  if (!provider) throw new Error('No provider was found.');
+  const Pool = new ethers.Contract(pool.pool_address, POOLABI, provider);
+  const requests = await Pool.getUserWithdrawalRequests(addresses.userAddress);
+  const idx = requests.length - 1;
+
+
+  const args = [idx];
+  const interaction_address = pool.investing_address;
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: pool.underlying_tokens[0],
+      position_token_type: 'ERC-20', // token type to approve
+      amount: amountBN,
+    },
+  };
+}
+
+/// unlock (before redeeming)
+async function unlock(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
@@ -103,23 +116,22 @@ async function unstake(
       args, // args to pass to the smart contracts to trigger 'method_name'
     },
     assetInfo: {
-      position_token: pool.pool_address, // token needed to approve
+      position_token, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
       amount: amountBN,
     },
   };
 }
-
 const interactions: Interactions = {
   deposit,
   deposit_all: null,
   deposit_and_stake: null,
-  unlock: null,
-  redeem: null,
+  unlock,
+  redeem,
   redeem_all: null,
   unstake_and_redeem: null,
   stake: null,
-  unstake,
+  unstake: null,
   boost: null,
   unboost: null,
   claim_rewards: null,

@@ -4,6 +4,8 @@ const pools = require('../pools/pools');
 const checkStaderTVL = require('./functions/tvl');
 const checkStaderSharePrice = require('./functions/shareprice');
 const checkStaderAPY = require('./functions/apy');
+const { getNodeProvider } = require ('../../../../../utils/getNodeProvider')
+const { ethers } = require ('ethers')
 
 async function analytics(chain, poolAddress) {
   try {
