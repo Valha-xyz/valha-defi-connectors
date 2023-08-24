@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const checkVelodromeV0Data = require('./function/data');
-const checkVelodromeV0Supply = require('./function/totalSupply');
+const checkVelodromeV2Data = require('./function/data');
+const checkVelodromeV2Supply = require('./function/totalSupply');
 
 async function analytics(chain, poolAddress) {
   try {
-    const info = await checkVelodromeV0Data(chain, poolAddress);
+    const info = await checkVelodromeV2Data(chain, poolAddress);
     if (info.err) throw new Error(info.err);
     const data = info.data;
 
-    const supplyInfo = await checkVelodromeV0Supply(chain, poolAddress);
+    const supplyInfo = await checkVelodromeV2Supply(chain, poolAddress);
     if (supplyInfo.err) throw new Error(supplyInfo.err);
     const supply = supplyInfo.data;
 
@@ -45,5 +45,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://app.velodrome.finance/liquidity',
+  url: 'https://velodrome.finance/liquidity',
 };

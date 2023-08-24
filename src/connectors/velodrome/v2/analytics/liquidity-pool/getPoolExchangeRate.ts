@@ -1,10 +1,9 @@
 import { type BigNumber, Contract } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
-import { ROUTERABI } from './../../abi/ROUTER'
+const { ROUTERABI } = require('../../abi/ROUTER');
 import { type Pool } from '../../../../../utils/types/connector-types'
 import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders'
-
-const ROUTER_CONTRACT = '0x9c12939390052919af3155f41bf4160fd3666a6f'
+const PoolFactory = '0xf1046053aa5682b4f9a81b5481394da16be5ff5a';
 
 // We only want to know the exchange rate between two assets.
 // This should return the amount of token2 equivalent to amount1 token1
@@ -19,7 +18,7 @@ export const getExchangeRate: GetExchangeRateFunction = async (
 ): Promise<BigNumber> => {
   const provider = getNodeProvider(pool.chain)
   const liquidityProvidingContract = new Contract(
-    ROUTER_CONTRACT,
+    pool.investing_address,
     ROUTERABI,
     provider
   )
@@ -31,7 +30,8 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   const [reserve1, reserve2] = await liquidityProvidingContract.getReserves(
     token1,
     token2,
-    pool.metadata.stable
+    pool.metadata.stable,
+    PoolFactory
   )
 
   // Then we return the equivalent amount of the other token (quoteLiquidity of the contract)
