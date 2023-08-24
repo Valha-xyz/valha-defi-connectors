@@ -1,65 +1,124 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
-const { POOLABI } = require('../abi/POOL');
-const { VOTERABI } = require('../abi/VOTER');
-const { FACTORYABI } = require('../abi/FACTORY');
+const axios = require('axios');
+const POOLABI = require('../abi/POOL');
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
-const ethers = require('ethers');
-const PoolFactory = '0xf1046053aa5682b4f9a81b5481394da16be5ff5a';
-const VELO_TOKEN = '0x9560e827af36c94d2ac33a39bce1fe78631088db';
-const Router = '0xa062ae8a9c5e11aaa026fc2670b0d65ccc8b2858';
-const Voter = '0x41c914ee0c7e1a5edcd0295623e6dc557b5abf3c';
+const { ethers } = require('ethers');
 
-async function getDataChain (chain) {
+const EXCHANGES_API = {
+  uniswapv3: '',
+  quickswap: 'quickswap/',
+  zyberswap: 'zyberswap/',
+  thena: 'thena/',
+  retro: 'retro/',
+  camelot: 'camelot/',
+  ramses: 'ramses/',
+  sushiswap: 'sushi/',
+  beamswap: 'beamswap/',
+  stellaswap: 'stellaswap/'
+};
+const UNIPROXY = {
+  // could be retrieved here: https://docs.google.com/spreadsheets/d/19i8dQt-F3TncJ2jlYWOJ-cOmnleKvqz1rJiiv-QTS9M/edit#gid=0, needed as interaction address
+}
+const HYPEREGISTRY = {
+  // could be retrieved here: https://docs.google.com/spreadsheets/d/19i8dQt-F3TncJ2jlYWOJ-cOmnleKvqz1rJiiv-QTS9M/edit#gid=0, not needed
+}
 
-  const provider = getNodeProvider(chain);
-  if (!provider) throw new Error('No provider was found.');
-  const factoryPool = new ethers.Contract(PoolFactory, FACTORYABI, provider); 
-  const poolsLength = await factoryPool.allPoolsLength();
-  
-  const voterContract = new ethers.Contract(Voter, VOTERABI, provider);
+function getUrl_allData(chain, exchange) {
+  return `https://wire2.gamma.xyz/${exchange}${chain}/hypervisors/allData`;
+}
+function getUrl_allRewards2(chain, exchange) {
+  return `https://wire2.gamma.xyz/${exchange}${chain}/allRewards2`;
+}
+function findMasterchefByAddress(jsonData, targetAddress) {
+  for (const masterchefKey in jsonData) {
+    if (jsonData.hasOwnProperty(masterchefKey)) {
+      const pools = jsonData[masterchefKey].pools;
+      for (const poolAddress in pools) {
+        if (pools.hasOwnProperty(poolAddress) && poolAddress === targetAddress) {
+          return masterchefKey;
+        }
+      }
+    }
+  }
+  return null; // Address not found
+}
+function getRewardTokensForPool(data, poolAddress) {
+  const poolData = data[poolAddress];
+  if (!poolData || !poolData.pools) {
+    return [];
+  }
+  const pool = poolData.pools[poolAddress];
+  if (!pool || !pool.rewarders) {
+    return [];
+  }
+  const rewarders = pool.rewarders;
+  const rewardTokens = Object.values(rewarders).map((rewarder) => {
+    return rewarder.rewardToken;
+  });
+  return rewardTokens;
+}
 
+async function getDataChain (chain, exchange) {
+
+  const URL1 = getUrl_allData(chain,EXCHANGES_API[exchange]);
+  const dataApy = await axios.get(URL1);
+  const length = Object.keys(dataApy).length;
 
   let result = []
-  for (var i = 0; i <= poolsLength - 1; i++) {
-    const poolAddress = await factoryPool.allPools(i);
 
-    const poolContract = new ethers.Contract(poolAddress, POOLABI, provider);
-    const token0 = await poolContract.token0();
-    const token1 = await poolContract.token1();
-    const stableValue = await poolContract.stable();
-    const underlyingTokens = [token0, token1];
+  if (length == 1){
+    return result
+  } 
+  else { 
+    for (const address in dataApy.data) {
+      const data = dataApy.data[address];
+      const poolAddress = address;
+      const name = data.name;
+      const underlyingTokens = [data.token0, data.token1];
+      const investingAddress = UNIPROXY[chain][exchange];
 
-    const name = await poolContract.name();
+      const URL2 = getUrl_allRewards2(chain,EXCHANGES_API[exchange]);
+      const dataApy = await axios.get(URL2);
 
-    const stakingAddress = await voterContract.gauges(poolAddress);
+      const stakingAddress = findMasterchefByAddress(dataApy.data,poolAddress);
+      const rewardsTokens = getRewardsTokensforPool(dataApy.data,poolAddress);
 
-    const info = {
+      const provider = getNodeProvider(chain);
+      if (!provider) throw new Error('No provider was found.');
+      const poolContract = new ethers.Contract(poolAddress, POOLABI, provider);
+      const directDeposit = await poolContract.directDeposit(); // needed for interactions
+
+      const info = {
         name: name,
         chain,
         underlying_tokens: underlyingTokens,
         pool_address: poolAddress,
-        investing_address: Router,
+        investing_address: investingAddress,
         staking_address: stakingAddress,
         boosting_address: null,
         distributor_address: stakingAddress,
-        rewards_tokens: [VELO_TOKEN],
-        metadata:{stable: stableValue}
-    } ;
+        rewards_tokens: rewardsTokens,
+        metadata:{exchange : exchange ,hypeRegistry : HYPEREGISTRY[chain][exchange] , directDeposit: directDeposit }
+      } ;
 
 
-    result = [...result, info];
+      result = [...result, info];
  }
-  return result
+  return result }
+
 }
 
 async function generatePools () {
   let result = []
-  const CHAINS = ['optimism']
+  const CHAINS = ['optimism','ethereum','arbitrum','bsc','polygon','celo'];
+  const EXCHANGES = ['uniswapv3', 'quickswap','zyberswap','thena','retro','camelot','ramses','sushiswap','beamswap','stellaswap'];
   for (const chain of CHAINS) {
-    const pools = await getDataChain(chain)
+    for (const exchange of EXCHANGES){
+      const pools = await getDataChain(chain, exchange)
     result = [...result, ...pools]
+    }
   }
   return result
 }
