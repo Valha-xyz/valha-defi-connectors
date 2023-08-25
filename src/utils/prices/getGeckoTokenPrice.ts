@@ -42,6 +42,7 @@ export async function getGeckoTokenPrice (
     )
 
     const result = data[address]
+
     if (!result) throw new Error('Nothing found on PRICES API.')
     const usdPrice = result.usd
 
@@ -51,8 +52,8 @@ export async function getGeckoTokenPrice (
       tokenAddress
     }, usdPrice)
 
-
     return { data: usdPrice, err: null }
+
   } catch (err) {
     console.log(err)
     return { data: null, err }
