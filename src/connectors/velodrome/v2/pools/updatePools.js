@@ -20,6 +20,7 @@ async function getDataChain(chain) {
   const voterContract = new ethers.Contract(Voter, VOTERABI, provider);
 
   let result = [];
+
   for (let i = 0; i <= poolsLength - 1; i++) {
     const poolAddress = await factoryPool.allPools(i);
 
@@ -45,6 +46,9 @@ async function getDataChain(chain) {
       rewards_tokens: [VELO_TOKEN],
       metadata: { stable: stableValue },
     };
+
+    console.log(i);
+    console.log(info);
 
     result = [...result, info];
   }
