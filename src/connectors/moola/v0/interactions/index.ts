@@ -25,8 +25,17 @@ async function deposit(
     pool.chain,
     pool.underlying_tokens[0]
   );
+  let referralCode = parseInt(options.referral);
+  if (!(referralCode > 0)) {
+    referralCode = 0;
+  }
   if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
-  const args = [pool.underlying_tokens[0], amountBN, addresses.userAddress, 0];
+  const args = [
+    pool.underlying_tokens[0],
+    amountBN,
+    addresses.userAddress,
+    referralCode,
+  ];
   const interaction_address = pool.investing_address;
 
   return {
