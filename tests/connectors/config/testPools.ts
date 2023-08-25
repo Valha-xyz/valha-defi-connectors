@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"xWETH-OP3","chain":"optimism","underlying_tokens":["0x4200000000000000000000000000000000000006","0x4200000000000000000000000000000000000042"],"pool_address":"0xbcfa4cfa97f74a6abf80b9901569bbc8654f4315","investing_address":"0x1e97925c365cd96d74ec55a04569915c4d65e5e0","staking_address":"0xc7846d1bc4d8bcf7c45a7c998b77ce9b3c904365","boosting_address":null,"distributor_address":"0xc7846d1bc4d8bcf7c45a7c998b77ce9b3c904365","rewards_tokens":["0x4200000000000000000000000000000000000042"],"metadata":{"exchange":"uniswapv3","hypervisor":"0xf5bfa20f4a77933fee0c7bb7f39e7642a070d599","directDeposit":true}}]
+        export const POOLS: Pool[] = [{"name":"ETH-USDC Autopool","chain":"arbitrum","underlying_tokens":["0x82af49447d8a07e3bd95bd0d56f35241523fbab1","0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"],"pool_address":"0xfd421d60905d2f7cabd49e6a5703a3499367b8f4","investing_address":"0xfd421d60905d2f7cabd49e6a5703a3499367b8f4","staking_address":"0x57ff9d1a7cf23fd1a9fd9dc07823f950a22a718c","boosting_address":null,"distributor_address":"0x57ff9d1a7cf23fd1a9fd9dc07823f950a22a718c","rewards_tokens":["0x371c7ec6d8039ff7933a2aa28eb827ffe1f52f07"],"metadata":{}}]
 
       
