@@ -16,14 +16,16 @@ const EXCHANGES_API = {
   ramses: 'ramses/',
   sushiswap: 'sushi/',
   beamswap: 'beamswap/',
-  stellaswap: 'stellaswap/'
+  stellaswap: 'stellaswap/',
 };
+
 const UNIPROXY = {
   // could be retrieved here: https://docs.google.com/spreadsheets/d/19i8dQt-F3TncJ2jlYWOJ-cOmnleKvqz1rJiiv-QTS9M/edit#gid=0, needed as interaction address
-}
+};
+
 const HYPEREGISTRY = {
   // could be retrieved here: https://docs.google.com/spreadsheets/d/19i8dQt-F3TncJ2jlYWOJ-cOmnleKvqz1rJiiv-QTS9M/edit#gid=0, not needed
-}
+};
 
 function getUrl_allData(chain, exchange) {
   return `https://wire2.gamma.xyz/${exchange}${chain}/hypervisors/allData`;
@@ -36,7 +38,10 @@ function findMasterchefByAddress(jsonData, targetAddress) {
     if (jsonData.hasOwnProperty(masterchefKey)) {
       const pools = jsonData[masterchefKey].pools;
       for (const poolAddress in pools) {
-        if (pools.hasOwnProperty(poolAddress) && poolAddress === targetAddress) {
+        if (
+          pools.hasOwnProperty(poolAddress) &&
+          poolAddress === targetAddress
+        ) {
           return masterchefKey;
         }
       }
@@ -60,18 +65,16 @@ function getRewardTokensForPool(data, poolAddress) {
   return rewardTokens;
 }
 
-async function getDataChain (chain, exchange) {
-
-  const URL1 = getUrl_allData(chain,EXCHANGES_API[exchange]);
+async function getDataChain(chain, exchange) {
+  const URL1 = getUrl_allData(chain, EXCHANGES_API[exchange]);
   const dataApy = await axios.get(URL1);
   const length = Object.keys(dataApy).length;
 
-  let result = []
+  let result = [];
 
-  if (length == 1){
-    return result
-  } 
-  else { 
+  if (length == 1) {
+    return result;
+  } else {
     for (const address in dataApy.data) {
       const data = dataApy.data[address];
       const poolAddress = address;
@@ -79,11 +82,11 @@ async function getDataChain (chain, exchange) {
       const underlyingTokens = [data.token0, data.token1];
       const investingAddress = UNIPROXY[chain][exchange];
 
-      const URL2 = getUrl_allRewards2(chain,EXCHANGES_API[exchange]);
+      const URL2 = getUrl_allRewards2(chain, EXCHANGES_API[exchange]);
       const dataApy = await axios.get(URL2);
 
-      const stakingAddress = findMasterchefByAddress(dataApy.data,poolAddress);
-      const rewardsTokens = getRewardsTokensforPool(dataApy.data,poolAddress);
+      const stakingAddress = findMasterchefByAddress(dataApy.data, poolAddress);
+      const rewardsTokens = getRewardTokensForPool(dataApy.data, poolAddress);
 
       const provider = getNodeProvider(chain);
       if (!provider) throw new Error('No provider was found.');
@@ -91,7 +94,7 @@ async function getDataChain (chain, exchange) {
       const directDeposit = await poolContract.directDeposit(); // needed for interactions
 
       const info = {
-        name: name,
+        name,
         chain,
         underlying_tokens: underlyingTokens,
         pool_address: poolAddress,
@@ -100,34 +103,48 @@ async function getDataChain (chain, exchange) {
         boosting_address: null,
         distributor_address: stakingAddress,
         rewards_tokens: rewardsTokens,
-        metadata:{exchange : exchange ,hypeRegistry : HYPEREGISTRY[chain][exchange] , directDeposit: directDeposit }
-      } ;
-
+        metadata: {
+          exchange,
+          hypeRegistry: HYPEREGISTRY[chain][exchange],
+          directDeposit,
+        },
+      };
 
       result = [...result, info];
- }
-  return result }
-
+    }
+    return result;
+  }
 }
 
-async function generatePools () {
-  let result = []
-  const CHAINS = ['optimism','ethereum','arbitrum','bsc','polygon','celo'];
-  const EXCHANGES = ['uniswapv3', 'quickswap','zyberswap','thena','retro','camelot','ramses','sushiswap','beamswap','stellaswap'];
+async function generatePools() {
+  let result = [];
+  const CHAINS = ['optimism', 'ethereum', 'arbitrum', 'bsc', 'polygon', 'celo'];
+  const EXCHANGES = [
+    'uniswapv3',
+    'quickswap',
+    'zyberswap',
+    'thena',
+    'retro',
+    'camelot',
+    'ramses',
+    'sushiswap',
+    'beamswap',
+    'stellaswap',
+  ];
   for (const chain of CHAINS) {
-    for (const exchange of EXCHANGES){
-      const pools = await getDataChain(chain, exchange)
-    result = [...result, ...pools]
+    for (const exchange of EXCHANGES) {
+      const pools = await getDataChain(chain, exchange);
+      result = [...result, ...pools];
     }
   }
-  return result
+  return result;
 }
 
-async function updatePools () {
-  const pools = await generatePools()
-  const strPools = JSON.stringify(pools, null, 4)
-  const relativePath = path.join(__dirname, '/generatedPools.json')
-  fs.writeFileSync(relativePath, strPools)
+async function updatePools() {
+  const pools = await generatePools();
+  const strPools = JSON.stringify(pools, null, 4);
+  const relativePath = path.join(__dirname, '/generatedPools.json');
+  fs.writeFileSync(relativePath, strPools);
 }
 
-updatePools()
+updatePools();
