@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
-const { POOLABI } = require('../abi/POOL');
-const { VOTERABI } = require('../abi/VOTER');
-const { FACTORYABI } = require('../abi/FACTORY');
-const { getNodeProvider } = require('../../../../utils/getNodeProvider');
+const POOLABI = require('../abi/POOL');
+const VOTERABI = require('../abi/VOTER');
+const FACTORYABI = require('../abi/FACTORY');
 const ethers = require('ethers');
+const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const PoolFactory = '0xf1046053aa5682b4f9a81b5481394da16be5ff5a';
 const VELO_TOKEN = '0x9560e827af36c94d2ac33a39bce1fe78631088db';
 const Router = '0xa062ae8a9c5e11aaa026fc2670b0d65ccc8b2858';
