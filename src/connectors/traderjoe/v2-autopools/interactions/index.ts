@@ -146,7 +146,7 @@ async function stake (
     pool.chain,
     pool.pool_address
   )
-  const info = await STAKINGPID(pool.chain, pool.staking_address,pool.pool_address);
+  const info = await PID(pool.chain, pool.staking_address,pool.pool_address);
     if (info.err) throw new Error(info.err);
   const poolId = info.data;
   const abi = GAUGEABI
@@ -179,7 +179,7 @@ async function unstake (
     pool.pool_address
   )
   const abi = GAUGEABI
-  const info = await STAKINGPID(pool.chain, pool.staking_address,pool.pool_address);
+  const info = await PID(pool.chain, pool.staking_address,pool.pool_address);
     if (info.err) throw new Error(info.err);
   const poolId = info.data;
   const method_name = 'withdraw(uint256, uint256)'
@@ -211,7 +211,7 @@ async function claim_rewards (
     pool.pool_address
   )
   const abi = GAUGEABI
-  const info = await STAKINGPID(pool.chain, pool.staking_address,pool.pool_address);
+  const info = await PID(pool.chain, pool.staking_address,pool.pool_address);
     if (info.err) throw new Error(info.err);
   const poolId = info.data;
   const method_name = 'harvestRewards(uint256[])'

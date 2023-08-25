@@ -18,7 +18,7 @@ async function analytics(chain, poolAddress) {
     const apy = apyInfo.data;
 
     const ActAPY = apy.activity_apy;
-    const RewAPY = apy.rewards_apy;
+    const RewAPY = apy.rewards_apy / tvl.tvl;
     const TotalAPY = ActAPY + RewAPY;
     const TVL = tvl.tvl;
     const sharePrice = TVL / supply;

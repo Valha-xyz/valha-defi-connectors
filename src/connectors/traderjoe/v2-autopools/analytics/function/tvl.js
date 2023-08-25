@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 const POOLABI = require('../../abi/POOL');
-const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');
 import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice';
 const pools = require('../../pools/pools');
