@@ -1,24 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const axios = require('axios');
+import { PoolABI } from '../../abi/Pool';
+import { ethers } from 'ethers';
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 
-async function checkCompoundv2Data(chain, poolAddress) {
+async function checkCompoundV2Data(chain, poolAddress) {
   try {
-    const { data } = await axios.get(
-      'https://api.compound.finance/api/v2/ctoken',
-    );
-    if (!data || !data.cToken) {
-      throw new Error(`Data from Compound indexer not ok for ${poolAddress}`);
-    }
-    for (const elem of data.cToken) {
-      if (elem.token_address.toLowerCase() === poolAddress.toLowerCase()) {
-        return elem;
-      }
-    }
-    throw new Error(`Data from Compound indexer not ok for ${poolAddress}`);
+    const provider = getNodeProvider(chain);
+    if (!provider) throw new Error('No provider was found.');
+    const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
+    const apyBase = (await POOL.supplyRatePerBlock()) / 1e18;
+    return { data: { apyBase }, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err };
   }
 }
 
-module.exports = checkCompoundv2Data;
+module.exports = checkCompoundV2Data;

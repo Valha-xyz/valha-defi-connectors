@@ -1,7 +1,7 @@
 import { erc20Decimals } from '../../../../../utils/ERC20Decimals';
-import { VaultABI } from 'src/connectors/alpaca-finance/abi/Vault';
+import { VaultABI } from '../../abi/Vault';
 import { ethers } from 'ethers';
-import { getNodeProvider } from 'src/helpers/provider/getNodeProvider';
+import { getNodeProvider } from '../../../../../utils/getNodeProvider';
 
 async function checkAlpacaV1TVL(chain, poolAddress) {
   try {
