@@ -2,7 +2,8 @@
 import { type BigNumber, type BigNumberish, Contract } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import { type Pool } from '../../../../../utils/types/connector-types'
-import { ROUTERABI } from './../../abi/ROUTER'
+const { ROUTERABI } = require('../../abi/ROUTER');
+const PoolFactory = '0xf1046053aa5682b4f9a81b5481394da16be5ff5a';
 
 // This needs to return the minimum amount expected for each token.
 // For curve, we simply choose the first token (not the best this time...)
@@ -21,6 +22,7 @@ export const getMinimumRedeem = async (
     pool.underlying_tokens[0],
     pool.underlying_tokens[1],
     pool.metadata.stable,
+    PoolFactory,
     amount1
   )
   return allAmounts

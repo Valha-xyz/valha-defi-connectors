@@ -10,8 +10,8 @@ import {
 } from '../../../../utils/types/connector-types'
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals')
 const { ROUTERABI } = require('../abi/ROUTER')
-const { STAKERABI } = require('../abi/STAKER')
-const PID = require('./PID')
+const { POOLABI } = require('../abi/POOL')
+const { GAUGEABI } = require('../abi/GAUGE')
 
 /// invest
 async function deposit (
@@ -175,8 +175,8 @@ async function claimInterests (
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const interaction_address = pool.staking_address
-  const abi = STAKERABI
+  const interaction_address = pool.pool_address
+  const abi = POOLABI
   // Indeed 'deposit' to claim_rewards on Pancake
   const method_name = 'claimFees'
   const args = []
@@ -199,16 +199,15 @@ async function stake (
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const pid = PID[pool.pool_address.toLowerCase()]
   const interaction_address = pool.staking_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     pool.pool_address
   )
-  const abi = STAKERABI
-  const method_name = 'deposit'
-  const args = [amountBN, pid]
+  const abi = GAUGEABI
+  const method_name = 'deposit(uint256, address)'
+  const args = [amountBN, addresses.receiverAddress]
 
   return {
     txInfo: {
@@ -233,16 +232,15 @@ async function unstake (
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const pid = PID[pool.pool_address.toLowerCase()]
   const interaction_address = pool.staking_address
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
     pool.pool_address
   )
-  const abi = STAKERABI
-  const method_name = 'withdrawToken'
-  const args = [amountBN, pid]
+  const abi = GAUGEABI
+  const method_name = 'withdraw(uint256)'
+  const args = [amountBN]
 
   return {
     txInfo: {
@@ -263,13 +261,12 @@ async function claimRewards (
   addresses: AddressesInput,
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
-  const pid = PID[pool.pool_address.toLowerCase()]
   const interaction_address = pool.staking_address
   const amountBN = '0'
-  const abi = STAKERABI
+  const abi = GAUGEABI
   // Indeed 'deposit' to claim_rewards on Pancake
-  const method_name = 'getReward'
-  const args = [addresses.receiverAddress, pool.rewards_tokens]
+  const method_name = 'getReward(address)'
+  const args = [addresses.receiverAddress]
 
   return {
     txInfo: {

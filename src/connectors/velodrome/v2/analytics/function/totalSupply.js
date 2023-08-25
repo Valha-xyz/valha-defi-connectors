@@ -3,7 +3,7 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const ethers = require('ethers');
 const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 
-async function checkVelodromeV0Supply(chain, poolAddress) {
+async function checkVelodromeV2Supply(chain, poolAddress) {
   try {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
@@ -18,4 +18,4 @@ async function checkVelodromeV0Supply(chain, poolAddress) {
   }
 }
 
-module.exports = checkVelodromeV0Supply;
+module.exports = checkVelodromeV2Supply;
