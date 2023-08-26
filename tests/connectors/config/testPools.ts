@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"Cake-WBNB","chain":"bsc","underlying_tokens":["0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82","0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],"pool_address":"0x0ed7e52944161450477ee417de9cd3a859b14fd0","investing_address":"0x10ED43C718714eb63d5aA57B78B54704E256024E","staking_address":"0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652","boosting_address":null,"distributor_address":null,"rewards_tokens":["0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"],"metadata":{}}]
+        export const POOLS: Pool[] = [{"name":"StableV2 AMM - USDC/USDT","chain":"optimism","underlying_tokens":["0x7F5c764cBc14f9669B88837ca1490cCa17c31607","0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"],"pool_address":"0x2B47C794c3789f499D8A54Ec12f949EeCCE8bA16","investing_address":"0xa062ae8a9c5e11aaa026fc2670b0d65ccc8b2858","staking_address":"0xa2f27d183A4E409c734367712f9344328f8EC98D","boosting_address":null,"distributor_address":"0xa2f27d183A4E409c734367712f9344328f8EC98D","rewards_tokens":["0x9560e827af36c94d2ac33a39bce1fe78631088db"],"metadata":{"stable":true}}]
 
       

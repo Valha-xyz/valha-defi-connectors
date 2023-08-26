@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const checkVelodromeV2Data = require('./function/data');
 const checkVelodromeV2Supply = require('./function/totalSupply');
+const checkVelodromeV2SharePrice = require('./function/sharePrice');
 
 async function analytics(chain, poolAddress) {
   try {
@@ -12,11 +13,16 @@ async function analytics(chain, poolAddress) {
     if (supplyInfo.err) throw new Error(supplyInfo.err);
     const supply = supplyInfo.data;
 
+    const sharePriceInfo = await checkVelodromeV2SharePrice(chain, poolAddress, data.tvl);
+    if (sharePriceInfo.err) throw new Error(sharePriceInfo.err);
+    const sharePrice = sharePriceInfo.data;
+
+
     const ActAPY = 0;
     const RewAPY = data.rewards_apy;
     const TotalAPY = ActAPY + RewAPY;
     const TVL = data.tvl;
-    const sharePrice = TVL / supply;
+    // const sharePrice = TVL / supply;
 
     const result = {
       status: null,
@@ -29,7 +35,7 @@ async function analytics(chain, poolAddress) {
       activity_apy: ActAPY,
       rewards_apy: RewAPY,
       boosting_apy: null,
-      share_price: sharePrice,
+      share_price: sharePrice.sharePriceToken0,
       minimum_deposit: null,
       maximum_deposit: null,
     };
