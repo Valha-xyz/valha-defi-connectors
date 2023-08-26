@@ -7,7 +7,7 @@ const { ethers } = require('ethers');
 const POOLABI = require ('../../abi/POOL');
 
 
-async function checkVelodromeV2SharePrice(chain, poolAddress, tvlUsd) {
+async function checkGammaV0SharePrice(chain, poolAddress, tvlUsd) {
   try {
     const POOLS = await pools();
     if (!POOLS || POOLS.length === 0) return {};
@@ -25,15 +25,15 @@ async function checkVelodromeV2SharePrice(chain, poolAddress, tvlUsd) {
     const supply = supplyBN / 10 ** decimalsBN;
 
     const tokenReserves = new ethers.Contract(poolAddress, POOLABI, provider);
-    const reserves = await tokenReserves.getReserves();
+    const reserves = await tokenReserves.getBalances();
 
     const Token0 = new ethers.Contract(poolInfo.underlying_tokens[0], ERC20ABI, provider);
     const Token1 = new ethers.Contract(poolInfo.underlying_tokens[1], ERC20ABI, provider);
     const decimalsToken0 = await Token0.decimals();
     const decimalsToken1 = await Token1.decimals();
 
-    const tvlToken0 = 2 * reserves._reserve0 / (10 ** decimalsToken0);
-    const tvlToken1 = 2 * reserves._reserve1 / (10 ** decimalsToken1);
+    const tvlToken0 = 2 * reserves.amountX / (10 ** decimalsToken0);
+    const tvlToken1 = 2 * reserves.amountY / (10 ** decimalsToken1);
 
     const share_price = { sharePriceUSD: tvlUsd/supply, sharePriceToken0: tvlToken0/supply, sharePriceToken1 : tvlToken1/supply }
 
@@ -46,4 +46,4 @@ async function checkVelodromeV2SharePrice(chain, poolAddress, tvlUsd) {
   }
 }
 
-module.exports = checkVelodromeV2SharePrice;
+module.exports = checkGammaV0SharePrice;

@@ -2,6 +2,7 @@
 const checkGammaV0Tvl = require('./function/tvl');
 const checkGammaV0Supply = require('./function/totalSupply');
 const checkGammaV0Apy = require('./function/apy');
+const checkGammaV0SharePrice = require('./function/sharePrice');
 
 async function analytics(chain, poolAddress) {
   try {
@@ -17,11 +18,15 @@ async function analytics(chain, poolAddress) {
     if (apyInfo.err) throw new Error(apyInfo.err);
     const apy = apyInfo.data;
 
+    const sharePriceInfo = await checkGammaV0SharePrice(chain, poolAddress);
+    if (sharePriceInfo.err) throw new Error(sharePriceInfo.err);
+    const sharePrice = sharePriceInfo.data;
+
     const ActAPY = apy.activity_apy;
     const RewAPY = apy.rewards_apy;
     const TotalAPY = ActAPY + RewAPY;
     const TVL = tvl.tvl;
-    const sharePrice = TVL / supply;
+    // const sharePrice = TVL / supply;
 
     const result = {
       status: true,
@@ -34,7 +39,7 @@ async function analytics(chain, poolAddress) {
       activity_apy: ActAPY,
       rewards_apy: RewAPY,
       boosting_apy: null,
-      share_price: sharePrice,
+      share_price: sharePrice.sharePriceToken0,
       minimum_deposit: null,
       maximum_deposit: null,
     };
