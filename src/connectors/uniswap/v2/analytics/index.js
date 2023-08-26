@@ -18,7 +18,7 @@ async function analytics(chain, poolAddress) {
   const volume = apy.data.volume;
 
   const sharePrice = await checkUniV2SharePrice(chain, poolAddress);
-  if (apy.err) throw new Error(apy.err);
+  if (sharePrice.err) throw new Error(sharePrice.err);
   const sharePriceUSD = sharePrice.data.sharePriceUSD;
   const shareToken0 = sharePrice.data.sharePriceToken0;
   const shareToken1 = sharePrice.data.sharePriceToken1;
