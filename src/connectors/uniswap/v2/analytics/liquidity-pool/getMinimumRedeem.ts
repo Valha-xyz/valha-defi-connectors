@@ -2,7 +2,7 @@
 import { BigNumber, type BigNumberish, Contract } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import { type Pool } from '../../../../../utils/types/connector-types'
-import PairABI from './../../abi/uniswapv2-pair.json'
+import { POOLABI } from '../../abi/POOLABI'
 
 // This needs to return the minimum amount expected for each token.
 // For curve, we simply choose the first token (not the best this time...)
@@ -11,7 +11,7 @@ export const getMinimumRedeem = async (
   pool: Pool
 ): Promise<BigNumber[]> => {
   const provider = getNodeProvider(pool.chain)
-  const poolContract = new Contract(pool.pool_address, PairABI, provider)
+  const poolContract = new Contract(pool.pool_address, POOLABI, provider)
 
   // We reimplement the `burn` function computation in : https://etherscan.io/address/0x3041cbd36888becc7bbcbc0045e3b1f144466f5f#code
   const [[reserve0, reserve1], totalSupply] = await Promise.all([

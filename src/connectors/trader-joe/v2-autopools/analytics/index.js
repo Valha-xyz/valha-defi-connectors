@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const checkTraderJoeTvl = require('./function/tvl');
 const checkTraderJoeSupply = require('./function/totalSupply');
+const checkTraderJoeSharePrice = require('./function/sharePrice');
 const checkTraderJoeApy = require('./function/apy');
 
 async function analytics(chain, poolAddress) {
@@ -9,19 +10,24 @@ async function analytics(chain, poolAddress) {
     if (info.err) throw new Error(info.err);
     const tvl = info.data;
 
-    const supplyInfo = await checkTraderJoeSupply(chain, poolAddress);
-    if (supplyInfo.err) throw new Error(supplyInfo.err);
-    const supply = supplyInfo.data;
+    // const supplyInfo = await checkTraderJoeSupply(chain, poolAddress);
+    // if (supplyInfo.err) throw new Error(supplyInfo.err);
+    // const supply = supplyInfo.data;
 
     const apyInfo = await checkTraderJoeApy(chain, poolAddress);
     if (apyInfo.err) throw new Error(apyInfo.err);
     const apy = apyInfo.data;
 
+    const sharePriceInfo = await checkTraderJoeSharePrice(chain, poolAddress);
+    if (sharePriceInfo.err) throw new Error(sharePriceInfo.err);
+    const sharePrice = sharePriceInfo.data;
+
+
     const ActAPY = apy.activity_apy;
     const RewAPY = apy.rewards_apy / tvl.tvl;
     const TotalAPY = ActAPY + RewAPY;
     const TVL = tvl.tvl;
-    const sharePrice = TVL / supply;
+    // const sharePrice = TVL / supply;
 
     const result = {
       status: true,
@@ -34,7 +40,7 @@ async function analytics(chain, poolAddress) {
       activity_apy: ActAPY,
       rewards_apy: RewAPY,
       boosting_apy: null,
-      share_price: sharePrice,
+      share_price: sharePrice.sharePriceToken0,
       minimum_deposit: null,
       maximum_deposit: null,
     };

@@ -1,4 +1,4 @@
-import pMap from "p-map";
+import pMap from "p-map"
 import { Pool } from "src/utils/types/connector-types"
 import { gql, request } from 'graphql-request'
 const path = require('path')
@@ -6,16 +6,15 @@ import fs from 'fs'
 
 const SUBGRAPH_URLS = {
   ethereum: "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3",
-  /*optimism: '',
-  avalanche:'',
-  arbitrum: '',
-  polygon: '',
-  fantom: ''
-  */
+  optimism: "https://api.thegraph.com/subgraphs/name/optimism-post-regenesis",
+  avalanche:"https://api.thegraph.com/subgraphs/name/uniswap-v3-avax",
+  arbitrum: "https://api.thegraph.com/subgraphs/name/arbitrum-dev",
+  polygon: "https://api.thegraph.com/subgraphs/name/uniswap-v3-polygon",
+  celo: "https://api.thegraph.com/subgraphs/name/jesse-sawa/uniswap-celo"
 }
 function poolsQuery(last_id?: string){
 
-  let lastIdCondition = `where: { id_gt: "${last_id}" }`
+  let lastIdCondition = `where: { id_gt: "${last_id}" , totalValueLockedUSD_gt: "500000" }`
   if(last_id == undefined){
     lastIdCondition = "";
   }
@@ -40,7 +39,16 @@ function poolsQuery(last_id?: string){
 }
 
 // This is the general interaction address (true for all pools). It handles all liquidity providing/collecting/retrieving
-const NFTPositionManager = "0xC36442b4a4522E871399CD717aBDD847Ab11FE88";
+const NFTPositionManager = {
+  ethereum: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  optimism: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  arbitrum: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  avalanche: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  polygon: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  celo: "0x3d79EdAaBC0EaB6F08ED885C05Fc0B014290D95A",
+  bsc: "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+  base: "0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1",
+} ;
  
 async function getPools (chain: string, last_id?: string) {
   try {
@@ -54,7 +62,7 @@ async function getPools (chain: string, last_id?: string) {
         "chain": chain,
         "underlying_tokens": [pool.token0.id, pool.token1.id],
         "pool_address": pool.id,
-        "investing_address": NFTPositionManager,
+        "investing_address": NFTPositionManager[chain],
         "staking_address": null,
         "boosting_address": null,
         "distributor_address": null,

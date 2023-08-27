@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const  POOLABI = require('../../abi/POOL');
+const POOLABI = require('../../abi/POOL');
 const GAUGEABI = require('../../abi/GAUGE');
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');

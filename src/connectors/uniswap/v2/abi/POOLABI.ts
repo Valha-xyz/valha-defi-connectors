@@ -1,4 +1,4 @@
-[
+export const POOLABI = [
     {
         "inputs":
         [],

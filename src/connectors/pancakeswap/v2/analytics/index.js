@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 const external = require('./external/DefiLlama/index');
+const checkPancakeV2SharePrice = require('./external/sharePrice');
 
 /// APY
 /// TVL
@@ -20,6 +21,13 @@ async function analytics(chain, poolAddress) {
     return elem.pool.toLowerCase().includes(poolAddress.toLowerCase());
   });
 
+
+  const sharePrice = await checkPancakeV2SharePrice(chain, poolAddress);
+  if (sharePrice.err) throw new Error(sharePrice.err);
+  const sharePriceUSD = sharePrice.data.sharePriceUSD;
+  const shareToken0 = sharePrice.data.sharePriceToken0;
+  const shareToken1 = sharePrice.data.sharePriceToken1;
+
   if (!externalInfo) return {};
 
   const tvl = externalInfo.tvlUsd;
@@ -38,10 +46,11 @@ async function analytics(chain, poolAddress) {
     activity_apy: activityAPY || 0,
     rewards_apy: rewardsAPY || 0,
     boosting_apy: 0,
-    share_price: null,
+    share_price: shareToken0,
     minimum_deposit: null,
     maximum_deposit: null,
   };
+  console.log(result);
   return result;
 }
 

@@ -1,7 +1,7 @@
 import { type BigNumber, type BigNumberish, Contract } from 'ethers'
 import { type GetQuotePriceFunction } from '../../../../../utils/types/quotePrice'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
-import UniswapV2RouterAbi from './../../abi/uniswapv2-router.json'
+import { ROUTERABI } from '../../abi/ROUTERABI'
 
 const SWAP_ROUTE_CONTRACT = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
@@ -18,7 +18,7 @@ export const getQuotePrice: GetQuotePriceFunction = async (
   const provider = getNodeProvider(chain)
   const swapRouterContract = new Contract(
     SWAP_ROUTE_CONTRACT,
-    UniswapV2RouterAbi,
+    ROUTERABI,
     provider
   )
 

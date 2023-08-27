@@ -28,7 +28,7 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   // First we get the reserves
   const [reserve2_min, reserve2_max] = await liquidityProvidingContract.getDepositAmount(
     pool.pool_address,
-    token2,
+    token1,
     amount1
   )
 

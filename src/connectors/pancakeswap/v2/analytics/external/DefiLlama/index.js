@@ -184,7 +184,7 @@ const main = async () => {
       const reserveUSD = calculateReservesUSD(
         symbol,
         reserves,
-        masterChefBalance / supply,
+        1, // masterChefBalance / supply,
         bnbPrice,
         cakePrice,
         ethPrice,
@@ -200,6 +200,10 @@ const main = async () => {
         cakePrice,
         reserveUSD
       )
+
+
+
+
       return {
         pool: lpTokens[i].toLowerCase(),
         chain: utils.formatChain('binance'),
@@ -209,7 +213,8 @@ const main = async () => {
         apyBase: lpAprs[lpTokens[i].toLowerCase()],
         apyReward,
         rewardTokens: apyReward > 0 ? [CAKE] : [],
-        underlyingTokens: [token0[i], token1[i]]
+        underlyingTokens: [token0[i], token1[i]],
+        sharePrice: []
       }
     })
   )
