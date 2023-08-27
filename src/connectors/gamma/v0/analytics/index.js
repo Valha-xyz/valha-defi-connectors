@@ -10,9 +10,9 @@ async function analytics(chain, poolAddress) {
     if (info.err) throw new Error(info.err);
     const tvl = info.data;
 
-    const supplyInfo = await checkGammaV0Supply(chain, poolAddress);
-    if (supplyInfo.err) throw new Error(supplyInfo.err);
-    const supply = supplyInfo.data;
+    // const supplyInfo = await checkGammaV0Supply(chain, poolAddress);
+    // if (supplyInfo.err) throw new Error(supplyInfo.err);
+    // const supply = supplyInfo.data;
 
     const apyInfo = await checkGammaV0Apy(chain, poolAddress);
     if (apyInfo.err) throw new Error(apyInfo.err);
@@ -55,5 +55,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://velodrome.finance/liquidity',
+  url: 'https://www.gamma.xyz/',
 };
