@@ -54,12 +54,8 @@ export const getMinimumRedeem = async (
 
   const totalSupplyBN = await poolContract.totalSupply();
   const decimalSupplyBN = await poolContract.decimals();
-
   
-
   const totalSupply = totalSupplyBN.div(10**decimalSupplyBN);
-
-  
 
   const liquidity0 = total0.mul(amount1).div(totalSupply);
   const liquidity1 = total1.mul(amount1).div(totalSupply);

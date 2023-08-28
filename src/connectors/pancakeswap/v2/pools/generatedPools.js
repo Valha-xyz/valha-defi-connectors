@@ -13,7 +13,9 @@ const POOLS = [
     distributor_address: null,
     rewards_tokens: ['0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82'],
     metadata: {},
-  },
+  }
+
+,
   {
     name: 'WBNB-BUSD',
     chain: 'bsc',
@@ -1951,4 +1953,4 @@ const POOLS = [
   },
 ];
 
-module.exports = POOLS;
+ module.exports = POOLS;
