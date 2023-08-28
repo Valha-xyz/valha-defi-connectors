@@ -142,4 +142,4 @@ const PID = {
   '0x4d4310f465c6db2081c3d24fa3b571cb29abddb7': 140
 }
 
-module.exports = PID
+module.exports = PID;
