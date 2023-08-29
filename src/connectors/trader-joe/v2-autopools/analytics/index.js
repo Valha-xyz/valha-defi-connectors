@@ -6,13 +6,6 @@ const checkTraderJoeApy = require('./function/apy');
 
 async function analytics(chain, poolAddress) {
   try {
-    const info = await checkTraderJoeTvl(chain, poolAddress);
-    if (info.err) throw new Error(info.err);
-    const tvl = info.data;
-
-    // const supplyInfo = await checkTraderJoeSupply(chain, poolAddress);
-    // if (supplyInfo.err) throw new Error(supplyInfo.err);
-    // const supply = supplyInfo.data;
 
     const apyInfo = await checkTraderJoeApy(chain, poolAddress);
     if (apyInfo.err) throw new Error(apyInfo.err);
@@ -22,6 +15,12 @@ async function analytics(chain, poolAddress) {
     if (sharePriceInfo.err) throw new Error(sharePriceInfo.err);
     const sharePrice = sharePriceInfo.data;
 
+
+    const info = await checkTraderJoeTvl(chain, poolAddress);
+    if (info.err) throw new Error(info.err);
+    const tvl = info.data;
+
+    
 
     const ActAPY = apy.activity_apy;
     const RewAPY = apy.rewards_apy / tvl.tvl;
