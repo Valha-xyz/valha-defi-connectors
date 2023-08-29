@@ -11,6 +11,8 @@ const pools = require('../../pools/pools');
 const SECONDS_PER_YEAR = 3600 * 24 * 365.25
 const BASE_URL = 'https://across.to/api/pools?token=<IDHOLDER>'
 
+
+
 async function checkAcrossV0APY(chain,poolAddress) {
   try {
 
@@ -54,7 +56,6 @@ async function checkAcrossV0APY(chain,poolAddress) {
 
     const stakingPool = new ethers.Contract(poolInfo.staking_address,LPSTAKING,provider);
     const overallStaking = await stakingPool.stakingTokens(poolAddress);
-
    
     const cumulativeStakedUsd = (overallStaking.cumulativeStaked * underlyingTokenPrice * exchangeRateCurrent)/ (10 ** underlyingTokenDecimals )
     const rewardsPerYearUsd = (overallStaking.baseEmissionRate * rewardTokenPrice * SECONDS_PER_YEAR) / (10 ** rewardTokenDecimals );

@@ -5,18 +5,20 @@ import { type Pool } from '../../../../../utils/types/connector-types'
 const { POOLABI } = require('../../abi/POOL');
 
 // This needs to return the minimum amount expected for each token.
-export const getMinimumRedeem = async (
-  amount1: BigNumberish,
-  pool: Pool
-): Promise<Number[]> => {
-  const provider = getNodeProvider(pool.chain)
+export async function GetQuotePriceFunction(
+  amount1: BigNumber,
+  amount2: BigNumber,
+  chain: string,
+  pool: Pool,
+): Promise<BigNumber> {
+  const provider = getNodeProvider(chain)
   const poolContract = new Contract(
     pool.investing_address,
     POOLABI,
     provider
   )
-  const allAmounts = poolContract.previewAmounts(amount1);
+  const allAmounts = poolContract.previewShares(amount1,amount2);
 
 
-  return allAmounts
+  return allAmounts.shares
 }

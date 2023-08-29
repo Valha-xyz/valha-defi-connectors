@@ -9,6 +9,13 @@ const GAUGEABI = require('../../abi/GAUGE');
 const PID = require('../../interactions/STAKINGPID');
 
 
+const AUTOPOOLS_URL = {
+  bsc: "https://barn.traderjoexyz.com/v1/vaults/binance",
+  avalanche:"https://barn.traderjoexyz.com/v1/vaults/avalanche",
+  arbitrum: "https://barn.traderjoexyz.com/v1/vaults/arbitrum",
+}
+
+
 async function checkTraderJoeApy(chain, poolAddress) {
   try {
 
@@ -21,17 +28,31 @@ async function checkTraderJoeApy(chain, poolAddress) {
 
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    
-
 
     // ACTIVITY APY COMPUTATION 
+
+    let activity_apy;
+    const supportedChains = ["bsc", "avalanche", "arbitrum"];
+    if (supportedChains.includes(chain)){
+      const URL = AUTOPOOLS_URL[chain];
+      const response = await axios.get(URL);
+      const poolDetails = response.data.find(item => item.address === poolAddress);
+      activity_apy = 100 * poolDetails.apr1d
+    } else { activity_apy = 0}
+    
 
 
     // REWARDS APY COMPUTATION 
 
+    let rewards_apy;
+
+    if (stakingAddress == null){ rewards_apy = 0}
+    else {
     const pid = await PID(chain, stakingAddress,poolAddress);
     if (pid.err) throw new Error(pid.err);
     const poolId = Number(pid.data);
+
+    console.log(poolId);
 
     const Gauge = new ethers.Contract(stakingAddress, GAUGEABI, provider);
     const Farm = await Gauge.farmInfo(poolId);
@@ -46,12 +67,12 @@ async function checkTraderJoeApy(chain, poolAddress) {
     if (info.err) throw new Error(info.err.message);
     const joeUsd= info.data;
 
-    const rewards_apy = (rewardPerDay * 365 * joeUsd);
+    rewards_apy = (rewardPerDay * 365 * joeUsd);}
 
 
     return {
       data: {
-        activity_apy: 0,
+        activity_apy: activity_apy,
         rewards_apy: rewards_apy,
       },
       err: null,
