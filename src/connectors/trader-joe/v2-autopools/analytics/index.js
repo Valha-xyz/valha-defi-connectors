@@ -11,27 +11,29 @@ async function analytics(chain, poolAddress) {
     if (apyInfo.err) throw new Error(apyInfo.err);
     const apy = apyInfo.data;
 
-    const sharePriceInfo = await checkTraderJoeSharePrice(chain, poolAddress);
+    const info = await checkTraderJoeTvl(chain, poolAddress);
+    if (info.err) throw new Error(info.err);
+    const tvl = info.data.tvl;
+    const prices = [info.data.price0,info.data.price1];
+
+    const sharePriceInfo = await checkTraderJoeSharePrice(chain, poolAddress, tvl, prices);
     if (sharePriceInfo.err) throw new Error(sharePriceInfo.err);
     const sharePrice = sharePriceInfo.data;
 
 
-    const info = await checkTraderJoeTvl(chain, poolAddress);
-    if (info.err) throw new Error(info.err);
-    const tvl = info.data;
+    
 
     
 
     const ActAPY = apy.activity_apy;
     const RewAPY = apy.rewards_apy / tvl.tvl;
     const TotalAPY = ActAPY + RewAPY;
-    const TVL = tvl.tvl;
     // const sharePrice = TVL / supply;
 
     const result = {
       status: true,
-      tvl: TVL,
-      liquidity: TVL,
+      tvl: tvl,
+      liquidity: tvl,
       outloans: null,
       losses: null,
       capacity: Number.MAX_SAFE_INTEGER,

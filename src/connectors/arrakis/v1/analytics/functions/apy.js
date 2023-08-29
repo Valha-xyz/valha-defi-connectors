@@ -9,7 +9,6 @@ const SUBGRAPH_URLS = {
   polygon: "https://api.thegraph.com/subgraphs/name/arrakisfinance/vault-v1-polygon",
   arbitrum: "https://api.thegraph.com/subgraphs/name/arrakisfinance/vault-v1-arbitrum"
 }
-func
 
 async function checkArrakisV1APY(chain, poolAddress) {
   try {
@@ -17,12 +16,11 @@ async function checkArrakisV1APY(chain, poolAddress) {
 
     const SUBGRAPH_URL = SUBGRAPH_URLS[chain];
 
-    const query = await queryGraphData(SUBGRAPH_URL,poolAddress);
+    const vault = await queryGraphData(SUBGRAPH_URL,poolAddress);
 
-    const pool = await histo(query, query7d, "v2");
-
-
-    return { data: {apy: pool.apy7d, volume: pool.volumeUSD7d}, err: null };
+    const activityApr = vault[0].apr.averageApr;
+    
+    return { data: {apy: Number(activityApr)}, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err };

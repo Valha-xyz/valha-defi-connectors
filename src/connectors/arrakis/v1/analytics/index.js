@@ -11,13 +11,14 @@ async function analytics(chain, poolAddress) {
   const tvlInfo = await checkArrakisV1TVL(chain, poolAddress);
   if (tvlInfo.err) throw new Error(tvlInfo.err);
   const tvl = tvlInfo.data;
+  const prices = [tvlInfo.data.price0,tvlInfo.data.price1];
 
   const apy = await checkArrakisV1APY(chain, poolAddress);
   if (apy.err) throw new Error(apy.err);
   const activityApy = apy.data.apy;
-  const volume = apy.data.volume;
+  // const volume = apy.data.volume;
 
-  const sharePrice = await checkArrakisV1SharePrice(chain, poolAddress);
+  const sharePrice = await checkArrakisV1SharePrice(chain, poolAddress, tvl,prices);
   if (sharePrice.err) throw new Error(sharePrice.err);
   const sharePriceUSD = sharePrice.data.sharePriceUSD;
   const shareToken0 = sharePrice.data.sharePriceToken0;
@@ -26,8 +27,8 @@ async function analytics(chain, poolAddress) {
 ;
    const result = {
       status: null,
-      tvl: tvl,
-      liquidity: tvl,
+      tvl: tvl.TVL,
+      liquidity: tvl.TVL,
       outloans: null,
       losses: null,
       capacity: Number.MAX_SAFE_INTEGER,
@@ -38,7 +39,7 @@ async function analytics(chain, poolAddress) {
       share_price: shareToken0,
       minimum_deposit: null,
       maximum_deposit: null,
-      volume: volume
+      // volume: volume
     };
 
 

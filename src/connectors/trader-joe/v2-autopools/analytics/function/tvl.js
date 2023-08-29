@@ -61,6 +61,8 @@ async function checkTraderJoeTvl(chain, poolAddress) {
     return {
       data: {
         tvl: tvlUsd || 0,
+        price0: p0,
+        price1: p1,
       },
       err: null,
     };

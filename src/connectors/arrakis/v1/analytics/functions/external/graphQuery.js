@@ -7,6 +7,9 @@ export async function queryGraphData(SUBGRAPH_URL, poolAddress){
   {
     vaults(where: { id: "<IDHOLDER>" }) {
       id
+      apr {
+        averageApr
+      }
       token0 {
         name
         symbol
@@ -24,7 +27,7 @@ export async function queryGraphData(SUBGRAPH_URL, poolAddress){
 `
 
   const res  = await request(SUBGRAPH_URL, poolsQuery.replace("<IDHOLDER>",poolAddress))
-  return res.pairs
+  return res.vaults
     }
 
 

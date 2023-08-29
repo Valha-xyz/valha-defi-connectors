@@ -1,31 +1,31 @@
 import { type BigNumber, type BigNumberish, Contract } from 'ethers'
 import { type GetQuotePriceFunction } from '../../../../../utils/types/quotePrice'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
-import { ROUTERABI } from '../../abi/ROUTERABI'
+import { type Pool } from '../../../../../utils/types/connector-types'
+import { POOLABI } from '../../abi/POOLABI'
 
-const SWAP_ROUTE_CONTRACT = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
-export const getQuotePrice: GetQuotePriceFunction = async (
-  tokenIn: string,
-  amount: BigNumber,
-  tokenOut: string,
-  chain: string
-): Promise<BigNumber> => {
+export async function GetQuotePriceFunction(
+  amount1: BigNumber,
+  amount2: BigNumber,
+  chain: string,
+  pool: Pool,
+): Promise<BigNumber> {
   if (chain != 'ethereum') {
     throw 'Uniswap v2 not available outside of ethereum'
   }
 
   const provider = getNodeProvider(chain)
-  const swapRouterContract = new Contract(
-    SWAP_ROUTE_CONTRACT,
-    ROUTERABI,
+  const poolContract = new Contract(
+    pool.pool_address,
+    POOLABI,
     provider
   )
 
 
-  const underlyingBalances= await swapRouterContract.getUnderlyingBalances()
+  const amounts = await poolContract.getMintAmounts(amount1, amount2)
 
-  return amount.mul(underlyingBalances.amount1Current).div(underlyingBalances.amount0Current)
+  return amounts.mintAmount
 }
 
 

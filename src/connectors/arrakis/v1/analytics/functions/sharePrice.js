@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const {queryGraphData, getBlocksByTime} = require ('./external/graphQuery');
 const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 const pools = require('../../pools/pools');
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');
+const {POOLABI} = require('../../abi/POOLABI');
 
-
-const SUBGRAPH_URLS = {
-  ethereum: "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v2-dev",
-}
-async function checkArrakisV1SharePrice(chain, poolAddress) {
+async function checkArrakisV1SharePrice(chain, poolAddress, TVL, prices) {
   try {
     const POOLS = await pools();
     if (!POOLS || POOLS.length === 0) return {};
@@ -19,36 +15,28 @@ async function checkArrakisV1SharePrice(chain, poolAddress) {
       return elem.pool_address.toLowerCase() === poolAddress.toLowerCase();
     });
 
-    const underlying_tokens = poolInfo.underlying_tokens;
-
-    const currentTimestamp = Math.floor(Date.now() / 1000) - 100;
-
-    const SUBGRAPH_URL = SUBGRAPH_URLS[chain];
-    const currentBlock = await getBlocksByTime(currentTimestamp,chain);
-    const query = await queryGraphData(SUBGRAPH_URL,poolAddress,currentBlock);
-    
-
-    // We get the current pool inside this big array
-    const TVL = Number(query[0].reserveUSD);
-    const TVL0 = 2 * Number(query[0].reserve0);
-    const TVL1 = 2 * Number(query[0].reserve1);
-
-
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
 
-    const poolToken = new ethers.Contract(poolAddress, ERC20ABI, provider);
+
+    const poolToken = new ethers.Contract(poolAddress, POOLABI, provider);
+    const balances = await poolToken.getUnderlyingBalances();
     const supplyBN = await poolToken.totalSupply();
-    const decimalsBN = await poolToken.decimals();
-    const supply = supplyBN / 10 ** decimalsBN;
+    const supplyDecimals = await poolToken.decimals();
+    const supply = supplyBN / (10  ** supplyDecimals);
 
+    const Token0 = new ethers.Contract(poolInfo.underlying_tokens[0], ERC20ABI, provider);
+    const Token1 = new ethers.Contract(poolInfo.underlying_tokens[1], ERC20ABI, provider);
+    const decimalsToken0 = await Token0.decimals();
+    const decimalsToken1 = await Token1.decimals();
 
-    
+    const TVL0 = prices[0]*(balances.amount0Current)/(10 ** decimalsToken0)
+    const TVL1 = prices[1]*(balances.amount1Current)/(10 ** decimalsToken1)
 
-    const share_price = { sharePriceUSD: TVL/supply, sharePriceToken0: TVL0/supply, sharePriceToken1 :TVL1/supply }
+    const sharePrice0 = ((TVL0 + TVL1)/TVL0)*(balances.amount0Current)/(10 ** decimalsToken0)
+    const sharePrice1 = ((TVL0 + TVL1)/TVL1)*(balances.amount1Current)/(10 ** decimalsToken1)
 
-
-
+    const share_price = { sharePriceUSD: TVL/supply, sharePriceToken0: sharePrice0/supply, sharePriceToken1 :sharePrice1/supply }
 
     return { data: share_price, err: null };
   } catch (err) {

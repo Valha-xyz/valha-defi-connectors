@@ -28,8 +28,6 @@ async function checkTraderJoeApy(chain, poolAddress) {
 
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
-    
-
 
     // ACTIVITY APY COMPUTATION 
 
@@ -46,9 +44,15 @@ async function checkTraderJoeApy(chain, poolAddress) {
 
     // REWARDS APY COMPUTATION 
 
+    let rewards_apy;
+
+    if (stakingAddress == null){ rewards_apy = 0}
+    else {
     const pid = await PID(chain, stakingAddress,poolAddress);
     if (pid.err) throw new Error(pid.err);
     const poolId = Number(pid.data);
+
+    console.log(poolId);
 
     const Gauge = new ethers.Contract(stakingAddress, GAUGEABI, provider);
     const Farm = await Gauge.farmInfo(poolId);
@@ -63,7 +67,7 @@ async function checkTraderJoeApy(chain, poolAddress) {
     if (info.err) throw new Error(info.err.message);
     const joeUsd= info.data;
 
-    const rewards_apy = (rewardPerDay * 365 * joeUsd);
+    rewards_apy = (rewardPerDay * 365 * joeUsd);}
 
 
     return {

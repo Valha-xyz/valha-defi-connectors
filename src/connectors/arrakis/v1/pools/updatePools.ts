@@ -10,7 +10,7 @@ const SUBGRAPH_URLS = {
   polygon: "https://api.thegraph.com/subgraphs/name/arrakisfinance/vault-v1-polygon",
   arbitrum: "https://api.thegraph.com/subgraphs/name/arrakisfinance/vault-v1-arbitrum"
 }
-function poolsQuery(last_id?: string){
+function poolsQuery(){
 
   return gql`
   {
@@ -43,10 +43,10 @@ const Router = {
   arbitrum: "0x2845c6929d621e32b7596520c8a1e5a37e616f09",
 } ;
  
-async function getPools (chain: string, last_id?: string) {
+async function getPools (chain: string) {
   try {
     const SUBGRAPH_URL = SUBGRAPH_URLS[chain]
-    const pools = await request(SUBGRAPH_URL, poolsQuery(last_id))
+    const pools = await request(SUBGRAPH_URL, poolsQuery())
 
     // We create the pools object
     const formattedPools = pools.vaults.map((pool) : Pool => {
@@ -73,14 +73,11 @@ async function getPools (chain: string, last_id?: string) {
 }
 
 async function getAllPools(chain: string){
-  let lastId: string;
   let allPools = []
   let newPools = []
   do{
-    newPools = await getPools(chain, lastId);
+    newPools = await getPools(chain);
     allPools = allPools.concat(newPools);
-    lastId = allPools[allPools.length - 1].pool_address;
-    console.log(lastId)
     console.log(allPools[allPools.length - 1])
   }while(newPools.length != 0)
 

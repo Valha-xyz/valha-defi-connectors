@@ -7,7 +7,7 @@ const { ethers } = require('ethers');
 const POOLABI = require ('../../abi/POOL');
 
 
-async function checkGammaV0SharePrice(chain, poolAddress, tvlUsd) {
+async function checkGammaV0SharePrice(chain, poolAddress, tvlUsd, prices) {
   try {
     const POOLS = await pools();
     if (!POOLS || POOLS.length === 0) return {};
@@ -32,13 +32,15 @@ async function checkGammaV0SharePrice(chain, poolAddress, tvlUsd) {
     const decimalsToken0 = await Token0.decimals();
     const decimalsToken1 = await Token1.decimals();
 
-    const tvlToken0 = 2 * reserves.amountX / (10 ** decimalsToken0);
-    const tvlToken1 = 2 * reserves.amountY / (10 ** decimalsToken1);
+    const TVL0 = prices[0] * reserves.amountX / (10 ** decimalsToken0);
+    const TVL1 = prices[1] * reserves.amountY / (10 ** decimalsToken1);
 
-    const share_price = { sharePriceUSD: tvlUsd/supply, sharePriceToken0: tvlToken0/supply, sharePriceToken1 : tvlToken1/supply }
+    const sharePrice0 = ((TVL0 + TVL1)/TVL0)*(reserves.amountX / (10 ** decimalsToken0));
+    const sharePrice1 = ((TVL0 + TVL1)/TVL1)*(reserves.amountY / (10 ** decimalsToken1));
 
 
-
+    const share_price = { sharePriceUSD: tvlUsd/supply, sharePriceToken0: sharePrice0/supply, sharePriceToken1 : sharePrice1/supply }
+    
     return { data: share_price, err: null };
   } catch (err) {
     console.log(err);
