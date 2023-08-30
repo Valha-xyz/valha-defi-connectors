@@ -1,4 +1,4 @@
-export const STAKINGABI = [
+export const GAUGEABI = [
     {
       "name": "Deposit",
       "inputs": [

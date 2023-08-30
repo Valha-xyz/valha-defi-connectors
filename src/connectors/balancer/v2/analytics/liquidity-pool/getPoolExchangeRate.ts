@@ -1,4 +1,4 @@
-import { type BigNumber, BigNumberish, Contract } from 'ethers'
+import { BigNumber, BigNumberish, Contract } from 'ethers'
 import { getNodeProvider } from '../../../../../utils/getNodeProvider'
 import { ROUTERABI } from '../../abi/ROUTERABI'
 import { type Pool } from '../../../../../utils/types/connector-types'
@@ -16,17 +16,15 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   token2: string,
   pool: Pool
 ): Promise<BigNumber> => {
-  const provider = getNodeProvider(pool.chain)
-  const liquidityProvidingContract = new Contract(
-    ROUTER_CONTRACT,
-    ROUTERABI,
-    provider
-  )
+  // const provider = getNodeProvider(pool.chain)
+  // const liquidityProvidingContract = new Contract(
+  //   ROUTER_CONTRACT,
+  //   ROUTERABI,
+  //   provider
+  // )
   if (token1 == token2) {
     return amount1
   }
 
-  return liquidityProvidingContract
-    .getAmountsOut(amount1, [token1, token2])
-    .then((response) => response[1])
+  return BigNumber.from("0")
 }
