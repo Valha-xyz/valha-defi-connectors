@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { queryGraphData, histo, getBlocksByTime} = require ('./external/graphQuery');
+import { SUBGRAPH_URLS, GAUGE_URLS} from './external/graphQuery'
 
 
-const SUBGRAPH_URLS = {
-  ethereum: "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v2-dev",
-}
 
-async function checkUniV2APY(chain, poolAddress) {
+
+async function checkBalancerV2APY(chain, poolAddress) {
   try {
 
     const currentTimestamp = Math.floor(Date.now() / 1000)- 100;
@@ -31,4 +30,4 @@ async function checkUniV2APY(chain, poolAddress) {
   }
 }
 
-module.exports = checkUniV2APY;
+module.exports = checkBalancerV2APY;

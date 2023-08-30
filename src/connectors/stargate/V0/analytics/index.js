@@ -26,7 +26,7 @@ async function analytics(chain, poolAddress) {
   const tvlInfo = await checkStargateV0TVL(chain, poolAddress);
   if (tvlInfo.err) throw new Error(tvlInfo.err);
   const tvl = tvlInfo.data;
-  const shareInfo = await checkStargateV0SharePrice(chain, poolAddress, tvl);
+  const shareInfo = await checkStargateV0SharePrice(chain, poolAddress);
   if (shareInfo.err) throw new Error(shareInfo.err);
   const sharePrice = shareInfo.data;
 

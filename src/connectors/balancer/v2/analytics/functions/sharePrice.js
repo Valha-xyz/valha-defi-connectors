@@ -5,12 +5,12 @@ const ERC20ABI = require('../../../../../utils/abi/ERC20.json');
 const pools = require('../../pools/pools');
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');
+import { SUBGRAPH_URLS, GAUGE_URLS} from './external/graphQuery'
 
 
-const SUBGRAPH_URLS = {
-  ethereum: "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v2-dev",
-}
-async function checkUniV2SharePrice(chain, poolAddress) {
+
+
+async function checkBalancerV2SharePrice(chain, poolAddress) {
   try {
     const POOLS = await pools();
     if (!POOLS || POOLS.length === 0) return {};
@@ -57,4 +57,4 @@ async function checkUniV2SharePrice(chain, poolAddress) {
   }
 }
 
-module.exports = checkUniV2SharePrice;
+module.exports = checkBalancerV2SharePrice;

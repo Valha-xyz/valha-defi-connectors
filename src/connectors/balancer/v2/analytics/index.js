@@ -1,23 +1,23 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
-const checkUniV2TVL = require('./functions/tvl');
-const checkUniV2APY = require('./functions/apy');
-const checkUniV2SharePrice = require('./functions/sharePrice');
+const checkBalancerV2TVL = require('./functions/tvl');
+const checkBalancerV2APY = require('./functions/apy');
+const checkBalancerV2SharePrice = require('./functions/sharePrice');
 
 async function analytics(chain, poolAddress) {
 
   try {
 
-  const tvlInfo = await checkUniV2TVL(chain, poolAddress);
+  const tvlInfo = await checkBalancerV2TVL(chain, poolAddress);
   if (tvlInfo.err) throw new Error(tvlInfo.err);
   const tvl = tvlInfo.data;
 
-  const apy = await checkUniV2APY(chain, poolAddress);
+  const apy = await checkBalancerV2APY(chain, poolAddress);
   if (apy.err) throw new Error(apy.err);
   const activityApy = apy.data.apy;
   const volume = apy.data.volume;
 
-  const sharePrice = await checkUniV2SharePrice(chain, poolAddress);
+  const sharePrice = await checkBalancerV2SharePrice(chain, poolAddress);
   if (sharePrice.err) throw new Error(sharePrice.err);
   const sharePriceUSD = sharePrice.data.sharePriceUSD;
   const shareToken0 = sharePrice.data.sharePriceToken0;

@@ -4,12 +4,25 @@ import { gql, request } from 'graphql-request'
 const path = require('path')
 import fs from 'fs'
 
-const SUBGRAPH_URLS = {
-  ethereum: "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v2-dev",
+
+export const SUBGRAPH_URLS = {
+  ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2",
+  polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2",
+  arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2",
 }
+
+export const GAUGE_URLS = {
+  ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges",
+  polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-polygon",
+  arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-arbitrum",
+}
+
+
 function poolsQuery(last_id?: string){
 
-  let lastIdCondition = `where: { id_gt: "${last_id}" , reserveUSD_gt: "500000" }`
+  //filter pools on type = 2 and remove aave boosted pools and bb-a ones.
+
+  let lastIdCondition = `where: { id_gt: "${last_id}" , totalLiquidity_gt: "500000", strategyType: 2 }`
   if(last_id == undefined){
     lastIdCondition = "";
   }
@@ -17,25 +30,47 @@ function poolsQuery(last_id?: string){
   return gql`
       query Query{
         pools(first: 1000 ${lastIdCondition}){
-          id
-          
-          token0{
-            id
-            name
-          }
-          token1{
-            id
-            name
-          }
-          feeTier
+          address
+          name
+          poolType
+          tokensList
+          strategyType
+          tokens {
+            address
+            balance
+            symbol
+            weight
+            }
         }
-      }
+    `
+}
+
+
+function poolsGauge(last_id?: string){
+
+  //filter pools on type = 2 and remove aave boosted pools and bb-a ones.
+
+  let lastIdCondition = `where: { id_gt: "${last_id}"}`
+  if(last_id == undefined){
+    lastIdCondition = "";
+  }
+
+  return gql`
+      query Query{
+        liquidityGauges(first: 1000 ${lastIdCondition}){
+        id
+        symbol
+        pool {
+          id
+        }
+    }
+  }
     `
 }
 
 // This is the general interaction address (true for all pools). It handles all liquidity providing/collecting/retrieving
 const Router = {
-  ethereum: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+  ethereum: "0xba12222222228d8ba445958a75a0704d566bf2c8",
 } ;
  
 async function getPools (chain: string, last_id?: string) {
@@ -46,10 +81,10 @@ async function getPools (chain: string, last_id?: string) {
     // We create the pools object
     const formattedPools = pools.pools.map((pool) : Pool => {
       return {
-        "name": `${pool.token0.name} - ${pool.token1.name} LP`,
+        "name": pool.name,
         "chain": chain,
-        "underlying_tokens": [pool.token0.id, pool.token1.id],
-        "pool_address": pool.id,
+        "underlying_tokens": pool.tokensList,
+        "pool_address": pool.address,
         "investing_address": Router[chain],
         "staking_address": null,
         "boosting_address": null,

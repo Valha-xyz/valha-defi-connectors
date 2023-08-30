@@ -1,22 +1,39 @@
 const { request, gql } = require('graphql-request');
 const axios = require ('axios')
 
+
+export const SUBGRAPH_URLS = {
+  ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2",
+  polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2",
+  arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2",
+}
+
+export const GAUGE_URLS = {
+  ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges",
+  polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-polygon",
+  arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-arbitrum",
+}
+
+// totalLiquidity is TVL in USD for most pools (type: weighted) but we need to get rid of balancer aave pools
+// also excludes all the pools with bb-a or boosted aave in pools name
+
+
 export async function queryGraphData(SUBGRAPH_URL, poolAddress,block){
 
   const poolsQuery = gql`
-            { pairs(where: { id: "<IDHOLDER>" }, orderBy: trackedReserveETH, orderDirection: desc block: {number: <PLACEHOLDER>}) {
-                id
-                reserve0
-                reserve1
-                reserveUSD
-                volumeUSD
-                token0 {
+           {
+              pools(where: { address: "<IDHOLDER>" }, orderDirection: desc block: {number: <PLACEHOLDER>}) {
+                address
+                tokensList
+                totalSwapFee
+                totalShares
+                totalLiquidity
+                totalSwapVolume
+                tokens {
+                  address
+                  balance
                   symbol
-                  id
-                }
-                token1 {
-                  symbol
-                  id
+                  weight
                 }
               }
             }`
@@ -26,29 +43,44 @@ export async function queryGraphData(SUBGRAPH_URL, poolAddress,block){
   return res.pairs
     }
 
+export async function queryGaugeData(GAUGE_URL, stakingAddress,block){
 
-export function histo(pool, dataPrior7d, version){
-    // uni v2 forks set feeTier to constant
-    if (version === 'v2') {
-      pool['feeTier'] = 3000;
-    } else if (version === 'stellaswap') {
-      pool['feeTier'] = 2000;
-    } else if (version === 'baseswap') {
-      pool['feeTier'] = 1700;
-    } else if (version === 'zyberswap') {
-      pool['feeTier'] = 1500;
-    } else if (version === 'arbidex') {
-      pool['feeTier'] = 500;
-    }
-    pool['volumeUSDPrior7d'] = dataPrior7d[0].volumeUSD;
+      const poolsQuery = gql
+      `{
+        liquidityGauges(where: { id: "<IDHOLDER>" }, orderDirection: desc block: {number: <PLACEHOLDER>}) {
+          id
+          symbol
+          poolId
+          totalSupply
+          factory {
+            id
+          }
+          tokens {
+            id
+            symbol
+            decimals
+          }
+        }
+      }`
+      
+      const poolsQueryModified = poolsQuery.replace('<IDHOLDER>',stakingAddress)
+      const res  = await request(SUBGRAPH_URL, poolsQueryModified.replace('<PLACEHOLDER>', block))
+      return res.pairs
+        }
+        
+
+export function histo(pool, dataPrior7d, tvl, swapFeePercentage){
+
+    pool['volumeUSDPrior7d'] = dataPrior7d[0].totalSwapVolume;
     // calc 24h volume
-    pool['volumeUSD7d'] = Number(pool[0].volumeUSD) - Number(pool.volumeUSDPrior7d);
+    pool['volumeUSD7d'] = Number(pool[0].totalSwapVolume) - Number(pool.volumeUSDPrior7d);
     // calc fees
-    pool['feeUSD7d'] = (Number(pool.volumeUSD7d) * Number(pool.feeTier)) / 1e6;
+    pool['feeUSD7d'] = Number(pool[0].totalSwapFee) - Number(dataPrior7d[0].totalSwapFee);
     // annualise
     pool['feeUSDyear7d'] = pool.feeUSD7d * 52
     // calc apy
-    pool['apy7d'] = (pool.feeUSDyear7d / pool[0].reserveUSD) * 100;
+    pool['apy7d'] = swapFeePercentage * (pool.feeUSDyear7d / tvl) * 100;
+    pool['volume7d'] = pool.volumeUSDPrior7d * 52;
 
     return pool;
   }
