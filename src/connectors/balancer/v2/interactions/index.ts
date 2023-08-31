@@ -117,7 +117,7 @@ async function redeem (
   options?: AdditionalOptions
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI
-  let args
+  let args;
 
   const interaction_address = pool.investing_address
   const method_name = 'exitPool'
