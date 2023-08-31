@@ -20,7 +20,7 @@ export const GAUGE_URLS = {
 
 function poolsQuery(last_id?: string){
 
-  //filter pools on type = 2 and remove aave boosted pools and bb-a ones.
+  
 
   let lastIdCondition = `where: { id_gt: "${last_id}" , totalLiquidity_gt: "500000", strategyType: 2 }`
   if(last_id == undefined){
@@ -48,8 +48,6 @@ function poolsQuery(last_id?: string){
 
 function poolsGauge(last_id?: string){
 
-  //filter pools on type = 2 and remove aave boosted pools and bb-a ones.
-
   let lastIdCondition = `where: { id_gt: "${last_id}"}`
   if(last_id == undefined){
     lastIdCondition = "";
@@ -68,15 +66,45 @@ function poolsGauge(last_id?: string){
     `
 }
 
+function getGaugeForPool(poolId, gauges) {
+  for (const gauge of gauges.liquidityGauges) {
+    if (gauge.pool.address === poolId) {
+      return gauge.id;
+    }
+  }
+  return null; // Return null if pool id not found
+}
+
+function getRewardTokensForPool(poolId, gauges) {
+  for (const gauge of gauges.liquidityGauges) {
+    if (gauge.pool.id === poolId) {
+      return gauge.rewardTokensList;
+    }
+  }
+  return null; // Return null if pool id not found
+}
+
 // This is the general interaction address (true for all pools). It handles all liquidity providing/collecting/retrieving
 const Router = {
   ethereum: "0xba12222222228d8ba445958a75a0704d566bf2c8",
+  arbitrum: "0xba12222222228d8ba445958a75a0704d566bf2c8",
+  polygon: "0xba12222222228d8ba445958a75a0704d566bf2c8",
 } ;
  
 async function getPools (chain: string, last_id?: string) {
   try {
     const SUBGRAPH_URL = SUBGRAPH_URLS[chain]
-    const pools = await request(SUBGRAPH_URL, poolsQuery(last_id))
+    const GAUGE_URL = GAUGE_URLS[chain]
+    const allPools = await request(SUBGRAPH_URL, poolsQuery(last_id))
+    const gauges = await request(GAUGE_URL, poolsGauge(last_id))
+
+    // remove all remaining boosted pools
+
+    const pools = allPools.filter(pool => {
+      const hasInvalidToken = pool.tokens.some(token => token.symbol.includes("bb-a"));
+      return !hasInvalidToken;
+    });
+
 
     // We create the pools object
     const formattedPools = pools.pools.map((pool) : Pool => {
@@ -86,10 +114,10 @@ async function getPools (chain: string, last_id?: string) {
         "underlying_tokens": pool.tokensList,
         "pool_address": pool.address,
         "investing_address": Router[chain],
-        "staking_address": null,
+        "staking_address": getGaugeForPool(pool.address, gauges),
         "boosting_address": null,
-        "distributor_address": null,
-        "rewards_tokens": null,
+        "distributor_address": getGaugeForPool(pool.address, gauges),
+        "rewards_tokens": getRewardTokensForPool(pool.address, gauges),
         "metadata": {
         }
       }

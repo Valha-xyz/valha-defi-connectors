@@ -26,6 +26,7 @@ export async function queryGraphData(SUBGRAPH_URL, poolAddress,block){
                 address
                 tokensList
                 totalSwapFee
+                swapFee
                 totalShares
                 totalLiquidity
                 totalSwapVolume
@@ -40,7 +41,7 @@ export async function queryGraphData(SUBGRAPH_URL, poolAddress,block){
   
   const poolsQueryModified = poolsQuery.replace('<IDHOLDER>',poolAddress)
   const res  = await request(SUBGRAPH_URL, poolsQueryModified.replace('<PLACEHOLDER>', block))
-  return res.pairs
+  return res.pools
     }
 
 export async function queryGaugeData(GAUGE_URL, stakingAddress,block){
@@ -65,22 +66,21 @@ export async function queryGaugeData(GAUGE_URL, stakingAddress,block){
       
       const poolsQueryModified = poolsQuery.replace('<IDHOLDER>',stakingAddress)
       const res  = await request(SUBGRAPH_URL, poolsQueryModified.replace('<PLACEHOLDER>', block))
-      return res.pairs
+      return res.liquidityGauges
         }
         
 
-export function histo(pool, dataPrior7d, tvl, swapFeePercentage){
+export function histo(pool, dataPrior7d, swapFeePercentage){
 
-    pool['volumeUSDPrior7d'] = dataPrior7d[0].totalSwapVolume;
-    // calc 24h volume
-    pool['volumeUSD7d'] = Number(pool[0].totalSwapVolume) - Number(pool.volumeUSDPrior7d);
+    // calc 7days volume
+    pool['volumeUSD7d'] = Number(pool[0].totalSwapVolume) - Number(dataPrior7d[0].totalSwapVolume);
     // calc fees
     pool['feeUSD7d'] = Number(pool[0].totalSwapFee) - Number(dataPrior7d[0].totalSwapFee);
     // annualise
     pool['feeUSDyear7d'] = pool.feeUSD7d * 52
     // calc apy
-    pool['apy7d'] = swapFeePercentage * (pool.feeUSDyear7d / tvl) * 100;
-    pool['volume7d'] = pool.volumeUSDPrior7d * 52;
+    pool['apy7d'] = swapFeePercentage * (pool.feeUSDyear7d / pool[0].totalLiquidity) * 100;
+    pool['volume7d'] = pool.volumeUSD7d * 52;
 
     return pool;
   }

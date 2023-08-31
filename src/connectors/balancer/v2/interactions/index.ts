@@ -12,173 +12,298 @@ import {
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals')
 const { ROUTERABI } = require('../abi/ROUTERABI')
+const { GAUGEABI } = require('../abi/GAUGEABI')
+const { POOLABI } = require('../abi/POOLABI')
 
-// async function deposit (
-//   pool: Pool,
-//   amount: AmountInput,
-//   addresses: AddressesInput,
-//   options?: AdditionalOptions
-// ): Promise<InteractionsReturnObject> {
-//   const abi = ROUTERABI
-//   console.log(amount)
-//   console.log(pool)
-//   const tokenA = pool.underlying_tokens[0]
-//   const tokenB = pool.underlying_tokens[1]
-//   const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase())
-//   const interaction_address = pool.investing_address
-//   let method_name = ''
-//   let args = []
-//   const amountADesired = await toBnERC20Decimals(
-//     amount.amountsDesired[0],
-//     pool.chain,
-//     pool.underlying_tokens[0]
-//   )
-//   const amountBDesired = await toBnERC20Decimals(
-//     amount.amountsDesired[1],
-//     pool.chain,
-//     pool.underlying_tokens[1]
-//   )
+const { getNodeProvider } = require('../../../../utils/getNodeProvider');
+const { ethers } = require('ethers');
 
-//   if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
-//     method_name = 'addLiquidityETH'
-//     let amountDesired
-//     let nativePosition
-//     let tokenPosition
-//     if (tokens[0] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-//       nativePosition = 0
-//       tokenPosition = 1
-//       amountDesired = amountADesired
-//     }
-//     if (tokens[1] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-//       nativePosition = 1
-//       tokenPosition = 0
-//       amountDesired = amountBDesired
-//     }
-//     const amountMin = await toBnERC20Decimals(
-//       amount.amountsMinimum[tokenPosition],
-//       pool.chain,
-//       pool.underlying_tokens[tokenPosition]
-//     )
-//     const amountNativeMin = await toBnERC20Decimals(
-//       amount.amountsMinimum[nativePosition],
-//       pool.chain,
-//       pool.underlying_tokens[nativePosition]
-//     )
-//     args = [
-//       pool.underlying_tokens[tokenPosition],
-//       amountDesired,
-//       amountMin,
-//       amountNativeMin,
-//       addresses.receiverAddress,
-//       options.deadline
-//     ]
-//   } else {
-//     method_name = 'addLiquidity'
-//     const amountAMinimum = await toBnERC20Decimals(
-//       amount.amountsMinimum[0],
-//       pool.chain,
-//       pool.underlying_tokens[0]
-//     )
-//     const amountBMinimum = await toBnERC20Decimals(
-//       amount.amountsMinimum[1],
-//       pool.chain,
-//       pool.underlying_tokens[1]
-//     )
-//     args = [
-//       tokenA,
-//       tokenB,
-//       amountADesired,
-//       amountBDesired,
-//       amountAMinimum,
-//       amountBMinimum,
-//       addresses.receiverAddress,
-//       options.deadline
-//     ]
-//   }
+async function deposit (
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = ROUTERABI
+  let args
+  
 
-//   return {
-//     txInfo: {
-//       abi, // abi array
-//       interaction_address, // contract to interact with to interact with poolAddress
-//       method_name, // method to interact with the pool
-//       args, // args to pass to the smart contracts to trigger 'method_name'
-//       amountPositions: [2, 3]
-//     },
-//     assetInfo: {
-//       position_token: pool.underlying_tokens, // token needed to approve
-//       position_token_type: 'ERC-20', // token type to approve
-//       amount: [amountADesired, amountBDesired]
-//     }
-//   }
-// }
+  const interaction_address = pool.investing_address
+  const method_name = 'joinPool'
 
-// /// redeem
-// async function redeem (
-//   pool: Pool,
-//   amount: AmountInput,
-//   addresses: AddressesInput,
-//   options?: AdditionalOptions
-// ): Promise<InteractionsReturnObject> {
-//   const abi = ROUTERABI
-//   const method_name = 'removeLiquidity'
-//   const tokenA = pool.underlying_tokens[0]
-//   const tokenB = pool.underlying_tokens[1]
-//   const interaction_address = pool.investing_address
-//   const amountBN = await toBnERC20Decimals(
-//     amount.amount,
-//     pool.chain,
-//     pool.pool_address
-//   )
-//   const amountAMinimum = await toBnERC20Decimals(
-//     amount.amountsMinimum[0],
-//     pool.chain,
-//     pool.underlying_tokens[0]
-//   )
-//   const amountBMinimum = await toBnERC20Decimals(
-//     amount.amountsMinimum[1],
-//     pool.chain,
-//     pool.underlying_tokens[1]
-//   )
-//   const args = [
-//     tokenA,
-//     tokenB,
-//     amountBN,
-//     amountAMinimum,
-//     amountBMinimum,
-//     addresses.receiverAddress,
-//     options.deadline
-//   ]
+  const provider = getNodeProvider(pool.chain);
+  const poolAddress = new ethers.Contract(pool.pool_address, POOLABI, provider);
+  const poolId = await poolAddress.getPoolId();
 
-//   return {
-//     txInfo: {
-//       abi, // abi array
-//       interaction_address, // contract to interact with to interact with poolAddress
-//       method_name, // method to interact with the pool
-//       args, // args to pass to the smart contracts to trigger 'method_name'
-//       amountPositions: [2]
-//     },
-//     assetInfo: {
-//       position_token: pool.pool_address, // token needed to approve
-//       position_token_type: 'ERC-20', // token type to approve
-//       amount: amountBN
-//     }
-//   }
-// }
+  let amountCDesired
+  let amountDDesired
+
+  const amountADesired = await toBnERC20Decimals(
+    amount.amountsDesired[0],
+    pool.chain,
+    pool.underlying_tokens[0]
+  )
+  const amountBDesired = await toBnERC20Decimals(
+    amount.amountsDesired[1],
+    pool.chain,
+    pool.underlying_tokens[1]
+  )
+
+  if (pool.underlying_tokens.length === 2 ){
+      args = [
+      poolId,
+      addresses.userAddress,
+      addresses.receiverAddress,
+      [pool.underlying_tokens, [amountADesired,amountBDesired],options.other,false]
+    ]
+  }
+  if (pool.underlying_tokens.length === 3 ){
+
+    const amountCDesired = await toBnERC20Decimals(
+      amount.amountsDesired[2],
+      pool.chain,
+      pool.underlying_tokens[2]
+    )
+
+    args = [
+    poolId,
+    addresses.userAddress,
+    addresses.receiverAddress,
+    [pool.underlying_tokens, [amountADesired,amountBDesired, amountCDesired],options.other,false]
+  ]
+}
+if (pool.underlying_tokens.length === 3 ){
+
+  amountCDesired = await toBnERC20Decimals(
+    amount.amountsDesired[2],
+    pool.chain,
+    pool.underlying_tokens[2]
+  )
+
+  amountDDesired = await toBnERC20Decimals(
+    amount.amountsDesired[3],
+    pool.chain,
+    pool.underlying_tokens[3]
+  )
+  args = [
+  poolId,
+  addresses.userAddress,
+  addresses.receiverAddress,
+  [pool.underlying_tokens, [amountADesired,amountBDesired, amountCDesired, amountDDesired],options.other,false]
+]
+}
+    
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [3]
+    },
+    assetInfo: {
+      position_token: pool.underlying_tokens, // token needed to approve
+      position_token_type: 'ERC-20', // token type to approve
+      amount: [amountADesired, amountBDesired, amountCDesired, amountDDesired]
+    }
+  }
+}
+/// redeem
+async function redeem (
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = ROUTERABI
+  let args;
+
+  const interaction_address = pool.investing_address
+  const method_name = 'exitPool'
+
+  const provider = getNodeProvider(pool.chain);
+  const poolAddress = new ethers.Contract(pool.pool_address, POOLABI, provider);
+  const poolId = await poolAddress.getPoolId();
+
+  let amountCDesired
+  let amountDDesired
+
+  const amountADesired = await toBnERC20Decimals(
+    amount.amountsDesired[0],
+    pool.chain,
+    pool.underlying_tokens[0]
+  )
+  const amountBDesired = await toBnERC20Decimals(
+    amount.amountsDesired[1],
+    pool.chain,
+    pool.underlying_tokens[1]
+  )
+
+  if (pool.underlying_tokens.length === 2 ){
+      args = [
+      poolId,
+      addresses.userAddress,
+      addresses.receiverAddress,
+      [pool.underlying_tokens, [amountADesired,amountBDesired],options.other,false]
+    ]
+  }
+  if (pool.underlying_tokens.length === 3 ){
+
+    const amountCDesired = await toBnERC20Decimals(
+      amount.amountsDesired[2],
+      pool.chain,
+      pool.underlying_tokens[2]
+    )
+
+    args = [
+    poolId,
+    addresses.userAddress,
+    addresses.receiverAddress,
+    [pool.underlying_tokens, [amountADesired,amountBDesired, amountCDesired],options.other,false]
+  ]
+}
+if (pool.underlying_tokens.length === 3 ){
+
+  amountCDesired = await toBnERC20Decimals(
+    amount.amountsDesired[2],
+    pool.chain,
+    pool.underlying_tokens[2]
+  )
+
+  amountDDesired = await toBnERC20Decimals(
+    amount.amountsDesired[3],
+    pool.chain,
+    pool.underlying_tokens[3]
+  )
+  args = [
+  poolId,
+  addresses.userAddress,
+  addresses.receiverAddress,
+  [pool.underlying_tokens, [amountADesired,amountBDesired, amountCDesired, amountDDesired],options.other,false]
+]
+}
+    
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [3]
+    },
+    assetInfo: {
+      position_token: pool.underlying_tokens, // token needed to approve
+      position_token_type: 'ERC-20', // token type to approve
+      amount: [amountADesired, amountBDesired, amountCDesired, amountDDesired]
+    }
+  }
+}
+
+
+/// stake
+async function stake(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = GAUGEABI;
+  const method_name = 'deposit(uint256,address)';
+  const position_token = pool.pool_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount,
+    pool.chain,
+    position_token
+  );
+  const args = [amountBN, addresses.userAddress];
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0],
+    },
+    assetInfo: {
+      position_token, // token needed to approve
+      position_token_type: 'ERC-20', // token type to approve
+      amount: amountBN,
+    },
+  };
+}
+
+/// unstake
+async function unstake(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = GAUGEABI;
+  const method_name = 'withdraw(uint256,address)';
+  const position_token = pool.staking_address;
+  const amountBN = await toBnERC20Decimals(
+    amount.amount,
+    pool.chain,
+    position_token
+  );
+  const args = [amountBN, addresses.userAddress];
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+      amountPositions: [0],
+    },
+    assetInfo: {
+      position_token, // token needed to approve
+      position_token_type: 'ERC-20', // token type to approve
+      amount: amountBN,
+    },
+  };
+}
+
+/// claim
+async function claim_rewards(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = GAUGEABI;
+  const method_name = 'claim_rewards(address, address)';
+  const args = [addresses.userAddress, addresses.receiverAddress];
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address: pool.staking_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: null,
+  };
+}
 
 
 
-// const interactions: Interactions = {
-//   deposit,
-//   deposit_and_stake: null,
-//   unlock: null,
-//   redeem,
-//   stake: null,
-//   unstake: null,
-//   unstake_and_redeem: null,
-//   boost: null,
-//   unboost: null,
-//   claim_rewards: null,
-//   claim_interests: null
-// }
+const interactions: Interactions = {
+  deposit,
+  deposit_and_stake: null,
+  unlock: null,
+  redeem,
+  stake,
+  unstake,
+  unstake_and_redeem: null,
+  boost: null,
+  unboost: null,
+  claim_rewards,
+  claim_interests: null
+}
 
-// export default interactions
+export default interactions
