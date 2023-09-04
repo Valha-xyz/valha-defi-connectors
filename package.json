@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/Valha-xyz/Valha-connectors#readme",
   "dependencies": {
+    "@balancer-labs/sdk": "^1.1.4",
     "@defillama/sdk": "^3.0.28",
     "@uniswap/sdk-core": "^3.2.2",
     "@uniswap/smart-order-router": "^3.11.2",
