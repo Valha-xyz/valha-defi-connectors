@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"50WETH-50AURA Aura Vault","chain":"ethereum","underlying_tokens":["0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9"],"pool_address":"0x1204f5060be8b716f5a62b4df4ce32acd01a69f5","investing_address":"0xb188b1cb84fb0ba13cb9ee1292769f903a9fec59","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":["0xba100000625a3754423978a60c9317c58a424e3D"],"metadata":{"poolId":"0"}}]
+        export const POOLS: Pool[] = [{"name":"MATIC Staking Pool","chain":"polygon","underlying_tokens":["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"],"pool_address":"0x0e9b89007eee9c958c0eda24ef70723c2c93dd58","investing_address":"0x62a509ba95c75cabc7190469025e5abee4eddb2a","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":[],"metadata":{}}]
 
       
