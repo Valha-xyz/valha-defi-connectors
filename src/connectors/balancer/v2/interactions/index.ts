@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+
 import {
   type AdditionalOptions,
   type AddressesInput,
@@ -17,6 +18,8 @@ const { POOLABI } = require('../abi/POOLABI')
 
 const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');
+const { BalancerSDK } = require('@balancer-labs/sdk');
+import { RPC_PROVIDERS } from '../../../../utils/CONST/RPC_PROVIDERS';
 
 async function deposit (
   pool: Pool,
@@ -118,6 +121,19 @@ async function redeem (
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI
   let args;
+
+  //set up SDK
+  const config = {
+    network: 1,
+    rpcUrl: RPC_PROVIDERS[pool.chain],
+  };
+
+  const REMOVE_SLIPPAGE = '0.01';
+
+  const balancer = new BalancerSDK(config);
+  console.log(balancer);
+
+
 
   const interaction_address = pool.investing_address
   const method_name = 'exitPool'
