@@ -1,1 +1,19 @@
-[]
+[{
+    "name": "Volatile AMM - fBOMB/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+        "0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979",
+        "0x940181a94a35a4569e4529a3cdfb74e38fd98631"
+    ],
+    "pool_address": "0xbbf71aad6e1f8d180d3b1d898528654c1d18b2ff",
+    "investing_address": "0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": [
+        "0x940181a94a35a4569e4529a3cdfb74e38fd98631"
+    ],
+    "metadata": {
+        "stable": false
+    }
+}]
