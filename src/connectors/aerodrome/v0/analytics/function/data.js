@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
 const POOLABI = require('../../abi/POOL');
+const ROUTERABI = require('../../abi/ROUTER');
 const GAUGEABI = require('../../abi/GAUGE');
 const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');
 import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice'
 const pools = require('../../pools/pools');
+const axios = require('axios');
+
+const BASE_URL = "https://coins.llama.fi/prices/current/" 
+const FACTORY = "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+const USDCbC = "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
 
 
 async function checkVelodromeV2Data(chain, poolAddress) {
@@ -21,6 +27,7 @@ async function checkVelodromeV2Data(chain, poolAddress) {
     const tokenAddress0 = poolInfo.underlying_tokens[0];
     const tokenAddress1 = poolInfo.underlying_tokens[1];
     const gaugeAddress = poolInfo.staking_address;
+    const routerAddress = poolInfo.investing_address;
     const rewardAddress = poolInfo.rewards_tokens[0];
 
     const provider = getNodeProvider(chain);
@@ -34,13 +41,23 @@ async function checkVelodromeV2Data(chain, poolAddress) {
     const r0 = metadata.r0 / metadata.dec0;
     const r1 = metadata.r1 / metadata.dec1;
 
-    const info = await getGeckoTokenPrice(chain,tokenAddress0);
+    // const info = await getGeckoTokenPrice(chain,tokenAddress0);
+    // if (info.err) throw new Error(info.err.message);
+    // const price0 = info.data;
+
+    // const info1 = await getGeckoTokenPrice(chain,tokenAddress1);
+    // if (info1.err) throw new Error(info1.err.message);
+    // const price1 = info1.data;
+
+    
+    const info = await axios.get(BASE_URL + chain + ':' + tokenAddress0);
     if (info.err) throw new Error(info.err.message);
     const price0 = info.data;
 
-    const info1 = await getGeckoTokenPrice(chain,tokenAddress1);
+    const info1 = await axios.get(BASE_URL + chain + ':' + tokenAddress1);
     if (info1.err) throw new Error(info1.err.message);
     const price1 = info1.data;
+    
 
     const p0 = price0 || 0;
     const p1 = price1 || 0;
@@ -56,14 +73,24 @@ async function checkVelodromeV2Data(chain, poolAddress) {
     const rewardRate = await gaugeContract.rewardRate();
 
   
-    const info2 = await getGeckoTokenPrice(chain,rewardAddress);
+    // const info2 = await getGeckoTokenPrice(chain,rewardAddress);
+    // if (info2.err) throw new Error(info2.err.message);
+    // const velo_price = info2.data;
+
+    // Solution directly onchain that doesnot require an offchain API.
+
+    const info2 = await axios.get(BASE_URL + chain + ':' + USDCbC);
     if (info2.err) throw new Error(info2.err.message);
-    const velo_price = info2.data;
+    const USDCbC_price = info2.data;
+
+    const routerContract = new ethers.Contract(routerAddress, ROUTERABI, provider);
+    const reserves = await routerContract.getReserves(rewardAddress, USDCbC, false, FACTORY);
+    const aero_price = USDCbC_price*(reserves.reserveB/10**6)/(reserves.reserveA/10**18)
 
    
     const apy =
       (((rewardRate / 1e18) *
-        86400 * 365 * velo_price / tvlUsd) * 100);
+        86400 * 365 * aero_price / tvlUsd) * 100);
 
     return {
       data: {

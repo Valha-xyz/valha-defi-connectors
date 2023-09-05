@@ -4,6 +4,7 @@ const ethers = require('ethers');
 import { PoolABI } from '../../abi/Pool';
 import { MiningABI } from '../../abi/Mining';
 import { ExtraABI } from '../../abi/Extra';
+import { CoordinatorABI } from '../../abi/Coordinator';
 
 const pools = require('../../../../aura/v0/pools/pools');
 const _ = require('lodash');
@@ -19,7 +20,7 @@ const auraRewardsCalculator = {
   ethereum: "0x744Be650cea753de1e69BF6BAd3c98490A855f52",
   arbitrum: "0x52A7239eDa381264b8c24cB11d7dF343236007Aa",
   optimism: "0x6306B10E032f9f81D3279D52FAaf6b0cdb53292a",
-  polygon: "",
+  polygon: "0x8b2970c237656d3895588B99a8bFe977D5618201",
 }
 
 // All the logic inspired by DefiLlama work here:https://github.com/DefiLlama/yield-server/blob/master/src/adaptors/aura/index.js
@@ -52,7 +53,7 @@ async function getAuraAPY(chain, poolAddress, tvl) {
     const provider = getNodeProvider(chain);
     if (!provider) throw new Error('No provider was found.');
     const POOL = new ethers.Contract(poolAddress, PoolABI, provider);
-    const Calculator = new ethers.Contract(auraRewardsCalculator[chain], MiningABI, provider);
+    
 
     // Reward APY: auraAPY + balAPY + extrarewAPY
 
@@ -63,8 +64,16 @@ async function getAuraAPY(chain, poolAddress, tvl) {
 
    
     // auraAPY
-
-    const auraRewardRate = await Calculator.convertCrvToCvx(balRewardRate);
+    let auraRewardRate = 0;
+    if (chain in ("ethereum", "arbitrum", "optimism")) {
+      const Calculator = new ethers.Contract(auraRewardsCalculator[chain], MiningABI, provider);
+      auraRewardRate = await Calculator.convertCrvToCvx(balRewardRate);
+    } else {
+      const Calculator = new ethers.Contract(auraRewardsCalculator[chain], CoordinatorABI, provider);
+      const auraReward = await Calculator.mintRate();
+      auraRewardRate = (auraReward/1e18) * balRewardRate
+    }
+    
     const auraAPY = ((auraRewardRate * SECONDS_PER_YEAR *auraPrice)/1e18)/tvl;
 
     // extrarewAPY

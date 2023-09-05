@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"Balancer rETH Stable Pool","chain":"ethereum","underlying_tokens":["0xae78736cd615f374d3085123a210448e74fc6393","0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"],"investing_address":"0xba12222222228d8ba445958a75a0704d566bf2c8","pool_address":"0x1e19cf2d73a72ef1332c882f20534b6519be0276","staking_address":"0x79ef6103a513951a3b25743db509e267685726b7","boosting_address":null,"distributor_address":"0x79ef6103a513951a3b25743db509e267685726b7","rewards_tokens":["0xba100000625a3754423978a60c9317c58a424e3D"],"metadata":{}}]
+        export const POOLS: Pool[] = [{"name":"Volatile AMM - WETH/USDbC","chain":"base","underlying_tokens":["0x4200000000000000000000000000000000000006","0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"],"pool_address":"0xb4885bc63399bf5518b994c1d0c153334ee579d0","investing_address":"0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":["0x940181a94a35a4569e4529a3cdfb74e38fd98631"],"metadata":{"stable":false}}]
 
       
