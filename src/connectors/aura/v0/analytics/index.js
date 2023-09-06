@@ -47,5 +47,5 @@ async function analytics(chain, poolAddress) {
 
 module.exports = {
   main: analytics,
-  url: 'https://www.Aurafinance.com/stake',
+  url: 'https://app.aura.finance/',
 };

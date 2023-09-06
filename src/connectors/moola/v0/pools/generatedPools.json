@@ -1,0 +1,72 @@
+[
+    {
+        "name": "MOO",
+        "chain": "celo",
+        "underlying_tokens": [
+            "0x17700282592d6917f6a73d0bf8accf4d578c131e"
+        ],
+        "pool_address": "0x3a5024e3aab31a1d3184127b52b0e4b4e9adcc34",
+        "investing_address": "0x970b12522CA9b4054807a2c5B736149a5BE6f670",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "CELO",
+        "chain": "celo",
+        "underlying_tokens": [
+            "0x471ece3750da237f93b8e339c536989b8978a438"
+        ],
+        "pool_address": "0x7d00cd74ff385c955ea3d79e47bf06bd7386387d",
+        "investing_address": "0x970b12522CA9b4054807a2c5B736149a5BE6f670",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "CUSD",
+        "chain": "celo",
+        "underlying_tokens": [
+            "0x765de816845861e75a25fca122bb6898b8b1282a"
+        ],
+        "pool_address": "0x918146359264c492bd6934071c6bd31c854edbc3",
+        "investing_address": "0x970b12522CA9b4054807a2c5B736149a5BE6f670",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "CREAL",
+        "chain": "celo",
+        "underlying_tokens": [
+            "0xe8537a3d056da446677b9e9d6c5db704eaab4787"
+        ],
+        "pool_address": "0x9802d866fde4563d088a6619f7cef82c0b991a55",
+        "investing_address": "0x970b12522CA9b4054807a2c5B736149a5BE6f670",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "CEUR",
+        "chain": "celo",
+        "underlying_tokens": [
+            "0xd8763cba276a3738e6de85b4b3bf5fded6d6ca73"
+        ],
+        "pool_address": "0xe273ad7ee11dcfaa87383ad5977ee1504ac07568",
+        "investing_address": "0x970b12522CA9b4054807a2c5B736149a5BE6f670",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    }
+]

@@ -1,14 +1,15 @@
 [
+  
   {
-    "name": "50WETH-50AURA Aura Vault",
-    "chain": "ethereum",
-    "underlying_tokens": ["0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9"],
-    "pool_address": "0x1204f5060be8b716f5a62b4df4ce32acd01a69f5",
-    "investing_address": "0xb188b1cb84fb0ba13cb9ee1292769f903a9fec59",
+    "name": "ankrETH/wstETH-BPT",
+    "chain": "arbitrum",
+    "underlying_tokens": ["0x3fd4954a851ead144c2ff72b1f5a38ea5976bd54"],
+    "pool_address": "0x0407e6d2b22fa27d24ad052987cb157c84acea2a",
+    "investing_address": "0x6b02fefd2f2e06f51e17b7d5b8b20d75fd6916be",
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": ["0xba100000625a3754423978a60c9317c58a424e3D"],
+    "rewards_tokens": ["0x1509706a6c66CA549ff0cB464de88231DDBe213B"],
     "metadata": {}
   }
 ]
