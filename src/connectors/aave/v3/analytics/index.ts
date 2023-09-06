@@ -25,10 +25,11 @@ async function analytics (
     const liquidity = liquidityData.data
     const outloans = tvl - liquidity
     const APY = await checkAaveV3APYs(chain, poolAddress, parseFloat(tvl))
+    
     if (APY.err) throw new Error(APY.err)
-    const ActAPY = APY.data.activity_apy
-    const RewAPY = APY.data.rewards_apy
-    const totalAPY = ActAPY + RewAPY
+
+    const ActAPY = APY.rewards.data.activity_apy
+    const RewAPY = APY.rewards.data.rewards_apy
 
     const result = {
       status: true,
@@ -37,7 +38,7 @@ async function analytics (
       outloans,
       losses: null,
       capacity: Number.MAX_SAFE_INTEGER,
-      apy: totalAPY,
+      apy: ActAPY + RewAPY,
       activity_apy: ActAPY,
       rewards_apy: RewAPY,
       boosting_apy: 0,

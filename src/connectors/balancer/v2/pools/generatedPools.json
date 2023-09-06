@@ -14,5 +14,41 @@
       "distributor_address": "0x79ef6103a513951a3b25743db509e267685726b7",
       "rewards_tokens": ["0xba100000625a3754423978a60c9317c58a424e3D"],
       "metadata": {}
+    },
+
+    {
+      "name": "Balancer - Balancer Stable 4pool",
+      "chain": "arbitrum",
+      "underlying_tokens": [
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+        "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ],
+      "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+      "pool_address": "0x423a1323c871abc9d89eb06855bf5347048fc4a5",
+      "staking_address": "0xa14453084318277b11d38fbe05d857a4f647442b",
+      "boosting_address": null,
+      "distributor_address": "0xa14453084318277b11d38fbe05d857a4f647442b",
+      "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+      "metadata": {}
+    },
+
+    {
+      "name": "Balancer - 2eur (PAR)",
+      "chain": "polygon",
+      "underlying_tokens": [
+        "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+        "0xe2aa7db6da1dae97c5f5c6914d285fbfcc32a128"
+      ],
+      "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+      "pool_address": "0x513cdee00251f39de280d9e5f771a6eafebcc88e",
+      "staking_address": "0xb8f0394f3fd743552296c990eadcff4d081474b1",
+      "boosting_address": null,
+      "distributor_address": "0xb8f0394f3fd743552296c990eadcff4d081474b1",
+      "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+      "metadata": {}
     }
+
+
 ]

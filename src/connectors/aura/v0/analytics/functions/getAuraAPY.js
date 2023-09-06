@@ -61,11 +61,16 @@ async function getAuraAPY(chain, poolAddress, tvl) {
 
     const balRewardRate = await POOL.rewardRate();
     const balAPY = ((balRewardRate * SECONDS_PER_YEAR * balPrice) / 1e18)/tvl;
+    console.log(balAPY)
+
 
    
     // auraAPY
     let auraRewardRate = 0;
-    if (chain in ("ethereum", "arbitrum", "optimism")) {
+
+    const validChains = ["ethereum", "arbitrum", "optimism"];
+
+    if (validChains.includes(chain)) {
       const Calculator = new ethers.Contract(auraRewardsCalculator[chain], MiningABI, provider);
       auraRewardRate = await Calculator.convertCrvToCvx(balRewardRate);
     } else {
@@ -75,6 +80,7 @@ async function getAuraAPY(chain, poolAddress, tvl) {
     }
     
     const auraAPY = ((auraRewardRate * SECONDS_PER_YEAR *auraPrice)/1e18)/tvl;
+    console.log(auraAPY)
 
     // extrarewAPY
     const extraRewardLengths = await POOL.extraRewardsLength();
@@ -109,7 +115,13 @@ async function getAuraAPY(chain, poolAddress, tvl) {
 
     const activity = await axios.get(URL);
     const desiredPool = activity.data.pools.filter(pool => pool.id.startsWith(underlyingToken));
-    const actApy = desiredPool[0].poolAprs.swap;
+
+    let actApy = 0;
+
+    if (desiredPool.length > 1){
+      actApy = desiredPool[0].poolAprs.swap;
+    }
+    
 
     return { data: {actApy: actApy, rewApyBal: balAPY, rewApyAura: auraAPY, rewApyExtra: rewApyExtra, 
       detailApyExtra: tableApyExtra, addressTokenExtra: tableTokenExtra}, err: null };
