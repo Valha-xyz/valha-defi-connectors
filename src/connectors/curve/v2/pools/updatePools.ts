@@ -14,7 +14,7 @@ const CRV_TOKEN = {
 }
 
 async function getDataChain (chain: string): Promise<Pool[] | null> {
-  const types = ['main', 'crypto', 'factory', 'factory-crypto']
+  const types = ['main', 'crypto', 'factory', 'factory-crypto', 'factory-crvusd']
   let result = []
   for (const type of types) {
     const URL = `https://api.curve.fi/api/getPools/${chain}/${type}`
