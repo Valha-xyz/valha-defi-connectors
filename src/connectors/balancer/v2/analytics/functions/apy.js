@@ -11,6 +11,7 @@ const _ = require('lodash');
 const pools = require('../../pools/pools');
 
 const { GAUGEABI } = require('../../abi/GAUGEABI');
+const { OTHERGAUGEABI } = require('../../abi/OTHERGAUGEABI');
 const { CONTROLLERABI } = require('../../abi/CONTROLLERABI');
 const { FEEABI } = require('../../abi/FEEABI');
 
@@ -55,7 +56,10 @@ async function checkBalancerV2APY(chain, poolAddress, data) {
 
     // Rewards APY
 
-    const GAUGE = new ethers.Contract(stakingAddress, GAUGEABI, provider);
+    let GAUGE;
+    if (chain === 'ethereum') {
+    GAUGE = new ethers.Contract(stakingAddress, GAUGEABI, provider);}
+    else { GAUGE = new ethers.Contract(stakingAddress, OTHERGAUGEABI, provider)};
     
     let inflationRate;
     let price;

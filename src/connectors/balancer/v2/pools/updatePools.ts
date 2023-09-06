@@ -9,12 +9,14 @@ export const SUBGRAPH_URLS = {
   ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2",
   polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2",
   arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2",
+  optimism: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-optimism-v2"
 }
 
 export const GAUGE_URLS = {
   ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges",
   polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-polygon",
   arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-arbitrum",
+  optimism: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-optimism"
 }
 
 
@@ -61,6 +63,7 @@ function poolsGauge(last_id?: string){
         pool {
           id
         }
+        rewardTokensList
     }
   }
     `
@@ -89,6 +92,7 @@ const Router = {
   ethereum: "0xba12222222228d8ba445958a75a0704d566bf2c8",
   arbitrum: "0xba12222222228d8ba445958a75a0704d566bf2c8",
   polygon: "0xba12222222228d8ba445958a75a0704d566bf2c8",
+  optimism: "0xba12222222228d8ba445958a75a0704d566bf2c8",
 } ;
  
 async function getPools (chain: string, last_id?: string) {

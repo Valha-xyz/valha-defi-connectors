@@ -6,12 +6,14 @@ export const SUBGRAPH_URLS = {
   ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2",
   polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2",
   arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2",
+  optimism: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-optimism-v2",
 }
 
 export const GAUGE_URLS = {
   ethereum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges",
   polygon:"https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-polygon",
   arbitrum: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-arbitrum",
+  optimism: "https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gauges-optimism"
 }
 
 // totalLiquidity is TVL in USD for most pools (type: weighted) but we need to get rid of balancer aave pools
