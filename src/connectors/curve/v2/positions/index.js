@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { LPSTAKING } = require('../abi/LPStaking');
-const STAKING_PID = require('../interactions/STAKINGPID');
+const { StakeABI } = require('../abi/Stake');
 
 /// stakePosition
 async function stakePosition(
@@ -16,12 +15,11 @@ async function stakePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
-  const abi = LPSTAKING;
-  const pid = STAKING_PID[chain][pool_address.toLowerCase()];
-  const method_name = 'userInfo';
-  const args = [pid, userAddress];
+  const abi = StakeABI;
+  const method_name = 'balanceOf';
+  const args = [userAddress];
   const interaction_address = staking_address;
 
   return {
@@ -33,7 +31,6 @@ async function stakePosition(
   };
 }
 
-/// stakeRewards
 async function stakeRewards(
   pool_name,
   chain,
@@ -46,12 +43,11 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
-  const abi = LPSTAKING;
-  const pid = STAKING_PID[chain][pool_address.toLowerCase()];
-  const method_name = 'pendingStargate';
-  const args = [pid, userAddress];
+  const abi = StakeABI;
+  const method_name = 'claimable_tokens'; //@dev This function should be manually changed to "view" in the ABI
+  const args = [userAddress];
   const interaction_address = staking_address;
 
   return {
@@ -66,5 +62,6 @@ async function stakeRewards(
 module.exports = {
   stakePosition,
   stakeRewards,
+  extraRewards: null,
   boostRewards: null,
 };

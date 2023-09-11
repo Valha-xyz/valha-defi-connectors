@@ -48,7 +48,7 @@ async function stakeRewards(
   receiverAddress
 ) {
   const abi = GAUGEABI;
-  const method_name = 'rewards';
+  const method_name = 'earned';
   const args = [userAddress];
   const interaction_address = staking_address;
 

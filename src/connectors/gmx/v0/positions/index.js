@@ -3,8 +3,8 @@
 const { GLPABI } = require('../abi/GLP');
 const { FEEABI } = require('../abi/FEE');
 
-/// stakePosition
-async function stakeRewards_esgmx(
+/// dxtraRewards
+async function extraRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -33,7 +33,7 @@ async function stakeRewards_esgmx(
 }
 
 
-async function stakeRewards_weth(
+async function stakeRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -63,7 +63,7 @@ async function stakeRewards_weth(
 
 module.exports = {
   stakePosition: null,
-  stakeRewards_esgmx,
-  stakeRewards_weth,
+  extraRewards,
+  stakeRewards,
   boostRewards: null,
 };
