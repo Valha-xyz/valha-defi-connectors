@@ -12,7 +12,7 @@ const POOLS = [
       '0x82af49447d8a07e3bd95bd0d56f35241523fbab1',
       '0xf42ae1d54fd613c9bb14810b0588faaa09a426ca',
     ],
-    metadata: {},
+    metadata: {weth_rewards: "0x4e971a87900b931ff39d1aad67697f49835400b6"},
   },
 ];
 

@@ -50,7 +50,7 @@ async function stakeRewards(
 ) {
   const abi = LPSTAKING;
   const pid = STAKING_PID[chain][pool_address.toLowerCase()];
-  const method_name = 'userInfo';
+  const method_name = 'pendingSynapse';
   const args = [pid, userAddress];
   const interaction_address = staking_address;
 
@@ -59,7 +59,7 @@ async function stakeRewards(
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position:  1, // position of the information if return is a tupple or an array
+    position:  0, // position of the information if return is a tupple or an array
   };
 }
 

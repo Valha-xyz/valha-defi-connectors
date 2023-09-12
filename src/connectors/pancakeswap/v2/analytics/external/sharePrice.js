@@ -37,8 +37,6 @@ async function checkPancakeV2SharePrice(chain, poolAddress, tvlUsd) {
 
     const share_price = { sharePriceUSD: tvlUsd/supply, sharePriceToken0: tvlToken0/supply, sharePriceToken1 : tvlToken1/supply }
 
-
-
     return { data: share_price, err: null };
   } catch (err) {
     console.log(err);
