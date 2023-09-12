@@ -6,6 +6,13 @@ const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
 const { ethers } = require('ethers');
 import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice'
 const pools = require('../../pools/pools');
+const { queryGraphData, histo, getBlocksByTime} = require ('./external/graphQuery');
+
+
+export const SUBGRAPH_URLS = {
+  optimism: "https://api.thegraph.com/subgraphs/name/messari/velodrome-v2-optimism",
+}
+
 
 
 async function checkVelodromeV2Data(chain, poolAddress) {
@@ -65,10 +72,27 @@ async function checkVelodromeV2Data(chain, poolAddress) {
       (((rewardRate / 1e18) *
         86400 * 365 * velo_price / tvlUsd) * 100);
 
+
+
+    // volume & fees
+
+    const currentTimestamp = Math.floor(Date.now() / 1000)- 100;
+    const timestamp7d = currentTimestamp - (7 * 24 * 60 * 60);
+
+    const SUBGRAPH_URL = SUBGRAPH_URLS[chain];
+    const currentBlock = await getBlocksByTime(currentTimestamp,chain);
+    const block7d =  await getBlocksByTime(timestamp7d,chain);
+
+    const query = await queryGraphData(SUBGRAPH_URL,poolAddress,currentBlock);
+    const query7d = await queryGraphData(SUBGRAPH_URL,poolAddress,block7d);
+    const pool = await histo(query, query7d);
+
     return {
       data: {
         tvl: tvlUsd || 0,
         rewards_apy: apy || 0,
+        volume: pool.volumeUSDyear7d || 0, 
+        fee: pool.feeUSDyear7d || 0
       },
       err: null,
     };

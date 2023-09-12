@@ -2,6 +2,7 @@
 const _ = require('lodash');
 const external = require('./external/DefiLlama/index');
 const checkPancakeV2SharePrice = require('./external/sharePrice');
+const getVolume = require('./external/getVolume');
 
 /// APY
 /// TVL
@@ -35,6 +36,12 @@ async function analytics(chain, poolAddress) {
   const activityAPY = externalInfo.apyBase;
   const totalAPY = rewardsAPY + activityAPY;
 
+
+  // const Volume = await getVolume(chain, poolAddress);
+  // if (Volume.err) throw new Error(Volume.err)
+  // const extraInfo = Volume.data
+
+
   const result = {
     status: true,
     tvl: tvl || null,
@@ -49,6 +56,8 @@ async function analytics(chain, poolAddress) {
     share_price: shareToken0,
     minimum_deposit: null,
     maximum_deposit: null,
+    volume: 0, // extraInfo.volume,
+    fee: 0 //extraInfo.fee
   };
   console.log(result);
   return result;

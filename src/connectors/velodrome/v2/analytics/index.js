@@ -38,6 +38,8 @@ async function analytics(chain, poolAddress) {
       share_price: sharePrice.sharePriceToken0,
       minimum_deposit: null,
       maximum_deposit: null,
+      volume: data.volume,
+      fee: data.fee,
     };
 
     console.log(result);

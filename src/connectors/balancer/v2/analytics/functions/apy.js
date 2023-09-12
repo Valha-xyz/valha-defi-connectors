@@ -125,7 +125,7 @@ async function checkBalancerV2APY(chain, poolAddress, data) {
     // add up individual LM rewards
     data.aprLM = aprLMRewards.filter((i) => isFinite(i)).reduce((a, b) => a + b, 0);
 
-    return { data: {actApy: pool.apy7d, rewApy: data.aprLM, volume: pool.volume7d}, err: null };
+    return { data: {actApy: pool.apy7d, rewApy: data.aprLM, volume: pool.volumeUSDyear7d, fee: pool.feeUSDyear7d}, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err };

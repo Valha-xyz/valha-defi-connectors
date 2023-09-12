@@ -3,6 +3,7 @@ const _ = require('lodash');
 const external = require('./external/DefiLlama/index');
 const checkGMXV0Share = require('./functions/sharePrice');
 const checkGMXV0TVL = require('./functions/tvl');
+const getVolume = require('./functions/getVolume')
 
 /// APY
 async function loadExternal() {
@@ -35,6 +36,10 @@ async function analytics(chain, poolAddress) {
   if (TVLInfo.err) throw new Error(TVLInfo.err);
   const TVL = TVLInfo.data;
 
+  const volumeInfo = await getVolume(chain, poolAddress);
+  if (volumeInfo.err) throw new Error(volumeInfo.err);
+  const data = volumeInfo.data;
+
   const result = {
     status: null,
     tvl: TVL,
@@ -49,6 +54,8 @@ async function analytics(chain, poolAddress) {
     share_price: sharePrice,
     minimum_deposit: null,
     maximum_deposit: null,
+    volume: data.volume,
+    fee: data.fee ,
   };
 
   console.log(result);

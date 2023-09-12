@@ -5,6 +5,7 @@ const { getNodeProvider } = require('../../../../utils/getNodeProvider');
 const pools = require('../pools/pools');
 const getActivityAPY = require('./functions/getActivityAPY');
 const getData = require('./functions/getData');
+const getVolume = require('./functions/getVolume');
 
 async function analytics(chain, poolAddress) {
   const POOLS = await pools();
@@ -38,6 +39,10 @@ async function analytics(chain, poolAddress) {
 
   const totalAPY = ActAPY + RewAPY;
 
+  //Get volume & fee 
+
+  const extraInfo = await getVolume(chain, poolInfo.investing_address);
+
   const result = {
     status: true,
     tvl: TVL,
@@ -52,6 +57,8 @@ async function analytics(chain, poolAddress) {
     share_price: sharePrice,
     minimum_deposit: null,
     maximum_deposit: null,
+    volume: extraInfo.data.volume,
+    fee: extraInfo.data.fee,
   };
 
   console.log(result);

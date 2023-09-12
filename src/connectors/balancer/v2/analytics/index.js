@@ -27,6 +27,7 @@ async function analytics(chain, poolAddress) {
   const activityApy = apy.data.actApy;
   const rewardsApy = apy.data.rewApy;
   const volume = apy.data.volume;
+  const fee = apy.data.fee;
 
   
   
@@ -44,7 +45,8 @@ async function analytics(chain, poolAddress) {
       share_price: shareToken0,
       minimum_deposit: null,
       maximum_deposit: null,
-      volume: volume
+      volume: volume,
+      fee:fee,
     };
 
 

@@ -15,6 +15,7 @@ async function analytics(chain, poolAddress) {
   if (apy.err) throw new Error(apy.err);
   const activityApy = apy.data.apy;
   const volume = apy.data.volume;
+  const fee = apy.data.fee;
 ;
    const result = {
       status: null,
@@ -30,7 +31,8 @@ async function analytics(chain, poolAddress) {
       share_price: 1,
       minimum_deposit: null,
       maximum_deposit: null,
-      volume: volume
+      volume: volume,
+      fee: fee,
     };
 
 

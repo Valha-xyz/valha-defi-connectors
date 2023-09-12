@@ -41,12 +41,14 @@ export function histo(pool, dataPrior7d, version){
       pool['feeTier'] = 500;
     }
     pool['volumeUSDPrior7d'] = dataPrior7d[0].volumeUSD;
-    // calc 24h volume
+    // calc 1 week volume
     pool['volumeUSD7d'] = Number(pool[0].volumeUSD) - Number(pool.volumeUSDPrior7d);
+    // annualise volume
+    pool['volumeUSDyear7d'] = pool.volumeUSD7d * 52;
     // calc fees
     pool['feeUSD7d'] = (Number(pool.volumeUSD7d) * Number(pool.feeTier)) / 1e6;
     // annualise
-    pool['feeUSDyear7d'] = pool.feeUSD7d * 52
+    pool['feeUSDyear7d'] = pool.feeUSD7d * 52;
     // calc apy
     pool['apy7d'] = (pool.feeUSDyear7d / pool[0].reserveUSD) * 100;
 

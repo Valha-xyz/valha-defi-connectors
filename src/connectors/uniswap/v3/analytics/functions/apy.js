@@ -29,7 +29,7 @@ async function checkUniV3APY(chain, poolAddress) {
     const pool = await histo(query, query7d, "v3");
 
 
-    return { data: {apy: pool.apy7d, volume: pool.volumeUSD7d}, err: null };
+    return { data: {apy: pool.apy7d, volume: pool.volumeUSDyear7d, fee: pool.feeUSDyear7d}, err: null };
   } catch (err) {
     console.log(err);
     return { data: null, err };
