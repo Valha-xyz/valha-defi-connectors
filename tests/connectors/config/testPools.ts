@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"Cake-WBNB","chain":"bsc","underlying_tokens":["0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82","0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],"pool_address":"0x0ed7e52944161450477ee417de9cd3a859b14fd0","investing_address":"0x10ED43C718714eb63d5aA57B78B54704E256024E","staking_address":"0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652","boosting_address":null,"distributor_address":null,"rewards_tokens":["0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"],"metadata":{}}]
+        export const POOLS: Pool[] = [{"name":"MATIC Staking Pool","chain":"polygon","underlying_tokens":["0x0000000000000000000000000000000000001010"],"pool_address":"0x0e9b89007eee9c958c0eda24ef70723c2c93dd58","investing_address":"0x62a509ba95c75cabc7190469025e5abee4eddb2a","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":[],"metadata":{}}]
 
       

@@ -1,39 +1,61 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const axios = require('axios');
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
+const ethers = require('ethers');
+const { ANKRABI } = require('src/connectors/ankr/avax-v0/abi/ERC20ANKR');
+import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice'
 
 async function checkAnkrTVL(chain, poolAddress) {
   try {
-    const allchains = {
-      bsc: 'bnb',
-      eth: 'eth',
-      polygon: 'polygon',
-      fantom: 'ftm',
-      avalanche: 'avax'
-    }
 
-    const result = await axios.get(
-      'https://api.staking.ankr.com/v1alpha/metrics',
-    );
-    // console.log(result.data.services.length);
-    if (!result.data.services.length) {
-      throw new Error(
-        `Ankr V0: issue while checking info for ${poolAddress}`,
-      );
-    }
 
-    const poolsInfo = result.data.services.filter(
-      elem => elem.serviceName === allchains[chain],
-    );
-    if (poolsInfo.length !== 1) {
-      throw new Error(
-        `Ankr V0: issue while filtering info for ${poolAddress}`,
-      );
-    }
+    const tokenAddress = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
 
-    const tvl = Number(poolsInfo[0].totalStakedUsd);
+    const tokenInfo = await getGeckoTokenPrice(chain, tokenAddress );
 
-    return { data: tvl, err: null };
+    const provider = getNodeProvider(chain);
+    if (!provider) throw new Error('No provider was found.');
+    const POOL = new ethers.Contract(poolAddress, ANKRABI, provider);
+
+    const SupplyBN = await POOL.totalSupply();
+    // const DecimalsBN = await POOL.decimals();
+    const ratio = await POOL.ratio();
+    const price = tokenInfo.data ;
+
+    const tvlUsd = ( SupplyBN * price ) / ratio;
+
+
+    // const allchains = {
+    //   bsc: 'bnb',
+    //   eth: 'eth',
+    //   polygon: 'polygon',
+    //   fantom: 'ftm',
+    //   avalanche: 'avax'
+    // }
+
+    // const result = await axios.get(
+    //   'https://api.staking.ankr.com/v1alpha/metrics',
+    // );
+    // // console.log(result.data.services.length);
+    // if (!result.data.services.length) {
+    //   throw new Error(
+    //     `Ankr V0: issue while checking info for ${poolAddress}`,
+    //   );
+    // }
+
+    // const poolsInfo = result.data.services.filter(
+    //   elem => elem.serviceName === allchains[chain],
+    // );
+    // if (poolsInfo.length !== 1) {
+    //   throw new Error(
+    //     `Ankr V0: issue while filtering info for ${poolAddress}`,
+    //   );
+    // }
+
+    // const tvl = Number(poolsInfo[0].totalStakedUsd);
+
+    return { data: tvlUsd, err: null };
   }
   catch (err) {
     console.log(err);

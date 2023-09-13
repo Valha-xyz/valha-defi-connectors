@@ -10,7 +10,8 @@ async function checkLidoV0SharePrice(poolAddress) {
     const POOL = new ethers.Contract(poolAddress, WSTETHABI, provider);
     const sharePriceBN= await POOL.stEthPerToken();
     const decimals = await POOL.decimals();
-    const sharePrice = sharePriceBN/(10**decimals)
+    const sharePrice = sharePriceBN/(10**decimals);
+    
     
     
     return { data: sharePrice, err: null };

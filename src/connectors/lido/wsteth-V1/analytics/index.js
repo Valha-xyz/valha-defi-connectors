@@ -4,22 +4,23 @@ const external = require('./external/DefiLlama/index');
 const pools = require('../pools/pools');
 const checkLidoV0SharePrice = require('./functions/sharePrice');
 const checkLidoV0Data = require('./functions/getData');
-
+const checkLidoV0TVL = require('./functions/tvl');
 
 
 async function analytics(chain, poolAddress) {
 
   const data = await checkLidoV0Data(poolAddress);
 
-  const tvl = data.data.tvl;
+  // const tvl = data.data.tvl;
   const activity_apy = data.data.apr;
 
 
   const sharePrice = await checkLidoV0SharePrice(poolAddress);
+  const tvlUsd = await checkLidoV0TVL(poolAddress);
 
   const result = {
     status: null,
-    tvl,
+    tvl: tvlUsd.data,
     liquidity: 0,
     outloans: null,
     losses: null,
