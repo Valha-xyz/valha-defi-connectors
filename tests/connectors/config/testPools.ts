@@ -1,6 +1,6 @@
 
         import {Pool} from "../../../src/utils/types/connector-types"
 
-        export const POOLS: Pool[] = [{"name":"sETH2","chain":"ethereum","underlying_tokens":["0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"],"pool_address":"0xfe2e637202056d30016725477c5da089ab0a043a","investing_address":"0xC874b064f465bdD6411D45734b56fac750Cda29A","staking_address":null,"boosting_address":null,"distributor_address":"0x20bc832ca081b91433ff6c17f85701b6e92486c5","rewards_tokens":["0x20bc832ca081b91433ff6c17f85701b6e92486c5"],"metadata":{}}]
+        export const POOLS: Pool[] = [{"name":"stEUR pool","chain":"ethereum","underlying_tokens":["0x1a7e4e63778b4f12a199c062f3efdd288afcbce8"],"pool_address":"0x004626a008b1acdc4c74ab51644093b155e59a23","investing_address":"0x004626a008b1acdc4c74ab51644093b155e59a23","staking_address":null,"boosting_address":null,"distributor_address":null,"rewards_tokens":[],"metadata":{}}]
 
       
