@@ -7,8 +7,8 @@ const POOLS = [
     investing_address: '0xC874b064f465bdD6411D45734b56fac750Cda29A',
     staking_address: null,
     boosting_address: null,
-    distributor_address: null,
-    rewards_tokens: [],
+    distributor_address: '0x20bc832ca081b91433ff6c17f85701b6e92486c5',
+    rewards_tokens: ['0x20bc832ca081b91433ff6c17f85701b6e92486c5'],
     metadata: {},
   },
 ];

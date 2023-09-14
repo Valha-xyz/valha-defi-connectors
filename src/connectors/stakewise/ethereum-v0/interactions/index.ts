@@ -10,6 +10,7 @@ import {
 } from '../../../../utils/types/connector-types';
 const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
 const { POOLABI } = require('../abi/DepositPool');
+const { RETH2ABI } = require('../abi/RETH2');
 
 /// invest
 async function deposit(
@@ -28,6 +29,40 @@ async function deposit(
   );
   const args = [];
   const interaction_address = pool.investing_address;
+
+  return {
+    txInfo: {
+      abi, // abi array
+      interaction_address, // contract to interact with to interact with poolAddress
+      method_name, // method to interact with the pool
+      args, // args to pass to the smart contracts to trigger 'method_name'
+    },
+    assetInfo: {
+      position_token: pool.underlying_tokens[0], // token needed to approve
+      position_token_type: 'ERC-20', // token type to approve
+      amount: amountBN,
+    },
+  };
+}
+
+
+/// claim
+async function claim_rewards(
+  pool: Pool,
+  amount: AmountInput,
+  addresses: AddressesInput,
+  options?: AdditionalOptions
+): Promise<InteractionsReturnObject> {
+  const abi = RETH2ABI;
+  const method_name = 'claim(address,uint256)';
+  const position_token = pool.underlying_tokens[0];
+  const amountBN = await toBnERC20Decimals(
+    amount.amount,
+    pool.chain,
+    position_token
+  );
+  const args = [addresses.userAddress,amountBN];
+  const interaction_address = pool.distributor_address;
 
   return {
     txInfo: {
@@ -81,7 +116,7 @@ const interactions: Interactions = {
   unstake: null,
   boost: null,
   unboost: null,
-  claim_rewards: null,
+  claim_rewards,
   claim_interests: null,
 };
 
