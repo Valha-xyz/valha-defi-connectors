@@ -21,8 +21,10 @@ async function analytics(chain, poolAddress) {
     const apy = await checkStakewiseAPY(chain, poolAddress);
     if (apy.err) throw new Error(apy.err);
     const parsedAPY = parseFloat(apy.data);
-    const shareprice = await checkStakewiseSharePrice(chain, poolAddress);
+    const shareprice = await checkStakewiseSharePrice(chain, poolAddress, poolInfo.distributor_address);
     if (shareprice.err) throw new Error(shareprice.err);
+
+    shareApr = shareprice.data.shareApr;
 
     
 
@@ -37,7 +39,7 @@ async function analytics(chain, poolAddress) {
       activity_apy: parsedAPY,
       rewards_apy: 0,
       boosting_apy: 0,
-      share_price: shareprice.data,
+      share_price: shareprice.data.sharePrice,
       minimum_deposit: null,
       maximum_deposit: null,
     };

@@ -76,13 +76,14 @@ export function histo(pool, dataPrior7d, swapFeePercentage){
 
     // calc 7days volume
     pool['volumeUSD7d'] = Number(pool[0].totalSwapVolume) - Number(dataPrior7d[0].totalSwapVolume);
+    // annualise
+    pool['volumeUSDyear7d'] = pool.volumeUSD7d * 52;
     // calc fees
     pool['feeUSD7d'] = Number(pool[0].totalSwapFee) - Number(dataPrior7d[0].totalSwapFee);
     // annualise
-    pool['feeUSDyear7d'] = pool.feeUSD7d * 52
+    pool['feeUSDyear7d'] = pool.feeUSD7d * 52;
     // calc apy
     pool['apy7d'] = swapFeePercentage * (pool.feeUSDyear7d / pool[0].totalLiquidity) * 100;
-    pool['volume7d'] = pool.volumeUSD7d * 52;
 
     return pool;
   }

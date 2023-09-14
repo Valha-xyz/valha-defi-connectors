@@ -16,6 +16,7 @@ async function analytics(chain, poolAddress) {
   if (apy.err) throw new Error(apy.err);
   const activityApy = apy.data.apy;
   const volume = apy.data.volume;
+  const fee = apy.data.fee;
 
   const sharePrice = await checkUniV2SharePrice(chain, poolAddress);
   if (sharePrice.err) throw new Error(sharePrice.err);
@@ -38,7 +39,8 @@ async function analytics(chain, poolAddress) {
       share_price: shareToken0,
       minimum_deposit: null,
       maximum_deposit: null,
-      volume: volume
+      volume: volume,
+      fee: fee,
     };
 
 
