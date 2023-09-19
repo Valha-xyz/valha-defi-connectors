@@ -9,6 +9,8 @@ import { getNodeProvider } from '../../../../utils/getNodeProvider';
 import { ROUTERABI } from '../abi/Router';
 import { POOLABI } from '../abi/Pool';
 import { getGeckoTokenPrice } from '../../../../utils/prices/getGeckoTokenPrice'
+import { erc20Decimals } from '../../../../utils/ERC20Decimals'
+import { erc20BalanceOf } from '../../../../utils/ERC20BalanceOf'
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const _ = require('lodash');
@@ -25,6 +27,8 @@ async function analytics(
 
 
     const POOLS = await getVaults(chain);
+
+    console.log(POOLS);
     const currentPool = POOLS.find((pool) => pool.address == poolAddress);
 
     //  price token
@@ -34,20 +38,25 @@ async function analytics(
     const provider = getNodeProvider(chain)
     if (!provider) throw new Error('No provider was found.')
     const POOL = new ethers.Contract(currentPool2.investing_address,ROUTERABI,provider);
+    
 
     const generalData = await POOL.getReserveData(currentPool2.underlying_tokens[0]);
-    const formattedApy =  generalData[2] / 10 ** 27;
+    const formattedApy =  Number(generalData[2]) / 10 ** 27;
+
+    const underlyingSupply = await erc20BalanceOf(provider, currentPool2.underlying_tokens[0], poolAddress);
+    const underlyingDecimals = await erc20Decimals(provider, currentPool2.underlying_tokens[0]);
+
+    console.log(underlyingSupply);
+    console.log(underlyingDecimals);
+
 
     const TOKEN = new ethers.Contract(poolAddress,POOLABI,provider);
-    const tvl = data * TOKEN.totalSupply();
+    const totalSupply = await TOKEN.totalSupply();
+    const decimals = await TOKEN.decimals();
 
-
-    if (!POOLS || POOLS.length === 0) return {};
-
-    // const tvl = currentPool.tvl;
-    const outloans = currentPool.totalBorrowUsd;
-    const liquidity = tvl - outloans;
-    // const apy = currentPool.base * 100;
+    const tvl = data * totalSupply / (10 ** decimals);
+    const liquidity = data * underlyingSupply / (10 ** underlyingDecimals);
+    const outloans = tvl - liquidity;
 
     const result = {
       status: currentPool.active,
@@ -75,6 +84,6 @@ async function analytics(
 
 const analyticsExport: AnalyticsExport = {
   main: analytics,
-  url: 'https://app.aave.com/',
+  url: 'https://app.sturdy.finance/markets',
 };
 export default analyticsExport;
