@@ -34,9 +34,11 @@ async function analytics(chain, poolAddress) {
 
   let tvl;
   let rewards_apy = 0;
+  let activity_apy = 0;
   if (externalInfo) {
     tvl = externalInfo.tvlUsd;
     rewards_apy = externalInfo.apyReward;
+    activity_apy = externalInfo.apyBase;
   } else {
     const tvlInfo = await checkWombatV1TVL(chain, poolAddress);
     tvl = tvlInfo.data;
@@ -45,8 +47,9 @@ async function analytics(chain, poolAddress) {
   const liquidity = await checkV1Liquidity(chain, poolAddress);
   const capacity = await checkCapacity(chain, poolAddress, tokenAddr);
 
+  const ActAPY = activity_apy ? parseFloat(String(activity_apy)) : 0;
   const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0;
-  const totalAPY = RewAPY;
+  const totalAPY = RewAPY +  ActAPY;
 
   const result = {
     status: null,
@@ -56,13 +59,14 @@ async function analytics(chain, poolAddress) {
     losses: null,
     capacity: capacity.data,
     apy: totalAPY,
-    activity_apy: 0,
+    activity_apy: ActAPY,
     rewards_apy: RewAPY,
     boosting_apy: null,
     share_price: sharePrice.data,
     minimum_deposit: null,
     maximum_deposit: null,
   };
+  console.log(result);
   return result;
 }
 
