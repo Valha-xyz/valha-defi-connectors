@@ -54,7 +54,7 @@ async function analytics(chain, poolAddress) {
     minimum_deposit: null,
     maximum_deposit: null,
   };
-
+  console.log(result);
   return result;
 }
 

@@ -30,9 +30,7 @@ async function analytics(
 
     console.log(POOLS);
     const currentPool = POOLS.find((pool) => pool.address == poolAddress);
-
     //  price token
-
     const { data, err } = await getGeckoTokenPrice(chain,currentPool2.underlying_tokens[0]);
 
     const provider = getNodeProvider(chain)
@@ -45,10 +43,6 @@ async function analytics(
 
     const underlyingSupply = await erc20BalanceOf(provider, currentPool2.underlying_tokens[0], poolAddress);
     const underlyingDecimals = await erc20Decimals(provider, currentPool2.underlying_tokens[0]);
-
-    console.log(underlyingSupply);
-    console.log(underlyingDecimals);
-
 
     const TOKEN = new ethers.Contract(poolAddress,POOLABI,provider);
     const totalSupply = await TOKEN.totalSupply();
