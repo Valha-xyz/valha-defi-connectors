@@ -5,7 +5,7 @@ const { RewardsABI } = require('../abi/Rewards');
 /// stakePosition
 
 // it is a write function
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -17,7 +17,7 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = RewardsABI;
   const method_name = 'getRewardOwed';
@@ -35,6 +35,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition: null,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

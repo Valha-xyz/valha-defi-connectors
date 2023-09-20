@@ -31,7 +31,7 @@ async function stakePosition(
   };
 }
 
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -59,7 +59,7 @@ async function stakeRewards(
   };
 }
 
-// /// stakeRewards
+// /// claimableRewards
 // async function extraRewards(
 //   pool_name,
 //   chain,
@@ -79,7 +79,6 @@ async function stakeRewards(
 //   const provider = getNodeProvider(chain);
 //   if (!provider) throw new Error('No provider was found.');
 //   const POOL = new ethers.Contract(pool_address, PoolABI, provider);
-    
 
 //   const extraRewardLengths = await POOL.extraRewardsLength();
 //   let rewardApyExtra = [];
@@ -92,11 +91,9 @@ async function stakeRewards(
 //     rewardApyExtra.push(extraEarned);
 //     extraAddress.push(extraRewardAddress);}
 
-
 //   const method_name = 'earned';
 //   const args = [userAddress];
 //   const interaction_addresses = extraAddresses
-
 
 //   return {
 //     abi, // json file name
@@ -109,7 +106,7 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   extraRewards: null,
   boostRewards: null,
 };

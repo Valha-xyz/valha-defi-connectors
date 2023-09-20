@@ -6,86 +6,92 @@ import {
   type AmountInput,
   type Interactions,
   type InteractionsReturnObject,
-  type Pool
-} from '../../../../utils/types/connector-types'
+  type Pool,
+} from '../../../../utils/types/connector-types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals')
-const { ROUTERABI } = require('../abi/ROUTER')
-const { STAKERABI } = require('../abi/STAKER')
-const PID = require('./PID')
+const { toBnERC20Decimals } = require('../../../../utils/toBNTokenDecimals');
+const {
+  getCurrentBlockTimestamp,
+} = require('../../../../utils/getCurrentBlockTimestamp');
+const { ROUTERABI } = require('../abi/ROUTER');
+const { STAKERABI } = require('../abi/STAKER');
+const PID = require('./PID');
 
-async function deposit (
+async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const abi = ROUTERABI
-  console.log(amount)
-  console.log(pool)
-  const tokenA = pool.underlying_tokens[0]
-  const tokenB = pool.underlying_tokens[1]
-  const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase())
-  const interaction_address = pool.investing_address
-  let method_name = ''
-  let args = []
+  const abi = ROUTERABI;
+  console.log(amount);
+  console.log(pool);
+  const tokenA = pool.underlying_tokens[0];
+  const tokenB = pool.underlying_tokens[1];
+  const tokens = pool.underlying_tokens.map((elem) => elem.toLowerCase());
+  const interaction_address = pool.investing_address;
+  let method_name = '';
+  let args = [];
   const amountADesired = await toBnERC20Decimals(
     amount.amountsDesired[0],
     pool.chain,
-    pool.underlying_tokens[0]
-  )
+    pool.underlying_tokens[0],
+  );
   const amountBDesired = await toBnERC20Decimals(
     amount.amountsDesired[1],
     pool.chain,
-    pool.underlying_tokens[1]
-  )
+    pool.underlying_tokens[1],
+  );
+
+  const dataBlockTimestamp = await getCurrentBlockTimestamp();
+  const timestamp = dataBlockTimestamp.data + 300000;
 
   if (tokens.includes('0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')) {
-    method_name = 'addLiquidityETH'
-    let amountDesired
-    let nativePosition
-    let tokenPosition
+    method_name = 'addLiquidityETH';
+    let amountDesired;
+    let nativePosition;
+    let tokenPosition;
     if (tokens[0] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-      nativePosition = 0
-      tokenPosition = 1
-      amountDesired = amountADesired
+      nativePosition = 0;
+      tokenPosition = 1;
+      amountDesired = amountADesired;
     }
     if (tokens[1] === '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee') {
-      nativePosition = 1
-      tokenPosition = 0
-      amountDesired = amountBDesired
+      nativePosition = 1;
+      tokenPosition = 0;
+      amountDesired = amountBDesired;
     }
     const amountMin = await toBnERC20Decimals(
       amount.amountsMinimum[tokenPosition],
       pool.chain,
-      pool.underlying_tokens[tokenPosition]
-    )
+      pool.underlying_tokens[tokenPosition],
+    );
     const amountNativeMin = await toBnERC20Decimals(
       amount.amountsMinimum[nativePosition],
       pool.chain,
-      pool.underlying_tokens[nativePosition]
-    )
+      pool.underlying_tokens[nativePosition],
+    );
     args = [
       pool.underlying_tokens[tokenPosition],
       amountDesired,
       amountMin,
       amountNativeMin,
       addresses.receiverAddress,
-      options.deadline
-    ]
+      options.deadline > 0 ? options.deadline : timestamp,
+    ];
   } else {
-    method_name = 'addLiquidity'
+    method_name = 'addLiquidity';
     const amountAMinimum = await toBnERC20Decimals(
       amount.amountsMinimum[0],
       pool.chain,
-      pool.underlying_tokens[0]
-    )
+      pool.underlying_tokens[0],
+    );
     const amountBMinimum = await toBnERC20Decimals(
       amount.amountsMinimum[1],
       pool.chain,
-      pool.underlying_tokens[1]
-    )
+      pool.underlying_tokens[1],
+    );
     args = [
       tokenA,
       tokenB,
@@ -94,8 +100,8 @@ async function deposit (
       amountAMinimum,
       amountBMinimum,
       addresses.receiverAddress,
-      options.deadline
-    ]
+      options.deadline > 0 ? options.deadline : timestamp,
+    ];
   }
 
   return {
@@ -104,43 +110,50 @@ async function deposit (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [2, 3]
+      amountPositions: [2, 3],
     },
     assetInfo: {
       position_token: pool.underlying_tokens, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: [amountADesired, amountBDesired]
-    }
-  }
+      amount: [amountADesired, amountBDesired],
+    },
+  };
 }
 
 /// redeem
-async function redeem (
+async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const abi = ROUTERABI
-  const method_name = 'removeLiquidity'
-  const tokenA = pool.underlying_tokens[0]
-  const tokenB = pool.underlying_tokens[1]
-  const interaction_address = pool.investing_address
+  console.log('IN PANCAKESWAP');
+  console.log(amount);
+
+  const abi = ROUTERABI;
+  const method_name = 'removeLiquidity';
+  const tokenA = pool.underlying_tokens[0];
+  const tokenB = pool.underlying_tokens[1];
+  const interaction_address = pool.investing_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.pool_address
-  )
+    pool.pool_address,
+  );
   const amountAMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
-    pool.underlying_tokens[0]
-  )
+    pool.underlying_tokens[0],
+  );
   const amountBMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[1],
     pool.chain,
-    pool.underlying_tokens[1]
-  )
+    pool.underlying_tokens[1],
+  );
+
+  const dataBlockTimestamp = await getCurrentBlockTimestamp();
+  const timestamp = dataBlockTimestamp.data + 300000;
+
   const args = [
     tokenA,
     tokenB,
@@ -148,8 +161,8 @@ async function redeem (
     amountAMinimum,
     amountBMinimum,
     addresses.receiverAddress,
-    options.deadline
-  ]
+    options.deadline > 0 ? options.deadline : timestamp,
+  ];
 
   return {
     txInfo: {
@@ -157,33 +170,33 @@ async function redeem (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [2]
+      amountPositions: [2],
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN
-    }
-  }
+      amount: amountBN,
+    },
+  };
 }
 
 /// stake
-async function stake (
+async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const pid = PID[pool.pool_address.toLowerCase()]
-  const interaction_address = pool.staking_address
+  const pid = PID[pool.pool_address.toLowerCase()];
+  const interaction_address = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.pool_address
-  )
-  const abi = STAKERABI
-  const method_name = 'deposit'
-  const args = [pid, amountBN]
+    pool.pool_address,
+  );
+  const abi = STAKERABI;
+  const method_name = 'deposit';
+  const args = [pid, amountBN];
 
   return {
     txInfo: {
@@ -191,33 +204,33 @@ async function stake (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [1]
+      amountPositions: [1],
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN
-    }
-  }
+      amount: amountBN,
+    },
+  };
 }
 
 /// unstake
-async function unstake (
+async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const pid = PID[pool.pool_address.toLowerCase()]
-  const interaction_address = pool.staking_address
+  const pid = PID[pool.pool_address.toLowerCase()];
+  const interaction_address = pool.staking_address;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.pool_address
-  )
-  const abi = STAKERABI
-  const method_name = 'withdraw'
-  const args = [pid, amountBN]
+    pool.pool_address,
+  );
+  const abi = STAKERABI;
+  const method_name = 'withdraw';
+  const args = [pid, amountBN];
 
   return {
     txInfo: {
@@ -225,26 +238,26 @@ async function unstake (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [1]
+      amountPositions: [1],
     },
-    assetInfo: null
-  }
+    assetInfo: null,
+  };
 }
 
 /// claimRewards
-async function claimRewards (
+async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const pid = PID[pool.pool_address.toLowerCase()]
-  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652'
-  const amountBN = await toBnERC20Decimals(0, pool.chain, pool.pool_address)
-  const abi = STAKERABI
+  const pid = PID[pool.pool_address.toLowerCase()];
+  const interaction_address = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
+  const amountBN = await toBnERC20Decimals(0, pool.chain, pool.pool_address);
+  const abi = STAKERABI;
   // Indeed 'deposit' to claim_rewards on Pancake
-  const method_name = 'deposit'
-  const args = [pid, amountBN]
+  const method_name = 'deposit';
+  const args = [pid, amountBN];
 
   return {
     txInfo: {
@@ -252,14 +265,14 @@ async function claimRewards (
       interaction_address, // contract to interact with to interact with poolAddress
       method_name, // method to interact with the pool
       args, // args to pass to the smart contracts to trigger 'method_name'
-      amountPositions: [1]
+      amountPositions: [1],
     },
     assetInfo: {
       position_token: pool.pool_address, // token needed to approve
       position_token_type: 'ERC-20', // token type to approve
-      amount: amountBN
-    }
-  }
+      amount: amountBN,
+    },
+  };
 }
 
 const interactions: Interactions = {
@@ -273,7 +286,7 @@ const interactions: Interactions = {
   boost: null,
   unboost: null,
   claim_rewards: claimRewards,
-  claim_interests: null
-}
+  claim_interests: null,
+};
 
-export default interactions
+export default interactions;

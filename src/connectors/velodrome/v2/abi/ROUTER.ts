@@ -1715,5 +1715,3 @@ export const ROUTERABI = [
     type: 'receive',
   },
 ];
-
-module.exports = ROUTERABI;

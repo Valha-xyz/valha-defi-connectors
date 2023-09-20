@@ -1,19 +1,1736 @@
-[{
-    "name": "Volatile AMM - WETH/USDbC",
+[
+  {
+    "name": "Volatile AMM - tBTC/USDbC",
     "chain": "base",
     "underlying_tokens": [
-        "0x4200000000000000000000000000000000000006", 
-        "0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
     ],
-    "pool_address": "0xb4885bc63399bf5518b994c1d0c153334ee579d0",
-    "investing_address": "0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43",
+    "pool_address": "0x723AEf6543aecE026a15662Be4D3fb3424D502A9",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x50f0249B824033Cf0AF0C8b9fe1c67c2842A34d5",
+    "boosting_address": null,
+    "distributor_address": "0x50f0249B824033Cf0AF0C8b9fe1c67c2842A34d5",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - tBTC/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x2722C8f9B5E2aC72D1f225f8e8c990E449ba0078",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xfaE8C18D83655Fbf31af10d2e9A1Ad5bA77D0377",
+    "boosting_address": null,
+    "distributor_address": "0xfaE8C18D83655Fbf31af10d2e9A1Ad5bA77D0377",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - T/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x26f3901aC8a79c50fb0d8289C74f0d09AdC42E29",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0xAf58FDeE432a104a932a899968d60F92838886cd",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xaD3d4aFd779e4A57734557CcE25F87032614fE47",
+    "boosting_address": null,
+    "distributor_address": "0xaD3d4aFd779e4A57734557CcE25F87032614fE47",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - EXTRA/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2dAD3a13ef0C6366220f989157009e501e7938F8",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x2B7704f1cb9324cD8586B33C6c540CbD64E58237",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xf05a3De3dD6910042f506c6105bC14920C4289B6",
+    "boosting_address": null,
+    "distributor_address": "0xf05a3De3dD6910042f506c6105bC14920C4289B6",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - DOLA/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x0B25c51637c43decd6CC1C1e3da4518D54ddb528",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xeAE066C25106006fB386A3a8b1698A0cB6931c1a",
+    "boosting_address": null,
+    "distributor_address": "0xeAE066C25106006fB386A3a8b1698A0cB6931c1a",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/UNIDX",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6B4712AE9797C199edd44F897cA09BC57628a1CF"
+    ],
+    "pool_address": "0xA819Af1CC8AbE618eA8abaDeb464960F7451CEAB",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x98F44CE76BDCaD37f00a98B275631B1D796862fa",
+    "boosting_address": null,
+    "distributor_address": "0x98F44CE76BDCaD37f00a98B275631B1D796862fa",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - OATH/stERN",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x00e1724885473B63bCE08a9f0a52F35b0979e35A",
+      "0xf7A0dd3317535eC4f4d29ADF9d620B3d8D5D5069"
+    ],
+    "pool_address": "0x6e23f90E25f432c9dF9eF9276472DDa3951e4465",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x5072261dE01Ca7D933C39893C4c4B009a351DF43",
+    "boosting_address": null,
+    "distributor_address": "0x5072261dE01Ca7D933C39893C4c4B009a351DF43",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - ERN/stERN",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xa334884bF6b0A066d553D19e507315E839409e62",
+      "0xf7A0dd3317535eC4f4d29ADF9d620B3d8D5D5069"
+    ],
+    "pool_address": "0x218F511431194B2C756D67a137DE536beA74E498",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x109Cc0f2640457b2A483C2eef189827750A676bB",
+    "boosting_address": null,
+    "distributor_address": "0x109Cc0f2640457b2A483C2eef189827750A676bB",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - MAI/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xbf1aeA8670D2528E08334083616dD9C5F3B087aE",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xf6Aec4F97623E691a9426a69BaF5501509fCa05D",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xC01E2ff20501839db7B28F5Cb3eD2876fEa3d6b1",
+    "boosting_address": null,
+    "distributor_address": "0xC01E2ff20501839db7B28F5Cb3eD2876fEa3d6b1",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Stable AMM - DOLA/MAI",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "0xbf1aeA8670D2528E08334083616dD9C5F3B087aE"
+    ],
+    "pool_address": "0x8b432C54d6e8E1B8D1802753514AB53044Af1861",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xDe23611176b16720346f4Df071D1aA01752c68C1",
+    "boosting_address": null,
+    "distributor_address": "0xDe23611176b16720346f4Df071D1aA01752c68C1",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - USDbC/STG",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "0xE3B53AF74a4BF62Ae5511055290838050bf764Df"
+    ],
+    "pool_address": "0xb680190fB16f417647e69D6A84719aE9c7E5E20a",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x9a8D9F5C698C1F2B0d48a955BC531F2c7D67Af84",
+    "boosting_address": null,
+    "distributor_address": "0x9a8D9F5C698C1F2B0d48a955BC531F2c7D67Af84",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/TAROT",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xF544251D25f3d243A36B07e7E7962a678f952691"
+    ],
+    "pool_address": "0x2d25E0514f23c6367687dE89Bd5167dc754D4934",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xa81dac2e9caa218Fcd039D7CEdEB7847cf362213",
+    "boosting_address": null,
+    "distributor_address": "0xa81dac2e9caa218Fcd039D7CEdEB7847cf362213",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - MIM/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x982A169edFC1cf8Fd38dBeE76735547b23875BD1",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xBb0b5819Fa91076a1D6aaFa0D018E27a416DE029",
+    "boosting_address": null,
+    "distributor_address": "0xBb0b5819Fa91076a1D6aaFa0D018E27a416DE029",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/MIM",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D"
+    ],
+    "pool_address": "0x535d457FFC1c4459300Bb1dd775f37808F808282",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x81387016224D4EA8F938A1c2207c5Cc4A5AEa393",
+    "boosting_address": null,
+    "distributor_address": "0x81387016224D4EA8F938A1c2207c5Cc4A5AEa393",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/HOP",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC"
+    ],
+    "pool_address": "0x75D18ee68bB93BE5cB2dcCFa0d8151E25CBC8Eb8",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xb42A9e58773993ed15A5eED65633e85870185e13",
+    "boosting_address": null,
+    "distributor_address": "0xb42A9e58773993ed15A5eED65633e85870185e13",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - DAI+/USD+",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "pool_address": "0x1b05e4e814b3431a48b8164c41eaC834d9cE2Da6",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x87803Cb321624921cedaAD4555F07Daa0D1Ed325",
+    "boosting_address": null,
+    "distributor_address": "0x87803Cb321624921cedaAD4555F07Daa0D1Ed325",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Stable AMM - USD+/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x4a3636608d7Bc5776CB19Eb72cAa36EbB9Ea683B",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xa5972f0C07a2D1cc5A8457c28d88ec4f3C009864",
+    "boosting_address": null,
+    "distributor_address": "0xa5972f0C07a2D1cc5A8457c28d88ec4f3C009864",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/DEUS",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44"
+    ],
+    "pool_address": "0x9e4CB8b916289864321661CE02cf66aa5BA63C94",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x7eC1926A50D2D253011cC9891935eBc476713bb1",
+    "boosting_address": null,
+    "distributor_address": "0x7eC1926A50D2D253011cC9891935eBc476713bb1",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - DAI/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x6EAB8c1B93f5799daDf2C687a30230a540DbD636",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xCF1D5Aa63083fda05c7f8871a9fDbfed7bA49060",
+    "boosting_address": null,
+    "distributor_address": "0xCF1D5Aa63083fda05c7f8871a9fDbfed7bA49060",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - AERO/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x2223F9FE624F69Da4D8256A7bCc9104FBA7F8f75",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x9a202c932453fB3d04003979B121E80e5A14eE7b",
+    "boosting_address": null,
+    "distributor_address": "0x9a202c932453fB3d04003979B121E80e5A14eE7b",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "pool_address": "0x7f670f78B17dEC44d5Ef68a48740b6f8849cc2e6",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x96a24aB830D4ec8b1F6f04Ceac104F1A3b211a01",
+    "boosting_address": null,
+    "distributor_address": "0x96a24aB830D4ec8b1F6f04Ceac104F1A3b211a01",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/DOG",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9E53e88dCff56d3062510A745952DEC4cEFDff9E"
+    ],
+    "pool_address": "0xF89042057D079debe2a65A1a899E48E0E825105F",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": [
-        "0x940181a94a35a4569e4529a3cdfb74e38fd98631"
-    ],
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
     "metadata": {
-        "stable": false
+      "stable": false
     }
-}]
+  },
+  {
+    "name": "Volatile AMM - WETH/OGRE",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xAB8a1c03b8E4e1D21c8Ddd6eDf9e07f26E843492"
+    ],
+    "pool_address": "0xe5fEaC3f554398795298cF90E3801edC522ED974",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BaseDOGE",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xa8B58B9311988a0a6bA99C323e05C30FcDCA17e3"
+    ],
+    "pool_address": "0x0F3742018aCE31F38ba25235E7aFC96dAf82A4De",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xB4885Bc63399BF5518b994c1d0C153334Ee579D0",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xeca7Ff920E7162334634c721133F3183B83B0323",
+    "boosting_address": null,
+    "distributor_address": "0xeca7Ff920E7162334634c721133F3183B83B0323",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/Balls",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x45622e5bCe7524D911210A25F4F83b6C8766b735"
+    ],
+    "pool_address": "0x032c7BFa435Bc98f0e9490d7928799e5913143AF",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BASED",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xBa5E6fa2f33f3955f0cef50c63dCC84861eAb663"
+    ],
+    "pool_address": "0x89dE19c640B03649206e9998481Ee9E8E23EBCAf",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x07CBcB5eB7b501365DD244d12245B1188dF4ed57",
+    "boosting_address": null,
+    "distributor_address": "0x07CBcB5eB7b501365DD244d12245B1188dF4ed57",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/DAI",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb"
+    ],
+    "pool_address": "0x9287C921f5d920cEeE0d07d7c58d476E46aCC640",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x36BdA777CCBefE881ed729AfF7F1f06779f4199a",
+    "boosting_address": null,
+    "distributor_address": "0x36BdA777CCBefE881ed729AfF7F1f06779f4199a",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - YFX/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x8901cB2e82CC95c01e42206F8d1F417FE53e7Af0",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x6dbbD2c5EC6A59F54FB0e5f750A245137Ff0492c",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x9915D03D62b1d83f9a8890bAeBd72Ed4bCa49701",
+    "boosting_address": null,
+    "distributor_address": "0x9915D03D62b1d83f9a8890bAeBd72Ed4bCa49701",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/Gekko",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xA6C6502C020D58651a8a1DC044ba7514AC41bCCe"
+    ],
+    "pool_address": "0xF4cA6481d13859293b78431fe80b47D0977962a8",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/HAIRY",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9bb168e7fF1C0f2FBdD844B4348c755DC7500fE1"
+    ],
+    "pool_address": "0xe3968f5a5107338d89a53E352e13bf5424e33f84",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - cbETH/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x44Ecc644449fC3a9858d2007CaA8CFAa4C561f91",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xDf9D427711CCE46b52fEB6B2a20e4aEaeA12B2b7",
+    "boosting_address": null,
+    "distributor_address": "0xDf9D427711CCE46b52fEB6B2a20e4aEaeA12B2b7",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BASED Token",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9065C9F6337fb742709A85402BAD53C78236db36"
+    ],
+    "pool_address": "0xE58a1997398d6269c1EDe02e49fDC4E39A4d3A6e",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - BAI/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x5c185329BC7720AebD804357043121D26036D1B3",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x4C29E4dD4A966B27EfC846109B1393677B7E215c",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - DAI/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x917baB0544BEB0e681D02CC159f50446A7A38633",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x3b54a20F43DD9C9A4D2358b525b440B8b5254FFC",
+    "boosting_address": null,
+    "distributor_address": "0x3b54a20F43DD9C9A4D2358b525b440B8b5254FFC",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - EVAWAT/SERAPH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xcAD58C7ff0410df842835Eb55ba21649bd267D9c",
+      "0xe3Eb37cE83fac09570482A9A86A193b94849e558"
+    ],
+    "pool_address": "0x3fF36517cac7333360E1692A0B2F003e4A42Dd59",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/SERAPH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xe3Eb37cE83fac09570482A9A86A193b94849e558"
+    ],
+    "pool_address": "0xc40C51247C7D42F7Ddd73D1a04a290d061232acC",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/AAA",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x5D1A42E32d84560fF46f4F06302fE4C69d28135d"
+    ],
+    "pool_address": "0x103601D82EF65667A1CeFDEA072F599E00A53457",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/TOSHI",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x8544FE9D190fD7EC52860abBf45088E81Ee24a8c"
+    ],
+    "pool_address": "0x80218EeA7490d4a7C48b7A98A2D6373246eB25b1",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - wUSDR/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x9483ab65847A447e36d21af1CaB8C87e9712ff93",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x3Fc28BFac25fC8e93B5b2fc15EfBBD5a8aA44eFe",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xF64957C35409055776C7122AC655347ef88eaF9B",
+    "boosting_address": null,
+    "distributor_address": "0xF64957C35409055776C7122AC655347ef88eaF9B",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - AAA/BBB",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x5D1A42E32d84560fF46f4F06302fE4C69d28135d",
+      "0xcE71509EA8f3488404770C2a27F69013a00D28bD"
+    ],
+    "pool_address": "0x69CD4DdB6a63917f30EA22D96E02E4Ed68c331F0",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/fBOMB",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x74ccbe53F77b08632ce0CB91D3A545bF6B8E0979"
+    ],
+    "pool_address": "0x4F9Dc2229f2357B27C22db56cB39582c854Ad6d5",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x76c48576822Cd955C320f5d5A163E738dbFEcc01",
+    "boosting_address": null,
+    "distributor_address": "0x76c48576822Cd955C320f5d5A163E738dbFEcc01",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/WELL",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xFF8adeC2221f9f4D8dfbAFa6B9a297d17603493D"
+    ],
+    "pool_address": "0xffA3F8737C39e36dec4300B162c2153c67c8352f",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xcEa0a2228145d0fD25dE083e3786ddB1eA184296",
+    "boosting_address": null,
+    "distributor_address": "0xcEa0a2228145d0fD25dE083e3786ddB1eA184296",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - fBOMB/YFX",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x74ccbe53F77b08632ce0CB91D3A545bF6B8E0979",
+      "0x8901cB2e82CC95c01e42206F8d1F417FE53e7Af0"
+    ],
+    "pool_address": "0x60D473C6A68FbF54C9085CEee081aba959035579",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xC91ed60A0E0EA668A3489F6039054C6d93c76A9b",
+    "boosting_address": null,
+    "distributor_address": "0xC91ed60A0E0EA668A3489F6039054C6d93c76A9b",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BLUE",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xd7c9621e3A5051f5e5A5982c8c430Fd4B55Eda22"
+    ],
+    "pool_address": "0x3BA3886536b5B3d4FE63029a7674CB712a9F088f",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - AAA/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x5D1A42E32d84560fF46f4F06302fE4C69d28135d",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xa5e81eCC610Bf665021C6CF9465d2F4BE662B161",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - AAA/AAA2",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x5D1A42E32d84560fF46f4F06302fE4C69d28135d",
+      "0xd359D5440C5b68D43076b6475A5f18a3fef8fbd3"
+    ],
+    "pool_address": "0xAd5c9d704F580fFA219d628b3adAcbfB1c5eDB79",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - USD+/stERN",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "0xf7A0dd3317535eC4f4d29ADF9d620B3d8D5D5069"
+    ],
+    "pool_address": "0x607363389331f4B2D1b955d009506A67c565D75E",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xe5Cf7Ec83BA94c4AdF833d7DCdb800a53f28410E",
+    "boosting_address": null,
+    "distributor_address": "0xe5Cf7Ec83BA94c4AdF833d7DCdb800a53f28410E",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - USD+/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xdC0F1F6eCd03ec1C9FFC2A17BaBAbd313477b20E",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xD2121Cb13A28Ab16Cb0f0F19A665e9a9311F9aBb",
+    "boosting_address": null,
+    "distributor_address": "0xD2121Cb13A28Ab16Cb0f0F19A665e9a9311F9aBb",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BSK",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x6C781131D8D4494fe32d8Bc9394D0Fef6B1A5b8C"
+    ],
+    "pool_address": "0x0056D584A4dd680c455Afb01dC00771E3Aa0Dc9d",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - USDbC/TAROT",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "0xF544251D25f3d243A36B07e7E7962a678f952691"
+    ],
+    "pool_address": "0x605D7C5CB7c2C5dEE7711CEE06317708F41cefD1",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - USDbC/THALES",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "0xf34e0cff046e154CAfCae502C7541b9E5FD8C249"
+    ],
+    "pool_address": "0x5F43555b02507133eCd5b78218283ed849b07Eac",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x2692CC440416B7f8252406D84e9D66f0C48C069E",
+    "boosting_address": null,
+    "distributor_address": "0x2692CC440416B7f8252406D84e9D66f0C48C069E",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/THALES",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xf34e0cff046e154CAfCae502C7541b9E5FD8C249"
+    ],
+    "pool_address": "0x3f386Acc3A8E9194cF6279C219DF8DD3C5B71974",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x62052D68A7DBa58079B7D70a40796CAbAab2a95f",
+    "boosting_address": null,
+    "distributor_address": "0x62052D68A7DBa58079B7D70a40796CAbAab2a95f",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - EXTRA/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2dAD3a13ef0C6366220f989157009e501e7938F8",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x84Ff3B6e2046579Fb2f2b891CE18eE10b5fbDbF2",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xE5Ff63862097b32d3ed30551e290D66f1548973F",
+    "boosting_address": null,
+    "distributor_address": "0xE5Ff63862097b32d3ed30551e290D66f1548973F",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - WETH/BASED Token",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x27DCB425C7005DD7558F9583797edA39A8D70ABd",
+      "0xfb3E929baB9796D2bee7Cd15Ab7954533D899DaD"
+    ],
+    "pool_address": "0xF4ecEbFe039e4bce40226663F54F8d1Edce80B2b",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - gSIS/USD+",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xac8DA2e2a1A114AAfe50c774c588DCD93a028fc8",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "pool_address": "0x888092c9D44cD647a073f8f1eD11305A31e4fa66",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/SHIP",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x595675dcbe5D2aD1f4d7b910c50567c0f9230633"
+    ],
+    "pool_address": "0x74f56160dE6AFA5307A5ED4a6911c22eb78D1eCB",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - aAERO/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x213a8Dc524e37bE4C908702340C6eaaD3670023d",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x23E3E430f4c991a338f3eB041e95340584bCE3B3",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/CIVIC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xfd949897b850258b41Af56872AB310D6c7811F27"
+    ],
+    "pool_address": "0x9d202aBA253145d981F4d97105A62fc7B0F82581",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - fBOMB/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x74ccbe53F77b08632ce0CB91D3A545bF6B8E0979",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "pool_address": "0xbBf71AAD6E1F8D180D3B1D898528654c1d18b2fF",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x12E45bE50dd4f3Bc430B65d399B1e3b90275661c",
+    "boosting_address": null,
+    "distributor_address": "0x12E45bE50dd4f3Bc430B65d399B1e3b90275661c",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - BALD/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x27D2DECb4bFC9C76F0309b8E88dec3a601Fe25a8",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x669A0dFa8aB0bc8E1199D08258769Cc39C0Bc3C5",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - agEUR/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xA61BeB4A3d02decb01039e378237032B351125B4",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xA56bE957d432a5d0eDc040B27078d9726f54E7f6",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x275535F82F287073CEEbC653862E4E43868AA65C",
+    "boosting_address": null,
+    "distributor_address": "0x275535F82F287073CEEbC653862E4E43868AA65C",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - SONNE/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x22a2488fE295047Ba13BD8cCCdBC8361DBD8cf7c",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x554EcA2a48136724294CE47fb7bfE9AADfceE3c6",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x744462994510ccd987F697752bD46d1155F8022F",
+    "boosting_address": null,
+    "distributor_address": "0x744462994510ccd987F697752bD46d1155F8022F",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - USX/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xc142171B138DB17a1B7Cb999C44526094a4dae05",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x6313D896423efbD3d62Cc22a3778A62265fe1e1d",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xB38440A467a34d992E4B5bF538c087784E811C06",
+    "boosting_address": null,
+    "distributor_address": "0xB38440A467a34d992E4B5bF538c087784E811C06",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - cbETH/TAX",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "0xD830162411497FaFF8734CE4200C547faf2FEAE2"
+    ],
+    "pool_address": "0xBb7E170Df05231f2CEAb51c80f35fe68E47d3af4",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - MOARRR/fBOMB",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x63A522f6E7D5B96F7aeBB74d2648545E9e14078D",
+      "0x74ccbe53F77b08632ce0CB91D3A545bF6B8E0979"
+    ],
+    "pool_address": "0xEDe039272Fce25F0Af30C1Fab8A974f148a8D52A",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/TOSHI",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xb53Be0BE88bA245B5086E558D00Ad56ee7344556"
+    ],
+    "pool_address": "0x183D4A5d04baa3646817a0B22e587041a53eb50e",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - DOLA/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x7df970e41b92b33f3BE04815e006db8Dab11796D",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x4a1137D7C00b40B2f821056Baa35A57325BC6287",
+    "boosting_address": null,
+    "distributor_address": "0x4a1137D7C00b40B2f821056Baa35A57325BC6287",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xbbd6CD3A31Cbc5CbD6f89D476D15D5bD2F260AcB"
+    ],
+    "pool_address": "0x171588019BA2305c84121141710861608ed1F7ff",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BRYAN",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB75445A717D5A8c268f37045162837CFe72Ac337"
+    ],
+    "pool_address": "0x1CE21E315fA3E6DCf586B99C828dE1f8C1BB217f",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - AERO/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xB304b47e039E20AFAd75FA2ada6CD8D95a9eea41",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x46110ac9100A027bAec01bf1C211522ce0B02540",
+    "boosting_address": null,
+    "distributor_address": "0x46110ac9100A027bAec01bf1C211522ce0B02540",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - EXTRA/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2dAD3a13ef0C6366220f989157009e501e7938F8",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "pool_address": "0x688F778C51dB4D990bF1abaF8d33fD95e48C6641",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x6664867531c0FDd058881153FaBE7D2162833b07",
+    "boosting_address": null,
+    "distributor_address": "0x6664867531c0FDd058881153FaBE7D2162833b07",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - DAI+/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x4f7f293e7B7b6D1cAA1ca48784C5986f3dE5E19c",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x2d8b33A0dc95F0eb9429551eA4d2297729828558",
+    "boosting_address": null,
+    "distributor_address": "0x2d8b33A0dc95F0eb9429551eA4d2297729828558",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - MAI/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xbf1aeA8670D2528E08334083616dD9C5F3B087aE",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x7B48C97D097217F960C332F2790b344c4494Dc1D",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - aAERO/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x213a8Dc524e37bE4C908702340C6eaaD3670023d",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "pool_address": "0x568Bc06fC5645bD61b2D8A1a516E32F8FaF4b1B6",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/FRIEND",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x60b72C00681A43e423F097ab61CC526a1045B048"
+    ],
+    "pool_address": "0xB8F01693DDE723cB9124f5d1160Fb0721068eA7f",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - DAI/MAI",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "0xbf1aeA8670D2528E08334083616dD9C5F3B087aE"
+    ],
+    "pool_address": "0x30A30f266e1173a75985997B2523EcbC19c60fF3",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/🐸 ",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x5Aacb870842382315B875f72Ef66d4fa8D940C50"
+    ],
+    "pool_address": "0x6AB07ae2D18375615411cdc9803379F55F7b4Dbb",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - BLAZE/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x37DEfBC399e5737D53Dfb5533d9954572F5B19bf",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x45eA259712987b43FF37216AdF748F74FC6F8E62",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - T/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x26f3901aC8a79c50fb0d8289C74f0d09AdC42E29",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x5Aa9e1cDF38dbf3F57BC5CeB827dd44b4CF58c6f",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xEAE7C8fc569DAC58047898970225CbD0c8Cda2B1",
+    "boosting_address": null,
+    "distributor_address": "0xEAE7C8fc569DAC58047898970225CbD0c8Cda2B1",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - WETH/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x44d7Dd237001AeF7fC7D8CB13ab4452f65CE5E40",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x1AF743E6EbF9C4f90aE9A37E6e61Bca31a867676",
+    "boosting_address": null,
+    "distributor_address": "0x1AF743E6EbF9C4f90aE9A37E6e61Bca31a867676",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/DAI+",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275"
+    ],
+    "pool_address": "0xfc518E70BbE90A49aF3E0512Cd6Ea57c365b9cA4",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x28F62fE643351104e7D57BB6802A931d387D9Ee2",
+    "boosting_address": null,
+    "distributor_address": "0x28F62fE643351104e7D57BB6802A931d387D9Ee2",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - wUSDR/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x9483ab65847A447e36d21af1CaB8C87e9712ff93",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x16119F4820f78189370a9Df276F725DCfa1fD007",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0xF934890ece015628156862beef561af80d6a69AF",
+    "boosting_address": null,
+    "distributor_address": "0xF934890ece015628156862beef561af80d6a69AF",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - DRONE/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x03617dC1ab7f959cc3593bB43ca43e192e6662da",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x2F31A93050Ff9F9C70090f8789fD6D8f047c1041",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/COLIBRI",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc0a1CECA76A4e3181998EE7cD785a5D761A9d686"
+    ],
+    "pool_address": "0xc43D0bDAB15611969d8A38ac4dae44106221F028",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/$ENEMY",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xDBE1489B63f65a11745FFADE9233319df1B70dC9"
+    ],
+    "pool_address": "0x54f46b520cd17beA1E7e84dB064F6F74A440524c",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - AAA1/AAA2",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4783689F2907ab06226880939B2dD1BE85D44c41",
+      "0xd359D5440C5b68D43076b6475A5f18a3fef8fbd3"
+    ],
+    "pool_address": "0xC2F2aFBF9286616CaEB4DB1486c265cF22ddCFDa",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - FREN/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x12063CC18A7096D170e5Fc410d8623Ad97ee24B3",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x679d601AAA86cd555E8bfD48ddC8b4aaDe2A0F27",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - BLP/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2168eb98C6D416Afb85E7beef5abDc4FB4177dfE",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x4394B1443d819d47E39141EBC4561B60F0C10322",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - RA/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x1F924Db207529d3035116Eb8F67a1B62A6Af8769",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xcCEe0A53c21538008ba5F04952F1850e8692FfEa",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/DOH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xF37923311D71c986D701cddb3394777322294E3a"
+    ],
+    "pool_address": "0xdc04a6978cbe9045371df5102b64035836Cc3092",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/GOLD",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
+    ],
+    "pool_address": "0x1Be197A85666Cd1e14c270780D9c6b04ff835122",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - STAR/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xC19669A405067927865B40Ea045a2baabbbe57f5",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0x7a823ff83d2A87AE7570a9934B0dC8B87Be9C14A",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Stable AMM - USD+/stERN",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "0xf7A0dd3317535eC4f4d29ADF9d620B3d8D5D5069"
+    ],
+    "pool_address": "0x1be76d01d0b29f5E0B6B2fd6006131996e674afd",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Stable AMM - WETH/BASED",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9CBD543f1B1166b2Df36b68Eb6bB1DcE24E6aBDf"
+    ],
+    "pool_address": "0x5F45e48F9C053286cE9Ca08Db897f8b7eb3f7992",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - SURV/WETH",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x2B6A85CD35D15691357eea61d88cB3f401A92FC3",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "pool_address": "0x0912d404B3ca2070b9C74003a828A9b76bd5c1b3",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/ANDRE",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xFA7D088f6B1bbf7b1C8c3aC265Bb797264FD360B"
+    ],
+    "pool_address": "0xDd4dB4770918847057EA73805A428CB2E9d2c9Af",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/BASED",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x9CBD543f1B1166b2Df36b68Eb6bB1DcE24E6aBDf"
+    ],
+    "pool_address": "0x5Dca56718A186AbE7eA7f219aD96325CB0C1247f",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - BASED/USDbC",
+    "chain": "base",
+    "underlying_tokens": [
+      "0xBa5E6fa2f33f3955f0cef50c63dCC84861eAb663",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "pool_address": "0xb905d9195019778CFbaa4e9eD90dF3FC5871CD9A",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Volatile AMM - DAI/USD+",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "pool_address": "0x72618657E7947BE9a3A6dA48B11f5C0B8E80DbE5",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x787160e487463E34f1E8CFC1b206B44F4168b902",
+    "boosting_address": null,
+    "distributor_address": "0x787160e487463E34f1E8CFC1b206B44F4168b902",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  },
+  {
+    "name": "Stable AMM - DAI/AERO",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+    ],
+    "pool_address": "0xE2D3b2f9d4bAAb9A0de671E95FeBAc27E37050f2",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": "0x4b6F6Be7e8622bD8e56b50158D03312EEC5bA480",
+    "boosting_address": null,
+    "distributor_address": "0x4b6F6Be7e8622bD8e56b50158D03312EEC5bA480",
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": true
+    }
+  },
+  {
+    "name": "Volatile AMM - WETH/GLD",
+    "chain": "base",
+    "underlying_tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x5D67a4AFb9fBFc3640e163e93766Cf1eAF2F7045"
+    ],
+    "pool_address": "0x3ee35c06d93aBcD69FE6871eEB3492Cfd579F51b",
+    "investing_address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+    "staking_address": null,
+    "boosting_address": null,
+    "distributor_address": null,
+    "rewards_tokens": ["0x940181a94A35A4569E4529A3CDfB74e38FD98631"],
+    "metadata": {
+      "stable": false
+    }
+  }
+]

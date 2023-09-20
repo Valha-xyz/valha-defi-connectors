@@ -1,10 +1,10 @@
 const POOLS = [
   {
-    name: 'wstETH',
+    name: 'ETH Liquid Pool',
     chain: 'ethereum',
     underlying_tokens: ['0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'],
-    pool_address: '0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0',
-    investing_address: '0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0',
+    pool_address: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
+    investing_address: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
     staking_address: null,
     boosting_address: null,
     distributor_address: null,

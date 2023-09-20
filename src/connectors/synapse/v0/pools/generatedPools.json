@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Synapse - nETH-LP",
+    "chain": "optimism",
+    "underlying_tokens": [
+      "0x809dc529f07651bd43a172e8db6f4a7a0d771036",
+      "0x121ab82b49b2bc4c7901ca46b8277962b4350204"
+    ],
+    "pool_address": "0x4619a06ddd3b8f0f951354ec5e75c09cd1cd1aef",
+    "investing_address": "0xe27bff97ce92c3e1ff7aa9f86781fdd6d48f5ee9",
+    "staking_address": "0xe8c610fcb63a4974f02da52f0b4523937012aaa0",
+    "boosting_address": null,
+    "distributor_address": "0xe8c610fcb63a4974f02da52f0b4523937012aaa0",
+    "rewards_tokens": ["0x5A5fFf6F753d7C11A56A52FE47a177a87e431655"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nUSD LP",
+    "chain": "optimism",
+    "underlying_tokens": [
+      "0x67c10c397dd0ba417329543c1a40eb48aaa7cd00",
+      "0x7f5c764cbc14f9669b88837ca1490cca17c31607"
+    ],
+    "pool_address": "0x2c6d91accc5aa38c84653f28a80aec69325bdd12",
+    "investing_address": "0xf44938b0125a6662f9536281ad2cd6c499f22004",
+    "staking_address": "0xe8c610fcb63a4974f02da52f0b4523937012aaa0",
+    "boosting_address": null,
+    "distributor_address": "0xe8c610fcb63a4974f02da52f0b4523937012aaa0",
+    "rewards_tokens": ["0x5A5fFf6F753d7C11A56A52FE47a177a87e431655"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nUSD LP",
+    "chain": "avalanche",
+    "underlying_tokens": [
+      "0xcfc37a6ab183dd4aed08c204d1c2773c0b1bdf46",
+      "0xd586e7f844cea2f87f50152665bcbc2c279d8d70",
+      "0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664",
+      "0xc7198437980c041c805a1edcba50c1ce5db95118"
+    ],
+    "pool_address": "0xca87bf3ec55372d9540437d7a86a7750b42c02f4",
+    "investing_address": "0xed2a7edd7413021d440b09d654f3b87712abab66",
+    "staking_address": "0x3a01521f8e7f012eb37eaaf1cb9490a5d9e18249",
+    "boosting_address": null,
+    "distributor_address": "0x3a01521f8e7f012eb37eaaf1cb9490a5d9e18249",
+    "rewards_tokens": ["0x1f1E7c893855525b303f99bDF5c3c05Be09ca251"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nETH-LP",
+    "chain": "avalanche",
+    "underlying_tokens": [
+      "0x19e1ae0ee35c0404f835521146206595d37981ae",
+      "0x53f7c5869a859f0aec3d334ee8b4cf01e3492f21"
+    ],
+    "pool_address": "0x5df1db940dd8fee0e0eb0c8917cb50b4dfadf98c",
+    "investing_address": "0x77a7e60555bc18b4be44c181b2575eee46212d44",
+    "staking_address": "0x3a01521f8e7f012eb37eaaf1cb9490a5d9e18249",
+    "boosting_address": null,
+    "distributor_address": "0x3a01521f8e7f012eb37eaaf1cb9490a5d9e18249",
+    "rewards_tokens": ["0x1f1E7c893855525b303f99bDF5c3c05Be09ca251"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nUSD LP",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0xb6c473756050de474286bed418b77aeac39b02af",
+      "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0xc2132d05d31c914a87c6611c10748aeb04b58e8f"
+    ],
+    "pool_address": "0x7479e1bc2f2473f9e78c89b4210eb6d55d33b645",
+    "investing_address": "0x85fcd7dd0a1e1a9fcd5fd886ed522de8221c3ee5",
+    "staking_address": "0x7875af1a6878bda1c129a4e2356a3fd040418be5",
+    "boosting_address": null,
+    "distributor_address": "0x7875af1a6878bda1c129a4e2356a3fd040418be5",
+    "rewards_tokens": ["0xf8F9efC0db77d8881500bb06FF5D6ABc3070E695"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nUSD",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    ],
+    "pool_address": "0x1b84765de8b7566e4ceaf4d0fd3c5af52d3dde4f",
+    "investing_address": "0x1116898dda4015ed8ddefb84b6e8bc24528af2d8",
+    "staking_address": "0xd10ef2a513cee0db54e959ef16cac711470b62cf",
+    "boosting_address": null,
+    "distributor_address": "0xd10ef2a513cee0db54e959ef16cac711470b62cf",
+    "rewards_tokens": ["0x0f2D719407FdBeFF09D87557AbB7232601FD9F29"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nETH-LP",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x3ea9b0ab55f34fb188824ee288ceaefc63cf908e",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0xd70a52248e546a3b260849386410c7170c7bd1e9",
+    "investing_address": "0xa067668661c84476afcdc6fa5d758c4c01c34352",
+    "staking_address": "0x73186f2cf2493f20836b17b21ae79fc12934e207",
+    "boosting_address": null,
+    "distributor_address": "0x73186f2cf2493f20836b17b21ae79fc12934e207",
+    "rewards_tokens": ["0x080F6AEd32Fc474DD5717105Dba5ea57268F46eb"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nUSD LP",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x2913e812cf0dcca30fb28e6cac3d2dcff4497688",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+    ],
+    "pool_address": "0xcfd72be67ee69a0dd7cf0f846fc0d98c33d60f16",
+    "investing_address": "0x9dd329f5411466d9e0c488ff72519ca9fef0cb40",
+    "staking_address": "0x73186f2cf2493f20836b17b21ae79fc12934e207",
+    "boosting_address": null,
+    "distributor_address": "0x73186f2cf2493f20836b17b21ae79fc12934e207",
+    "rewards_tokens": ["0x080F6AEd32Fc474DD5717105Dba5ea57268F46eb"],
+    "metadata": {}
+  },
+  {
+    "name": "Synapse - nUSD LP",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x2913e812cf0dcca30fb28e6cac3d2dcff4497688",
+      "0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+      "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+    ],
+    "pool_address": "0xadeac0343c2ac62dfe5a5f51e896aefff5ab513e",
+    "investing_address": "0x0db3fe3b770c95a0b99d1ed6f2627933466c0dd8",
+    "staking_address": "0x73186f2cf2493f20836b17b21ae79fc12934e207",
+    "boosting_address": null,
+    "distributor_address": "0x73186f2cf2493f20836b17b21ae79fc12934e207",
+    "rewards_tokens": ["0x080F6AEd32Fc474DD5717105Dba5ea57268F46eb"],
+    "metadata": {}
+  }
+]

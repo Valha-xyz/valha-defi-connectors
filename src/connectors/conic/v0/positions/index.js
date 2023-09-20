@@ -31,7 +31,7 @@ async function stakePosition(
   };
 }
 
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -55,12 +55,12 @@ async function stakeRewards(
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position: [0,1,2], // position of the information if return is a tupple or an array
+    position: [0, 1, 2], // position of the information if return is a tupple or an array
   };
 }
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

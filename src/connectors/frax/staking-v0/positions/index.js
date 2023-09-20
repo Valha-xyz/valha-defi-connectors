@@ -32,6 +32,6 @@ async function stakePosition(
 
 module.exports = {
   stakePosition,
-  stakeRewards: null,
+  claimableRewards: null,
   boostRewards: null,
 };

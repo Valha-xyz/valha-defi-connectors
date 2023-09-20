@@ -191,6 +191,18 @@ const POOLS = [
     rewards_tokens: ['0xc00e94cb662c3520282e6f5717214004a7f26888'],
     metadata: {},
   },
+  {
+    name: 'Pool V2 cUSDC',
+    chain: 'ethereum-goerli',
+    underlying_tokens: ['0x07865c6E87B9F70255377e024ace6630C1Eaa37F'],
+    pool_address: '0x73506770799Eb04befb5AaE4734e58C2C624F493',
+    investing_address: '0x73506770799Eb04befb5AaE4734e58C2C624F493',
+    staking_address: '',
+    boosting_address: null,
+    distributor_address: '0x05Df6C772A563FfB37fD3E04C1A279Fb30228621',
+    rewards_tokens: ['0x3587b2F7E0E2D6166d6C14230e7Fe160252B0ba4'],
+    metadata: {},
+  },
 ];
 
 /// pools

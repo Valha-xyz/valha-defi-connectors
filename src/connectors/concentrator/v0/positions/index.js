@@ -15,7 +15,7 @@ async function lockPositions(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = POOLABI;
   const method_name = 'getUserLocks';
@@ -35,7 +35,7 @@ async function lockPositions(
 
 module.exports = {
   stakePosition: null,
-  stakeRewards: null,
+  claimableRewards: null,
   boostRewards: null,
   lockPositions,
 };

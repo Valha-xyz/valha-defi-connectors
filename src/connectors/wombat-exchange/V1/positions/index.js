@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { StakeABI } = require('../abi/StakePool');
-const getWombatPid = require('../interactions/PID');
+const { getWombatPid } = require('../interactions/PID');
 
 /// stakePosition
 async function stakePosition(
@@ -34,7 +34,7 @@ async function stakePosition(
 }
 
 /// stakePosition
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -65,6 +65,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

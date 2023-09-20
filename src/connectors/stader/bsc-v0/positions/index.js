@@ -15,7 +15,7 @@ async function withdrawablePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = PoolABI;
   const method_name = 'getUserWithdrawalRequests';
@@ -34,6 +34,6 @@ async function withdrawablePosition(
 
 module.exports = {
   withdrawablePosition,
-  stakeRewards: null,
+  claimableRewards: null,
   boostRewards: null,
 };

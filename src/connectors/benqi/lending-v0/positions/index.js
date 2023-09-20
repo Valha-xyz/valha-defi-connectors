@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { RewardsABI } = require('../abi/Rewards');
 
-/// stakeRewards
-async function stakeRewards(
+/// claimableRewards
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -15,24 +15,25 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
-  const abi = DistributorABI;
+  const abi = RewardsABI;
   const method_name = 'rewardAccrued';
   const args = [0, userAddress]; // 0 for Qi, 1 for Avax
   const interaction_address = distributor_address;
 
+  console.log(interaction_address);
 
   return {
     abi, // json file name
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position:  0, // position of the information if return is a tupple or an array
+    position: 0, // position of the information if return is a tupple or an array
   };
 }
 
-// /// stakeRewards
+// /// claimableRewards
 async function extraRewards(
   pool_name,
   chain,
@@ -45,9 +46,9 @@ async function extraRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
-  const abi = DistributorABI;
+  const abi = RewardsABI;
   const method_name = 'rewardAccrued';
   const args = [1, userAddress]; // 0 for Qi, 1 for Avax
   const interaction_address = distributor_address;
@@ -57,13 +58,13 @@ async function extraRewards(
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position:  0, // position of the information if return is a tupple or an array
+    position: 0, // position of the information if return is a tupple or an array
   };
 }
 
 module.exports = {
   stakePosition: null,
-  stakeRewards,
+  claimableRewards,
   extraRewards,
   boostRewards: null,
 };

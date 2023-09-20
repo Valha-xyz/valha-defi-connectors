@@ -3,8 +3,8 @@
 const { PoolABI } = require('../abi/Pool');
 const { ExtraABI } = require('../abi/Extra');
 
-/// stakeRewards
-async function stakeRewards(
+/// claimableRewards
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -16,24 +16,25 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = PoolABI;
   const method_name = 'earned';
-  const args = [userAddress, true];
+  const args = [userAddress];
   const interaction_address = pool_address;
 
+  console.log(interaction_address);
 
   return {
     abi, // json file name
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position:  0, // position of the information if return is a tupple or an array
+    position: 0, // position of the information if return is a tupple or an array
   };
 }
 
-/// stakeRewards
+/// claimableRewards
 async function extraRewards(
   pool_name,
   chain,
@@ -46,14 +47,13 @@ async function extraRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = ExtraABI;
 
   const provider = getNodeProvider(chain);
   if (!provider) throw new Error('No provider was found.');
   const POOL = new ethers.Contract(pool_address, PoolABI, provider);
-    
 
   const extraRewardLengths = await POOL.extraRewardsLength();
   let rewardApyExtra = [];
@@ -61,29 +61,32 @@ async function extraRewards(
 
   for (let x = 0; x < extraRewardLengths; x++) {
     const extraRewardAddress = await POOL.extraRewards(x);
-    const extraContract = new ethers.Contract(extraRewardAddress, ExtraABI, provider)
-    const extraEarned =extraContract.earned(userAddress);
+    const extraContract = new ethers.Contract(
+      extraRewardAddress,
+      ExtraABI,
+      provider,
+    );
+    const extraEarned = extraContract.earned(userAddress);
     rewardApyExtra.push(extraEarned);
-    extraAddress.push(extraRewardAddress);}
-
+    extraAddress.push(extraRewardAddress);
+  }
 
   const method_name = 'earned';
   const args = [userAddress];
-  const interaction_addresses = extraAddresses
-
+  const interaction_addresses = extraAddresses;
 
   return {
     abi, // json file name
     method_name, // method to get the information
     interaction_addresses, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position:  0, // position of the information if return is a tupple or an array
+    position: 0, // position of the information if return is a tupple or an array
   };
 }
 
 module.exports = {
   stakePosition: null,
-  stakeRewards,
+  claimableRewards,
   extraRewards,
   boostRewards: null,
 };

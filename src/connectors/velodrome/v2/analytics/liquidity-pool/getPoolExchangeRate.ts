@@ -1,8 +1,8 @@
-import { type BigNumber, Contract } from 'ethers'
-import { getNodeProvider } from '../../../../../utils/getNodeProvider'
-const { ROUTERABI } = require('../../abi/ROUTER');
-import { type Pool } from '../../../../../utils/types/connector-types'
-import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders'
+import { type BigNumber, Contract } from 'ethers';
+import { getNodeProvider } from '../../../../../utils/getNodeProvider';
+import { type Pool } from '../../../../../utils/types/connector-types';
+import { type GetExchangeRateFunction } from '../../../../../utils/types/liquidityProviders';
+import { ROUTERABI } from './../../abi/ROUTER';
 const PoolFactory = '0xf1046053aa5682b4f9a81b5481394da16be5ff5a';
 
 // We only want to know the exchange rate between two assets.
@@ -14,16 +14,16 @@ export const getExchangeRate: GetExchangeRateFunction = async (
   amount1: BigNumber,
   token1: string,
   token2: string,
-  pool: Pool
+  pool: Pool,
 ): Promise<BigNumber> => {
-  const provider = getNodeProvider(pool.chain)
+  const provider = getNodeProvider(pool.chain);
   const liquidityProvidingContract = new Contract(
     pool.investing_address,
     ROUTERABI,
-    provider
-  )
+    provider,
+  );
   if (token1 == token2) {
-    return amount1
+    return amount1;
   }
 
   // First we get the reserves
@@ -31,12 +31,12 @@ export const getExchangeRate: GetExchangeRateFunction = async (
     token1,
     token2,
     pool.metadata.stable,
-    PoolFactory
-  )
+    PoolFactory,
+  );
 
-  // Then we return the equivalent amount of the other token (quoteLiquidity of the contract)
+  // Then we return the equivalent amount of the othehmr token (quoteLiquidity of the contract)
   if (reserve1 == 0 || reserve2 == 0) {
-    throw 'Router: INSUFFICIENT_LIQUIDITY'
+    throw 'Router: INSUFFICIENT_LIQUIDITY';
   }
-  return amount1.mul(reserve2).div(reserve1)
-}
+  return amount1.mul(reserve2).div(reserve1);
+};

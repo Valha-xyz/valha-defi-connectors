@@ -15,7 +15,7 @@ async function withdrawablePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = POOLABI;
   const method_name = 'getUserMaticXSwapRequests';
@@ -34,6 +34,6 @@ async function withdrawablePosition(
 
 module.exports = {
   withdrawablePosition,
-  stakeRewards: null,
+  claimableRewards: null,
   boostRewards: null,
 };

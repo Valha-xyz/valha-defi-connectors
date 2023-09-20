@@ -1,3 +1,1 @@
-
-
-export const REF_SLIPPAGE = 10; // In percent : 10 = 10%
+export const REF_SLIPPAGE = 0.5; // In percent : 1 = 1%

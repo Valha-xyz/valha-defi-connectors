@@ -1,4 +1,3 @@
-
 /* eslint-disable @typescript-eslint/no-var-requires */
 const POOLS = require('./generatedPools.json');
 
@@ -8,5 +7,3 @@ async function pools() {
 }
 
 module.exports = pools;
-
-

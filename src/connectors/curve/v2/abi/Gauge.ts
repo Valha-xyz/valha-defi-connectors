@@ -3,19 +3,19 @@ export const GaugeABI = [
     name: 'Deposit',
     inputs: [
       { type: 'address', name: 'provider', indexed: true },
-      { type: 'uint256', name: 'value', indexed: false }
+      { type: 'uint256', name: 'value', indexed: false },
     ],
     anonymous: false,
-    type: 'event'
+    type: 'event',
   },
   {
     name: 'Withdraw',
     inputs: [
       { type: 'address', name: 'provider', indexed: true },
-      { type: 'uint256', name: 'value', indexed: false }
+      { type: 'uint256', name: 'value', indexed: false },
     ],
     anonymous: false,
-    type: 'event'
+    type: 'event',
   },
   {
     name: 'UpdateLiquidityLimit',
@@ -24,10 +24,10 @@ export const GaugeABI = [
       { type: 'uint256', name: 'original_balance', indexed: false },
       { type: 'uint256', name: 'original_supply', indexed: false },
       { type: 'uint256', name: 'working_balance', indexed: false },
-      { type: 'uint256', name: 'working_supply', indexed: false }
+      { type: 'uint256', name: 'working_supply', indexed: false },
     ],
     anonymous: false,
-    type: 'event'
+    type: 'event',
   },
   {
     outputs: [],
@@ -35,10 +35,10 @@ export const GaugeABI = [
       { type: 'address', name: 'lp_addr' },
       { type: 'address', name: '_minter' },
       { type: 'address', name: '_reward_contract' },
-      { type: 'address', name: '_rewarded_token' }
+      { type: 'address', name: '_rewarded_token' },
     ],
     stateMutability: 'nonpayable',
-    type: 'constructor'
+    type: 'constructor',
   },
   {
     name: 'user_checkpoint',
@@ -46,15 +46,15 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'addr' }],
     stateMutability: 'nonpayable',
     type: 'function',
-    gas: 2311984
+    gas: 2311984,
   },
   {
     name: 'claimable_tokens',
     outputs: [{ type: 'uint256', name: '' }],
     inputs: [{ type: 'address', name: 'addr' }],
-    stateMutability: 'nonpayable',
+    stateMutability: 'view',
     type: 'function',
-    gas: 2231138
+    gas: 2231138,
   },
   {
     name: 'claimable_reward',
@@ -62,7 +62,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'addr' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 7300
+    gas: 7300,
   },
   {
     name: 'kick',
@@ -70,66 +70,76 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'addr' }],
     stateMutability: 'nonpayable',
     type: 'function',
-    gas: 2317383
+    gas: 2317383,
   },
   {
     name: 'set_approve_deposit',
     outputs: [],
     inputs: [
       { type: 'address', name: 'addr' },
-      { type: 'bool', name: 'can_deposit' }
+      { type: 'bool', name: 'can_deposit' },
     ],
     stateMutability: 'nonpayable',
     type: 'function',
-    gas: 35826
+    gas: 35826,
   },
   {
     name: 'deposit',
     outputs: [],
     inputs: [{ type: 'uint256', name: '_value' }],
     stateMutability: 'nonpayable',
-    type: 'function'
+    type: 'function',
   },
   {
     name: 'deposit',
     outputs: [],
     inputs: [
       { type: 'uint256', name: '_value' },
-      { type: 'address', name: 'addr' }
+      { type: 'address', name: 'addr' },
     ],
     stateMutability: 'nonpayable',
-    type: 'function'
+    type: 'function',
   },
   {
     name: 'withdraw',
     outputs: [],
     inputs: [{ type: 'uint256', name: '_value' }],
     stateMutability: 'nonpayable',
-    type: 'function'
+    type: 'function',
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    name: 'withdraw',
+    inputs: [
+      { name: '_value', type: 'uint256' },
+      { name: '_user', type: 'address' },
+    ],
+    outputs: [],
   },
   {
     name: 'withdraw',
     outputs: [],
     inputs: [
       { type: 'uint256', name: '_value' },
-      { type: 'bool', name: 'claim_rewards' }
+      { type: 'bool', name: 'claim_rewards' },
     ],
     stateMutability: 'nonpayable',
-    type: 'function'
+    type: 'function',
   },
   {
     name: 'claim_rewards',
     outputs: [],
     inputs: [],
     stateMutability: 'nonpayable',
-    type: 'function'
+    type: 'function',
   },
   {
     name: 'claim_rewards',
     outputs: [],
     inputs: [{ type: 'address', name: 'addr' }],
     stateMutability: 'nonpayable',
-    type: 'function'
+    type: 'function',
   },
   {
     name: 'integrate_checkpoint',
@@ -137,7 +147,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 2387
+    gas: 2387,
   },
   {
     name: 'minter',
@@ -145,7 +155,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1511
+    gas: 1511,
   },
   {
     name: 'crv_token',
@@ -153,7 +163,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1541
+    gas: 1541,
   },
   {
     name: 'lp_token',
@@ -161,7 +171,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1571
+    gas: 1571,
   },
   {
     name: 'controller',
@@ -169,7 +179,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1601
+    gas: 1601,
   },
   {
     name: 'voting_escrow',
@@ -177,7 +187,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1631
+    gas: 1631,
   },
   {
     name: 'balanceOf',
@@ -185,7 +195,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 1815
+    gas: 1815,
   },
   {
     name: 'totalSupply',
@@ -193,7 +203,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1691
+    gas: 1691,
   },
   {
     name: 'future_epoch_time',
@@ -201,18 +211,18 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1721
+    gas: 1721,
   },
   {
     name: 'approved_to_deposit',
     outputs: [{ type: 'bool', name: '' }],
     inputs: [
       { type: 'address', name: 'arg0' },
-      { type: 'address', name: 'arg1' }
+      { type: 'address', name: 'arg1' },
     ],
     stateMutability: 'view',
     type: 'function',
-    gas: 2059
+    gas: 2059,
   },
   {
     name: 'working_balances',
@@ -220,7 +230,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 1935
+    gas: 1935,
   },
   {
     name: 'working_supply',
@@ -228,7 +238,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1811
+    gas: 1811,
   },
   {
     name: 'period',
@@ -236,7 +246,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 1841
+    gas: 1841,
   },
   {
     name: 'period_timestamp',
@@ -244,7 +254,7 @@ export const GaugeABI = [
     inputs: [{ type: 'uint256', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 1980
+    gas: 1980,
   },
   {
     name: 'integrate_inv_supply',
@@ -252,7 +262,7 @@ export const GaugeABI = [
     inputs: [{ type: 'uint256', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2010
+    gas: 2010,
   },
   {
     name: 'integrate_inv_supply_of',
@@ -260,7 +270,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2085
+    gas: 2085,
   },
   {
     name: 'integrate_checkpoint_of',
@@ -268,7 +278,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2115
+    gas: 2115,
   },
   {
     name: 'integrate_fraction',
@@ -276,7 +286,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2145
+    gas: 2145,
   },
   {
     name: 'inflation_rate',
@@ -284,7 +294,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 2021
+    gas: 2021,
   },
   {
     name: 'reward_contract',
@@ -292,7 +302,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 2051
+    gas: 2051,
   },
   {
     name: 'rewarded_token',
@@ -300,7 +310,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 2081
+    gas: 2081,
   },
   {
     name: 'reward_integral',
@@ -308,7 +318,7 @@ export const GaugeABI = [
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    gas: 2111
+    gas: 2111,
   },
   {
     name: 'reward_integral_for',
@@ -316,7 +326,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2295
+    gas: 2295,
   },
   {
     name: 'rewards_for',
@@ -324,7 +334,7 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2325
+    gas: 2325,
   },
   {
     name: 'claimed_rewards_for',
@@ -332,6 +342,6 @@ export const GaugeABI = [
     inputs: [{ type: 'address', name: 'arg0' }],
     stateMutability: 'view',
     type: 'function',
-    gas: 2355
-  }
-]
+    gas: 2355,
+  },
+];

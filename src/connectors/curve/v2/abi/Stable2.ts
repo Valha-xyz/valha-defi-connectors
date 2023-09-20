@@ -358,7 +358,7 @@ export const StableABI2 = [
     stateMutability: 'view',
     type: 'function',
     name: 'balances',
-    inputs: [{ name: 'arg0', type: 'uint256' }],
+    inputs: [{ name: 'arg0', type: 'int128' }],
     outputs: [{ name: '', type: 'uint256' }]
   },
   {

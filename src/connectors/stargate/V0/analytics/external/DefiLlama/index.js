@@ -75,7 +75,6 @@ const pools = async (poolIndex, chain) => {
   const lpTokenSymbol = (
     await sdk.api.abi.call({ abi: abi.symbol, target: lpToken, chain })
   ).output;
-  console.log('hereee with: ' + lpTokenSymbol + ' ' + chain + ' - ' + lpToken);
   const underlyingLpToken = (
     await sdk.api.abi.call({ abi: abi.token, target: lpToken, chain })
   ).output;
@@ -147,7 +146,7 @@ const getPrices = async (chain, addresses) => {
       ...acc,
       [address.split(':')[1].toLowerCase()]: price.price,
     }),
-    {}
+    {},
   );
 
   return pricesObj;
@@ -171,7 +170,7 @@ function calcApy(
   totalAllocPoint,
   reward,
   rewardPrice,
-  reserve
+  reserve,
 ) {
   // pool rewards per year in usd
   // blocks per year * reward * wieght * price
@@ -210,6 +209,10 @@ function calcApy(
 const getApy = async (chain) => {
   const poolsApy = [];
 
+  if (chain === 'avalanche') {
+    chain = 'avax';
+  }
+
   const poolLength = parseInt(
     (
       await sdk.api.abi.call({
@@ -217,7 +220,7 @@ const getApy = async (chain) => {
         target: CONFIG[chain].LP_STAKING,
         chain,
       })
-    ).output
+    ).output,
   );
   const rewardPrice = (await getPrices(chain, [CONFIG[chain].REWARD_TOKEN]))[
     CONFIG[chain].REWARD_TOKEN.toLowerCase()
@@ -229,7 +232,7 @@ const getApy = async (chain) => {
       chain,
       pool.lpTokenSymbol,
       pool.underlyingLpToken,
-      pool.reserve
+      pool.reserve,
     );
     const apy = calcApy(
       chain,
@@ -237,7 +240,7 @@ const getApy = async (chain) => {
       pool.totalAllocPoint,
       pool.rewardPerBlock,
       rewardPrice,
-      reserveUSD
+      reserveUSD,
     );
 
     poolsApy.push({
@@ -251,7 +254,7 @@ const getApy = async (chain) => {
       rewardTokens: [`${CONFIG[chain].REWARD_TOKEN}`],
       url: `https://stargate.finance/pool/${pool.lpTokenSymbol.replace(
         'S*',
-        ''
+        '',
       )}-${CHAIN_MAP[chain]}/add`,
     });
   }
@@ -276,7 +279,7 @@ const main = async () => {
     polygon,
     arbi,
     op,
-    avax
+    avax,
     // fantom
   );
   const exportData = poolsData.flat().filter((p) => utils.keepFinite(p));

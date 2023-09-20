@@ -15,7 +15,7 @@ async function stakePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = LPSTAKING;
   const method_name = 'getUserStake';
@@ -31,8 +31,7 @@ async function stakePosition(
   };
 }
 
-
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -44,25 +43,24 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = LPSTAKING;
   const method_name = 'getUserStake';
   const args = [pool_address, userAddress];
   const interaction_address = staking_address;
 
-
   return {
     abi, // json file name
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position:  3, // position of the information if return is a tupple or an array
+    position: 3, // position of the information if return is a tupple or an array
   };
 }
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

@@ -1341,5 +1341,3 @@ export const VOTERABI = [
     type: 'function',
   },
 ];
-
-module.exports = VOTERABI;

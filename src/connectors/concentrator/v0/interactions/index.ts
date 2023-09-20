@@ -16,7 +16,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
   const method_name = 'depositWithCRV';
@@ -24,7 +24,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const minAmount =
     amount.amountsMinimum?.[0] ?? (parseFloat(amount.amount) * 0.97).toString();
@@ -54,7 +54,7 @@ async function unlock(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
   const method_name = 'redeem';
@@ -62,7 +62,7 @@ async function unlock(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
 
   const args = [amountBN, addresses.receiverAddress, addresses.userAddress];
@@ -88,7 +88,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = POOLABI;
   const method_name = 'withdrawExpired';

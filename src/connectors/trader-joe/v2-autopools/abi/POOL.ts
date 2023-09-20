@@ -1,4 +1,4 @@
-const POOLABI = [
+export const POOLABI = [
   {
     "inputs": [
       {
@@ -1411,5 +1411,3 @@ const POOLABI = [
     "type": "receive"
   }
 ]
-
-  module.exports = POOLABI;

@@ -12,7 +12,10 @@ const POOLS = [
       '0x82af49447d8a07e3bd95bd0d56f35241523fbab1',
       '0xf42ae1d54fd613c9bb14810b0588faaa09a426ca',
     ],
-    metadata: {weth_rewards: "0x4e971a87900b931ff39d1aad67697f49835400b6", vault: "0x489ee077994B6658eAfA855C308275EAd8097C4A"},
+    metadata: {
+      weth_rewards: '0x4e971a87900b931ff39d1aad67697f49835400b6',
+      vault: '0x489ee077994B6658eAfA855C308275EAd8097C4A',
+    },
   },
 
   {
@@ -28,7 +31,10 @@ const POOLS = [
       '0xFf1489227BbAAC61a9209A08929E4c2a526DdD17',
       '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
     ],
-    metadata: {weth_rewards: "0xd2d1162512f927a7e282ef43a362659e4f2a728f", vault: "0x9ab2De34A33fB459b538c43f251eB825645e8595"},
+    metadata: {
+      weth_rewards: '0xd2d1162512f927a7e282ef43a362659e4f2a728f',
+      vault: '0x9ab2De34A33fB459b538c43f251eB825645e8595',
+    },
   },
 ];
 

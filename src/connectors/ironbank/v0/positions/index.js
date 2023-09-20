@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { StakingABI } = require('../abi/StakingPool');
+const { DistributorABI } = require('../abi/Distributor');
 
 /// stakePosition
-async function stakeRewards(
+async function stakePosition(
   pool_name,
   chain,
   underlying_tokens,
@@ -17,10 +17,10 @@ async function stakeRewards(
   userAddress,
   receiverAddress,
 ) {
-  const abi = StakingABI;
+  const abi = DistributorABI;
   const method_name = 'getUserStaked';
   const args = [userAddress];
-  const interaction_address = staking_address;
+  const interaction_address = distributor_address;
 
   return {
     abi, // json file name
@@ -31,10 +31,8 @@ async function stakeRewards(
   };
 }
 
-
-
-/// stakeRewards
-async function stakeRewards(
+/// claimableRewards
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -48,22 +46,22 @@ async function stakeRewards(
   userAddress,
   receiverAddress,
 ) {
-  const abi = StakingABI;
+  const abi = DistributorABI;
   const method_name = 'getUserClaimableRewards';
-  const args = [userAddress,rewards_tokens];
-  const interaction_address = staking_address;
+  const args = [userAddress, rewards_tokens];
+  const interaction_address = distributor_address;
 
   return {
     abi, // json file name
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position: 0, // position of the information if return is a tupple or an array
+    position: 3, // position of the information if return is a tupple or an array
   };
 }
 
 module.exports = {
-  stakePosition: null,
-  stakeRewards,
+  stakePosition,
+  claimableRewards,
   boostRewards: null,
 };

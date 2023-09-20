@@ -15,7 +15,7 @@ async function poolPosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = ROUTERABI;
   const method_name = 'balanceOf';
@@ -31,7 +31,6 @@ async function poolPosition(
   };
 }
 
-
 /// boostPosition
 async function boostPosition(
   pool_name,
@@ -45,7 +44,7 @@ async function boostPosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = ROUTERABI;
   const method_name = 'getBoostingBlidAmount';
@@ -61,7 +60,6 @@ async function boostPosition(
   };
 }
 
-
 async function boostRewards(
   pool_name,
   chain,
@@ -74,13 +72,12 @@ async function boostRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = ROUTERABI;
   const method_name = 'getBoostingClaimableBLID';
   const args = [userAddress];
   const interaction_address = boosting_address;
-
 
   return {
     abi, // json file name
@@ -93,6 +90,6 @@ async function boostRewards(
 
 module.exports = {
   boostPosition,
-  stakeRewards: null,
+  claimableRewards: null,
   boostRewards,
 };

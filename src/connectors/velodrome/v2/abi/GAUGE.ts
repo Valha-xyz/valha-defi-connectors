@@ -552,5 +552,3 @@ export const GAUGEABI = [
     type: 'function',
   },
 ];
-
-module.exports = GAUGEABI;
