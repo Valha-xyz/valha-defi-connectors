@@ -1,0 +1,5289 @@
+[
+    {
+        "name": "BTRST - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x799ebfabe77a6e34311eeee9825190b9ece32824",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x0170915a0a6de6eb8dfc4e0f7415ad5a5a2be180",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin - Synthetix Network Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
+        ],
+        "pool_address": "0x020c349a0541d76c16f501abc6b2e9c98adae892",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "BOB - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x0230ddd838e499865405042560e72aa38324acd1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ether - SAITO LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xfa14fa6958401314851a17d6c5360ca29f74b57b"
+        ],
+        "pool_address": "0x02976320ef83e1413a9307b34c463a19ab484b5e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "CitaDAO - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3541a5c1b04adaba0b83f161747815cd7b1516bc",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x03bc32cbaf0516945db77a32f2479379585aa17b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Ease Fun Token - WBTC-WETH SLP Ease Vault LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x160de4468586b6b2f8a92feb0c260fc6cfc743b1",
+            "0xea5edef10f8255cd03541e8ff163a2836e0d7bd3"
+        ],
+        "pool_address": "0x055284a4ca6532ecc219ac06b577d540c686669d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped NXM - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0d438f3b5175bebc262bf23753c1e53d03432bde",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x058d79a4c6eb5b11d0248993ffa1faa168ddd3c0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "GMO JPY - Z.com USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc08512927d12348f6620a698105e1baac6ecd911",
+            "0xc56c2b7e71b54d38aab6d52e94a04cbfa8f604fa"
+        ],
+        "pool_address": "0x06909fae7748d015083a472b1ecaef1203c19bde",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Gitcoin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f"
+        ],
+        "pool_address": "0x06b1655b9d560de112759b4f0bf57d6f005e72fe",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Governance OHM - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0ab87046fbb341d058f17cbc4c1133f25a20a52f",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x08f68110f1e0ca67c80a24b4bd206675610f445d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - Ultra Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xd13c7342e1ef687c5ad21b27c2b65d772cab5c8c"
+        ],
+        "pool_address": "0x094a28b22e1b4218d590ea6fa916b3c5e670ba55",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "SSV Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9d65ff81a3c488d585bbfb0bfe3c7707c7917f54",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x0a55882f4e1117adc54afbbac4a39079ad52fb89",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "HarryPotterObamaSonic10Inu - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x72e4f9f808c49a2a61de9c5896298920dc4eeea9",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x0c30062368eefb96bf3ade1218e685306b8e89fa",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped liquid staked Ether 2.0 - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x109830a1aaad605bbf02a9dfa7b0b92ec2fb7daa",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Pepe - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x11950d141ecb863f01007add7d1a342041227b58",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Keep3rV1 - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x11b7a6bc0259ed6cf9db8f499988f9ecc7167bf5",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x11b815efb8f581194ae79006d24e0d814b7697f6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Cream ETH Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x49d72e3973900a195a155a46441f0c08179fdb64",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x12026ac556cd535149e47c0ad9846fb7970ec455",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Fei USD - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x138080a0036e8c2c4c79d21e2a2c535fe0887d68",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "ICHI - Wrapped BTC LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x111111517e4929d3dcbdfa7cce55d30d4b6bc4d6",
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+        ],
+        "pool_address": "0x14b49fe0aeca3beabfee01b16900322313089681",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Send Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3f14920c99beb920afa163031c4e47a3e03b3e4a",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x14f59c715c205002c6e3f36766d302c1a19bacc8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "ETH 2x Flexible Leverage Index - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xaa6e8127831c9de45ae56bb1b0d4d4da6e5665bd",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x151ccb92bc1ed5c6d0f9adb5cec4763ceb66ac7f",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "StakeWise - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x48c3399719b582dd63eb5aadf12a40b4c3f52fa2",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x15d12305d0f57c99d947e66d4164094ffccf78fc",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Wrapped LUNA Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd2877702675e6ceb975b4a1dff9fb7baf4c91ea9"
+        ],
+        "pool_address": "0x16b70f44719b227278a2dc1122e8106cc929ecd1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin - GMO JPY LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xc08512927d12348f6620a698105e1baac6ecd911"
+        ],
+        "pool_address": "0x1837164d1ac7cb56d75c8964aab903a26ee02286",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "IMPT - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x04c17b9d3b29a78f7bd062a57cf44fc633e71f85",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x1a89ae3ba4f9a97b10bac6a77061f00bb956858b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Metis Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9e32b13ce7f2e80a01932b42553652e053d6ed8e",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x1c98562a2fab5af19d8fb3291a36ac3c618835d9",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Uniswap - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x1d42064fc4beb5f8aaf85f4617ae8b3b5b8bd801",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Rollbit Coin - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x2322e5517a3cbc75a3f02d74c96f82dda120d841",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Quant - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4a220e6096b25eadb88358cb44068a3248254675",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x24ee2c6b9597f035088cda8575e9d5e15a84b9df",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Ease Fun Token - cvxsteCRV Ease Vault LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x160de4468586b6b2f8a92feb0c260fc6cfc743b1",
+            "0xea5edef1c6ed1be1bcba4617a1c5a994e9018a43"
+        ],
+        "pool_address": "0x277667eb3e34f134adf870be9550e9f323d0dc24",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Rail LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xe76c6c83af64e4c60245d8c7de953df673a7a33d"
+        ],
+        "pool_address": "0x2837809fd68e4a4104af76bbec5b622b6146b2cb",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Matic Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x290a6a7460b308ee3f19023d2d00de604bcf5b42",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "XEN Crypto - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x06450dee7fd2fb8e39061434babcfc05599a6fb8",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x2a9d2ba41aba912316d16742f259412b681898db",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Decentralized USD - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0c10bf8fcb7bf5412187a595ab97a3609160b5c6",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x2bc477c7c00511ec8a2ea667dd8210af9ff15e1d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Open Exchange Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x78a0a62fba6fb21a83fe8a3433d44c73a4017a6f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x2cad29e9640b9bcfb1d8d25cf3e4bd05f55cce70",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "STFX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9343e24716659a3551eb10aff9472a2dcad5db2d",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x2d6fcfde9709343c4c7a78d91077473d6b604653",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - Tempus LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xa36fdbbae3c9d55a1d67ee5821d53b50b63a1ab9"
+        ],
+        "pool_address": "0x2dee10627a6861e92ee8684c02e28b13fafac304",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Convex Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x2e4784446a0a06df3d1a040b03e1680ee266c35a",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "yearn.finance - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x2e8daf55f212be91d3fa882cceab193a08fddeb2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "SHIBA INU - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x2f62f2b4c5fcd7570a709dec05d68ea19c82a9ec",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Axie Infinity Shard - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x3019d4e366576a88d28b623afaf3ecb9ec9d9580",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - swETH LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf951e335afb289353dc249e82926178eac7ded78"
+        ],
+        "pool_address": "0x30ea22c879628514f1494d4bbfef79d21a6b49a2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Rollbit Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x3157e15e15fd41d6a9c5df255c71506f160db67c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Rollbit Coin - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x33676385160f9d8f03a0db2821029882f7c79e93",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x3416cf6c708da44db2624d63ea0aaef7113527c6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Frax Ether - Frax LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5e8422345238f34275888049021821e8e08caa1f",
+            "0x853d955acef822db058eb8505911ed77f175b99e"
+        ],
+        "pool_address": "0x36c060cc4b088c830a561e959a679a58205d3f56",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Maker - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x3afdc5e6dfc0b0a507a8e023c9dce2cafc310316",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Fantom Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4e15361fd6b4bb609fa63c81a2be19d873717870",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x3b685307c8611afb2a9e83ebc8743dc20480716e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "BONE SHIBASWAP - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9813037ee2218799597d83d4a5b6f3b6778218d9",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x3be033b60bc4aa789368954595332fab143987ec",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Ethereum Mapped Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf80fc1ce16cbcbd18421e9cd055ca1bb58a9e097"
+        ],
+        "pool_address": "0x40e629a26d96baa6d81fae5f97205c2ab2c1ff29",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Psyop - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3007083eaa95497cd6b2b809fb97b6a30bdf53d3",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x42d403ab9b0603442ac991c0cfe124105dde0811",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x4585fe77225b41b697c938b018e2ac67ac5a20c0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Project Galaxy - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5faa989af96af85384b8a938c2ede4a7378d9875",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x4721f28bf168904d228a05a6054a7ea68f7c9d78",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x48da0965ab2d2cbf1c17c09cfb5cbe67ad5b1406",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Dogechain Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7b4328c127b85369d9f82ca0503b000d09cf9180",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x498498fa386ef2860e7abf8c60254580c8c41ec5",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Pulse from PulseChain - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa882606494d86804b5514e07e6bd2d6a6ee6d68a",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x4a2987c255ad7f9409c54a4fce7823441e14f08b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Tether USD - Yieldflow LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "0xf5c583affda8dfbefec2cd5c072dc78e9250cce5"
+        ],
+        "pool_address": "0x4b59b383948ee7d5466022f8c048209b86f633ec",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - LooksRare Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf4d2888d29d722226fafa5d9b24f9164c092421e"
+        ],
+        "pool_address": "0x4b5ab61593a2401b1075b90c04cbcdd3f87ce011",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped TON Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x582d872a1b094fc48f5de31d3b73f2d9be47def1",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x4b62fa30fea125e43780dc425c2be5acb4ba743b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Nexo - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb62132e35a6c13ee1ee0f84dc5d40bad8d815206",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x4c54ff7f1c424ff5487a32aad0b48b19cbaf087f",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Curve DAO Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd533a949740bb3306d119cc777fa900ba034cd52"
+        ],
+        "pool_address": "0x4c83a7f819a5c37d64b4c5a2f8238ea082fa1f4e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "LUSD Stablecoin - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x4e0924d3a751be199c426d52fb1f2337fa96f736",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x4e68ccd3e89f51c3074ca5072bbac773960dfa36",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Rollbit Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x046eee2cc3188071c02bfc1745a6b17c656e3f3d",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x510100d5143e011db24e2aa38abe85d73d5b2177",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Fei USD - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x5180545835bd68810fb7e11c7160bb7ea4ae8744",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Golem Network Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x531b6a4b3f962208ea8ed5268c642c84bb29be0b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "HuntToken - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9aab071b4129b083b01cb5a0cb513ce7eca26fa5",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x54578b6f942aeb23b67a8cef24220651306b8e26",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "SHIBA INU - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5764a6f2212d502bc5970f9f129ffcd61e5d7563",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x5777d92f208679db4b9778590fa3cab3ac9e2168",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Zombie Virus Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xe8a3bf796ca5a13283ec6b1c5b645b91d7cfef5d"
+        ],
+        "pool_address": "0x58fcd403610e772d68726b55183eb958a7581731",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "LCX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x037a54aab062628c9bbae1fdb1583c195585fe41",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5aaa28ca43c6646fd1403e508f0fca1d92357dde",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Aave Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5ab53ee1d50eef2c1dd3d5402789cd27bb52c1bb",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "SAND - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3845badade8e6dff049820680d1f14bd3903a5d0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5b97b125cf8af96834f2d08c8f1291bd47724939",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "BitDAO - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1a4b46696b2bb4794eb3d4c26f1c55f9170fa4c5",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5c128d25a21f681e678cb050e551a895c9309945",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Gho Token - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x5c95d4b1c3321cf898d25949f41d50be2db5bc1d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - FOOM LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd0d56273290d339aaf1417d9bfa1bb8cfe8a0933"
+        ],
+        "pool_address": "0x5cd0ad98ba6288ed7819246a1ebc0386c32c314b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Adventure Gold - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x32353a6c91143bfd6c7d363b546e62a9a2489a20",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5d752f322befb038991579972e912b02f61a3dda",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Liquid Staked ETH - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8c1bed5b9a0928467c9b1341da1d7bd5e10b6549",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x5d811a9d059ddab0c18b385ad3b752f734f011cb",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Gravita Debt Token - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x15f74458ae0bfdaa1a96ca1aa779d715cc1eefe4",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x5db3d38bd40c862ba1fdb2286c32a62ab954d36d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x60594a405d53811d3bc4766596efd80fd545a270",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - LooksRare Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf4d2888d29d722226fafa5d9b24f9164c092421e"
+        ],
+        "pool_address": "0x6231e794773e4dc0b1ad79105d850a05d5fc0fcb",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "XSGD - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x70e8de73ce538da2beed35d14187f6959a8eca96",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x6279653c28f138c8b31b8a0f6f8cd2c58e8c1705",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - BitTorrent LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xc669928185dbce49d2230cc9b0979be6dc797957"
+        ],
+        "pool_address": "0x64a078926ad9f9e88016c199017aea196e3899e1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "WoofWork.io - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6bc08509b36a98e829dffad49fde5e412645d0a3",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x666ed8c2151f00e7e58b4d941f65a9df68d2245b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped DogeCoin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x35a532d376ffd9a705d0bb319532837337a398e7",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x68082ecc5bbad8fe77c2cb9d0e3403d9a00ccbc2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin - Z.com USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xc56c2b7e71b54d38aab6d52e94a04cbfa8f604fa"
+        ],
+        "pool_address": "0x692d10a11aaf6fbc3c397ffc558091064d97cfe4",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "HEX - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x69d91b94f0aaf8e8a2586909fa77a5c2c89818d5",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - UniWhales.io LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xdbdd6f355a37b94e6c7d32fef548e98a280b8df5"
+        ],
+        "pool_address": "0x6a61cd16ec0c73b3855beecc4c378dcbdb63f88e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "SPACE ID - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2dff88a56767223a5529ea5960da7a3f5f766406",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x6ac6b053a2858bea8ad758db680198c16e523184",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "dYdX - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x6c4ab1907805adcb0b7ae911a5d1b0b99d608b3c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "REFUND - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x955d5c14c8d4944da1ea7836bd44d54a8ec35ba1",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x6c4c7f46d9d4ef6bc5c9e155f011ad19fc4ef321",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Wrapped liquid staked Ether 2.0 LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+        ],
+        "pool_address": "0x6c5f35dfd2fa08f5fb2d35d5937181213c7d6a17",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x6c6bc977e13df9b0de53b251522280bb72383700",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Blur - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5283d291dbcf85356a21ba090e6db59121208b44",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x6f41040b9e098c2ac4b88e27b50d4e9ab486781b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x6f48eca74b38d2936b02ab603ff4e36a6c0e3a77",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "OriginToken - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8207c1ffc5b6804f6024322ccf34f29c3541ae26",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x70bb8e6844dfb681810fd557dd741bcaf027bf94",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "RabbitX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3ba925fdeae6b46d0bb4d424d829982cb2f7309e",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x71d091e35abbd51b46db179184684633581d1816",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "agEUR - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1a7e4e63778b4f12a199c062f3efdd288afcbce8",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x735a26a57a0a0069dfabd41595a970faf5e1ee8b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ether - StakeWise Staked ETH2 LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xfe2e637202056d30016725477c5da089ab0a043a"
+        ],
+        "pool_address": "0x7379e81228514a1d2a6cf7559203998e20598346",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Arbitrum - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb50721bcf8d664c30412cfbc6cf7a15145234ad1",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x755e5a186f0469583bd2e80d1216e02ab88ec6ca",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Paragons DAO Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x375abb85c329753b1ba849a601438ae77eec9893",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x75ea68f3c8c59bbc032dfce2db0705e2c6efad0b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - TORG LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xcfa0885131f602d11d4da248d2c65a62063567a9"
+        ],
+        "pool_address": "0x76d66961b84a520a859a2fb6075af220be6461e8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "The Doge NFT - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xbaac2b4491727d78d2b78815144570b9f2fe8899",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x7731ca4d00800b6a681d031f565deb355c5b77da",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Tether USD - DeversiFi Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "0xdddddd4301a082e62e84e43f474f044423921918"
+        ],
+        "pool_address": "0x7736b5006d90d5d5c0ee8148f1ea07ef82ab1677",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x7858e59e0c01ea06df3af3d20ac7b0003275d4bf",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Alien Milady Fumo - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2890df158d76e584877a1d17a85fea3aeeb85aa6",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x78d4e81fc84a1ce367e90936e49a74a9052137e8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "WOOL - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8355dbe8b0e275abad27eb843f3eaf3fc855e525",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x7b12d855445073987d45ea97b1af3554f05e4ef4",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Turbo - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa35923162c49cf95e6bf26623385eb431ad920d3",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x7baece5d47f1bc5e1953fbe0e9931d54dab6d810",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x7bea39867e4169dbe237d55c8242a8f2fcdcc387",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Sowaka LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xddfbe9173c90deb428fdd494cb16125653172919"
+        ],
+        "pool_address": "0x7d60220578d99dce0f0f59cb1368787b8dbb312b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Yield Guild Games Token - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x25f8087ead173b73d6e8b84329989a8eea16cf73",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x7ec0b75a98997c927ace6d87958147a105147ea0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "LUKSO Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa8b919680258d369114910511cc87595aec0be6d",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x80c7770b4399ae22149db17e97f9fc8a10ca5100",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Blur - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5283d291dbcf85356a21ba090e6db59121208b44",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x824a30f2984f9013f2c8d0a29c0a3cc5fd5c0673",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Opyn Squeeth LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf1b99e3e573a1a9c5e6b2ce818b617f0e664e86b"
+        ],
+        "pool_address": "0x82c427adfdf2d245ec51d8046b41c4ee87f0d29c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "ConstitutionDAO - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7a58c0be72be218b41c608b7fe7c5bb630736c71",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x83abecf7204d5afc1bea5df734f085f2535a9976",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Coinbase Wrapped Staked ETH - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xbe9895146f7af43049ca1c1ae358b0541ea49704",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x840deeef2f115cf50da625f7368c24af6fe74410",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Million - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b4c7a5e3f0b99fcd83e9c089bddd6c7fce5c611",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x84383fb05f610222430f69727aa638f8fdbf5cc1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - MEMEVENGERS LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xddf688e96cb2531a69bf6347c02f069266c1aa81"
+        ],
+        "pool_address": "0x855fa1b0c27fefc055c1880c5a5969ee731e9690",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Truebit LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf65b5c5104c4fafd4b709d9d60a185eae063276c"
+        ],
+        "pool_address": "0x86e69d1ae728c9cd229f07bbf34e01bf27258354",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "TRON - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x50327c6c5a14dcade707abad2e27eb517df87ab5",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x8759f1dc524f1305cbdfa1025d08eeb6c1158186",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - HOPR Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xf5581dfefd8fb0e4aec526be659cfab1f8c781da"
+        ],
+        "pool_address": "0x87986ae1e99f99da1f955d16930dc8914ffbed56",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Unification LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xe9b076b476d8865cdf79d1cf7df420ee397a7f75"
+        ],
+        "pool_address": "0x88395224c3709be9a700624bd9246459585c56b0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "ICHI - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x111111517e4929d3dcbdfa7cce55d30d4b6bc4d6",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x89e4d042c27210c2cdfc472d3ea4a88d30e4c245",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Frax Ether - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5e8422345238f34275888049021821e8e08caa1f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x8a15b2dc9c4f295dcebb0e7887dd25980088fdcb",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "USD Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Ease Fun Token - yvCurve-IronBank Ease Vault LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x160de4468586b6b2f8a92feb0c260fc6cfc743b1",
+            "0xea5edef1fcf717327440646e7302ca058dde844f"
+        ],
+        "pool_address": "0x8c0411f2ad5470a66cb2e9c64536cfb8dcd54d51",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Fei USD - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x956f47f50a910163d8bf957cf5846d573e7f87ca",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x8c54aa2a32a779e6f6fbea568ad85a19e0109c26",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "agEUR - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1a7e4e63778b4f12a199c062f3efdd288afcbce8",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x8db1b906d47dfc1d84a87fc49bd0522e285b98b9",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Paxos Standard LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x8e870d67f660d95d5be530380d0ec0bd388289e1"
+        ],
+        "pool_address": "0x8f8ef111b67c04eb1641f5ff19ee54cda062f163",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - BOB LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0x8fb60298c6bbafa428494fd2d63d116063ef32e2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Frax - Frax Price Index Share LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x853d955acef822db058eb8505911ed77f175b99e",
+            "0xc2544a32872a91f4a553b404c6950e89de901fdb"
+        ],
+        "pool_address": "0x8fe536c7dc019455cce34746755c64bbe2aa163b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Curve DAO Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd533a949740bb3306d119cc777fa900ba034cd52"
+        ],
+        "pool_address": "0x919fa96e88d67499339577fa202345436bcdaf79",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Ethereum Name Service LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+        ],
+        "pool_address": "0x92560c178ce069cc014138ed3c2f5221ba71f58a",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "NFTX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x87d73e916d7057945c9bcd8cdd94e42a6f47f776",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x930b2c8ff1de619d4d6594da0ba03fdeda09a672",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "DefiPulse Index - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x9359c87b38dd25192c5f2b07b351ac91c90e6ca7",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Fetch - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xaea46a60368a7bd060eec7df8cba43b7ef41ad85",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x948b54a93f5ad1df6b8bff6dc249d99ca2eca052",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Ribbon - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6123b0049f904d730db3c36a31167d9d4121fa6b",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x94981f69f7483af3ae218cbfe65233cc3c60d93a",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Shina Inu - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x243cacb4d5ff6814ad668c3e225246efa886ad5a",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x959c7d5706ac0b5a29f506a1019ba7f2a1c70c70",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - Frax LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0x853d955acef822db058eb8505911ed77f175b99e"
+        ],
+        "pool_address": "0x97e7d56a0408570ba1a7852de36350f7713906ec",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "SingularityNET Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5b7533812759b45c2b44c19e320ba2cd2681b542",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x99132b53ab44694eeb372e87bced3929e4ab8456",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "StakeWise - StakeWise Staked ETH2 LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x48c3399719b582dd63eb5aadf12a40b4c3f52fa2",
+            "0xfe2e637202056d30016725477c5da089ab0a043a"
+        ],
+        "pool_address": "0x992f534fcc87864875224d142d6bf054b1882160",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "SingularityNET Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5b7533812759b45c2b44c19e320ba2cd2681b542",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x99a6880748ceb61c3d9b6d4cd49edb59f79f405d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x99ac8ca7087fa4a2a1fb6357269965a2014abc35",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x9a772018fbd77fcd2d25657e5c547baff3fd7d16",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "LOVE - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x504624040e0642921c2c266a9ac37cafbd8cda4e",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x9cd1e0793ced49f5e592d77328967fffc6ea7516",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0x9db9e0e53058c89e5b94e29621a205198648425b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "HEX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0x9e0905249ceefffb9605e034b534544684a58be6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "1INCH Token - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x111111111117dc0aa78b770fa6a738034120c302",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0x9febc984504356225405e26833608b17719c82ae",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Lido DAO Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa3f558aebaecaf0e11ca4b2199cc5ed341edfd74",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Rocket Pool ETH - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xae78736cd615f374d3085123a210448e74fc6393",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa4e0faa58465a2d369aa21b3e42d43374c6f9613",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "ChainLink Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x514910771af9ca656af840dff83e8264ecf986ca",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa6cc3c2531fdaa6ae1a3ca84c2855806728693e8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "ZeroLiquid - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb0ed33f79d89541dfdcb04a8f04bc2c6be025ecc",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa80838d2bb3d6ebaed1978fa23b38f91775d8378",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa80964c5bbd1a0e95777094420555fead1a26c1e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "UMIIE COIN - Umiie 2 LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x12b32f10a499bf40db334efe04226cca00bf2d9b",
+            "0x5ed60a121159481675bad3e648ba4c89753e056f"
+        ],
+        "pool_address": "0xa850478adaace4c08fc61de44d8cf3b64f359bec",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "TenX Community JAPAN - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x961dd84059505d59f82ce4fb87d3c09bec65301d",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xa9166690c35d900a57d2ec132c58291bc0678944",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "StakeWise Reward ETH2 - StakeWise Staked ETH2 LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x20bc832ca081b91433ff6c17f85701b6e92486c5",
+            "0xfe2e637202056d30016725477c5da089ab0a043a"
+        ],
+        "pool_address": "0xa9ffb27d36901f87f1d0f20773f7072e38c5bfba",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "USD Coin - Blend Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xdc190ea63142c7522dd56077f9b48b5073e3bd49"
+        ],
+        "pool_address": "0xab04004e95227456310ef7fac95e40d8a4837d45",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "ApeCoin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4d224452801aced8b2f0aebe155379bb5d594381",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xac4b3dacb91461209ae9d41ec517c2b9cb1b7daf",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - TAI reflex index LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf915110898d9a455ad2da51bf49520b41655ccea"
+        ],
+        "pool_address": "0xae6afad2361697cd22c06964d69c3152c72815d0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Shiba v2 Limited - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0335820dc549dbfae5b8d691331cadfca7026e0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xaf585783337434fee47c9abfbd737156f9a84dd1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "BONE SHIBASWAP - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9813037ee2218799597d83d4a5b6f3b6778218d9",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xb011e4eb4111ef00b620a5ed195836dcd69db1ff",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Function X - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8c15ef5b4b21951d50e53e4fbda8298ffad25057",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xb03f87e577c4fe4685cf2c88a8473414bb1d04f1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "ApeCoin - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4d224452801aced8b2f0aebe155379bb5d594381",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xb07fe2f407f971125d4eb1977f8acee8846c7324",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "chiliZ - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3506424f91fd33084466f402d5d97f05f8e3b4af",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0xb0f4a77bde7fee134265307c5cc19abff0ba409b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - SAITABIT LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x927402ab67c0cda3c187e9dfe34554ac581441f2"
+        ],
+        "pool_address": "0xb2c86ff752f18499b70e8f642b3421405d50d6e9",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Frax Price Index Share LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xc2544a32872a91f4a553b404c6950e89de901fdb"
+        ],
+        "pool_address": "0xb2db69d6986fbf38de781ba606923f8ae8d7f437",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Bitcoin Mapped Token LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x36f9975d8184a65be42290d5a8764dc97f3d9396"
+        ],
+        "pool_address": "0xb2dcaa15fbd8460bcb9cfab5aebea7ab0ed328fe",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Floor LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf59257e961883636290411c11ec5ae622d19455e"
+        ],
+        "pool_address": "0xb386c1d831eed803f5e8f274a59c91c4c22eeac0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Frax Share - Frax LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+            "0x853d955acef822db058eb8505911ed77f175b99e"
+        ],
+        "pool_address": "0xb64508b9f7b81407549e13db970dd5bb5c19107f",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "SOS - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3b484b82567a09e2588a13d54d032153f0c0aee0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xb82d251b7e92832dccb7f3c6f03ae20f2d7ee597",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Ethereum Name Service LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+        ],
+        "pool_address": "0xb9c4a5522a2f8ba9e2ff7063df8c02ed443337a3",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Reserve Rights - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8762db106b2c2a0bccb3a80d1ed41273552616e8",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xba8eb224b656681b2b8cce9c3fc920d98594675b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0xbb256c2f1b677e27118b0345fd2b3894d2e6d487",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - XSGD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x70e8de73ce538da2beed35d14187f6959a8eca96"
+        ],
+        "pool_address": "0xbc32d18c5c1138094dabeb3b4d5b720db75c823c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - BOB LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0xc0d19f4fae83eb51b2adb59eb649c7bc2b19b2f6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Instadapp - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6f40d4a6237c257fff2db00fa0510deeecd303eb",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xc1cd3d0913f4633b43fcddbcd7342bc9b71c676f",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Frax - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x853d955acef822db058eb8505911ed77f175b99e",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0xc2a856c3aff2110c1171b8f942256d40e980c726",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xc2e9f25be6257c210d7adf0d4cd6e3e881ba25f8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "OVR - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x21bfbda47a0b4b5b1248c767ee49f7caa9b23697",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xc3f6b81fb9e6db259272026601689e383f94c0b0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Tether USD LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xdac17f958d2ee523a2206206994597c13d831ec7"
+        ],
+        "pool_address": "0xc5af84701f98fa483ece78af83f11b6c38aca71d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Frax - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x853d955acef822db058eb8505911ed77f175b99e",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Pond Coin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x423f4e6138e475d85cf7ea071ac92097ed631eea",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xc64350c0eab6faed8f17cc2cdff0761c53fb4152",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Stader - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x30d20208d987713f46dfd34ef128bb16c404d10f",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xc72abb13b6bdfa64770cb5b1f57bebd36a91a29e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Rai Reflex Index - Dai Stablecoin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
+            "0x6b175474e89094c44da98b954eedeac495271d0f"
+        ],
+        "pool_address": "0xcb0c5d9d92f4f2f80cce7aa271a1e148c226e19d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "VectorspaceAI - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x7d29a64504629172a429e64183d6673b9dacbfce",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcbbc981bd5b358d09a9346726115d3ac8822d00b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "VitaDAO Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcbcc3cbad991ec59204be2963b4a87951e4d292b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Prime - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xb23d80f5fefcddaa212212f028021b41ded428cf",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcd423f3ab39a11ff1d9208b7d37df56e902c932b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Frax Share - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcd8286b48936cdac20518247dbd310ab681a9fbf",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Perpetual - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xbc396689893d065f41bc2c6ecbee5e0085233447",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcd83055557536eff25fd0eafbc56e74a1b4260b3",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Metronome2 - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2ebd53d035150f328bd754d6dc66b99b0edb89aa",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xceb5c29bde4604296135dd7b027a433fd3633516",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Rocket Pool Protocol LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+        ],
+        "pool_address": "0xcf15ad9be9d33384b74b94d63d06b4a9bd82f640",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Adshares Token - Adshares LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x422866a8f0b032c5cf1dfbdef31a20f4509562b0",
+            "0xcfcecfe2bd2fed07a9145222e8a7ad9cf1ccd22a"
+        ],
+        "pool_address": "0xcf56b49b435f4d326467788f2c8543cf9a99660f",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Governance OHM - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0ab87046fbb341d058f17cbc4c1133f25a20a52f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xcf7e21b96a7dae8e1663b5a266fd812cbe973e70",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Uniswap - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xd0fc8ba7e267f2bc56044a7715a489d851dc6d78",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "LQTY - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xd1d5a4c0ea98971894772dcd6d2f1dc71083c44e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Frax Price Index - Frax LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5ca135cb8527d76e932f34b5145575f9d8cbe08e",
+            "0x853d955acef822db058eb8505911ed77f175b99e"
+        ],
+        "pool_address": "0xd2a9f2b88d6df8830522d624db491445362a2797",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Orbit Chain - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x662b67d00a13faf93254714dd601f5ed49ef2f51",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xd43b29aaf8ad938cff4f478a0756defffb329d07",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Paxos Standard - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xd83d78108dd0d1dffff11ea3f99871671a52488b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "dYdX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xd8de6af55f618a7bc69835d55ddc6582220c36c0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Mr F was here - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3d5d3dcd01469ef8c6bc9c45665835814635c725",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xdb1d1c9a42e3d10717c415bd06853ea7ae818823",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Ben - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9bf1d7d63dd7a4ce167cf4866388226eeefa702e",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xdce93ed9ae7c53143e19cf799d156b72d1cc2777",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - BTRFLY LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xc0d4ceb216b3ba9c3701b291766fdcba977cec3a"
+        ],
+        "pool_address": "0xdf9ab3c649005ebfdf682d2302ca1f673e0d37a2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "HEX - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2b591e99afe9f32eaa6214f7b7629768c40eeb39",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xe05e653453f733786f2dabae0ffa1e96cfcc4b25",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "dYdX - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe0cfa17aa9b8f930fd936633c0252d5cb745c2c3",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "UniCrypt - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xadb2437e6f65682b85f814fbc12fec0508a7b1d0",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe0f0e02a16b45f949b98856b61175e63ca5f6293",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Badger LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x3472a5a71965499acd81997a54bba8d852c6e53d"
+        ],
+        "pool_address": "0xe15e6583425700993bd08f51bf6e7b73cd5da91b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "HuntToken - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9aab071b4129b083b01cb5a0cb513ce7eca26fa5",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe2680fd7cdbb04e9087a647ad4d023ef6c8fb4e2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "DMT - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x0b7f0e51cd1739d6c96982d55ad8fa634dd43a9c",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe3170d65018882a336743a9c396c52ea4b9c5563",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "PowerLedger - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x595832f8fc6bf59c85c527fec3740a1b7a361269",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe3fe800b0de664bf0bca8ad58ecbc73b259047b0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Rocket Pool Protocol LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+        ],
+        "pool_address": "0xe42318ea3b998e8355a3da364eb9d48ec725eb45",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Hedron - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3819f64f282bf135d62168c1e513280daf905e06",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xe859041c9c6d70177f83de991b9d757e13cea26e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Maker - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe8c6c9227491c0a8156a0106a0204d881bb7e531",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "1INCH Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x111111111117dc0aa78b770fa6a738034120c302",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe931b03260b2854e77e8da8378a1bc017b13cb97",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Render Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xe936f0073549ad8b1fa53583600d629ba9375161",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - NFT Worlds LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xd5d86fc8d5c0ea1ac1ac5dfab6e529c9967a45e9"
+        ],
+        "pool_address": "0xeb5c52e8af57334fab0b5f3d888990c108545527",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Synthetix Network Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xede8dd046586d22625ae7ff2708f879ef7bdb8cf",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - LQTY LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+            "0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d"
+        ],
+        "pool_address": "0xefd784093ddd12e24231fa6b792c09d03a4f7b7e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Olympus - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x383518188c0c6d7730d91b2c03a03c837814a899",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf1b63cd9d80f922514c04b0fd0a30373316dd75b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Pepe - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf239009a101b6b930a527deaab6961b6e7dec8a6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Lido DAO Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf4ad61db72f114be877e87d62dc5e7bd52df4d9b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Mantle - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x3c3a81e81dc49a522a592e7622a7e711c06bf354",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf4c5e0f4590b6679b3030d29a84857f226087fef",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Gnosis Token - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x6810e776880c02933d47db1b9fc05908e5386b96",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf56d08221b5942c428acc5de8f78489a97fc5599",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "ApeCoin - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x4d224452801aced8b2f0aebe155379bb5d594381",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf79fc43494ce8a4613cb0b2a67a1b1207fd05d27",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Gala - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x15d4c048f83bd7e37d49ea4c83a07267ec4203da",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf8a95b2409c27678a6d18d950c5d913d5c38ab03",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "SpongeBob - Wrapped Ether LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x25722cd432d02895d9be45f5deb60fc479c8781e",
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "pool_address": "0xf935f557e06a7d040dea4691f90c9a755301818b",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "ChainLink Token - USD Coin LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0x514910771af9ca656af840dff83e8264ecf986ca",
+            "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        ],
+        "pool_address": "0xfad57d2039c21811c8f2b5d5b65308aa99d31559",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Immutable X LP",
+        "chain": "ethereum",
+        "underlying_tokens": [
+            "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+            "0xf57e7e7c23978c3caec3c3548e3d615c346e79ff"
+        ],
+        "pool_address": "0xfd76be67fff3bac84e3d5444167bbc018f5968b6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - BOB LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0x0a63d3910ffc1529190e80e10855c4216407cc45",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - Wrapped Ether LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x0e44ceb592acfc5d3f09d996302eb4c499ff8c10",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Matic - Wrapped Ether LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x167384319b41f7094e62f7506409eb38079abff8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - XSGD LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0xdc3326e71d45186f113a2f448984ca0e8d201995"
+        ],
+        "pool_address": "0x1f6082db7c8f4b199e17090cd5c8831a1dad1997",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - BOB LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0x3a5329ee48a06671ad1bf295b8a233ee9b9b975e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Matic - MAKERX LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0x1ed02954d60ba14e26c230eec40cbac55fa3aeea"
+        ],
+        "pool_address": "0x3ea34cfc9322273311f7843826a2581c4a00fd39",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - Wrapped Ether LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x45dda9cb7c25131df268515131f647d726f50608",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "(PoS) Wrapped BTC - Wrapped Ether LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x50eaedb835021e4a108b7290636d62e9765cc6d7",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Good token, no rug! - (PoS) Dai Stablecoin LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x8d52c2d70a7c28a9daac2ff12ad9bfbf041cd318",
+            "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063"
+        ],
+        "pool_address": "0x5f616541c801e2b9556027076b730e0197974f6a",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "(PoS) Wrapped BTC - USD Coin (PoS) LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+        ],
+        "pool_address": "0x847b64f9d3a95e977d157866447a5c0a5dfa0ee5",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Matic - Wrapped Ether LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x86f1d8390222a3691c28938ec7404a1661e618e0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Matic - USD Coin (PoS) LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+        ],
+        "pool_address": "0x88f3c15523544835ff6c738ddb30995339ad57d6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Homeety - Wrapped Ether LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x12a4cebf81f8671faf1ab0acea4e3429e42869e7",
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x9ab9f658104467604b5afa9a3e1df62f35f7b208",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Matic - (PoS) Tether USD LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0xc2132d05d31c914a87c6611c10748aeb04b58e8f"
+        ],
+        "pool_address": "0x9b08288c3be4f62bbf8d1c20ac9c5e6f9467d8b7",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Matic - USD Coin (PoS) LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+        ],
+        "pool_address": "0xa374094527e1673a86de625aa59517c5de346d32",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - World$tateCoin LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0x77a6f2e9a9e44fd5d5c3f9be9e52831fc1c3c0a0"
+        ],
+        "pool_address": "0xa90c1c009dc8292bd04ced30f9b53a5ff7a806a0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - CRISP Scored Mangroves LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0xef6ab48ef8dfe984fab0d5c4cd6aff2e54dfda14"
+        ],
+        "pool_address": "0xc6832ef0af793336aa44a936e54b992bff47e7cd",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin (PoS) - (PoS) Tether USD LP",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+            "0xc2132d05d31c914a87c6611c10748aeb04b58e8f"
+        ],
+        "pool_address": "0xdac8a8e6dbf8c690ec6815e0ff03491b2770255d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - HMX LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0x83d6c8c06ac276465e4c92e7ac8c23740f435140"
+        ],
+        "pool_address": "0x05bbaaa020ff6bea107a9a1e06d2feb7bfd79ed2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Empyreal - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x772598e9e62155d7fdfe65fdf01eb5a53a8465be",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x0ad1e922e764df5ab6d636f5d21ecc2e41e827f0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x149e36e72726e0bcea5c59d40df2c43f60f5a22d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - New Crypto Space LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0x9842989969687f7d249d01cae1d2ff6b7b6b6d35"
+        ],
+        "pool_address": "0x14af1804dbbf7d621ecc2901eef292a24a0260ea",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0x17c14d2c404d167802b16c450d3c99f88f2c4f4d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - GMX LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a"
+        ],
+        "pool_address": "0x1aeedd3727a6431b8f070c0afaa81cc74f273882",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - GND LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xd67a097dce9d4474737e6871684ae3c05460f571"
+        ],
+        "pool_address": "0x1edd8c76f74d816f7472be69b174fe7b3084221e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "GMX - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0x2039f8c9cd32ba9cd2ea7e575d5b1abea93f7527",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Trident - USDC LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x123ef90de1e8fa8c378f06ad1dc315a63b7dbb2d",
+            "0xc85b8c8cf6d2e4739dbacd4c16e7a8484500e2a4"
+        ],
+        "pool_address": "0x22c824e48220d837cdf294759059c0ad5c9dba20",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped BTC - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x2f5e87c9312fa29aed5c179e456625d79015299c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped liquid staked Ether 2.0 - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x5979d7b546e38e414f7e9822514be443a4800529",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x35218a1cbac5bbc3e57fd9bd38219d37571b3537",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Radiant - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x3082cc23568ea640225c2467653db90e9250aaa0",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x446bf9748b4ea044dd759d9b9311c70491df8f29",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - ChainLink Token LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xf97f4df75117a78c1a5a0dbb814af92458539fb4"
+        ],
+        "pool_address": "0x468b88941e7cc0b88c1869d68ab6b570bcef62ff",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Premia - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x51fc0f6660482ea73330e414efd7808811a57fa2",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x4d834a9b910e6392460ebcfb59f8eef27d5c19ff",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Trident - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x123ef90de1e8fa8c378f06ad1dc315a63b7dbb2d",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x50c7390dfdd3756139e6efb5a461c2eb7331ceb4",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Nitro Cartel - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xb99d1c4bb87266fb13a423f8df96812ac6b99520",
+            "0xf26644f7d130ba86a3f6dcce875d87c4116a0e34"
+        ],
+        "pool_address": "0x55c69f61efc16a34421eb3c4df9eed5e6c3615ac",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - Tether USD LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+        ],
+        "pool_address": "0x641c00a822e8b671738d32a431a4fb6074e5c79d",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "MAGIC - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x539bde0d7dbd336b79148aa742883198bbf60342",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x7e7fb3cceca5f2ac952edf221fd2a9f62e411980",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - GMX LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a"
+        ],
+        "pool_address": "0x80a9ae39310abf666a87c743d6ebbd0e8c42158e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Arbitrum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x912ce59144191c1204e64559fe8253a0e49e6548",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0x81c48d31365e6b526f6bbadc5c9aafd822134863",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Tether USD - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0x8c9d230d45d6cfee39a6680fb7cb7e8de7ea8e71",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "CORE DAO - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x2807cdee12db6b043cc7ac4ddaec88c89871d299",
+            "0x8b794cdd5a89b05f65886d4afddc7152d0a1633a"
+        ],
+        "pool_address": "0x8d025d1a83788affe2e4771c63bd86ac929645ca",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "USD Coin - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0x8e295789c9465487074a65b1ae9ce0351172393f",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - Arbitrum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0x912ce59144191c1204e64559fe8253a0e49e6548"
+        ],
+        "pool_address": "0x92c63d0e701caae670c9415d91c474f686298f00",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "iGameS - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x51f9f9ff6cb2266d68c04ec289c7aba81378a383",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0x92f4fd0e7befef4ae88a635564bad9b82c5b20be",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - Arbitrum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0x912ce59144191c1204e64559fe8253a0e49e6548"
+        ],
+        "pool_address": "0x92fd143a8fa0c84e016c2765648b9733b0aa519e",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Arbitrum - Tether USD LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x912ce59144191c1204e64559fe8253a0e49e6548",
+            "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+        ],
+        "pool_address": "0x97bca422ec0ee4851f2110ea743c1cd0a14835a1",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Arbitrum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x912ce59144191c1204e64559fe8253a0e49e6548",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0xa8328bf492ba1b77ad6381b3f7567d942b000baf",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Blur - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x73e7d8bad2677656c8cfbe6e18a9257c6be2b87f",
+            "0xef13583d5a59e18ff8a989740fca3c6c12f501aa"
+        ],
+        "pool_address": "0xa9fe996431b470cb06f60bac62a39a74442d9193",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Arbitrum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x912ce59144191c1204e64559fe8253a0e49e6548",
+            "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+        ],
+        "pool_address": "0xb0f6ca40411360c03d41c5ffc5f179b8403cdcf8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Avatar Finance - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x81314b07b2f8796a477f1c31c92241ee8d86301d",
+            "0xbae14b3ab9ddd48a3aa224672ad2326cf2f9b556"
+        ],
+        "pool_address": "0xb258aa6064e037adf4b4849cab6f8ef288ae3283",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "USD Coin - Tether USD LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+            "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+        ],
+        "pool_address": "0xbe3ad6a5669dc0b8b12febc03608860c31e2eef6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0xc31e54c7a869b9fcbecc14363cf510d1c41fa443",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+        ],
+        "pool_address": "0xc6962004f452be9203591991d15f6b388e09e8d0",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - Arbitrum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0x912ce59144191c1204e64559fe8253a0e49e6548"
+        ],
+        "pool_address": "0xc6f780497a95e246eb9449f5e4770916dcd6396a",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ethereum - Tether USD LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+            "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+        ],
+        "pool_address": "0xc82819f72a9e77e2c0c3a69b3196478f44303cf4",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Gains Network - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x18c11fd286c5ec11c3b683caa813b77f5163a122",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0xc91b7b39bbb2c733f0e7459348fd0c80259c8471",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Arbitrum - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x912ce59144191c1204e64559fe8253a0e49e6548",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0xcda53b1f66614552f834ceef361a8d12a0b8dad8",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0xd37af656abf91c7f548fffc0133175b5e4d3d5e6",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Trident - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x7a6717ceabe536bb9a6bb39182a4cd575d4e222e",
+            "0xe4304b5b5d1118daac76317ed585fa495fd610d5"
+        ],
+        "pool_address": "0xd3a52fe93a2df0e8979833010bb9d7dd186ea2ba",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Pendle - Wrapped Ethereum LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8",
+            "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        ],
+        "pool_address": "0xdbaeb7f0dfe3a0aafd798ccecb5b22e708f7852c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Dai Stablecoin - USD Coin LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+            "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        ],
+        "pool_address": "0xf0428617433652c9dc6d1093a42adfbf30d29f74",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Arcadeum - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x4d6c8f6ab59835183bc0100bc819a3f8691691f8",
+            "0xf6502b34eb5c09b255d4edc2a37fa262d4f2ef93"
+        ],
+        "pool_address": "0xf23e6e2333631f3f147878faadea7a5fbe8474e4",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "GHO Aave - WETH LP",
+        "chain": "arbitrum",
+        "underlying_tokens": [
+            "0x08bdd4f0046123adc2466495775ff02255694a16",
+            "0x722f7b3b45d2873bd53dee6dc443ecc315aef234"
+        ],
+        "pool_address": "0xf9188aff2b5fa1e1e5542995806706fe6a84f3f3",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Synthetix Network Token LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0x8700daec35af8ff88c16bdf0418774cb3d7599b4"
+        ],
+        "pool_address": "0x0392b358ce4547601befa962680bede836606ae2",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Dai Stablecoin LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1"
+        ],
+        "pool_address": "0x03af20bdaaffb4cc0a521796a223f7d85e2aac31",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Optimism - USD Coin LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000042",
+            "0x7f5c764cbc14f9669b88837ca1490cca17c31607"
+        ],
+        "pool_address": "0x1c3140ab59d6caf9fa7459c6f83d4b52ba881d36",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Pika LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0x9a601c5bb360811d96a23689066af316a30c3027"
+        ],
+        "pool_address": "0x55bc964fe3b0c8cc2d4c63d65f1be7aef9bb1a3c",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "USD Coin - BOB LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0x6432037739ccd0201987472604826097b55813e9",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Optimism LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0x4200000000000000000000000000000000000042"
+        ],
+        "pool_address": "0x68f5c0a2de713a54991e01858fd27a3832401849",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Wrapped Ether - Wrapped BTC LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0x68f180fcce6836688e9084f035309e29bf0a2095"
+        ],
+        "pool_address": "0x73b14a78a0d396c521f954532d43fd5ffe385216",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - BOB LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0x7b17fc02d85cb5589ec1d1c3db507dc557590c79",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Wrapped Ether - USD Coin LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0x7f5c764cbc14f9669b88837ca1490cca17c31607"
+        ],
+        "pool_address": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Wrapped Ether - USD Coin LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x4200000000000000000000000000000000000006",
+            "0x7f5c764cbc14f9669b88837ca1490cca17c31607"
+        ],
+        "pool_address": "0xb589969d38ce76d3d7aa319de7133bc9755fd840",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "USD Coin - Worldcoin LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
+            "0xdc6ff44d5d932cbd77b52e5612ba0529dc6226f1"
+        ],
+        "pool_address": "0xd1f1bad4c9e6c44dec1e9bf3b94902205c5cd6c3",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "10000"
+        }
+    },
+    {
+        "name": "Optimistic Thales Token - Wrapped Ether LP",
+        "chain": "optimism",
+        "underlying_tokens": [
+            "0x217d47011b23bb961eb6d93ca9945b7501a5bb11",
+            "0x4200000000000000000000000000000000000006"
+        ],
+        "pool_address": "0xff7fbdf7832ae524deda39ca402e03d92adff7a5",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "SonicEthKnucklesObamaBitcoinAvalancheInu - Wrapped AVAX LP",
+        "chain": "avalanche",
+        "underlying_tokens": [
+            "0x60b112d97dc2321242972e5e63cdc8eab7f80fd3",
+            "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7"
+        ],
+        "pool_address": "0x0fd25d365fe4606bbdd0746c63290d80af4804fd",
+        "investing_address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "BTCB Token - Wrapped BNB LP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+            "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+        ],
+        "pool_address": "0x28df0835942396b7a1b7ae1cd068728e6ddbbafd",
+        "investing_address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "Tether USD - UNITED INFORMATION TECHNOLOGY PROJECT LP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x55d398326f99059ff775485246999027b3197955",
+            "0x78d210802912edc415bc8ba6af9fb0938021890f"
+        ],
+        "pool_address": "0x2dc06c0ae3bb0959459815f68e332e799aae813a",
+        "investing_address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "Ethereum Token - BTCB Token LP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+            "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+        ],
+        "pool_address": "0x3fb2623567e21f8c50f0ae86f54ef4849b4eb47b",
+        "investing_address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "3000"
+        }
+    },
+    {
+        "name": "CTX Token - Tether USD LP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x12dae26ffc1c608dc6fcb1c4a1c4abc409bf92cd",
+            "0x55d398326f99059ff775485246999027b3197955"
+        ],
+        "pool_address": "0xbae622d0fa237a5105b0c445864a419620a59d83",
+        "investing_address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "500"
+        }
+    },
+    {
+        "name": "USD Coin - BOB LP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0xbe7cc96a863bdb43e25896664cf0e3c65f7973eb",
+        "investing_address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    },
+    {
+        "name": "Tether USD - BOB LP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x55d398326f99059ff775485246999027b3197955",
+            "0xb0b195aefa3650a6908f15cdac7d92f8a5791b0b"
+        ],
+        "pool_address": "0xe15c03d4ce70d2102d8d7a4e42af677a5ac7ee16",
+        "investing_address": "0x7b8A01B39D58278b5DE7e48c8449c9f4F5170613",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": null,
+        "metadata": {
+            "fee": "100"
+        }
+    }
+]

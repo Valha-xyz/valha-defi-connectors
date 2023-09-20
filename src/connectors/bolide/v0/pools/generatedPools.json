@@ -1,0 +1,296 @@
+[
+    {
+        "name": "Bolide - USDT",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0xc2132d05d31c914a87c6611c10748aeb04b58e8f"
+        ],
+        "pool_address": "0x0af9f3297f34921acd5ac81970929964c9f3d0a7",
+        "investing_address": "0x0af9f3297f34921acd5ac81970929964c9f3d0a7",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - MATIC",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        ],
+        "pool_address": "0x3adf7b010c764c94024c0451fa8c2c3b47a6b896",
+        "investing_address": "0x3adf7b010c764c94024c0451fa8c2c3b47a6b896",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - USDC",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+        ],
+        "pool_address": "0x1c962c1178ab51c30e53d2aabf8b2cbb61f3a126",
+        "investing_address": "0x1c962c1178ab51c30e53d2aabf8b2cbb61f3a126",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - DAI",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063"
+        ],
+        "pool_address": "0x048321d2afffa3b94ce259fd728d272e1b069b11",
+        "investing_address": "0x048321d2afffa3b94ce259fd728d272e1b069b11",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - ETH",
+        "chain": "polygon",
+        "underlying_tokens": [
+            "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+        ],
+        "pool_address": "0x235fdf886c4c8152312257609bd6dd534ae87872",
+        "investing_address": "0x235fdf886c4c8152312257609bd6dd534ae87872",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - DAI",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3"
+        ],
+        "pool_address": "0xf1f25a26499b023200b3f9a30a8ecee87b031ee1",
+        "investing_address": "0xf1f25a26499b023200b3f9a30a8ecee87b031ee1",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - USDC",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d"
+        ],
+        "pool_address": "0xf1f25a26499b023200b3f9a30a8ecee87b031ee1",
+        "investing_address": "0xf1f25a26499b023200b3f9a30a8ecee87b031ee1",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - USDT",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x55d398326f99059ff775485246999027b3197955"
+        ],
+        "pool_address": "0xf1f25a26499b023200b3f9a30a8ecee87b031ee1",
+        "investing_address": "0xf1f25a26499b023200b3f9a30a8ecee87b031ee1",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - ETH",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x2170ed0880ac9a755fd29b2688956bd959f933f8"
+        ],
+        "pool_address": "0x941ef9aaf3277052e2e6c737ae9a75b229a20988",
+        "investing_address": "0x941ef9aaf3277052e2e6c737ae9a75b229a20988",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - BTC",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c"
+        ],
+        "pool_address": "0xed18f1ce58fed758c7937cc0b8be66cb02dc45c6",
+        "investing_address": "0xed18f1ce58fed758c7937cc0b8be66cb02dc45c6",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - ADA",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - DOT",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x7083609fce4d1d8dc0c979aab8c869ea2c873402"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - LTC",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x4338665cbb7b2485a8855a139b75d5e34ab0db94"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - XRP",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - XVS",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - LINK",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - MATIC",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0xcc42724c6683b7e57334c4e856f4c9965ed682bd"
+        ],
+        "pool_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "investing_address": "0x5d735e9ffe9664b80c405d16921912e5b989688c",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - BNB Native",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        ],
+        "pool_address": "0xac4a30d5343fd28afea2ea70b1dea93f35183b18",
+        "investing_address": "0xac4a30d5343fd28afea2ea70b1dea93f35183b18",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - USDT",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x55d398326f99059ff775485246999027b3197955"
+        ],
+        "pool_address": "0x881a0faa347e610c0b0f5abaf89dc23bbd6dd702",
+        "investing_address": "0x881a0faa347e610c0b0f5abaf89dc23bbd6dd702",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - BLID",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x766afcf83fd5eaf884b3d529b432ca27a6d84617"
+        ],
+        "pool_address": "0x3782c47e62b13d579fe748946aef7142b45b2cf7",
+        "investing_address": "0x3782c47e62b13d579fe748946aef7142b45b2cf7",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    },
+    {
+        "name": "Bolide - USDT-BLID",
+        "chain": "bsc",
+        "underlying_tokens": [
+            "0x12c35ed2405bc70721584594723351bf5db6235c"
+        ],
+        "pool_address": "0x3782c47e62b13d579fe748946aef7142b45b2cf7",
+        "investing_address": "0x3782c47e62b13d579fe748946aef7142b45b2cf7",
+        "staking_address": null,
+        "boosting_address": null,
+        "distributor_address": null,
+        "rewards_tokens": [],
+        "metadata": {}
+    }
+]

@@ -1,0 +1,2304 @@
+[
+  {
+    "name": "Balancer - Balancer Boosted swETH-WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x60d604890feaa0b5460b28a424407c24fe89374a",
+      "0xf951e335afb289353dc249e82926178eac7ded78"
+    ],
+    "pool_address": "0x02d928e68d8f10c0358566152677db51e1e2dc8c",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x11ff498c7c2a29fc4638bf45d9ff995c3297fca5",
+    "boosting_address": null,
+    "distributor_address": "0x11ff498c7c2a29fc4638bf45d9ff995c3297fca5",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x02d928e68d8f10c0358566152677db51e1e2dc8c00000000000000000000051e",
+      "pool_tokens": [
+        "0x02d928e68d8f10c0358566152677db51e1e2dc8c",
+        "0x60d604890feaa0b5460b28a424407c24fe89374a",
+        "0xf951e335afb289353dc249e82926178eac7ded78"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 33auraBAL-33graviAURA-33WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d",
+      "0xba485b556399123261a5f9c95d413b4f93107407",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x0578292cb20a443ba1cde459c985ce14ca2bdee5",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x2e79d6f631177f8e7f08fbd5110e893e1b1d790a",
+    "boosting_address": null,
+    "distributor_address": "0x2e79d6f631177f8e7f08fbd5110e893e1b1d790a",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x0578292cb20a443ba1cde459c985ce14ca2bdee5000100000000000000000269",
+      "pool_tokens": [
+        "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d",
+        "0xba485b556399123261a5f9c95d413b4f93107407",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50WETH-50-3pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x79c58f70905f734641735bc61e45c19dd9ad60bc",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x08775ccb6674d6bdceb0797c364c2653ed84f384",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xd9cde95efed2d426f2741e2c44de9573116b8f07",
+    "boosting_address": null,
+    "distributor_address": "0xd9cde95efed2d426f2741e2c44de9573116b8f07",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x08775ccb6674d6bdceb0797c364c2653ed84f3840002000000000000000004f0",
+      "pool_tokens": [
+        "0x79c58f70905f734641735bc61e45c19dd9ad60bc",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 60 WETH 40 DAI",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x0b09dea16768f0799065c475be02919503cb2a35",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x4ca6ac0509e6381ca7cd872a6cdc0fbf00600fa1",
+    "boosting_address": null,
+    "distributor_address": "0x4ca6ac0509e6381ca7cd872a6cdc0fbf00600fa1",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x0b09dea16768f0799065c475be02919503cb2a3500020000000000000000001a",
+      "pool_tokens": [
+        "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - DOLA-bb-e-USD",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x50cf90b954958480b8df7958a9e965752f627124",
+      "0x865377367054516e17014ccded1e7d814edc9ce4"
+    ],
+    "pool_address": "0x133d241f225750d2c92948e464a5a80111920331",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x5fbeaa96c9d8d0e839780433aa0b3b4d35b049d8",
+    "boosting_address": null,
+    "distributor_address": "0x5fbeaa96c9d8d0e839780433aa0b3b4d35b049d8",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x133d241f225750d2c92948e464a5a80111920331000000000000000000000476",
+      "pool_tokens": [
+        "0x133d241f225750d2c92948e464a5a80111920331",
+        "0x50cf90b954958480b8df7958a9e965752f627124",
+        "0x865377367054516e17014ccded1e7d814edc9ce4"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50OHM-50LUSD",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+      "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"
+    ],
+    "pool_address": "0x18fdf15ff782e44c1f9b6c5846ff6b0f0004f6a2",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xd8191a3496a1520c2b5c81d04b26f8556fc62d7b",
+    "boosting_address": null,
+    "distributor_address": "0xd8191a3496a1520c2b5c81d04b26f8556fc62d7b",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x18fdf15ff782e44c1f9b6c5846ff6b0f0004f6a2000200000000000000000560",
+      "pool_tokens": [
+        "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+        "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - baoETH-ETH StablePool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xf4edfad26ee0d23b69ca93112ecce52704e0006f"
+    ],
+    "pool_address": "0x1a44e35d5451e0b78621a1b3e7a53dfaa306b1d0",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xd449efa0a587f2cb6be3ae577bc167a774525810",
+    "boosting_address": null,
+    "distributor_address": "0xd449efa0a587f2cb6be3ae577bc167a774525810",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x1a44e35d5451e0b78621a1b3e7a53dfaa306b1d000000000000000000000051b",
+      "pool_tokens": [
+        "0x1a44e35d5451e0b78621a1b3e7a53dfaa306b1d0",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xf4edfad26ee0d23b69ca93112ecce52704e0006f"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer rETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xae78736cd615f374d3085123a210448e74fc6393",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x1e19cf2d73a72ef1332c882f20534b6519be0276",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x79ef6103a513951a3b25743db509e267685726b7",
+    "boosting_address": null,
+    "distributor_address": "0x79ef6103a513951a3b25743db509e267685726b7",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",
+      "pool_tokens": [
+        "0xae78736cd615f374d3085123a210448e74fc6393",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50rETH-BADGER",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x3472a5a71965499acd81997a54bba8d852c6e53d",
+      "0xae78736cd615f374d3085123a210448e74fc6393"
+    ],
+    "pool_address": "0x1ee442b5326009bb18f2f472d3e0061513d1a0ff",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x87012b0c3257423fd74a5986f81a0f1954c17a1d",
+    "boosting_address": null,
+    "distributor_address": "0x87012b0c3257423fd74a5986f81a0f1954c17a1d",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x1ee442b5326009bb18f2f472d3e0061513d1a0ff000200000000000000000464",
+      "pool_tokens": [
+        "0x3472a5a71965499acd81997a54bba8d852c6e53d",
+        "0xae78736cd615f374d3085123a210448e74fc6393"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - R/DAI Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x183015a9ba6ff60230fdeadc3f43b3d788b13e21",
+      "0x6b175474e89094c44da98b954eedeac495271d0f"
+    ],
+    "pool_address": "0x20a61b948e33879ce7f23e535cc7baa3bc66c5a9",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x6f3b31296fd2457eba6dca3bed65ec79e06c1295",
+    "boosting_address": null,
+    "distributor_address": "0x6f3b31296fd2457eba6dca3bed65ec79e06c1295",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x20a61b948e33879ce7f23e535cc7baa3bc66c5a9000000000000000000000555",
+      "pool_tokens": [
+        "0x183015a9ba6ff60230fdeadc3f43b3d788b13e21",
+        "0x20a61b948e33879ce7f23e535cc7baa3bc66c5a9",
+        "0x6b175474e89094c44da98b954eedeac495271d0f"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 80BETS/20wstETH Pool Token",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5"
+    ],
+    "pool_address": "0x26cc136e9b8fd65466f193a8e5710661ed9a9827",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x521824093f7341a66e9284cf9af76f0be0855f0d",
+    "boosting_address": null,
+    "distributor_address": "0x521824093f7341a66e9284cf9af76f0be0855f0d",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x26cc136e9b8fd65466f193a8e5710661ed9a98270002000000000000000005ad",
+      "pool_tokens": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer stETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x32296969ef14eb0c6d29669c550d4a0449130230",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xcd4722b7c24c29e0413bdcd9e51404b4539d14ae",
+    "boosting_address": null,
+    "distributor_address": "0xcd4722b7c24c29e0413bdcd9e51404b4539d14ae",
+    "rewards_tokens": ["0x5a98fcbea516cf06857215779fd812ca3bef1b32"],
+    "metadata": {
+      "pool_id": "0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080",
+      "pool_tokens": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - VitaDAO Balancer Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x350196326aeaa9b98f1903fb5e8fc2686f85318c",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xc2d343e2c9498e905f53c818b88eb8064b42d036",
+    "boosting_address": null,
+    "distributor_address": "0xc2d343e2c9498e905f53c818b88eb8064b42d036",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x350196326aeaa9b98f1903fb5e8fc2686f85318c000200000000000000000084",
+      "pool_tokens": [
+        "0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50wstETH-ACX",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+    ],
+    "pool_address": "0x36be1e97ea98ab43b4debf92742517266f5731a3",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xf7b0751fea697cf1a541a5f57d11058a8fb794ee",
+    "boosting_address": null,
+    "distributor_address": "0xf7b0751fea697cf1a541a5f57d11058a8fb794ee",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x36be1e97ea98ab43b4debf92742517266f5731a3000200000000000000000466",
+      "pool_tokens": [
+        "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer ETHx-WETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xa35b1b31ce002fbf2058d22f30f95d405200a15b",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x37b18b10ce5635a84834b26095a0ae5639dcb752",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x274fda0d445097dccc55c7f7ef85bfd3877a132e",
+    "boosting_address": null,
+    "distributor_address": "0x274fda0d445097dccc55c7f7ef85bfd3877a132e",
+    "rewards_tokens": ["0x30d20208d987713f46dfd34ef128bb16c404d10f"],
+    "metadata": {
+      "pool_id": "0x37b18b10ce5635a84834b26095a0ae5639dcb7520000000000000000000005cb",
+      "pool_tokens": [
+        "0x37b18b10ce5635a84834b26095a0ae5639dcb752",
+        "0xa35b1b31ce002fbf2058d22f30f95d405200a15b",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50R-50wstETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x183015a9ba6ff60230fdeadc3f43b3d788b13e21",
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+    ],
+    "pool_address": "0x380aabe019ed2a9c2d632b51eddd30fd804d0fad",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x6e7b9a1746a7ed4b23edff0975b726e5aa673e21",
+    "boosting_address": null,
+    "distributor_address": "0x6e7b9a1746a7ed4b23edff0975b726e5aa673e21",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x380aabe019ed2a9c2d632b51eddd30fd804d0fad000200000000000000000554",
+      "pool_tokens": [
+        "0x183015a9ba6ff60230fdeadc3f43b3d788b13e21",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer auraBAL Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56",
+      "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d"
+    ],
+    "pool_address": "0x3dd0843a028c86e0b760b1a76929d1c5ef93a2dd",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x0312aa8d0ba4a1969fddb382235870bf55f7f242",
+    "boosting_address": null,
+    "distributor_address": "0x0312aa8d0ba4a1969fddb382235870bf55f7f242",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x3dd0843a028c86e0b760b1a76929d1c5ef93a2dd000200000000000000000249",
+      "pool_tokens": [
+        "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56",
+        "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer GHO/LUSD Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+      "0x5f98805a4e8be255a32880fdec7f6728c6568ba0"
+    ],
+    "pool_address": "0x3fa8c89704e5d07565444009e5d9e624b40be813",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x70892e4355d0e04a3d19264e93c64c401520f3a4",
+    "boosting_address": null,
+    "distributor_address": "0x70892e4355d0e04a3d19264e93c64c401520f3a4",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x3fa8c89704e5d07565444009e5d9e624b40be813000000000000000000000599",
+      "pool_tokens": [
+        "0x3fa8c89704e5d07565444009e5d9e624b40be813",
+        "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+        "0x5f98805a4e8be255a32880fdec7f6728c6568ba0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer STG/USDC",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6"
+    ],
+    "pool_address": "0x3ff3a210e57cfe679d9ad1e9ba6453a716c56a2e",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x15c84754c7445d0df6c613f1490ca07654347c1b",
+    "boosting_address": null,
+    "distributor_address": "0x15c84754c7445d0df6c613f1490ca07654347c1b",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x3ff3a210e57cfe679d9ad1e9ba6453a716c56a2e0002000000000000000005d5",
+      "pool_tokens": [
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - wstETH-rETH-sfrxETH-BPT",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xac3e018457b222d93114458476f3e3416abbe38f",
+      "0xae78736cd615f374d3085123a210448e74fc6393"
+    ],
+    "pool_address": "0x42ed016f826165c2e5976fe5bc3df540c5ad0af7",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x0021e01b9fab840567a8291b864ff783894eabc6",
+    "boosting_address": null,
+    "distributor_address": "0x0021e01b9fab840567a8291b864ff783894eabc6",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x42ed016f826165c2e5976fe5bc3df540c5ad0af700000000000000000000058b",
+      "pool_tokens": [
+        "0x42ed016f826165c2e5976fe5bc3df540c5ad0af7",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xac3e018457b222d93114458476f3e3416abbe38f",
+        "0xae78736cd615f374d3085123a210448e74fc6393"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50COIL-50USDC",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x823e1b82ce1dc147bbdb25a203f046afab1ce918",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    ],
+    "pool_address": "0x42fbd9f666aacc0026ca1b88c94259519e03dd67",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xb5e2dcfbeb62abea603a0c585ca8f880eb709a9c",
+    "boosting_address": null,
+    "distributor_address": "0xb5e2dcfbeb62abea603a0c585ca8f880eb709a9c",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x42fbd9f666aacc0026ca1b88c94259519e03dd67000200000000000000000507",
+      "pool_tokens": [
+        "0x823e1b82ce1dc147bbdb25a203f046afab1ce918",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - bb-euler-USD",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x3c640f0d3036ad85afa2d5a9e32be651657b874f",
+      "0xd4e7c1f3da1144c9e2cfd1b015eda7652b4a4399",
+      "0xeb486af868aeb3b6e53066abc9623b1041b42bc0"
+    ],
+    "pool_address": "0x50cf90b954958480b8df7958a9e965752f627124",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xf53f2fee2a34f7f8d1bfe1b774a95cc79c121b34",
+    "boosting_address": null,
+    "distributor_address": "0xf53f2fee2a34f7f8d1bfe1b774a95cc79c121b34",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x50cf90b954958480b8df7958a9e965752f62712400000000000000000000046f",
+      "pool_tokens": [
+        "0x3c640f0d3036ad85afa2d5a9e32be651657b874f",
+        "0x50cf90b954958480b8df7958a9e965752f627124",
+        "0xd4e7c1f3da1144c9e2cfd1b015eda7652b4a4399",
+        "0xeb486af868aeb3b6e53066abc9623b1041b42bc0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Staked NOTE Weighted Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5"
+    ],
+    "pool_address": "0x5122e01d819e58bb2e22528c0d68d310f0aa6fd7",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x40ac67ea5bd1215d99244651cc71a03468bce6c0",
+    "boosting_address": null,
+    "distributor_address": "0x40ac67ea5bd1215d99244651cc71a03468bce6c0",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x5122e01d819e58bb2e22528c0d68d310f0aa6fd7000200000000000000000163",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 80 TEMP 20 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xa36fdbbae3c9d55a1d67ee5821d53b50b63a1ab9",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x514f35a92a13bc7093f299af5d8ebb1387e42d6b",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x514f35a92a13bc7093f299af5d8ebb1387e42d6b0002000000000000000000c9",
+      "pool_tokens": [
+        "0xa36fdbbae3c9d55a1d67ee5821d53b50b63a1ab9",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - wstETH-rETH-sfrxETH StablePool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xac3e018457b222d93114458476f3e3416abbe38f",
+      "0xae78736cd615f374d3085123a210448e74fc6393"
+    ],
+    "pool_address": "0x5aee1e99fe86960377de9f88689616916d5dcabe",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xa2a9ebd6f4dea4802083f2c8d08066a4e695e64b",
+    "boosting_address": null,
+    "distributor_address": "0xa2a9ebd6f4dea4802083f2c8d08066a4e695e64b",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x5aee1e99fe86960377de9f88689616916d5dcabe000000000000000000000467",
+      "pool_tokens": [
+        "0x5aee1e99fe86960377de9f88689616916d5dcabe",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xac3e018457b222d93114458476f3e3416abbe38f",
+        "0xae78736cd615f374d3085123a210448e74fc6393"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 80 BAL 20 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xba100000625a3754423978a60c9317c58a424e3d",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56000200000000000000000014",
+      "pool_tokens": [
+        "0xba100000625a3754423978a60c9317c58a424e3d",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50wstETH-LDO",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+    ],
+    "pool_address": "0x5f1f4e50ba51d723f12385a8a9606afc3a0555f5",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x95201b61ef19c867da0d093df20021e1a559452c",
+    "boosting_address": null,
+    "distributor_address": "0x95201b61ef19c867da0d093df20021e1a559452c",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x5f1f4e50ba51d723f12385a8a9606afc3a0555f5000200000000000000000465",
+      "pool_tokens": [
+        "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Oats And Grains",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6f9c26fa731c7ea4139fa669962cf8f1ce6c8b0b",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xf88baf18fab7e330fa0c4f83949e23f52fececce"
+    ],
+    "pool_address": "0x67f117350eab45983374f4f83d275d8a5d62b1bf",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x67f117350eab45983374f4f83d275d8a5d62b1bf0001000000000000000004f2",
+      "pool_tokens": [
+        "0x6f9c26fa731c7ea4139fa669962cf8f1ce6c8b0b",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xf88baf18fab7e330fa0c4f83949e23f52fececce"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer wjAURA wETH Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x198d7387fa97a73f05b8578cdeff8f2a1f34cd1f",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x68e3266c9c8bbd44ad9dca5afbfe629022aee9fe",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x2d42910d826e5500579d121596e98a6eb33c0a1b",
+    "boosting_address": null,
+    "distributor_address": "0x2d42910d826e5500579d121596e98a6eb33c0a1b",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x68e3266c9c8bbd44ad9dca5afbfe629022aee9fe000200000000000000000512",
+      "pool_tokens": [
+        "0x198d7387fa97a73f05b8578cdeff8f2a1f34cd1f",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer TBY-feb1924 USDC Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xc4cafefbc3dfea629c589728d648cb6111db3136"
+    ],
+    "pool_address": "0x6ae5a7857aad26722cb02cc168e38c52e0e4e45d",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x276df166bc23bc6a84aac1ea48e1acc32264b652",
+    "boosting_address": null,
+    "distributor_address": "0x276df166bc23bc6a84aac1ea48e1acc32264b652",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x6ae5a7857aad26722cb02cc168e38c52e0e4e45d0000000000000000000005dd",
+      "pool_tokens": [
+        "0x6ae5a7857aad26722cb02cc168e38c52e0e4e45d",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xc4cafefbc3dfea629c589728d648cb6111db3136"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50KNC-25WETH-25USDC",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202"
+    ],
+    "pool_address": "0x6f0ed6f346007563d3266de350d174a831bde0ca",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x02ea1c2702ecd478082d4b3ae902b6d10d26b920",
+    "boosting_address": null,
+    "distributor_address": "0x02ea1c2702ecd478082d4b3ae902b6d10d26b920",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x6f0ed6f346007563d3266de350d174a831bde0ca0001000000000000000005db",
+      "pool_tokens": [
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xdefa4e8a7bcba345f687a2f1456f5edd9ce97202"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50OHM-50DAI",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+      "0x6b175474e89094c44da98b954eedeac495271d0f"
+    ],
+    "pool_address": "0x76fcf0e8c7ff37a47a799fa2cd4c13cde0d981c9",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x107a2209883621afe2968da31c03190e0b2782c2",
+    "boosting_address": null,
+    "distributor_address": "0x107a2209883621afe2968da31c03190e0b2782c2",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x76fcf0e8c7ff37a47a799fa2cd4c13cde0d981c90002000000000000000003d2",
+      "pool_tokens": [
+        "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+        "0x6b175474e89094c44da98b954eedeac495271d0f"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer USDC-DAI-USDT Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6b175474e89094c44da98b954eedeac495271d0f",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    ],
+    "pool_address": "0x79c58f70905f734641735bc61e45c19dd9ad60bc",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x5612876e6f6ca370d93873fe28c874e89e741fb9",
+    "boosting_address": null,
+    "distributor_address": "0x5612876e6f6ca370d93873fe28c874e89e741fb9",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x79c58f70905f734641735bc61e45c19dd9ad60bc0000000000000000000004e7",
+      "pool_tokens": [
+        "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "0x79c58f70905f734641735bc61e45c19dd9ad60bc",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xdac17f958d2ee523a2206206994597c13d831ec7"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 80wstETH/20GHO",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+    ],
+    "pool_address": "0x7d98f308db99fdd04bbf4217a4be8809f38faa64",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x6ee63656bbf5be3fdf9be4982bf9466f6a921b83",
+    "boosting_address": null,
+    "distributor_address": "0x6ee63656bbf5be3fdf9be4982bf9466f6a921b83",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x7d98f308db99fdd04bbf4217a4be8809f38faa6400020000000000000000059b",
+      "pool_tokens": [
+        "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20WETH-80T",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xcdf7028ceab81fa0c6971208e83fa7872994bee5"
+    ],
+    "pool_address": "0x8167a1117691f39e05e9131cfa88f0e3a620e967",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x7fc115bf013844d6ef988837f7ae6398af153532",
+    "boosting_address": null,
+    "distributor_address": "0x7fc115bf013844d6ef988837f7ae6398af153532",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x8167a1117691f39e05e9131cfa88f0e3a620e96700020000000000000000038c",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xcdf7028ceab81fa0c6971208e83fa7872994bee5"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50COMP-50wstETH BPT",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xc00e94cb662c3520282e6f5717214004a7f26888"
+    ],
+    "pool_address": "0x87a867f5d240a782d43d90b6b06dea470f3f8f22",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x2fc4506354166e8b9183fbb6a68cd9c5f3fb9bc5",
+    "boosting_address": null,
+    "distributor_address": "0x2fc4506354166e8b9183fbb6a68cd9c5f3fb9bc5",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x87a867f5d240a782d43d90b6b06dea470f3f8f22000200000000000000000516",
+      "pool_tokens": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xc00e94cb662c3520282e6f5717214004a7f26888"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50TEMPLE-50DAI",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x470ebf5f030ed85fc1ed4c2d36b9dd02e77cf1b7",
+      "0x6b175474e89094c44da98b954eedeac495271d0f"
+    ],
+    "pool_address": "0x8bd4a1e74a27182d23b98c10fd21d4fbb0ed4ba0",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xf17f1e67bc384e43b4acf69cc032ad086f15f262",
+    "boosting_address": null,
+    "distributor_address": "0xf17f1e67bc384e43b4acf69cc032ad086f15f262",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x8bd4a1e74a27182d23b98c10fd21d4fbb0ed4ba00002000000000000000004ed",
+      "pool_tokens": [
+        "0x470ebf5f030ed85fc1ed4c2d36b9dd02e77cf1b7",
+        "0x6b175474e89094c44da98b954eedeac495271d0f"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 40WBTC-40DIGG-20graviAURA",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "0x798d1be841a82a273720ce31c822c61a67a601c3",
+      "0xba485b556399123261a5f9c95d413b4f93107407"
+    ],
+    "pool_address": "0x8eb6c82c3081bbbd45dcac5afa631aac53478b7c",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xe5f24cd43f77fadf4db33dab44eb25774159ac66",
+    "boosting_address": null,
+    "distributor_address": "0xe5f24cd43f77fadf4db33dab44eb25774159ac66",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x8eb6c82c3081bbbd45dcac5afa631aac53478b7c000100000000000000000270",
+      "pool_tokens": [
+        "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "0x798d1be841a82a273720ce31c822c61a67a601c3",
+        "0xba485b556399123261a5f9c95d413b4f93107407"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 20 WETH 80 LIT",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xfd0205066521550d7d7ab19da8f72bb004b4c341"
+    ],
+    "pool_address": "0x9232a548dd9e81bac65500b5e0d918f8ba93675c",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x9232a548dd9e81bac65500b5e0d918f8ba93675c000200000000000000000423",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xfd0205066521550d7d7ab19da8f72bb004b4c341"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50COW-50GNO BPT",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6810e776880c02933d47db1b9fc05908e5386b96",
+      "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+    ],
+    "pool_address": "0x92762b42a06dcdddc5b7362cfb01e631c4d44b40",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xa6468eca7633246dcb24e5599681767d27d1f978",
+    "boosting_address": null,
+    "distributor_address": "0xa6468eca7633246dcb24e5599681767d27d1f978",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x92762b42a06dcdddc5b7362cfb01e631c4d44b40000200000000000000000182",
+      "pool_tokens": [
+        "0x6810e776880c02933d47db1b9fc05908e5386b96",
+        "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - BALLOON Copper LBP",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x0146714490ae3c9b1c4b68d96b4c6a1ba0f38949",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    ],
+    "pool_address": "0x92a6a387add0528463b69efc063708870483986a",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x92a6a387add0528463b69efc063708870483986a0002000000000000000001cf",
+      "pool_tokens": [
+        "0x0146714490ae3c9b1c4b68d96b4c6a1ba0f38949",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer wstETH-WETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x5c0f23a5c1be65fa710d385814a7fd1bda480b1c",
+    "boosting_address": null,
+    "distributor_address": "0x5c0f23a5c1be65fa710d385814a7fd1bda480b1c",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd0000000000000000000005c2",
+      "pool_tokens": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0x93d199263632a4ef4bb438f1feb99e57b4b5f0bd",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50 USDC 50 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x96646936b91d6b9d7d0c47c496afbf3d6ec7b6f8",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x9ab7b0c7b154f626451c9e8a68dc04f58fb6e5ce",
+    "boosting_address": null,
+    "distributor_address": "0x9ab7b0c7b154f626451c9e8a68dc04f58fb6e5ce",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x96646936b91d6b9d7d0c47c496afbf3d6ec7b6f8000200000000000000000019",
+      "pool_tokens": [
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer cbETH-wstETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xbe9895146f7af43049ca1c1ae358b0541ea49704"
+    ],
+    "pool_address": "0x9c6d47ff73e0f5e51be5fd53236e3f595c5793f2",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x01a9502c11f411b494c62746d37e89d6f7078657",
+    "boosting_address": null,
+    "distributor_address": "0x01a9502c11f411b494c62746d37e89d6f7078657",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x9c6d47ff73e0f5e51be5fd53236e3f595c5793f200020000000000000000042c",
+      "pool_tokens": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xbe9895146f7af43049ca1c1ae358b0541ea49704"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 80Silo-20WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6f80310ca7f2c654691d1383149fa1a57d8ab1f8",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0x9cc64ee4cb672bc04c54b00a37e1ed75b2cc19dd",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x6661136537dfdca26eea05c8500502d7d5796e5e",
+    "boosting_address": null,
+    "distributor_address": "0x6661136537dfdca26eea05c8500502d7d5796e5e",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x9cc64ee4cb672bc04c54b00a37e1ed75b2cc19dd0002000000000000000004c1",
+      "pool_tokens": [
+        "0x6f80310ca7f2c654691d1383149fa1a57d8ab1f8",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50rETH-50RPL",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xae78736cd615f374d3085123a210448e74fc6393",
+      "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+    ],
+    "pool_address": "0x9f9d900462492d4c21e9523ca95a7cd86142f298",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x2c2179abce3413e27bda6917f60ae37f96d01826",
+    "boosting_address": null,
+    "distributor_address": "0x2c2179abce3413e27bda6917f60ae37f96d01826",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x9f9d900462492d4c21e9523ca95a7cd86142f298000200000000000000000462",
+      "pool_tokens": [
+        "0xae78736cd615f374d3085123a210448e74fc6393",
+        "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50SYN-50WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x0f2d719407fdbeff09d87557abb7232601fd9f29",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xa3c500969accb3d8df08cba313c120818fe0ed9d",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x4532fba326d853a03644758b8b7438374f6780dc",
+    "boosting_address": null,
+    "distributor_address": "0x4532fba326d853a03644758b8b7438374f6780dc",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xa3c500969accb3d8df08cba313c120818fe0ed9d000200000000000000000471",
+      "pool_tokens": [
+        "0x0f2d719407fdbeff09d87557abb7232601fd9f29",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50 WBTC 50 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xa6f548df93de924d73be7d25dc02554c6bd66db5",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x4e3c048be671852277ad6ce29fd5207aa12fabff",
+    "boosting_address": null,
+    "distributor_address": "0x4e3c048be671852277ad6ce29fd5207aa12fabff",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xa6f548df93de924d73be7d25dc02554c6bd66db500020000000000000000000e",
+      "pool_tokens": [
+        "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - swETH/Boosted Aave v3 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xbb6881874825e60e1160416d6c426eae65f2459e",
+      "0xf951e335afb289353dc249e82926178eac7ded78"
+    ],
+    "pool_address": "0xae8535c23afedda9304b03c68a3563b75fc8f92b",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x5669736fd1df3572f9d519fccf7536a750cfac62",
+    "boosting_address": null,
+    "distributor_address": "0x5669736fd1df3572f9d519fccf7536a750cfac62",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xae8535c23afedda9304b03c68a3563b75fc8f92b0000000000000000000005a0",
+      "pool_tokens": [
+        "0xae8535c23afedda9304b03c68a3563b75fc8f92b",
+        "0xbb6881874825e60e1160416d6c426eae65f2459e",
+        "0xf951e335afb289353dc249e82926178eac7ded78"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer staFiETH-WETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x9559aaa82d9649c7a7b220e7c461d2e74c9a3593",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xb08885e6026bab4333a80024ec25a1a3e1ff2b8a",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x10a361766e64d7983a97202ac3a0f4cee06eb717",
+    "boosting_address": null,
+    "distributor_address": "0x10a361766e64d7983a97202ac3a0f4cee06eb717",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xb08885e6026bab4333a80024ec25a1a3e1ff2b8a000200000000000000000445",
+      "pool_tokens": [
+        "0x9559aaa82d9649c7a7b220e7c461d2e74c9a3593",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20WBTC-80BADGER",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "0x3472a5a71965499acd81997a54bba8d852c6e53d"
+    ],
+    "pool_address": "0xb460daa847c45f1c4a41cb05bfb3b51c92e41b36",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xaf50825b010ae4839ac444f6c12d44b96819739b",
+    "boosting_address": null,
+    "distributor_address": "0xaf50825b010ae4839ac444f6c12d44b96819739b",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xb460daa847c45f1c4a41cb05bfb3b51c92e41b36000200000000000000000194",
+      "pool_tokens": [
+        "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "0x3472a5a71965499acd81997a54bba8d852c6e53d"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer vETH/WETH StablePool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x4bc3263eb5bb2ef7ad9ab6fb68be80e43b43801f",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xb54e6aadbf1ac1a3ef2a56e358706f0f8e320a03",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x0a4825154bcfd493d15777184d01b93e8115215a",
+    "boosting_address": null,
+    "distributor_address": "0x0a4825154bcfd493d15777184d01b93e8115215a",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xb54e6aadbf1ac1a3ef2a56e358706f0f8e320a0300000000000000000000059f",
+      "pool_tokens": [
+        "0x4bc3263eb5bb2ef7ad9ab6fb68be80e43b43801f",
+        "0xb54e6aadbf1ac1a3ef2a56e358706f0f8e320a03",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 10RAI-6FLX-3rETH-26WETH-55RPL",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
+      "0x6243d8cea23066d098a15582d81a598b4e8391f4",
+      "0xae78736cd615f374d3085123a210448e74fc6393",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+    ],
+    "pool_address": "0xb721a3b209f8b598b926826f69280bee7a6bb796",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xb721a3b209f8b598b926826f69280bee7a6bb79600010000000000000000037c",
+      "pool_tokens": [
+        "0x03ab458634910aad20ef5f1c8ee96f1d6ac54919",
+        "0x6243d8cea23066d098a15582d81a598b4e8391f4",
+        "0xae78736cd615f374d3085123a210448e74fc6393",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 50 VITA 50 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xbaeec99c90e3420ec6c1e7a769d2a856d2898e4d",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x777c45bd0a2af1da5fe4a532ad6b207d3ced8b2d",
+    "boosting_address": null,
+    "distributor_address": "0x777c45bd0a2af1da5fe4a532ad6b207d3ced8b2d",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xbaeec99c90e3420ec6c1e7a769d2a856d2898e4d00020000000000000000008a",
+      "pool_tokens": [
+        "0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 98TXJP-2WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x961dd84059505d59f82ce4fb87d3c09bec65301d",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xbc5f4f9332d8415aaf31180ab4661c9141cc84e4",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xbc5f4f9332d8415aaf31180ab4661c9141cc84e4000200000000000000000262",
+      "pool_tokens": [
+        "0x961dd84059505d59f82ce4fb87d3c09bec65301d",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer GHO/3pool Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+      "0x79c58f70905f734641735bc61e45c19dd9ad60bc"
+    ],
+    "pool_address": "0xbe19d87ea6cd5b05bbc34b564291c371dae96747",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x414eae9a827f4174a63fe4f10e975678ca28c898",
+    "boosting_address": null,
+    "distributor_address": "0x414eae9a827f4174a63fe4f10e975678ca28c898",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xbe19d87ea6cd5b05bbc34b564291c371dae967470000000000000000000005c4",
+      "pool_tokens": [
+        "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+        "0x79c58f70905f734641735bc61e45c19dd9ad60bc",
+        "0xbe19d87ea6cd5b05bbc34b564291c371dae96747"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 80 AURA 20 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf"
+    ],
+    "pool_address": "0xc29562b045d80fd77c69bec09541f5c16fe20d9d",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x006aad228d44655c4c97cdda600f2d56e99569b9",
+    "boosting_address": null,
+    "distributor_address": "0x006aad228d44655c4c97cdda600f2d56e99569b9",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xc29562b045d80fd77c69bec09541f5c16fe20d9d000200000000000000000251",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer GHO/bb-a-USD Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+      "0xc443c15033fcb6cf72cc24f1bda0db070ddd9786"
+    ],
+    "pool_address": "0xc2b021133d1b0cf07dba696fd5dd89338428225b",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x5db1fe5a1652f095ebc3f6065e9db3f3d492bfc2",
+    "boosting_address": null,
+    "distributor_address": "0x5db1fe5a1652f095ebc3f6065e9db3f3d492bfc2",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xc2b021133d1b0cf07dba696fd5dd89338428225b000000000000000000000598",
+      "pool_tokens": [
+        "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f",
+        "0xc2b021133d1b0cf07dba696fd5dd89338428225b",
+        "0xc443c15033fcb6cf72cc24f1bda0db070ddd9786"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20WETH-80PSP",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xcafe001067cdef266afb7eb5a286dcfd277f3de5"
+    ],
+    "pool_address": "0xcb0e14e96f2cefa8550ad8e4aea344f211e5061d",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xcb0e14e96f2cefa8550ad8e4aea344f211e5061d00020000000000000000011a",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xcafe001067cdef266afb7eb5a286dcfd277f3de5"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50WETH-50AURA",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf"
+    ],
+    "pool_address": "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x275df57d2b23d53e20322b4bb71bf1dcb21d0a00",
+    "boosting_address": null,
+    "distributor_address": "0x275df57d2b23d53e20322b4bb71bf1dcb21d0a00",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9000200000000000000000274",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50OHM-50WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xd1ec5e215e8148d76f4460e4097fd3d5ae0a3558",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x5f2c3422a675860f0e019ddd78c6fa681be84bd4",
+    "boosting_address": null,
+    "distributor_address": "0x5f2c3422a675860f0e019ddd78c6fa681be84bd4",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xd1ec5e215e8148d76f4460e4097fd3d5ae0a35580002000000000000000003d3",
+      "pool_tokens": [
+        "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50OHM-50wstETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+    ],
+    "pool_address": "0xd4f79ca0ac83192693bce4699d0c10c66aa6cf0f",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xe879f17910e77c01952b97e4a098b0ed15b6295c",
+    "boosting_address": null,
+    "distributor_address": "0xe879f17910e77c01952b97e4a098b0ed15b6295c",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xd4f79ca0ac83192693bce4699d0c10c66aa6cf0f00020000000000000000047e",
+      "pool_tokens": [
+        "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5",
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50COW-50WETH BPT",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+    ],
+    "pool_address": "0xde8c195aa41c11a0c4787372defbbddaa31306d2",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x7c777eea1dc264e71e567fcc9b6ddaa9064eff51",
+    "boosting_address": null,
+    "distributor_address": "0x7c777eea1dc264e71e567fcc9b6ddaa9064eff51",
+    "rewards_tokens": [
+      "0x6810e776880c02933d47db1b9fc05908e5386b96",
+      "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+    ],
+    "metadata": {
+      "pool_id": "0xde8c195aa41c11a0c4787372defbbddaa31306d2000200000000000000000181",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer ankrETH/wstETH StablePool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "0xe95a203b1a91a908f9b9ce46459d101078c2c3cb"
+    ],
+    "pool_address": "0xdfe6e7e18f6cc65fa13c8d8966013d4fda74b6ba",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xbf65b3fa6c208762ed74e82d4aefcddfd0323648",
+    "boosting_address": null,
+    "distributor_address": "0xbf65b3fa6c208762ed74e82d4aefcddfd0323648",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xdfe6e7e18f6cc65fa13c8d8966013d4fda74b6ba000000000000000000000558",
+      "pool_tokens": [
+        "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "0xdfe6e7e18f6cc65fa13c8d8966013d4fda74b6ba",
+        "0xe95a203b1a91a908f9b9ce46459d101078c2c3cb"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer swETH-WETH Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xf951e335afb289353dc249e82926178eac7ded78"
+    ],
+    "pool_address": "0xe7e2c68d3b13d905bbb636709cf4dfd21076b9d2",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xee01c0d9c0439c94d314a6ecae0490989750746c",
+    "boosting_address": null,
+    "distributor_address": "0xee01c0d9c0439c94d314a6ecae0490989750746c",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xe7e2c68d3b13d905bbb636709cf4dfd21076b9d20000000000000000000005ca",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xe7e2c68d3b13d905bbb636709cf4dfd21076b9d2",
+        "0xf951e335afb289353dc249e82926178eac7ded78"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20WETH-80WNCG",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xf203ca1769ca8e9e8fe1da9d147db68b6c919817"
+    ],
+    "pool_address": "0xe8cc7e765647625b95f59c15848379d10b9ab4af",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x86ec8bd97622dc80b4a7346bc853760d99d14c7f",
+    "boosting_address": null,
+    "distributor_address": "0x86ec8bd97622dc80b4a7346bc853760d99d14c7f",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xe8cc7e765647625b95f59c15848379d10b9ab4af0002000000000000000001de",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xf203ca1769ca8e9e8fe1da9d147db68b6c919817"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 80 ENS 20 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+    ],
+    "pool_address": "0xefdc9246e0c4280fb1c138e1093a95ab88959cf8",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xefdc9246e0c4280fb1c138e1093a95ab88959cf80002000000000000000000b9",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20WETH-80ALCX",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "0xdbdb4d16eda451d0503b854cf79d55697f90c8df"
+    ],
+    "pool_address": "0xf16aee6a71af1a9bc8f56975a4c2705ca7a782bc",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x183d73da7adc5011ec3c46e33bb50271e59ec976",
+    "boosting_address": null,
+    "distributor_address": "0x183d73da7adc5011ec3c46e33bb50271e59ec976",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xf16aee6a71af1a9bc8f56975a4c2705ca7a782bc0002000000000000000004bb",
+      "pool_tokens": [
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "0xdbdb4d16eda451d0503b854cf79d55697f90c8df"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 80 GNO 20 WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x6810e776880c02933d47db1b9fc05908e5386b96",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xf4c0dd9b82da36c07605df83c8a416f11724d88b",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xcb664132622f29943f67fa56ccfd1e24cc8b4995",
+    "boosting_address": null,
+    "distributor_address": "0xcb664132622f29943f67fa56ccfd1e24cc8b4995",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xf4c0dd9b82da36c07605df83c8a416f11724d88b000200000000000000000026",
+      "pool_tokens": [
+        "0x6810e776880c02933d47db1b9fc05908e5386b96",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50PENDLE-50WETH",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x808507121b80c02388fad14726482e061b8da827",
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    ],
+    "pool_address": "0xfd1cf6fd41f229ca86ada0584c63c49c3d66bbc9",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xd36a379342ecd2ddcb05ed1b2cdfba8a1f0e36fd",
+    "boosting_address": null,
+    "distributor_address": "0xd36a379342ecd2ddcb05ed1b2cdfba8a1f0e36fd",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xfd1cf6fd41f229ca86ada0584c63c49c3d66bbc9000200000000000000000438",
+      "pool_tokens": [
+        "0x808507121b80c02388fad14726482e061b8da827",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer BTC Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "0xeb4c2781e4eba804ce9a9803c67d0893436bb27d",
+      "0xfe18be6b3bd88a2d2a7f928d00292e7a9963cfc6"
+    ],
+    "pool_address": "0xfeadd389a5c427952d8fdb8057d6c8ba1156cc56",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x57d40ff4cf7441a04a05628911f57bb940b6c238",
+    "boosting_address": null,
+    "distributor_address": "0x57d40ff4cf7441a04a05628911f57bb940b6c238",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xfeadd389a5c427952d8fdb8057d6c8ba1156cc56000000000000000000000066",
+      "pool_tokens": [
+        "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+        "0xeb4c2781e4eba804ce9a9803c67d0893436bb27d",
+        "0xfe18be6b3bd88a2d2a7f928d00292e7a9963cfc6"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - DOLA USDC Stable Pool",
+    "chain": "ethereum",
+    "underlying_tokens": [
+      "0x865377367054516e17014ccded1e7d814edc9ce4",
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    ],
+    "pool_address": "0xff4ce5aaab5a627bf82f4a571ab1ce94aa365ea6",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xbc02ef87f4e15ef78a571f3b2adcc726fee70d8b",
+    "boosting_address": null,
+    "distributor_address": "0xbc02ef87f4e15ef78a571f3b2adcc726fee70d8b",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xff4ce5aaab5a627bf82f4a571ab1ce94aa365ea6000200000000000000000426",
+      "pool_tokens": [
+        "0x865377367054516e17014ccded1e7d814edc9ce4",
+        "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer Polygon Base Pool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"
+    ],
+    "pool_address": "0x0297e37f1873d2dab4487aa67cd56b58e2f27875",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x0aea1abc694a3608c8ac5f131d8310f95039111a",
+    "boosting_address": null,
+    "distributor_address": "0x0aea1abc694a3608c8ac5f131d8310f95039111a",
+    "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+    "metadata": {
+      "pool_id": "0x0297e37f1873d2dab4487aa67cd56b58e2f27875000100000000000000000002",
+      "pool_tokens": [
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+        "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer csMATIC Stable Pool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0xfcbb00df1d663eee58123946a30ab2138bf9eb2a"
+    ],
+    "pool_address": "0x02d2e2d7a89d6c5cb3681cfcb6f7dac02a55eda4",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x02d2e2d7a89d6c5cb3681cfcb6f7dac02a55eda400000000000000000000088f",
+      "pool_tokens": [
+        "0x02d2e2d7a89d6c5cb3681cfcb6f7dac02a55eda4",
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0xfcbb00df1d663eee58123946a30ab2138bf9eb2a"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer Polygon Tricrypto",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+    ],
+    "pool_address": "0x03cd191f589d12b0582a99808cf19851e468e6b5",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x219b3a4a2d2351582277a87048995034ca7e9aef",
+    "boosting_address": null,
+    "distributor_address": "0x219b3a4a2d2351582277a87048995034ca7e9aef",
+    "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+    "metadata": {
+      "pool_id": "0x03cd191f589d12b0582a99808cf19851e468e6b500010000000000000000000a",
+      "pool_tokens": [
+        "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer stMATIC-Boosted Aave WMATIC StablePool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+      "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7"
+    ],
+    "pool_address": "0x216690738aac4aa0c4770253ca26a28f0115c595",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x51be9bc648714cc07503ad46f354bc8d1a3b727b",
+    "boosting_address": null,
+    "distributor_address": "0x51be9bc648714cc07503ad46f354bc8d1a3b727b",
+    "rewards_tokens": [
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0xc3c7d422809852031b44ab29eec9f1eff2a58756"
+    ],
+    "metadata": {
+      "pool_id": "0x216690738aac4aa0c4770253ca26a28f0115c595000000000000000000000b2c",
+      "pool_tokens": [
+        "0x216690738aac4aa0c4770253ca26a28f0115c595",
+        "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+        "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 2eur (PAR)",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+      "0xe2aa7db6da1dae97c5f5c6914d285fbfcc32a128"
+    ],
+    "pool_address": "0x513cdee00251f39de280d9e5f771a6eafebcc88e",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xb8f0394f3fd743552296c990eadcff4d081474b1",
+    "boosting_address": null,
+    "distributor_address": "0xb8f0394f3fd743552296c990eadcff4d081474b1",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0x513cdee00251f39de280d9e5f771a6eafebcc88e000000000000000000000a6b",
+      "pool_tokens": [
+        "0x4e3decbb3645551b8a19f0ea1678079fcb33fb4c",
+        "0x513cdee00251f39de280d9e5f771a6eafebcc88e",
+        "0xe2aa7db6da1dae97c5f5c6914d285fbfcc32a128"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - BPT-XSGD-USDC",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0xdc3326e71d45186f113a2f448984ca0e8d201995"
+    ],
+    "pool_address": "0x726e324c29a1e49309672b244bdc4ff62a270407",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xa7165e1e3defe55dada5c4289268d57faba6dad2",
+    "boosting_address": null,
+    "distributor_address": "0xa7165e1e3defe55dada5c4289268d57faba6dad2",
+    "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+    "metadata": {
+      "pool_id": "0x726e324c29a1e49309672b244bdc4ff62a270407000200000000000000000702",
+      "pool_tokens": [
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "0xdc3326e71d45186f113a2f448984ca0e8d201995"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer stMATIC Stable Pool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4"
+    ],
+    "pool_address": "0x8159462d255c1d24915cb51ec361f700174cd994",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x2aa6fb79efe19a3fce71c46ae48efc16372ed6dd",
+    "boosting_address": null,
+    "distributor_address": "0x2aa6fb79efe19a3fce71c46ae48efc16372ed6dd",
+    "rewards_tokens": [
+      "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+      "0xc3c7d422809852031b44ab29eec9f1eff2a58756"
+    ],
+    "metadata": {
+      "pool_id": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d",
+      "pool_tokens": [
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4",
+        "0x8159462d255c1d24915cb51ec361f700174cd994"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50RBW-50WETH",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x431cd3c9ac9fc73644bf68bf5691f4b83f9e104f",
+      "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+    ],
+    "pool_address": "0x8f9dd2064eb38e8e40f2ab67bde27c0e16ea9b08",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x159e9223128291ce79326b4632572f6ea7a631d2",
+    "boosting_address": null,
+    "distributor_address": "0x159e9223128291ce79326b4632572f6ea7a631d2",
+    "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+    "metadata": {
+      "pool_id": "0x8f9dd2064eb38e8e40f2ab67bde27c0e16ea9b080002000000000000000004ca",
+      "pool_tokens": [
+        "0x431cd3c9ac9fc73644bf68bf5691f4b83f9e104f",
+        "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50fireEP-50FBX",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0xa2b205f8c0f0e30b3f73b7716a718c53cb8e5cc3",
+      "0xd125443f38a69d776177c2b9c041f462936f8218"
+    ],
+    "pool_address": "0xaaf737aeb1e5f1dc9429de4a639fe16c42fa1fe3",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xaaf737aeb1e5f1dc9429de4a639fe16c42fa1fe3000200000000000000000bf9",
+      "pool_tokens": [
+        "0xa2b205f8c0f0e30b3f73b7716a718c53cb8e5cc3",
+        "0xd125443f38a69d776177c2b9c041f462936f8218"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20USDC-80GHST",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7"
+    ],
+    "pool_address": "0xae8f935830f6b418804836eacb0243447b6d977c",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xb72e7f6d85039dc6ff2b71505896f009d472a75a",
+    "boosting_address": null,
+    "distributor_address": "0xb72e7f6d85039dc6ff2b71505896f009d472a75a",
+    "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+    "metadata": {
+      "pool_id": "0xae8f935830f6b418804836eacb0243447b6d977c000200000000000000000ad1",
+      "pool_tokens": [
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - tetuBal-BPT-80BAL-20WETH Stable Pool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x3d468ab2329f296e1b9d8476bb54dd77d8c2320f",
+      "0x7fc9e0aa043787bfad28e29632ada302c790ce33"
+    ],
+    "pool_address": "0xb797adfb7b268faeaa90cadbfed464c76ee599cd",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xaa59736b80cf77d1e7d56b7bba5a8050805f5064",
+    "boosting_address": null,
+    "distributor_address": "0xaa59736b80cf77d1e7d56b7bba5a8050805f5064",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xb797adfb7b268faeaa90cadbfed464c76ee599cd0002000000000000000005ba",
+      "pool_tokens": [
+        "0x3d468ab2329f296e1b9d8476bb54dd77d8c2320f",
+        "0x7fc9e0aa043787bfad28e29632ada302c790ce33"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer maticX-WMATIC Stable Pool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6"
+    ],
+    "pool_address": "0xcd78a20c597e367a4e478a2411ceb790604d7c8f",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xd955f46b110583e14644665c69e26cd8126070ec",
+    "boosting_address": null,
+    "distributor_address": "0xd955f46b110583e14644665c69e26cd8126070ec",
+    "rewards_tokens": ["0x1d734a02ef1e1f5886e66b0673b71af5b53ffa94"],
+    "metadata": {
+      "pool_id": "0xcd78a20c597e367a4e478a2411ceb790604d7c8f000000000000000000000c22",
+      "pool_tokens": [
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0xcd78a20c597e367a4e478a2411ceb790604d7c8f",
+        "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 80TETU-20USDC",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x255707b70bf90aa112006e1b07b9aea6de021424",
+      "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+    ],
+    "pool_address": "0xe2f706ef1f7240b803aae877c9c762644bb808d8",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xa86e8e8cfae8c9847fa9381d4631c13c7b3466bd",
+    "boosting_address": null,
+    "distributor_address": "0xa86e8e8cfae8c9847fa9381d4631c13c7b3466bd",
+    "rewards_tokens": ["0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3"],
+    "metadata": {
+      "pool_id": "0xe2f706ef1f7240b803aae877c9c762644bb808d80002000000000000000008c2",
+      "pool_tokens": [
+        "0x255707b70bf90aa112006e1b07b9aea6de021424",
+        "0x2791bca1f2de4661ed88a30c99a7a9449aa84174"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer Aave v3 Boosted Pool (WMATIC)",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0x0d6135b2cfbae3b1c58368a93b855fa54fa5aae1"
+    ],
+    "pool_address": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7000000000000000000000b29",
+      "pool_tokens": [
+        "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7",
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0x0d6135b2cfbae3b1c58368a93b855fa54fa5aae1"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer MaticX Boosted Aave WMATIC StablePool",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7",
+      "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6"
+    ],
+    "pool_address": "0xe78b25c06db117fdf8f98583cdaaa6c92b79e917",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xb0b28d7a74e62df5f6f9e0d9ae0f4e7982de9585",
+    "boosting_address": null,
+    "distributor_address": "0xb0b28d7a74e62df5f6f9e0d9ae0f4e7982de9585",
+    "rewards_tokens": ["0x1d734a02ef1e1f5886e66b0673b71af5b53ffa94"],
+    "metadata": {
+      "pool_id": "0xe78b25c06db117fdf8f98583cdaaa6c92b79e917000000000000000000000b2b",
+      "pool_tokens": [
+        "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7",
+        "0xe78b25c06db117fdf8f98583cdaaa6c92b79e917",
+        "0xfa68fb4628dff1028cfec22b4162fccd0d45efb6"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Gyroscope ECLP WMATIC/stMATIC",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4"
+    ],
+    "pool_address": "0xf0ad209e2e969eaaa8c882aac71f02d8a047d5c2",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x51416c00388bb4644e28546c77aee768036f17a8",
+    "boosting_address": null,
+    "distributor_address": "0x51416c00388bb4644e28546c77aee768036f17a8",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xf0ad209e2e969eaaa8c882aac71f02d8a047d5c2000200000000000000000b49",
+      "pool_tokens": [
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0x3a58a54c066fdc0f2d55fc9c89f0415c92ebf3c4"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 20WMATIC-80SPHERE",
+    "chain": "polygon",
+    "underlying_tokens": [
+      "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "0x62f594339830b90ae4c084ae7d223ffafd9658a7"
+    ],
+    "pool_address": "0xf3312968c7d768c19107731100ece7d4780b47b2",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xfb0243ffdc5309a4ec13b9de9111da02294b2571",
+    "boosting_address": null,
+    "distributor_address": "0xfb0243ffdc5309a4ec13b9de9111da02294b2571",
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xf3312968c7d768c19107731100ece7d4780b47b2000200000000000000000a50",
+      "pool_tokens": [
+        "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+        "0x62f594339830b90ae4c084ae7d223ffafd9658a7"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - RDNT-WETH",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x3082cc23568ea640225c2467653db90e9250aaa0",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0x32df62dc3aed2cd6224193052ce665dc18165841",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xcf9f895296f5e1d66a7d4dcf1d92e1b435e9f999",
+    "boosting_address": null,
+    "distributor_address": "0xcf9f895296f5e1d66a7d4dcf1d92e1b435e9f999",
+    "rewards_tokens": ["0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"],
+    "metadata": {
+      "pool_id": "0x32df62dc3aed2cd6224193052ce665dc181658410002000000000000000003bd",
+      "pool_tokens": [
+        "0x3082cc23568ea640225c2467653db90e9250aaa0",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer wstETH-WETH Stable Pool",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x5979d7b546e38e414f7e9822514be443a4800529",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x8f0b53f3ba19ee31c0a73a6f6d84106340fadf5f",
+    "boosting_address": null,
+    "distributor_address": "0x8f0b53f3ba19ee31c0a73a6f6d84106340fadf5f",
+    "rewards_tokens": [
+      "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+      "0x13ad51ed4f1b7e9dc168d8a00cb3f4ddd85efa60"
+    ],
+    "metadata": {
+      "pool_id": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f000200000000000000000316",
+      "pool_tokens": [
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50STG-50USDC",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x6694340fc020c5e6b96567843da2df01b2ce1eb6",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+    ],
+    "pool_address": "0x3a4c6d2404b5eb14915041e01f63200a82f4a343",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xc422b5407c7717a3259a59738e05e74d6aa3302a",
+    "boosting_address": null,
+    "distributor_address": "0xc422b5407c7717a3259a59738e05e74d6aa3302a",
+    "rewards_tokens": ["0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"],
+    "metadata": {
+      "pool_id": "0x3a4c6d2404b5eb14915041e01f63200a82f4a343000200000000000000000065",
+      "pool_tokens": [
+        "0x6694340fc020c5e6b96567843da2df01b2ce1eb6",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer ankrETH/wstETH StablePool",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x5979d7b546e38e414f7e9822514be443a4800529",
+      "0xe05a08226c49b636acf99c40da8dc6af83ce5bb3"
+    ],
+    "pool_address": "0x3fd4954a851ead144c2ff72b1f5a38ea5976bd54",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xfc745035f31bcbaeb2d1a89aa9171495c671f6ce",
+    "boosting_address": null,
+    "distributor_address": "0xfc745035f31bcbaeb2d1a89aa9171495c671f6ce",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0x3fd4954a851ead144c2ff72b1f5a38ea5976bd54000000000000000000000480",
+      "pool_tokens": [
+        "0x3fd4954a851ead144c2ff72b1f5a38ea5976bd54",
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0xe05a08226c49b636acf99c40da8dc6af83ce5bb3"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer Stable 4pool",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+      "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+    ],
+    "pool_address": "0x423a1323c871abc9d89eb06855bf5347048fc4a5",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xa14453084318277b11d38fbe05d857a4f647442b",
+    "boosting_address": null,
+    "distributor_address": "0xa14453084318277b11d38fbe05d857a4f647442b",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0x423a1323c871abc9d89eb06855bf5347048fc4a5000000000000000000000496",
+      "pool_tokens": [
+        "0x423a1323c871abc9d89eb06855bf5347048fc4a5",
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+        "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer wstETH/rETH/cbETH CSP",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x1debd73e752beaf79865fd6446b0c970eae7732f",
+      "0x5979d7b546e38e414f7e9822514be443a4800529",
+      "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+    ],
+    "pool_address": "0x4a2f6ae7f3e5d715689530873ec35593dc28951b",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x2eb5661002b68ebe887d29d415c3a3b52536912c",
+    "boosting_address": null,
+    "distributor_address": "0x2eb5661002b68ebe887d29d415c3a3b52536912c",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0x4a2f6ae7f3e5d715689530873ec35593dc28951b000000000000000000000481",
+      "pool_tokens": [
+        "0x1debd73e752beaf79865fd6446b0c970eae7732f",
+        "0x4a2f6ae7f3e5d715689530873ec35593dc28951b",
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 2BTC",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+      "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40"
+    ],
+    "pool_address": "0x542f16da0efb162d20bf4358efa095b70a100f9e",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xb438c6cc53315ffa3fcd1bc8b27d6c3155b0b56a",
+    "boosting_address": null,
+    "distributor_address": "0xb438c6cc53315ffa3fcd1bc8b27d6c3155b0b56a",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0x542f16da0efb162d20bf4358efa095b70a100f9e000000000000000000000436",
+      "pool_tokens": [
+        "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+        "0x542f16da0efb162d20bf4358efa095b70a100f9e",
+        "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 80Y2K-20WETH",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x65c936f008bc34fe819bce9fa5afd9dc2d49977f",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0x569061e2d807881f4a33e1cbe1063bc614cb75a4",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xc7188b7779feb7dbded3913f3671188491cb61b3",
+    "boosting_address": null,
+    "distributor_address": "0xc7188b7779feb7dbded3913f3671188491cb61b3",
+    "rewards_tokens": ["0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"],
+    "metadata": {
+      "pool_id": "0x569061e2d807881f4a33e1cbe1063bc614cb75a40002000000000000000002bb",
+      "pool_tokens": [
+        "0x65c936f008bc34fe819bce9fa5afd9dc2d49977f",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer 33 WETH 33 WBTC 33 USDC",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+    ],
+    "pool_address": "0x64541216bafffeec8ea535bb71fbc927831d0595",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x820a9f3897b2abfeece95df4aa71d8a4fb448c3b",
+    "boosting_address": null,
+    "distributor_address": "0x820a9f3897b2abfeece95df4aa71d8a4fb448c3b",
+    "rewards_tokens": ["0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"],
+    "metadata": {
+      "pool_id": "0x64541216bafffeec8ea535bb71fbc927831d0595000100000000000000000002",
+      "pool_tokens": [
+        "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer wstETH-WETH Stable Pool",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x5979d7b546e38e414f7e9822514be443a4800529",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0x9791d590788598535278552eecd4b211bfc790cb",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x260cbb867359a1084ec97de4157d06ca74e89415",
+    "boosting_address": null,
+    "distributor_address": "0x260cbb867359a1084ec97de4157d06ca74e89415",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0x9791d590788598535278552eecd4b211bfc790cb000000000000000000000498",
+      "pool_tokens": [
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "0x9791d590788598535278552eecd4b211bfc790cb"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - Balancer rETH-WETH Stable Pool",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+    ],
+    "pool_address": "0xade4a71bb62bec25154cfc7e6ff49a513b491e81",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xd6b875d62c2661eab66472f36c672e4b512f1135",
+    "boosting_address": null,
+    "distributor_address": "0xd6b875d62c2661eab66472f36c672e4b512f1135",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0xade4a71bb62bec25154cfc7e6ff49a513b491e81000000000000000000000497",
+      "pool_tokens": [
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "0xade4a71bb62bec25154cfc7e6ff49a513b491e81",
+        "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50MAGIC-50USDC",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x539bde0d7dbd336b79148aa742883198bbf60342",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+    ],
+    "pool_address": "0xb3028ca124b80cfe6e9ca57b70ef2f0ccc41ebd4",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0xef767e740d83d410794519c2f93db32e44359a5c",
+    "boosting_address": null,
+    "distributor_address": "0xef767e740d83d410794519c2f93db32e44359a5c",
+    "rewards_tokens": ["0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"],
+    "metadata": {
+      "pool_id": "0xb3028ca124b80cfe6e9ca57b70ef2f0ccc41ebd40002000000000000000000ba",
+      "pool_tokens": [
+        "0x539bde0d7dbd336b79148aa742883198bbf60342",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 33AURA-33ARB-33BAL",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+      "0x1509706a6c66ca549ff0cb464de88231ddbe213b",
+      "0x912ce59144191c1204e64559fe8253a0e49e6548"
+    ],
+    "pool_address": "0xbcaa6c053cab3dd73a2e898d89a4f84a180ae1ca",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xbcaa6c053cab3dd73a2e898d89a4f84a180ae1ca000100000000000000000458",
+      "pool_tokens": [
+        "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+        "0x1509706a6c66ca549ff0cb464de88231ddbe213b",
+        "0x912ce59144191c1204e64559fe8253a0e49e6548"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - VSTA-WETH",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "0xa684cd057951541187f288294a1e1c2646aa2d24"
+    ],
+    "pool_address": "0xc61ff48f94d801c1ceface0289085197b5ec44f0",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x7ba024da8eed561d776133412bffbd1f522a9aff",
+    "boosting_address": null,
+    "distributor_address": "0x7ba024da8eed561d776133412bffbd1f522a9aff",
+    "rewards_tokens": ["0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"],
+    "metadata": {
+      "pool_id": "0xc61ff48f94d801c1ceface0289085197b5ec44f000020000000000000000004d",
+      "pool_tokens": [
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "0xa684cd057951541187f288294a1e1c2646aa2d24"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - AuraBal wstETH Pool",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x223738a747383d6f9f827d95964e4d8e8ac754ce",
+      "0x5979d7b546e38e414f7e9822514be443a4800529"
+    ],
+    "pool_address": "0xc7fa3a3527435720f0e2a4c1378335324dd4f9b3",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x82d2c7b67eaa5028c89be86cea8e1df5bd2119a1",
+    "boosting_address": null,
+    "distributor_address": "0x82d2c7b67eaa5028c89be86cea8e1df5bd2119a1",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0xc7fa3a3527435720f0e2a4c1378335324dd4f9b3000200000000000000000459",
+      "pool_tokens": [
+        "0x223738a747383d6f9f827d95964e4d8e8ac754ce",
+        "0x5979d7b546e38e414f7e9822514be443a4800529"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50tBTC-50WETH",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0xc9f52540976385a84bf416903e1ca3983c539e34",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "staking_address": "0x011417bbed6fc9ceff36c032d431b0efcba7f8b3",
+    "boosting_address": null,
+    "distributor_address": "0x011417bbed6fc9ceff36c032d431b0efcba7f8b3",
+    "rewards_tokens": ["0x912ce59144191c1204e64559fe8253a0e49e6548"],
+    "metadata": {
+      "pool_id": "0xc9f52540976385a84bf416903e1ca3983c539e34000200000000000000000434",
+      "pool_tokens": [
+        "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - 50OHM-50USDC",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0xf0cb2dc0db5e6c66b9a70ac27b06b878da017028",
+      "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+    ],
+    "pool_address": "0xce6195089b302633ed60f3f427d1380f6a2bfbc7",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xce6195089b302633ed60f3f427d1380f6a2bfbc7000200000000000000000424",
+      "pool_tokens": [
+        "0xf0cb2dc0db5e6c66b9a70ac27b06b878da017028",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      ]
+    }
+  },
+  {
+    "name": "Balancer - MOZ Fjord Foundry LBP",
+    "chain": "arbitrum",
+    "underlying_tokens": [
+      "0x20547341e58fb558637fa15379c92e11f7b7f710",
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+    ],
+    "pool_address": "0xeb80c89204bbe46e0d666aa651a4dce4d751f537",
+    "investing_address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+    "boosting_address": null,
+    "rewards_tokens": null,
+    "metadata": {
+      "pool_id": "0xeb80c89204bbe46e0d666aa651a4dce4d751f5370002000000000000000004aa",
+      "pool_tokens": [
+        "0x20547341e58fb558637fa15379c92e11f7b7f710",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      ]
+    }
+  }
+]

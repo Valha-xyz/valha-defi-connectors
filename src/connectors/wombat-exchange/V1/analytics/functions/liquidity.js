@@ -1,0 +1,22 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { getNodeProvider } = require('../../../../../utils/getNodeProvider');
+const ethers = require('ethers');
+const { LPTokenABI } = require('../../abi/LP');
+const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
+
+async function checkWombatV1Liquidity(chain, poolAddress) {
+  try {
+    const provider = getNodeProvider(chain);
+    if (!provider) throw new Error('No provider was found.');
+    const POOL = new ethers.Contract(poolAddress, LPTokenABI, provider);
+    const liquidityBN = await POOL.cash();
+    const decimals = await erc20Decimals(provider, poolAddress);
+    const liquidity = liquidityBN / 10 ** decimals;
+    return { data: liquidity, err: null };
+  } catch (err) {
+    console.log(err);
+    return { data: null, err };
+  }
+}
+
+module.exports = checkWombatV1Liquidity;
