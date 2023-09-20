@@ -49,7 +49,7 @@ async function analytics(chain, poolAddress) {
 
   const ActAPY = activity_apy ? parseFloat(String(activity_apy)) : 0;
   const RewAPY = rewards_apy ? parseFloat(String(rewards_apy)) : 0;
-  const totalAPY = RewAPY +  ActAPY;
+  const totalAPY = RewAPY + ActAPY;
 
   const result = {
     status: null,

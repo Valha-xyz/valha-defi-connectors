@@ -1,25 +1,23 @@
 import axios from 'axios';
-const { queryGraphData, histo, getBlocksByTime} = require ('./external/graphQuery');
-
+const {
+  queryGraphData,
+  histo,
+  getBlocksByTime,
+} = require('./external/graphQuery');
 
 const SUBGRAPH_URLS = {
-  bsc: "https://api.thegraph.com/subgraphs/name/messari/alpaca-finance-lending-bsc",
-}
+  bsc: 'https://api.thegraph.com/subgraphs/name/messari/alpaca-finance-lending-bsc',
+};
 
-
-
-
-async function checkAlpacaV1APY(chain, poolAddress) {
+async function checkAlpacaV1RewardsAPY(chain, poolAddress) {
   try {
-
     const currentTimestamp = Math.floor(Date.now() / 1000) - 100;
     const SUBGRAPH_URL = SUBGRAPH_URLS[chain];
-    const currentBlock = await getBlocksByTime(currentTimestamp,chain);
+    const currentBlock = await getBlocksByTime(currentTimestamp, chain);
 
-    const pools = await queryGraphData(SUBGRAPH_URL,poolAddress,currentBlock);
+    const pools = await queryGraphData(SUBGRAPH_URL, poolAddress, currentBlock);
 
-    const apy = Number(pools[0].rates[1].rate);
-
+    const apy = pools[0].rewardTokenEmissionsUSD[1];
 
     // let LM = 0;
     // const { data } = await axios.get(
@@ -32,9 +30,10 @@ async function checkAlpacaV1APY(chain, poolAddress) {
     //   if (
     //     elem.ibToken.address.toLowerCase() === String(poolAddress).toLowerCase()
     //   ) {
-    //     LM = elem.lendingApr;
+    //     LM = parseFloat(elem.stakingApr) + parseFloat(elem.protocolApr);
     //   }
     // }
+
     return { data: apy, err: null };
   } catch (err) {
     console.log(err);
@@ -42,4 +41,4 @@ async function checkAlpacaV1APY(chain, poolAddress) {
   }
 }
 
-module.exports = checkAlpacaV1APY;
+module.exports = checkAlpacaV1RewardsAPY;
