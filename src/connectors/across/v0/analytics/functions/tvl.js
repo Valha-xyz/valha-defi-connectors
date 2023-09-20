@@ -7,6 +7,8 @@ const pools = require('../../pools/pools');
 import { getGeckoTokenPrice } from '../../../../../utils/prices/getGeckoTokenPrice';
 const axios = require('axios');
 const _ = require('lodash');
+const { ROUTERABI } = require('../../abi/Router');
+
 
 const BASE_URL = 'https://across.to/api/pools?token=<IDHOLDER>';
 

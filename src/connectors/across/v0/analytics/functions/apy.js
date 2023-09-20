@@ -4,11 +4,13 @@ const ethers = require('ethers');
 const { LPSTAKING } = require('../../abi/LPStaking');
 const { erc20Decimals } = require('../../../../../utils/ERC20Decimals');
 const {getGeckoTokenPrice} = require('../../../../../utils/prices/getGeckoTokenPrice');
-const axios = require ('axios');
 const _ = require('lodash');
 const pools = require('../../pools/pools');
+const { ROUTERABI } = require('../../abi/Router');
+const { LP } = require('../../abi/LP');
+const axios = require ('axios');
 
-const SECONDS_PER_YEAR = 3600 * 24 * 365.25
+const SECONDS_PER_YEAR = 3600 * 24 * 365.25;
 const BASE_URL = 'https://across.to/api/pools?token=<IDHOLDER>'
 
 
@@ -43,12 +45,19 @@ async function checkAcrossV0APY(chain,poolAddress) {
 
     // Exchange Rate
     
-    const URL = BASE_URL.replace('<IDHOLDER>',poolInfo.underlying_tokens[0])
-    const result = await axios.get(URL);
-    const exchangeRateCurrent = Number(result.data.exchangeRateCurrent)/(10 ** poolTokenDecimals);
-    
+    const Pool = new ethers.Contract(poolAddress,LP,provider);
+    const totalSupplyBN = await Pool.totalSupply();
+
+    const Hub = new ethers.Contract(poolInfo.investing_address,ROUTERABI,provider);
+    const reservesInfo = await Hub.pooledTokens(poolInfo.underlying_tokens[0]);
+    // ExchangeRate := (liquidReserves + utilizedReserves - undistributedLpFees) / lpTokenSupply
+    const exchangeRateCurrent = 
+    (Number(reservesInfo.utilizedReserves) + Number(reservesInfo.liquidReserves) - Number(reservesInfo.undistributedLpFees))/(totalSupplyBN)
+
 
     // Activity APY
+    const URL = BASE_URL.replace('<IDHOLDER>',poolInfo.underlying_tokens[0])
+    const result = await axios.get(URL);
 
     const estimatedApy = Number(result.data.estimatedApy);
 

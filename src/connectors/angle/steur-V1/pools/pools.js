@@ -7,4 +7,3 @@ async function pools() {
 }
 
 module.exports = pools;
-
