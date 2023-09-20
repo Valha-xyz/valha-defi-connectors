@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { STAKINGABI } = require('../abi/FairLaunch');
+const { StakingABI } = require('../abi/FairLaunch');
 const PID = require('../interactions/PID');
 
 /// stakePosition
@@ -18,7 +18,7 @@ async function stakePosition(
   userAddress,
   receiverAddress,
 ) {
-  const abi = STAKINGABI;
+  const abi = StakingABI;
   const pid = PID[pool_address.toLowerCase()];
   const method_name = 'userInfo';
   const args = [pid, userAddress];
@@ -33,8 +33,8 @@ async function stakePosition(
   };
 }
 
-/// stakeRewards
-async function stakeRewards(
+/// claimableRewards
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -48,23 +48,24 @@ async function stakeRewards(
   userAddress,
   receiverAddress,
 ) {
-  const abi = STAKINGABI;
+  const abi = StakingABI;
   const pid = PID[pool_address.toLowerCase()];
   const method_name = 'pendingAlpaca';
   const args = [pid, userAddress];
   const interaction_address = staking_address;
+
+  console.log(staking_address);
 
   return {
     abi, // json file name
     method_name, // method to get the information
     interaction_address, // contract to check the information
     args, // args to pass to the smart contracts to trigger 'method_name'
-    position: 0, // position of the information if return is a tupple or an array
   };
 }
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

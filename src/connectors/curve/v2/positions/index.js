@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const { StakeABI } = require('../abi/Stake');
+const { GaugeABI } = require('../abi/Gauge');
 
 /// stakePosition
 async function stakePosition(
@@ -17,7 +17,7 @@ async function stakePosition(
   userAddress,
   receiverAddress,
 ) {
-  const abi = StakeABI;
+  const abi = GaugeABI;
   const method_name = 'balanceOf';
   const args = [userAddress];
   const interaction_address = staking_address;
@@ -31,7 +31,7 @@ async function stakePosition(
   };
 }
 
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -45,7 +45,7 @@ async function stakeRewards(
   userAddress,
   receiverAddress,
 ) {
-  const abi = StakeABI;
+  const abi = GaugeABI;
   const method_name = 'claimable_tokens'; //@dev This function should be manually changed to "view" in the ABI
   const args = [userAddress];
   const interaction_address = staking_address;
@@ -61,7 +61,7 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   extraRewards: null,
   boostRewards: null,
 };

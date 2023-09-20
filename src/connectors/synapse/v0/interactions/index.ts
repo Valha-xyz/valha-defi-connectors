@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { getCurrentBlockTimestamp } from '../../../../utils/getCurrentBlockTimestamp';
 import {
   type AdditionalOptions,
   type AddressesInput,
@@ -18,11 +19,10 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const size = pool.underlying_tokens.length;
   const abi = ROUTERABI;
-  const method_name = `addLiquidity(uint256[${size}],uint256,uint256)`;
+  const method_name = `addLiquidity(uint256[],uint256,uint256)`;
   const position_token = pool.underlying_tokens;
 
   const amountsBN = [];
@@ -30,7 +30,7 @@ async function deposit(
     const amountBN = await toBnERC20Decimals(
       amount.amountsDesired[i],
       pool.chain,
-      pool.underlying_tokens[i]
+      pool.underlying_tokens[i],
     );
     amountsBN.push(amountBN);
   }
@@ -38,10 +38,17 @@ async function deposit(
   const amountMinimum = await toBnERC20Decimals(
     amount.amountsMinimum[0],
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
 
-  const args = [amountsBN, amountMinimum,options.deadline];
+  const dataBlockTimestamp = await getCurrentBlockTimestamp();
+  const timestamp = dataBlockTimestamp.data + 300000;
+
+  const args = [
+    amountsBN,
+    amountMinimum,
+    options.deadline > 0 ? options.deadline : timestamp,
+  ];
 
   return {
     txInfo: {
@@ -59,17 +66,15 @@ async function deposit(
   };
 }
 
-
 /// redeem
 async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
-  const size = pool.underlying_tokens.length;
   const abi = ROUTERABI;
-  const method_name = `removeLiquidity(uint256,uint256[${size}],uint256)`;
+  const method_name = `removeLiquidity(uint256,uint256[],uint256)`;
   const position_token = pool.pool_address;
   const amountsBN = [];
 
@@ -78,17 +83,25 @@ async function redeem(
     const amountBN = await toBnERC20Decimals(
       amount.amountsMinimum[i],
       pool.chain,
-      pool.underlying_tokens[i]
+      pool.underlying_tokens[i],
     );
     amountsBN.push(amountBN);
-  };
+  }
 
   const amountDesired = await toBnERC20Decimals(
-    amount.amountsDesired[0],
+    amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
-  const args = [amountDesired, amountsBN, options.deadline];
+
+  const dataBlockTimestamp = await getCurrentBlockTimestamp();
+  const timestamp = dataBlockTimestamp.data + 300000;
+
+  const args = [
+    amountDesired,
+    amountsBN,
+    options.deadline > 0 ? options.deadline : timestamp,
+  ];
 
   return {
     txInfo: {
@@ -111,7 +124,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -120,7 +133,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [poolId, amountBN, addresses.receiverAddress];
 
@@ -145,7 +158,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;
@@ -154,7 +167,7 @@ async function unstake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [poolId, amountBN, addresses.receiverAddress];
 
@@ -175,7 +188,7 @@ async function boost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -185,7 +198,7 @@ async function unboost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -195,7 +208,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const poolId = STAKING_PID[pool.chain][pool.pool_address.toLowerCase()];
   const abi = LPSTAKING;

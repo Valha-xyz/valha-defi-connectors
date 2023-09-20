@@ -1,6 +1,8 @@
 import { config } from 'dotenv';
 config();
 
+//
+
 export const RPC_PROVIDERS = {
   ethereum: process.env.rpc_ethereum || 'https://rpc.flashbots.net/',
   polygon: process.env.rpc_polygon || 'https://rpc-mainnet.maticvigil.com',
@@ -16,4 +18,5 @@ export const RPC_PROVIDERS = {
   'arbitrum-testnet':
     process.env.rpc_arbitrum_testnet || 'https://goerli-rollup.arbitrum.io/rpc',
   'ethereum-goerli': process.env.rpc_goerli,
+  base: process.env.rpc_base || 'https://mainnet.base.org',
 };

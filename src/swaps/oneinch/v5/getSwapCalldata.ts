@@ -1,13 +1,16 @@
-import { BigNumber, type BigNumberish } from 'ethers'
-import axios from 'axios'
-import { getChainId } from '../../../utils/getChainId'
-import { SwapOptions, type GetSwapCalldataFunction } from '../../../utils/types/liquidityProviders'
-import { REF_SLIPPAGE } from 'src/utils/CONST/SWAP'
+import { BigNumber, type BigNumberish } from 'ethers';
+import axios from 'axios';
+import { getChainId } from '../../../utils/getChainId';
+import {
+  SwapOptions,
+  type GetSwapCalldataFunction,
+} from '../../../utils/types/liquidityProviders';
+import { REF_SLIPPAGE } from '../../../utils/CONST/SWAP';
 // DOC is located here : https://docs.1inch.io/docs/aggregation-protocol/api/swagger
 
 const oneInchAPI = axios.create({
-  baseURL: 'https://api.1inch.io/v5.0/'
-})
+  baseURL: 'https://api.1inch.io/v5.0/',
+});
 
 const ONE_INCH_SLIPPAGE_FACTOR = 100;
 
@@ -17,13 +20,13 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
   amount: BigNumberish,
   tokenOut: string,
   swapperAddress: string,
-  options: SwapOptions
+  options: SwapOptions,
 ) => {
-  const chainId = getChainId(chain)
+  const chainId = getChainId(chain);
   if (!chainId) {
     throw new Error(
-      `Swap not supported for this protocol yet, protocol was: ${chain}`
-    )
+      `Swap not supported for this protocol yet, protocol was: ${chain}`,
+    );
   }
   const swapData = await oneInchAPI
     .get(`${chainId}/swap`, {
@@ -32,21 +35,21 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
         toTokenAddress: tokenOut,
         amount: amount.toString(),
         fromAddress: swapperAddress,
-        slippage: (options.slippage ?? REF_SLIPPAGE)/ONE_INCH_SLIPPAGE_FACTOR,
+        slippage: (options.slippage ?? REF_SLIPPAGE) / ONE_INCH_SLIPPAGE_FACTOR,
         disableEstimate: true,
-      }
+      },
     })
     .catch((error) => {
-      console.log(error)
-      return error
-    })
+      console.log(error);
+      return error;
+    });
 
   if (!swapData?.data) {
     throw new Error(
-      'There was an error while trying to generate the swap tx data for 1inch.'
-    )
+      'There was an error while trying to generate the swap tx data for 1inch.',
+    );
   }
   return {
-    data: swapData?.data.tx.data
-  }
-}
+    data: swapData?.data.tx.data,
+  };
+};

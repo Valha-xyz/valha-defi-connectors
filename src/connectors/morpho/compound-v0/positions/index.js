@@ -3,7 +3,7 @@
 const { DistributorABI } = require('../abi/Distributor');
 
 /// stakePosition
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -31,10 +31,8 @@ async function stakeRewards(
   };
 }
 
-
-
-/// stakeRewards
-async function stakeRewards(
+/// claimableRewards
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -50,7 +48,7 @@ async function stakeRewards(
 ) {
   const abi = StakingABI;
   const method_name = 'getUserClaimableRewards';
-  const args = [userAddress,rewards_tokens];
+  const args = [userAddress, rewards_tokens];
   const interaction_address = staking_address;
 
   return {
@@ -64,6 +62,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition: null,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

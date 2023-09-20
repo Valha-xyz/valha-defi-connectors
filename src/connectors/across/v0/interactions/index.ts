@@ -17,20 +17,19 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const method_name = 'addLiquidity';
   const position_token = pool.underlying_tokens;
 
- 
-  const amountBN = await toBnERC20Decimals(amount,pool.chain,pool.underlying_tokens[0]);
+  const amountBN = await toBnERC20Decimals(
+    amount.amount,
+    pool.chain,
+    pool.underlying_tokens[0],
+  );
 
-  const amountNativeBN = 0;
-
-  
-
-  const args = [pool.underlying_tokens[0],amountBN];
+  const args = [pool.underlying_tokens[0], amountBN];
 
   return {
     txInfo: {
@@ -48,21 +47,24 @@ async function deposit(
   };
 }
 
-
 /// redeem
 async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = ROUTERABI;
   const method_name = 'removeLiquidity(address,uint256,bool)';
   const position_token = pool.pool_address;
-  
-  const amountBN = await toBnERC20Decimals(amount,pool.chain,pool.underlying_tokens[0]);
 
-  const args = [pool.underlying_tokens[0], amountBN, options.other];
+  const amountBN = await toBnERC20Decimals(
+    amount.amount,
+    pool.chain,
+    pool.underlying_tokens[0],
+  );
+
+  const args = [pool.underlying_tokens[0], amountBN, false];
 
   return {
     txInfo: {
@@ -85,7 +87,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = LPSTAKING;
   const method_name = 'stakeFor(address,uint256,address)';
@@ -93,7 +95,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [pool.pool_address, amountBN, addresses.receiverAddress];
 
@@ -118,7 +120,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = LPSTAKING;
   const method_name = 'unstake(address,uint256)';
@@ -126,7 +128,7 @@ async function unstake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [pool.pool_address, amountBN];
 
@@ -147,7 +149,7 @@ async function boost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -157,7 +159,7 @@ async function unboost(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ) {
   return {};
 }
@@ -167,7 +169,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = LPSTAKING;
   const method_name = 'withdrawReward(address)';

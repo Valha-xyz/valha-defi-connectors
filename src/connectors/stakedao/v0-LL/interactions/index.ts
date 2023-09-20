@@ -17,7 +17,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = poolABI;
   const method_name = 'deposit(uint256,bool,bool,address)';
@@ -25,7 +25,7 @@ async function deposit(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [
     amountBN,
@@ -55,7 +55,7 @@ async function depositAndStake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = poolABI;
   const method_name = 'deposit(uint256,bool,bool,address)';
@@ -63,7 +63,7 @@ async function depositAndStake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [
     amountBN,
@@ -93,7 +93,7 @@ async function stake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'deposit(uint256,address,bool)';
@@ -101,7 +101,7 @@ async function stake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN, addresses.receiverAddress, false];
 
@@ -126,7 +126,7 @@ async function unstake(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'withdraw(uint256,bool)';
@@ -134,7 +134,7 @@ async function unstake(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [amountBN, false];
 
@@ -155,7 +155,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = stakeABI;
   const method_name = 'claim_rewards_for';

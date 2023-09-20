@@ -6,6 +6,7 @@ export const CHAINS = [
   'optimism',
   'arbitrum',
   'avalanche',
+  'celo',
   'arbitrum-testnet',
   'bsc-testnet',
 ];

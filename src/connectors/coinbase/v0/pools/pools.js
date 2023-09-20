@@ -1,6 +1,6 @@
 const POOLS = [
   {
-    name: 'cbETH',
+    name: 'Coinbase Liquid Staking ETH - cbETH',
     chain: 'ethereum',
     underlying_tokens: ['0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'],
     pool_address: '0xbe9895146f7af43049ca1c1ae358b0541ea49704',
@@ -9,7 +9,10 @@ const POOLS = [
     boosting_address: null,
     distributor_address: null,
     rewards_tokens: [],
-    metadata: {},
+    metadata: {
+      secondary: true,
+      secondary_only: true,
+    },
   },
 ];
 

@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from 'graphql-request';
 
 const query = {
   query: gql`
@@ -64,11 +64,11 @@ const query = {
       stakeLockerLiquidity
       stakeLockerOpenToPublic
       stakeLockupPeriod
-      stakeRewards {
+      claimableRewards {
         ...RewardFields
         __typename
       }
-      stakeRewardsApy
+      claimableRewardsApy
       stakingApy
       stakingFee
       state
@@ -154,7 +154,7 @@ const query = {
       timestamp
       __typename
     }
-  `
-}
+  `,
+};
 
-export { query }
+export { query };

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { GAUGEABI } = require('../abi/GAUGE');
-const STAKING_PID = require('../interactions/PID');
+const PID = require('../interactions/PID');
 
 /// stakePosition
 async function stakePosition(
@@ -16,7 +16,7 @@ async function stakePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = GAUGEABI;
   const pid = PID[chain][pool_address.toLowerCase()];
@@ -33,7 +33,7 @@ async function stakePosition(
   };
 }
 
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -45,7 +45,7 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = GAUGEABI;
   const pid = PID[chain][pool_address.toLowerCase()];
@@ -64,6 +64,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

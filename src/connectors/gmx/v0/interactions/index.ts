@@ -20,7 +20,7 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RouterABI;
   const method_name = 'mintAndStakeGlp';
@@ -30,19 +30,19 @@ async function deposit(
   const SharePrice = ShareInfo.data;
   if (SharePrice === 0 || !SharePrice) {
     throw new Error(
-      'Error: wrong share price to get the minimum amount of GLP to mint.'
+      'Error: wrong share price to get the minimum amount of GLP to mint.',
     );
   }
   const minAmountGLP = (1 / SharePrice) * parseFloat(amount.amount) * 0.997;
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
   const minAmountBN = await toBnERC20Decimals(
     String(minAmountGLP),
     pool.chain,
-    position_token
+    position_token,
   );
   const args = [position_token, amountBN, '0', minAmountBN];
 
@@ -68,7 +68,7 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RouterABI;
   const method_name = 'unstakeAndRedeemGlp';
@@ -77,7 +77,7 @@ async function redeem(
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    position_token
+    position_token,
   );
 
   const ShareInfo = await checkGMXV0Share(pool.chain, pool.pool_address);
@@ -85,7 +85,7 @@ async function redeem(
   const SharePrice = ShareInfo.data;
   if (SharePrice === 0 || !SharePrice) {
     throw new Error(
-      'Error: wrong share price to get the minimum amount of GLP to mint.'
+      'Error: wrong share price to get the minimum amount of GLP to mint.',
     );
   }
   const minAmountOut = SharePrice * parseFloat(amount.amount) * 0.995;
@@ -93,7 +93,7 @@ async function redeem(
   const minAmountOutBN = await toBnERC20Decimals(
     minAmountOut,
     pool.chain,
-    tokenToReceive
+    tokenToReceive,
   );
 
   const args = [
@@ -124,7 +124,7 @@ async function claimRewards(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = RouterABI;
   const interaction_address = pool.staking_address;

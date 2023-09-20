@@ -34,7 +34,7 @@ async function stakePosition(
 }
 
 /// stakePosition
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -48,8 +48,10 @@ async function stakeRewards(
   userAddress,
   receiverAddress,
 ) {
-  const abi = StakeABI;
-  const pid = await STAKINGPID(pool_address);
+  const abi = GAUGEABI;
+  const { data, err } = await STAKINGPID(chain, staking_address, pool_address);
+  if (err) throw new Error(err.message);
+  const pid = data;
   const method_name = 'pendingTokens';
   const args = [pid, userAddress];
   const interaction_address = staking_address;
@@ -63,10 +65,8 @@ async function stakeRewards(
   };
 }
 
-
-
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

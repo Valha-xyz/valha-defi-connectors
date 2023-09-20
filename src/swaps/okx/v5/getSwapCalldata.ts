@@ -5,7 +5,7 @@ import {
   type SwapOptions,
   type GetSwapCalldataFunction,
 } from '../../../utils/types/liquidityProviders';
-import { REF_SLIPPAGE } from 'src/utils/CONST/SWAP';
+import { REF_SLIPPAGE } from '../../../utils/CONST/SWAP';
 // DOC is located here : https://www.okx.com/id/web3-docs/dex/dex_api
 
 const okxAPI = axios.create({
@@ -20,12 +20,12 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
   amount: BigNumberish,
   tokenOut: string,
   swapperAddress: string,
-  options: SwapOptions
+  options: SwapOptions,
 ) => {
   const chainId = getChainId(chain);
   if (!chainId) {
     throw new Error(
-      `Swap not supported for this protocol yet, protocol was: ${chain}`
+      `Swap not supported for this protocol yet, protocol was: ${chain}`,
     );
   }
   const swapData = await okxAPI
@@ -36,8 +36,7 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
         fromTokenAddress: tokenIn,
         toTokenAddress: tokenOut,
         userWalletAddress: swapperAddress,
-        slippage:
-          (options?.slippage ?? REF_SLIPPAGE) / OKX_SLIPPAGE_FACTOR,
+        slippage: (options?.slippage ?? REF_SLIPPAGE) / OKX_SLIPPAGE_FACTOR,
       },
     })
     .catch((error) => {
@@ -47,7 +46,7 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
 
   if (!swapData?.data) {
     throw new Error(
-      'There was an error while trying to generate the swap tx data for 1inch.'
+      'There was an error while trying to generate the swap tx data for 1inch.',
     );
   }
   if (swapData.data.msg && swapData.data.data.length == 0) {

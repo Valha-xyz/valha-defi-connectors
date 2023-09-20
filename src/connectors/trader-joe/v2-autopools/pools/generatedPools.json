@@ -1,4 +1,3 @@
-
 [
   {
     "name": "ETH-USDC Autopool",
@@ -28,7 +27,7 @@
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": null,
+    "rewards_tokens": [],
     "metadata": {}
   },
 
@@ -44,7 +43,7 @@
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": null,
+    "rewards_tokens": [],
     "metadata": {}
   },
 
@@ -76,7 +75,7 @@
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": null,
+    "rewards_tokens": [],
     "metadata": {}
   },
 
@@ -92,7 +91,7 @@
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": null,
+    "rewards_tokens": [],
     "metadata": {}
   },
 
@@ -108,7 +107,7 @@
     "staking_address": null,
     "boosting_address": null,
     "distributor_address": null,
-    "rewards_tokens": null,
+    "rewards_tokens": [],
     "metadata": {}
   }
 ]

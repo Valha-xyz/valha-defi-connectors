@@ -15,7 +15,7 @@ async function stakePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = GAUGEABI;
   const method_name = 'balanceOf';
@@ -31,9 +31,8 @@ async function stakePosition(
   };
 }
 
-
 /// stakePosition
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -45,7 +44,7 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = GAUGEABI;
   const method_name = 'earned';
@@ -63,6 +62,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

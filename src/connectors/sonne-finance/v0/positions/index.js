@@ -2,9 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const { RewardsABI } = require('../abi/Staking');
 
-
 /// stakePosition
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -34,6 +33,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition: null,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

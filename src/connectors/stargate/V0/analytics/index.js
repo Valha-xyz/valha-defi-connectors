@@ -68,7 +68,6 @@ async function analytics(chain, poolAddress) {
     result = {
       status: null,
       tvl: tvl,
-      tvl: tvl,
       outloans: null,
       losses: null,
       capacity: Number.MAX_SAFE_INTEGER,

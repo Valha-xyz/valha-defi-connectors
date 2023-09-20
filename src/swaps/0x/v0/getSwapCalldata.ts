@@ -1,8 +1,10 @@
-import { type BigNumberish } from 'ethers'
-import axios from 'axios'
-import { GetSwapCalldataFunction, SwapOptions } from 'src/utils/types/liquidityProviders'
-import { REF_SLIPPAGE } from 'src/utils/CONST/SWAP'
-
+import { type BigNumberish } from 'ethers';
+import axios from 'axios';
+import {
+  type GetSwapCalldataFunction,
+  type SwapOptions,
+} from '../../../utils/types/liquidityProviders';
+import { REF_SLIPPAGE } from '../../../utils/CONST/SWAP';
 
 const ZERO_X_SLIPPAGE_FACTOR = 100;
 
@@ -13,23 +15,24 @@ export const getSwapCalldata: GetSwapCalldataFunction = async (
   amount: BigNumberish,
   tokenOut: string,
   swapperAddress: string,
-  options: SwapOptions
+  options: SwapOptions,
 ) => {
-  const zeroXChain = chain == 'ethereum' ? '' : `${chain}.`
+  const zeroXChain = chain == 'ethereum' ? '' : `${chain}.`;
 
   const zeroXAPI = axios.create({
-    baseURL: `https://${zeroXChain}api.0x.org/`
-  })
+    baseURL: `https://${zeroXChain}api.0x.org/`,
+  });
   const quote = await zeroXAPI.get('/swap/v1/quote', {
     params: {
       sellToken: tokenIn,
       buyToken: tokenOut,
       sellAmount: amount.toString(),
       takerAddress: swapperAddress,
-      slippagePercentage: (options.slippage ?? REF_SLIPPAGE)/ZERO_X_SLIPPAGE_FACTOR,
-      skipValidation: true
-    }
-  })
+      slippagePercentage:
+        (options.slippage ?? REF_SLIPPAGE) / ZERO_X_SLIPPAGE_FACTOR,
+      skipValidation: true,
+    },
+  });
 
-  return quote.data
-}
+  return quote.data;
+};

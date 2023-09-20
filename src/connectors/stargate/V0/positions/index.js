@@ -16,7 +16,7 @@ async function stakePosition(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = LPSTAKING;
   const pid = STAKING_PID[chain][pool_address.toLowerCase()];
@@ -33,8 +33,8 @@ async function stakePosition(
   };
 }
 
-/// stakeRewards
-async function stakeRewards(
+/// claimableRewards
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -46,7 +46,7 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = LPSTAKING;
   const pid = STAKING_PID[chain][pool_address.toLowerCase()];
@@ -65,6 +65,6 @@ async function stakeRewards(
 
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

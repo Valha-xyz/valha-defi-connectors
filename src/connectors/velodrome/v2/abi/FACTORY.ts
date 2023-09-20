@@ -728,5 +728,3 @@ export const FACTORYABI = [
     type: 'function',
   },
 ];
-
-module.exports = FACTORYABI;

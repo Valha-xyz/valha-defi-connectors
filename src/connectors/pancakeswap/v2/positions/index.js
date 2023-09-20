@@ -33,9 +33,8 @@ async function stakePosition(
   };
 }
 
-
 /// stakePosition
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -64,9 +63,8 @@ async function stakeRewards(
   };
 }
 
-
 module.exports = {
   stakePosition,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

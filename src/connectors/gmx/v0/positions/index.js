@@ -16,7 +16,7 @@ async function extraRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = GLPABI;
   const method_name = 'claimable';
@@ -32,8 +32,7 @@ async function extraRewards(
   };
 }
 
-
-async function stakeRewards(
+async function claimableRewards(
   pool_name,
   chain,
   underlying_tokens,
@@ -45,7 +44,7 @@ async function stakeRewards(
   rewards_tokens,
   metadata,
   userAddress,
-  receiverAddress
+  receiverAddress,
 ) {
   const abi = FEEABI;
   const method_name = 'claimable';
@@ -64,6 +63,6 @@ async function stakeRewards(
 module.exports = {
   stakePosition: null,
   extraRewards,
-  stakeRewards,
+  claimableRewards,
   boostRewards: null,
 };

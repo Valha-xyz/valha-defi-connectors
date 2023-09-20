@@ -30,8 +30,9 @@ export interface AdditionalOptions {
   rangeToken: any;
   lockupTimestamp: any;
   deadline: any;
+  variableRate?: boolean;
+  referral?: string;
   other?: any; // Or metadata ? Not used for now
-  referral?: any;
 }
 
 export interface Analytics {
@@ -75,6 +76,8 @@ export enum InteractionFunctionNames {
   unboost = 'unboost',
   claim_rewards = 'claim_rewards',
   claim_interests = 'claim_interests',
+  borrow = 'borrow',
+  repay = 'repay',
 }
 
 export type InteractionFunction =
@@ -82,7 +85,7 @@ export type InteractionFunction =
       pool: Pool,
       amount: AmountInput,
       addresses: AddressesInput,
-      options?: AdditionalOptions
+      options?: AdditionalOptions,
     ) => Promise<InteractionsReturnObject>)
   | null;
 

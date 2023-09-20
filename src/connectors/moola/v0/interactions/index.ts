@@ -16,14 +16,14 @@ async function deposit(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = InvestingABI;
   const method_name = 'deposit(address,uint256,address,uint16)';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.underlying_tokens[0]
+    pool.underlying_tokens[0],
   );
   let referralCode = parseInt(options.referral);
   if (!(referralCode > 0)) {
@@ -59,14 +59,14 @@ async function redeem(
   pool: Pool,
   amount: AmountInput,
   addresses: AddressesInput,
-  options?: AdditionalOptions
+  options?: AdditionalOptions,
 ): Promise<InteractionsReturnObject> {
   const abi = InvestingABI;
   const method_name = 'withdraw(address,uint256,address)';
   const amountBN = await toBnERC20Decimals(
     amount.amount,
     pool.chain,
-    pool.pool_address
+    pool.pool_address,
   );
   if (!amountBN) throw new Error('Error: wrong big number amount conversion.');
   const args = [pool.underlying_tokens[0], amountBN, addresses.userAddress];
